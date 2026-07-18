@@ -1,0 +1,225 @@
+backend:
+  name: proxy
+  # When deploying to Vercel + GitHub, replace with:
+  # name: github
+  # repo: your-username/your-repo
+  # branch: main
+
+local_backend: true
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+# Collections define the editable content types
+collections:
+  # ── Site Settings ──────────────────────────────
+  - name: "settings"
+    label: "⚙️ Site Settings"
+    description: "WhatsApp, email, social links — changes appear everywhere"
+    extension: "json"
+    format: "json"
+    create: false
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "site-settings"
+        label: "Contact & Social"
+        file: "content/site-settings.json"
+        fields:
+          - name: "siteName"
+            label: "Site Name"
+            widget: "string"
+            default: "NextBody"
+          - name: "tagline"
+            label: "Tagline"
+            widget: "string"
+            default: "See Your Body in a New Dimension"
+          - name: "contactEmail"
+            label: "Contact Email"
+            widget: "string"
+            default: "sales@nextbody.fit"
+          - name: "whatsappNumber"
+            label: "WhatsApp Number (E.164)"
+            widget: "string"
+            hint: "e.g. +971501234567. Leave placeholder to hide WhatsApp button."
+            default: "+971000000000"
+          - name: "nav"
+            label: "Navigation Links"
+            widget: "list"
+            summary: "{{label}} → {{href}}"
+            fields:
+              - { name: "label", label: "Label", widget: "string" }
+              - { name: "href", label: "URL", widget: "string" }
+          - name: "socialLinks"
+            label: "Social Media Links"
+            widget: "list"
+            summary: "{{label}}: {{href}}"
+            fields:
+              - { name: "label", label: "Platform", widget: "string" }
+              - { name: "href", label: "URL", widget: "string" }
+              - { name: "icon", label: "Icon", widget: "string", hint: "linkedin | instagram | twitter" }
+
+  # ── Products ──────────────────────────────────
+  - name: "products"
+    label: "📦 Products"
+    label_singular: "Product"
+    description: "S30 / S20 product specs, features, and images"
+    extension: "json"
+    format: "json"
+    create: false
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "products"
+        label: "Product Catalog"
+        file: "content/products.json"
+        fields:
+          - name: "products"
+            label: "Products"
+            widget: "list"
+            summary: "{{name}} — {{tagline}}"
+            fields:
+              - { name: "slug", label: "Slug", widget: "string", hint: "nextbody-s30 | nextbody-s20" }
+              - { name: "name", label: "Product Name", widget: "string" }
+              - { name: "tagline", label: "Tagline", widget: "string" }
+              - { name: "summary", label: "Summary", widget: "text" }
+              - { name: "image", label: "Product Image", widget: "image", hint: "1200×1200 WebP recommended" }
+              - { name: "heroImagePending", label: "Image Pending?", widget: "boolean", default: true }
+              - { name: "scanTime", label: "Scan Time", widget: "string", hint: "e.g. 32s" }
+              - { name: "metricCount", label: "Metric Count", widget: "string", hint: "e.g. 50+" }
+              - name: "features"
+                label: "Features"
+                widget: "list"
+                summary: "{{fields.entry}}"
+                field: { name: "entry", label: "Feature", widget: "string" }
+              - name: "specs"
+                label: "Specifications"
+                widget: "list"
+                summary: "{{label}}: {{value}}"
+                fields:
+                  - { name: "label", label: "Label", widget: "string" }
+                  - { name: "value", label: "Value", widget: "string" }
+              - name: "highlights"
+                label: "Highlights"
+                widget: "list"
+                summary: "{{fields.entry}}"
+                field: { name: "entry", label: "Highlight", widget: "string" }
+              - name: "reports"
+                label: "Report Types"
+                widget: "list"
+                summary: "{{fields.entry}}"
+                field: { name: "entry", label: "Report Name", widget: "string" }
+              - name: "industries"
+                label: "Target Industries"
+                widget: "list"
+                summary: "{{fields.entry}}"
+                field: { name: "entry", label: "Industry", widget: "string" }
+
+  # ── Customer Cases ────────────────────────────
+  - name: "cases"
+    label: "📋 Customer Cases"
+    label_singular: "Case"
+    description: "Success stories shown on the homepage"
+    extension: "json"
+    format: "json"
+    create: false
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "cases"
+        label: "Customer Cases"
+        file: "content/cases.json"
+        fields:
+          - name: "cases"
+            label: "Cases"
+            widget: "list"
+            summary: "{{name}} — {{region}} ({{product}})"
+            fields:
+              - { name: "id", label: "ID", widget: "string" }
+              - { name: "name", label: "Customer Name", widget: "string" }
+              - { name: "region", label: "Region", widget: "string", hint: "e.g. Dubai, UAE" }
+              - { name: "industry", label: "Industry", widget: "string" }
+              - { name: "product", label: "Product Used", widget: "select", options: ["S30", "S20"] }
+              - { name: "headline", label: "Headline", widget: "string" }
+              - { name: "challenge", label: "Challenge", widget: "text" }
+              - { name: "solution", label: "Solution", widget: "text" }
+              - { name: "outcome", label: "Outcome", widget: "text" }
+              - { name: "placeholder", label: "Placeholder?", widget: "boolean", default: true }
+              - name: "media"
+                label: "Media"
+                widget: "object"
+                fields:
+                  - { name: "src", label: "Image", widget: "image", hint: "16:10 WebP" }
+                  - { name: "alt", label: "Alt Text", widget: "string" }
+
+  # ── Homepage Content ──────────────────────────
+  - name: "homepage"
+    label: "🏠 Homepage"
+    description: "Hero text, narrative beats, why chapters, trust values"
+    extension: "json"
+    format: "json"
+    create: false
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "homepage-narrative"
+        label: "Narrative Beats & Metrics"
+        file: "content/homepage-narrative.json"
+        fields:
+          - name: "narrativeBeats"
+            label: "Narrative Beats"
+            widget: "list"
+            summary: "{{fields.entry}}"
+            field: { name: "entry", label: "Text", widget: "string" }
+          - name: "metrics"
+            label: "Metrics (Technology Section)"
+            widget: "list"
+            summary: "{{label}}: {{value}}{{suffix}}"
+            fields:
+              - { name: "label", label: "Name", widget: "string" }
+              - { name: "value", label: "Value", widget: "number", valueType: "float" }
+              - { name: "suffix", label: "Suffix", widget: "string", hint: "e.g. +, s, R" }
+      - name: "homepage-chapters"
+        label: "Why NextBody Chapters"
+        file: "content/homepage-chapters.json"
+        fields:
+          - name: "chapters"
+            label: "Chapters"
+            widget: "list"
+            summary: "{{eyebrow}}: {{title}}"
+            fields:
+              - { name: "id", label: "ID", widget: "string" }
+              - { name: "eyebrow", label: "Eyebrow", widget: "string" }
+              - { name: "title", label: "Title", widget: "string" }
+              - name: "blocks"
+                label: "Media Blocks"
+                widget: "list"
+                summary: "{{title}}"
+                fields:
+                  - { name: "title", label: "Title", widget: "string" }
+                  - { name: "body", label: "Body", widget: "text" }
+                  - name: "media"
+                    label: "Media"
+                    widget: "object"
+                    fields:
+                      - { name: "src", label: "Image", widget: "image", hint: "16:10 WebP" }
+                      - { name: "fallback", label: "Fallback SVG", widget: "string" }
+                      - { name: "alt", label: "Alt Text", widget: "string" }
+                      - { name: "pending", label: "Image Pending?", widget: "boolean", default: true }
+                  - { name: "align", label: "Alignment", widget: "select", options: ["left", "right"] }
+      - name: "homepage-trust"
+        label: "Trust Values"
+        file: "content/homepage-trust.json"
+        fields:
+          - name: "trustValues"
+            label: "Trust Values"
+            widget: "list"
+            summary: "{{title}} [{{icon}}]"
+            fields:
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "description", label: "Description", widget: "text" }
+              - { name: "icon", label: "Icon", widget: "select", options: ["Lock", "Microscope", "Award", "Shield"] }

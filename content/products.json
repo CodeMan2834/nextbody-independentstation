@@ -1,0 +1,107 @@
+{
+  "products": [
+    {
+      "slug": "nextbody-s30",
+      "name": "NextBody S30",
+      "tagline": "Flagship 3D body composition scanner",
+      "summary": "Hybrid 3D structured-light scanning and 8-electrode, 4-frequency BIA — 50+ data points across 6 categories in a single 32-second session. Built for premium gyms, wellness centers, and medical-adjacent operators in MENA & SEA.",
+      "image": "/images/f20-product.webp",
+      "heroImagePending": false,
+      "scanTime": "32s",
+      "metricCount": "50+",
+      "features": [
+        "Hybrid 3D scanning + BIA fusion technology",
+        "Millimeter-level 3D avatar in 32 seconds",
+        "18 body circumference & posture parameters",
+        "14 core body composition metrics + segmental analysis",
+        "Before & After 3D comparison avatars",
+        "Body composition, posture, circumference & shoulder function reports"
+      ],
+      "specs": [
+        { "label": "Technology", "value": "3D depth vision + 8-electrode, 4-frequency BIA" },
+        { "label": "Scan Time", "value": "32 seconds (full assessment)" },
+        { "label": "Metrics", "value": "50+ across 6 categories" },
+        { "label": "Body Composition", "value": "14 core metrics + 8 analysis recommendations" },
+        { "label": "Posture & Circumference", "value": "18 parameters" },
+        { "label": "Weight Accuracy", "value": "±0.1 kg" },
+        { "label": "Body Fat Accuracy", "value": "±0.1%" },
+        { "label": "Max Weight", "value": "250 kg (turntable 180 kg)" },
+        { "label": "Height Range", "value": "Up to 200 cm" },
+        { "label": "Dimensions", "value": "1681 × 400 × 685 mm column · 1830 × 680 mm footprint" },
+        { "label": "Display", "value": "18.5\" HD touchscreen" },
+        { "label": "Power", "value": "110–240V / 50–60Hz · 10°C to 40°C" },
+        { "label": "Reports", "value": "Print · Mobile H5 · Cloud dashboard" },
+        { "label": "Certification", "value": "CE · ISO 13485" }
+      ],
+      "highlights": [
+        "Turntable rotation for true 360° body capture",
+        "Segmental fat & muscle for arms, legs, and trunk",
+        "Forward head, rounded shoulders, pelvic tilt posture mapping",
+        "Visceral fat, BMR, WHR, and obesity risk bands",
+        "Cloud archive with multi-device report access",
+        "Coach workflow with trend history and member comparison"
+      ],
+      "reports": [
+        "Body Composition Report",
+        "Posture Analysis Report",
+        "Body Circumference Report",
+        "Shoulder Function Report"
+      ],
+      "industries": [
+        "Premium fitness clubs",
+        "Physiotherapy & rehabilitation",
+        "Nutrition & weight management",
+        "Sports performance",
+        "Aesthetic & wellness clinics"
+      ]
+    },
+    {
+      "slug": "nextbody-s20",
+      "name": "NextBody S20",
+      "tagline": "AI-driven body composition analyzer",
+      "summary": "Compact hybrid analyzer combining 3D capture and 8-electrode BIA — professional-grade insights for boutique gyms, PT studios, and wellness brands that need fast throughput without flagship footprint.",
+      "image": "/images/f20-product.webp",
+      "heroImagePending": false,
+      "scanTime": "15–32s",
+      "metricCount": "30+",
+      "features": [
+        "3D body scanning + BIA in one streamlined workflow",
+        "Rapid scan mode for high-traffic studio floors",
+        "Segmental composition and posture screening",
+        "Mobile-friendly member reports with trend tracking",
+        "HD touchscreen guided self-test experience",
+        "Secure cloud storage with operator dashboard"
+      ],
+      "specs": [
+        { "label": "Technology", "value": "3D camera + 8-electrode BIA" },
+        { "label": "Scan Time", "value": "15s rapid / 32s full" },
+        { "label": "Metrics", "value": "30+ body composition & posture metrics" },
+        { "label": "Body Composition", "value": "Core metrics + segmental analysis" },
+        { "label": "Display", "value": "HD touchscreen interface" },
+        { "label": "Max Weight", "value": "250 kg" },
+        { "label": "Footprint", "value": "Compact column — ideal for boutique studios" },
+        { "label": "Reports", "value": "Mobile H5 · Cloud dashboard" },
+        { "label": "Certification", "value": "CE" }
+      ],
+      "highlights": [
+        "Lower footprint for space-conscious operators",
+        "Ideal for boutique gyms and PT studios",
+        "Member progress tracking out of the box",
+        "Fast assessment flow for peak-hour traffic",
+        "Entry point to 3D body intelligence",
+        "Same cloud ecosystem as S30 deployments"
+      ],
+      "reports": [
+        "Body Composition Report",
+        "Posture Screening Report",
+        "Progress Comparison Report"
+      ],
+      "industries": [
+        "Boutique fitness studios",
+        "Personal training chains",
+        "Corporate wellness",
+        "Hotel & hospitality wellness"
+      ]
+    }
+  ]
+}

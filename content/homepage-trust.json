@@ -1,0 +1,24 @@
+{
+  "trustValues": [
+    {
+      "title": "Member data privacy",
+      "description": "Scan data encrypted in transit and at rest. Role-based access and regional deployment options for operator compliance.",
+      "icon": "Lock"
+    },
+    {
+      "title": "Clinical validation",
+      "description": "Composition metrics validated against DEXA reference methods — transparent methodology for medical-adjacent buyers.",
+      "icon": "Microscope"
+    },
+    {
+      "title": "Quality & certification",
+      "description": "ISO 13485 quality management and CE marking — built for regulated markets in MENA and Southeast Asia.",
+      "icon": "Award"
+    },
+    {
+      "title": "Deployment support",
+      "description": "On-site installation, staff training, and ongoing technical support for premium fitness operators.",
+      "icon": "Shield"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "siteName": "NextBody",
+  "tagline": "See Your Body in a New Dimension",
+  "contactEmail": "sales@nextbody.fit",
+  "whatsappNumber": "+971000000000",
+  "nav": [
+    { "label": "Products", "href": "/products" },
+    { "label": "Contact", "href": "/contact" }
+  ],
+  "socialLinks": [
+    { "label": "LinkedIn", "href": "https://linkedin.com/company/nextbody", "icon": "linkedin" },
+    { "label": "Instagram", "href": "https://instagram.com/nextbody", "icon": "instagram" }
+  ]
+}

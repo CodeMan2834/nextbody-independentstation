@@ -1,0 +1,9 @@
+/* Decap CMS preview styles — mirrors the site's dark theme */
+body {
+  background: #0a0a0f;
+  color: #e8e8ef;
+  font-family: system-ui, -apple-system, sans-serif;
+  padding: 24px;
+  line-height: 1.6;
+}
+h1, h2, h3 { color: #fff; }

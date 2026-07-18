@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="galaxy" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#0d1a3a"/>
+      <stop offset="60%" stop-color="#0a0a14"/>
+      <stop offset="100%" stop-color="#06060c"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(0,102,255,0.25)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <linearGradient id="brand-line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="50%" stop-color="#0066ff"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#galaxy)"/>
+
+  <!-- Galaxy particles (simplified as dots) -->
+  <g fill="rgba(255,255,255,0.15)">
+    <circle cx="200" cy="120" r="1.5"/><circle cx="350" cy="80" r="1"/>
+    <circle cx="520" cy="160" r="2"/><circle cx="680" cy="90" r="1"/>
+    <circle cx="850" cy="140" r="1.5"/><circle cx="1000" cy="100" r="1"/>
+    <circle cx="150" cy="300" r="1"/><circle cx="450" cy="250" r="1.5"/>
+    <circle cx="750" cy="280" r="1"/><circle cx="950" cy="310" r="2"/>
+    <circle cx="300" cy="450" r="1"/><circle cx="600" cy="480" r="1.5"/>
+    <circle cx="900" cy="420" r="1"/><circle cx="1100" cy="500" r="2"/>
+    <circle cx="100" cy="500" r="1.5"/><circle cx="550" cy="520" r="1"/>
+  </g>
+
+  <!-- Blue glow behind device -->
+  <ellipse cx="600" cy="280" rx="250" ry="200" fill="url(#glow)"/>
+
+  <!-- Device silhouette (simplified) -->
+  <g transform="translate(600, 280)">
+    <rect x="-60" y="-120" width="120" height="240" rx="12" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+    <rect x="-30" y="-90" width="60" height="60" rx="6" fill="none" stroke="rgba(0,102,255,0.5)" stroke-width="1"/>
+    <circle cx="0" cy="0" r="4" fill="rgba(0,102,255,0.5)"/>
+    <!-- scan ring -->
+    <ellipse cx="0" cy="-140" rx="100" ry="8" fill="none" stroke="rgba(0,229,255,0.3)" stroke-width="1"/>
+  </g>
+
+  <!-- Text: NextBody -->
+  <text x="600" y="500" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="52" font-weight="700" fill="white" letter-spacing="-0.02em">NextBody</text>
+
+  <!-- Tagline -->
+  <text x="600" y="540" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="rgba(255,255,255,0.5)" letter-spacing="0.04em">See Your Body in a New Dimension</text>
+
+  <!-- Bottom accent line -->
+  <rect x="450" y="575" width="300" height="1.5" fill="url(#brand-line)"/>
+
+  <!-- URL -->
+  <text x="600" y="610" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.25)">nextbody.fit</text>
+</svg>

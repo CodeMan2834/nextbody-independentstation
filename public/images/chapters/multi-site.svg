@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" width="1440" height="900">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a0a14"/>
+      <stop offset="100%" stop-color="#0d111a"/>
+    </linearGradient>
+    <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(0,229,255,0.3)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1440" height="900" fill="url(#bg3)"/>
+
+  <!-- Simplified MENA + SEA map outline -->
+  <g transform="translate(720, 420)">
+    <!-- Region shapes (highly simplified) -->
+    <g fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)" stroke-width="1">
+      <!-- Middle East -->
+      <path d="M-80,-120 L20,-160 L60,-100 L40,-30 L0,20 L-60,-10 L-100,-50 Z"/>
+      <!-- Southeast Asia -->
+      <path d="M120,-80 L200,-120 L260,-60 L300,20 L240,80 L140,60 L100,10 Z"/>
+      <!-- South Asia -->
+      <path d="M40,-80 L100,-120 L140,-60 L100,0 L40,20 L10,-30 Z"/>
+    </g>
+
+    <!-- Connection lines between nodes -->
+    <g stroke="rgba(0,102,255,0.12)" stroke-width="0.8">
+      <line x1="-30" y1="-60" x2="30" y2="-40"/>
+      <line x1="-30" y1="-60" x2="-150" y2="-20"/>
+      <line x1="30" y1="-40" x2="140" y2="-20"/>
+      <line x1="140" y1="-20" x2="200" y2="40"/>
+      <line x1="-30" y1="-60" x2="140" y2="-20"/>
+      <line x1="-150" y1="-20" x2="140" y2="-20"/>
+    </g>
+
+    <!-- City nodes -->
+    <!-- Dubai -->
+    <g transform="translate(-30, -60)">
+      <circle cx="0" cy="0" r="24" fill="url(#node-glow)" opacity="0.5"/>
+      <circle cx="0" cy="0" r="6" fill="#0066ff"/>
+      <circle cx="0" cy="0" r="2" fill="white"/>
+      <text x="0" y="38" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.5)">Dubai</text>
+    </g>
+
+    <!-- Riyadh -->
+    <g transform="translate(-150, -20)">
+      <circle cx="0" cy="0" r="18" fill="url(#node-glow)" opacity="0.4"/>
+      <circle cx="0" cy="0" r="5" fill="#0066ff"/>
+      <circle cx="0" cy="0" r="1.5" fill="white"/>
+      <text x="0" y="32" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.4)">Riyadh</text>
+    </g>
+
+    <!-- Singapore -->
+    <g transform="translate(140, -20)">
+      <circle cx="0" cy="0" r="22" fill="url(#node-glow)" opacity="0.5"/>
+      <circle cx="0" cy="0" r="5.5" fill="#0066ff"/>
+      <circle cx="0" cy="0" r="2" fill="white"/>
+      <text x="0" y="36" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="rgba(255,255,255,0.5)">Singapore</text>
+    </g>
+
+    <!-- Bangkok -->
+    <g transform="translate(200, 40)">
+      <circle cx="0" cy="0" r="18" fill="url(#node-glow)" opacity="0.4"/>
+      <circle cx="0" cy="0" r="5" fill="#0066ff"/>
+      <circle cx="0" cy="0" r="1.5" fill="white"/>
+      <text x="0" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.4)">Bangkok</text>
+    </g>
+
+    <!-- Kuala Lumpur -->
+    <g transform="translate(260, 70)">
+      <circle cx="0" cy="0" r="18" fill="url(#node-glow)" opacity="0.4"/>
+      <circle cx="0" cy="0" r="4.5" fill="#0066ff"/>
+      <circle cx="0" cy="0" r="1.5" fill="white"/>
+      <text x="0" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="rgba(255,255,255,0.4)">Kuala Lumpur</text>
+    </g>
+
+    <!-- Doha -->
+    <g transform="translate(30, -40)">
+      <circle cx="0" cy="0" r="14" fill="url(#node-glow)" opacity="0.3"/>
+      <circle cx="0" cy="0" r="4" fill="#0066ff"/>
+      <circle cx="0" cy="0" r="1.5" fill="white"/>
+      <text x="0" y="26" text-anchor="middle" font-family="system-ui, sans-serif" font-size="9" fill="rgba(255,255,255,0.35)">Doha</text>
+    </g>
+  </g>
+
+  <!-- KPI cards across bottom -->
+  <g transform="translate(240, 700)">
+    <g>
+      <rect x="0" y="0" width="200" height="80" rx="12" fill="rgba(0,102,255,0.06)" stroke="rgba(0,102,255,0.15)" stroke-width="1"/>
+      <text x="20" y="30" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.35)">Total Scans</text>
+      <text x="20" y="60" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#00e5ff">12,847</text>
+    </g>
+  </g>
+  <g transform="translate(480, 700)">
+    <g>
+      <rect x="0" y="0" width="200" height="80" rx="12" fill="rgba(0,102,255,0.06)" stroke="rgba(0,102,255,0.15)" stroke-width="1"/>
+      <text x="20" y="30" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.35)">Retention Lift</text>
+      <text x="20" y="60" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="white">+34%</text>
+    </g>
+  </g>
+  <g transform="translate(720, 700)">
+    <g>
+      <rect x="0" y="0" width="200" height="80" rx="12" fill="rgba(0,102,255,0.06)" stroke="rgba(0,102,255,0.15)" stroke-width="1"/>
+      <text x="20" y="30" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.35)">Coach Adoption</text>
+      <text x="20" y="60" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="white">89%</text>
+    </g>
+  </g>
+  <g transform="translate(960, 700)">
+    <g>
+      <rect x="0" y="0" width="200" height="80" rx="12" fill="rgba(0,102,255,0.06)" stroke="rgba(0,102,255,0.15)" stroke-width="1"/>
+      <text x="20" y="30" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.35)">Sites Connected</text>
+      <text x="20" y="60" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#0066ff">6</text>
+    </g>
+  </g>
+</svg>

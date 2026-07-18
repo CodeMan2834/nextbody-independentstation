@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0d111a"/><stop offset="100%" stop-color="#0a0a14"/></linearGradient></defs>
+  <rect width="1440" height="900" fill="url(#bg)"/>
+  <!-- Geometric pattern (Arabic-inspired lattice) -->
+  <g transform="translate(720,400)" stroke="rgba(255,255,255,0.05)" stroke-width="0.5" fill="none">
+    <polygon points="0,-200 173,-100 173,100 0,200 -173,100 -173,-100"/>
+    <polygon points="0,-150 130,-75 130,75 0,150 -130,75 -130,-75" stroke="rgba(0,102,255,0.1)"/>
+    <polygon points="0,-100 87,-50 87,50 0,100 -87,50 -87,-50"/>
+    <circle cx="0" cy="0" r="60" stroke="rgba(0,102,255,0.15)"/>
+    <circle cx="0" cy="0" r="4" fill="rgba(0,102,255,0.5)"/>
+  </g>
+  <text x="720" y="780" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="rgba(255,255,255,0.25)">Riyadh, Saudi Arabia · Physiotherapy &amp; Rehabilitation</text>
+  <rect x="620" y="805" width="200" height="1" fill="rgba(0,102,255,0.15)"/>
+</svg>

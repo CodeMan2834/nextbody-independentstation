@@ -1,0 +1,91 @@
+{
+  "chapters": [
+    {
+      "id": "member",
+      "eyebrow": "Member Experience",
+      "title": "Your gym becomes a private assessment studio.",
+      "blocks": [
+        {
+          "title": "A scan members remember",
+          "body": "32 seconds on the floor — no cold clinical room. Spatial lighting and a guided flow make assessment feel premium, not intimidating.",
+          "media": {
+            "src": "/images/chapters/member-scan.webp",
+            "fallback": "/svg/device-s30.svg",
+            "alt": "Member body scan session in a premium gym",
+            "pending": false
+          },
+          "align": "right"
+        },
+        {
+          "title": "Reports they actually read",
+          "body": "Visual body maps, trend lines, and plain-language insights — designed for retention conversations, not lab printouts.",
+          "media": {
+            "src": "/images/chapters/member-report.webp",
+            "fallback": "/svg/report-dashboard.svg",
+            "alt": "NextBody member report dashboard",
+            "pending": false
+          },
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "operations",
+      "eyebrow": "Gym Operations",
+      "title": "Data that drives renewals, not dashboards.",
+      "blocks": [
+        {
+          "title": "Coach-ready from day one",
+          "body": "Session notes, risk flags, and progress snapshots export to your workflow — so trainers lead with evidence, not guesswork.",
+          "media": {
+            "src": "/images/chapters/coach-workflow.webp",
+            "fallback": "/svg/report-dashboard.svg",
+            "alt": "Coach reviewing member progress data",
+            "pending": false
+          },
+          "align": "right"
+        },
+        {
+          "title": "Built for multi-site operators",
+          "body": "Roll out across MENA and Southeast Asia with centralized reporting, role-based access, and deployment support.",
+          "media": {
+            "src": "/images/chapters/multi-site.svg",
+            "fallback": "/svg/report-dashboard.svg",
+            "alt": "Multi-location gym analytics overview",
+            "pending": false
+          },
+          "align": "left"
+        }
+      ]
+    },
+    {
+      "id": "clinical",
+      "eyebrow": "Clinical Accuracy",
+      "title": "Spatial-grade body intelligence.",
+      "blocks": [
+        {
+          "title": "Validated against DEXA",
+          "body": "R=0.96 correlation on core composition metrics — medical-grade rigor in a format gyms can operationalize daily.",
+          "media": {
+            "src": "/images/chapters/dexa-validation.svg",
+            "fallback": "/svg/report-dashboard.svg",
+            "alt": "DEXA correlation validation chart",
+            "pending": false
+          },
+          "align": "right"
+        },
+        {
+          "title": "Certified for operator trust",
+          "body": "CE marking, ISO 13485 quality systems, and cloud security practices aligned with member data protection expectations.",
+          "media": {
+            "src": "/images/chapters/certifications.svg",
+            "fallback": "/svg/device-s30.svg",
+            "alt": "Certification and compliance badges",
+            "pending": false
+          },
+          "align": "left"
+        }
+      ]
+    }
+  ]
+}

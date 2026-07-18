@@ -1,0 +1,82 @@
+{
+  "cases": [
+    {
+      "id": "case-dubai-gym",
+      "name": "Atlas Performance Club",
+      "region": "Dubai, UAE",
+      "industry": "Premium Fitness",
+      "product": "S30",
+      "headline": "Turned assessments into a signature member experience.",
+      "challenge": "High-end members expected data-driven coaching, but manual measurements felt clinical and slowed the sales tour.",
+      "solution": "Deployed NextBody S30 in a dedicated assessment zone — 32-second scans feed coach dashboards and Before/After 3D avatars for every membership review.",
+      "outcome": "Increased assessment bookings and improved renewal conversations with visual progress proof.",
+      "placeholder": false,
+      "media": { "src": "/images/cases/case-dubai-gym.webp", "alt": "Premium gym assessment zone with NextBody scanner" }
+    },
+    {
+      "id": "case-riyadh-rehab",
+      "name": "Riyadh Recovery & Wellness",
+      "region": "Riyadh, Saudi Arabia",
+      "industry": "Physiotherapy & Rehabilitation",
+      "product": "S30",
+      "headline": "Objective body data for every rehab pathway.",
+      "challenge": "Therapists needed repeatable composition and posture baselines without sending every client to external labs.",
+      "solution": "S30 segmental analysis and posture reports integrated into intake — cloud history tracks recovery milestones visit to visit.",
+      "outcome": "Shorter intake time and clearer member understanding of progress between sessions.",
+      "placeholder": false,
+      "media": { "src": "/images/cases/case-riyadh-rehab.webp", "alt": "Physiotherapy clinic using body composition reports" }
+    },
+    {
+      "id": "case-singapore-studio",
+      "name": "Form Studio Collective",
+      "region": "Singapore",
+      "industry": "Boutique Training",
+      "product": "S20",
+      "headline": "Compact scanner, premium studio footprint.",
+      "challenge": "A 400 m² studio needed professional-grade body data without dedicating an entire room to hardware.",
+      "solution": "NextBody S20 at reception — rapid scans become part of onboarding and quarterly check-ins, with mobile reports members share on social.",
+      "outcome": "Higher attach rate on PT packages tied to scan milestones.",
+      "placeholder": false,
+      "media": { "src": "/images/cases/case-singapore-studio.webp", "alt": "Boutique training studio body scan corner" }
+    },
+    {
+      "id": "case-bangkok-nutrition",
+      "name": "Balance Nutrition Lab",
+      "region": "Bangkok, Thailand",
+      "industry": "Nutrition & Weight Management",
+      "product": "S30",
+      "headline": "From subjective scales to 3D evidence.",
+      "challenge": "Nutrition programs lacked visceral fat and segmental muscle data clients could act on between consults.",
+      "solution": "S30 composition reports — BMR, visceral fat level, WHR — anchor every meal plan review with trend charts over 12 weeks.",
+      "outcome": "Stronger program adherence when clients see 3D Before/After avatars.",
+      "placeholder": false,
+      "media": { "src": "/images/cases/case-bangkok-nutrition.webp", "alt": "Nutrition clinic reviewing body composition trends" }
+    },
+    {
+      "id": "case-doha-medical",
+      "name": "Lumen Medical Wellness",
+      "region": "Doha, Qatar",
+      "industry": "Medical Wellness",
+      "product": "S30",
+      "headline": "Clinical-grade data in a spa-grade environment.",
+      "challenge": "Medical wellness guests demanded credible metrics while expecting a luxury hospitality experience.",
+      "solution": "Assessment suites equipped with S30 — encrypted cloud reports shared with in-house physicians and trainers under role-based access.",
+      "outcome": "Premium package upsell tied to quarterly body intelligence reviews.",
+      "placeholder": false,
+      "media": { "src": "/images/cases/case-doha-medical.webp", "alt": "Medical wellness center assessment suite" }
+    },
+    {
+      "id": "case-kl-chain",
+      "name": "Pulse Fitness Group",
+      "region": "Kuala Lumpur, Malaysia",
+      "industry": "Multi-site Gym Operator",
+      "product": "S20",
+      "headline": "Standardized assessments across locations.",
+      "challenge": "A 6-club operator needed one consistent member report format for regional marketing and retention campaigns.",
+      "solution": "S20 roll-out with centralized cloud dashboard — HQ compares scan volume, retention cohorts, and coach utilization per club.",
+      "outcome": "Unified retention playbook deployed across all branches.",
+      "placeholder": false,
+      "media": { "src": "/images/cases/case-kl-chain.webp", "alt": "Multi-site gym operator dashboard" }
+    }
+  ]
+}

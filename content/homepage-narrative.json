@@ -1,0 +1,13 @@
+{
+  "narrativeBeats": [
+    "Body intelligence, seamlessly in your gym.",
+    "From 32-second scan to digital twin.",
+    "Retention data members actually understand."
+  ],
+  "metrics": [
+    { "label": "Metrics Tracked", "value": 50, "suffix": "+" },
+    { "label": "Scan Time", "value": 32, "suffix": "s" },
+    { "label": "DEXA Correlation", "value": 0.96, "suffix": " R" },
+    { "label": "Deployments", "value": 200, "suffix": "+" }
+  ]
+}

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0d111a"/><stop offset="100%" stop-color="#0a0a14"/></linearGradient></defs>
+  <rect width="1440" height="900" fill="url(#bg)"/>
+  <!-- Organic flowing shapes (nutrition/wellness) -->
+  <g transform="translate(720,380)" fill="none">
+    <path d="M0,-180 Q120,-180 160,-80 Q200,20 120,100 Q40,180 0,160 Q-40,140 -80,60 Q-120,-20 -60,-120 Q0,-180 0,-180Z" stroke="rgba(0,229,255,0.08)" stroke-width="1"/>
+    <circle cx="0" cy="-40" r="70" stroke="rgba(0,102,255,0.1)" stroke-width="1"/>
+    <circle cx="0" cy="-40" r="30" fill="rgba(0,102,255,0.08)"/>
+  </g>
+  <text x="720" y="780" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="rgba(255,255,255,0.25)">Bangkok, Thailand · Nutrition &amp; Weight Management</text>
+  <rect x="620" y="805" width="200" height="1" fill="rgba(0,102,255,0.15)"/>
+</svg>

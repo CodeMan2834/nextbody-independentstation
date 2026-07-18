@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "products": "Products",
+    "contact": "Contact",
+    "bookDemo": "Book a Demo"
+  },
+  "hero": {
+    "title": "See Your Body.\nIn a New Dimension.",
+    "lead": "NextBody brings spatial-grade body intelligence to premium gyms — from scan to digital twin, seamlessly.",
+    "scrollHint": "Scroll to explore",
+    "cta": "Book a Demo"
+  },
+  "metrics": {
+    "metricsTracked": "Metrics Tracked",
+    "scanTime": "Scan Time",
+    "dexaCorrelation": "DEXA Correlation",
+    "deployments": "Deployments"
+  },
+  "productShowcase": {
+    "title": "Explore NextBody",
+    "subtitle": "Move your mouse to spotlight the device. Switch models for instant comparison.",
+    "s20Spec": "Pro body composition · 32s scan · Ideal for boutique gyms",
+    "s30Spec": "Medical-grade 3D scanner · 50+ metrics · R=0.96 DEXA correlation"
+  },
+  "glassStack": {
+    "title": "Data that feels tangible.",
+    "subtitle": "One scan — layered insights. Scroll to unfold the report stack."
+  },
+  "whyNextBody": {
+    "title": "Why NextBody",
+    "chapters": {
+      "entertainment": {
+        "eyebrow": "Entertainment → Fitness",
+        "title": "Your gym becomes a private assessment studio.",
+        "description": "32-second full-body scan. 50+ metrics. Coach-ready reports that members actually understand."
+      },
+      "retention": {
+        "eyebrow": "Productivity → Retention",
+        "title": "Data that drives renewals, not just dashboards.",
+        "description": "Track composition, posture, and progress — the same spatial clarity Apple brought to vision, applied to body analytics."
+      },
+      "technology": {
+        "eyebrow": "Technology",
+        "title": "Innovation you can see. And measure.",
+        "description": "3D depth mapping · 8-electrode BIA · R=0.96 DEXA correlation. Built for MENA & Southeast Asia."
+      }
+    }
+  },
+  "trustBar": {
+    "title": "Trusted by premium fitness operators"
+  },
+  "finalCta": {
+    "title": "Ready to bring spatial-grade analytics to your gym?",
+    "subtitle": "Book a personalized demo. See the scanner in action.",
+    "cta": "Book a Demo"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Tell us about your gym or fitness business. We'll prepare a tailored demo.",
+    "form": {
+      "fullName": "Full Name",
+      "email": "Work Email",
+      "company": "Company / Gym Name",
+      "country": "Country",
+      "productInterest": "Product Interest",
+      "message": "Message",
+      "submit": "Send Inquiry",
+      "submitting": "Sending...",
+      "success": "Thank you! We'll be in touch within 24 hours."
+    }
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "Medical-grade body scanners for the modern fitness operator.",
+    "s30Name": "NextBody S30",
+    "s30Tagline": "Medical-grade 3D body scanner",
+    "s20Name": "NextBody S20",
+    "s20Tagline": "Pro body composition analyzer",
+    "specs": "Specifications",
+    "highlights": "Highlights"
+  },
+  "footer": {
+    "copyright": "© 2026 NextBody. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}
