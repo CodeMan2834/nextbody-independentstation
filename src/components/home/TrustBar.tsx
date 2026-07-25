@@ -2,12 +2,12 @@ import { Microscope, Shield, Award, Lock } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { TRUST_VALUES } from "@/lib/constants";
 
-const ICONS = {
+const ICONS: Record<string, typeof Lock> = {
   Lock,
   Microscope,
   Award,
   Shield,
-} as const;
+};
 
 export function TrustBar() {
   return (

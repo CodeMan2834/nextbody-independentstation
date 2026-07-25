@@ -38,7 +38,7 @@ collections:
           - name: "contactEmail"
             label: "Contact Email"
             widget: "string"
-            default: "sales@nextbody.fit"
+            default: "sales@nexbodyfix.com"
           - name: "whatsappNumber"
             label: "WhatsApp Number (E.164)"
             widget: "string"

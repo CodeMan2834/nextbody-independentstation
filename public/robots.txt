@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nextbody.fit/sitemap.xml
+Sitemap: https://nexbodyfix.com/sitemap.xml

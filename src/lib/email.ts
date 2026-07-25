@@ -50,7 +50,7 @@ export async function sendInquiryEmail(data: InquiryEmailData) {
 
   const resend = getResendClient();
   const result = await resend.emails.send({
-    from: process.env.EMAIL_FROM || `NextBody <inquiry@nextbody.fit>`,
+    from: process.env.EMAIL_FROM || `NextBody <inquiry@nexbodyfix.com>`,
     to: process.env.EMAIL_TO || siteConfig.contactEmail,
     subject: `New Inquiry from ${fullName} — ${company}`,
     html: `

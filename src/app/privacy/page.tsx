@@ -32,7 +32,7 @@ export default function PrivacyPage() {
             </p>
             <h2 className="text-lg font-semibold text-[var(--text-primary)]">4. Contact Us</h2>
             <p>
-              If you have any questions about this Privacy Policy, please contact us at privacy@nextbody.fit.
+              If you have any questions about this Privacy Policy, please contact us at privacy@nexbodyfix.com.
             </p>
           </div>
         </div>
