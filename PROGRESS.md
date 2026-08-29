@@ -4,13 +4,18 @@
 
 ## ✅ Done (2026-08-29 session)
 
-### Domain Migration → nexbodyfit.com
+### Domain Migration → nexbodyfit.com (COMPLETE)
 - [x] Code + env migrated from `nexbodyfix.com` → `nexbodyfit.com` (site URL, metadata, emails, sitemap, robots, llms.txt, OG image, CMS settings)
-- [ ] Buy `nexbodyfit.com` at registrar
-- [ ] Vercel: add `nexbodyfit.com` as domain, then remove `nexbodyfix.com`
-- [ ] Cloudflare: DNS records for `nexbodyfit.com` (CNAME → Vercel + Resend mail records)
-- [ ] Resend: verify `nexbodyfit.com`, add sending domain
-- [ ] Vercel env vars: update `NEXT_PUBLIC_SITE_URL`, `EMAIL_FROM`
+- [x] Bought `nexbodyfit.com` on Cloudflare (zone auto-created, `active`)
+- [x] Cloudflare DNS: A `@ → 76.76.21.21` (proxied) + CNAME `www → cname.vercel-dns.com` + DKIM/SPF/MX/DMARC
+- [x] Resend: `nexbodyfit.com` sending domain verified (Tokyo, DKIM+SPF OK)
+- [x] Vercel: `nexbodyfit.com` added, `valid` ✅; removed `nexbodyfix.com` from project; cleaned stray `nexbodyfix.con`
+- [x] Vercel env vars updated: `NEXT_PUBLIC_SITE_URL=https://nexbodyfit.com`, `EMAIL_FROM=NextBody <inquiry@nexbodyfit.com>`
+- [x] Deployed (commit `1855fb2`): `https://nexbodyfit.com` HTTP 200, sitemap shows `nexbodyfit.com` ✅
+
+### 🔒 Rotate (exposed this session)
+- [ ] **Cloudflare API token** `cfut_…` — created for migration, sent in chat → delete & recreate after done
+- [ ] Vercel login token — created in this session (CLI auth) → log out/rotate if concerned
 
 ## ✅ Done (2026-07-25 session)
 
