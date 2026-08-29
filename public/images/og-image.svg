@@ -53,5 +53,5 @@
   <rect x="450" y="575" width="300" height="1.5" fill="url(#brand-line)"/>
 
   <!-- URL -->
-  <text x="600" y="610" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.25)">nextbody.fit</text>
+  <text x="600" y="610" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="rgba(255,255,255,0.25)">nexbodyfit.com</text>
 </svg>

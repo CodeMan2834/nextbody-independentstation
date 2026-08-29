@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   description:
     "NextBody brings spatial-grade body intelligence to premium gyms — from scan to digital twin, seamlessly.",
-  metadataBase: new URL("https://nexbodyfix.com"),
+  metadataBase: new URL("https://nexbodyfit.com"),
   openGraph: {
     type: "website",
     locale: "en",

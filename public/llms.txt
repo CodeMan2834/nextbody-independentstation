@@ -10,8 +10,8 @@ NextBody builds medical-grade 3D body scanners for premium fitness operators in 
 3D Depth Mapping + 8-electrode Bioelectrical Impedance Analysis (BIA). Cloud-based member portal with trend tracking and coach dashboard.
 
 ## Pages
-- Home: https://nexbodyfix.com
-- Products: https://nexbodyfix.com/products
-- Contact: https://nexbodyfix.com/contact
-- S30: https://nexbodyfix.com/products/nextbody-s30
-- S20: https://nexbodyfix.com/products/nextbody-s20
+- Home: https://nexbodyfit.com
+- Products: https://nexbodyfit.com/products
+- Contact: https://nexbodyfit.com/contact
+- S30: https://nexbodyfit.com/products/nextbody-s30
+- S20: https://nexbodyfit.com/products/nextbody-s20

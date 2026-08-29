@@ -12,7 +12,7 @@ export const SITE = {
   title: "NextBody — See Your Body in a New Dimension",
   description:
     "NextBody brings spatial-grade body intelligence to premium gyms — from scan to digital twin, seamlessly. Medical-grade 3D body scanners for B2B fitness operators in MENA and Southeast Asia.",
-  url: "https://nexbodyfix.com",
+  url: "https://nexbodyfit.com",
   ogImage: "/images/og-image.svg",
   locale: "en",
 } as const;
