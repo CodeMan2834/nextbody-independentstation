@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, Download } from "lucide-react";
 import { notFound } from "next/navigation";
-import { SectionHeading } from "@/components/shared/SectionHeading";
-import { CTAPrimary } from "@/components/shared/CTAPrimary";
 import { PRODUCTS, PRODUCT_SLUGS, type ProductSlug } from "@/lib/products";
 
-interface Props {
-  params: Promise<{ slug: string }>;
-}
+interface Props { params: Promise<{ slug: string }>; }
 
 export function generateStaticParams() {
   return PRODUCT_SLUGS.map((slug) => ({ slug }));
@@ -17,158 +15,115 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = PRODUCTS[slug as ProductSlug];
   if (!product) return { title: "Not Found" };
-
+  const canonical = `/products/${product.slug}`;
   return {
     title: product.name,
     description: product.summary,
+    alternates: { canonical },
+    openGraph: {
+      type: "website",
+      url: canonical,
+      title: product.name,
+      description: product.summary,
+      images: [{ url: product.heroImage, alt: product.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: product.name,
+      description: product.summary,
+      images: [product.heroImage],
+    },
   };
 }
 
 export default async function ProductPage({ params }: Props) {
   const { slug } = await params;
   const product = PRODUCTS[slug as ProductSlug];
+  if (!product) notFound();
 
-  if (!product) {
-    notFound();
-  }
+  const isF20 = product.slug === "f20-foot-scanner";
+  const isOneScan = product.slug === "onescan-gait-analysis";
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.summary,
+    category: product.category,
+    image: `https://nexbodyfit.com${product.heroImage}`,
+    url: `https://nexbodyfit.com/products/${product.slug}`,
+    brand: { "@type": "Brand", name: "NEXBODY" },
+  };
 
   return (
-    <div className="relative z-10 page-shell">
-      <div className="container-site">
-        <div className="grid items-center gap-12 md:grid-cols-2">
+    <div className={`product-detail product-detail-${product.accent}`}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema).replace(/</g, "\\u003c") }} />
+      <section className="product-detail-hero">
+        <div className={`container-site product-detail-hero-layout${isF20 ? " product-detail-hero-layout-scene" : ""}`}>
+          <div className="product-detail-hero-copy">
+            <p className="instrument-kicker">{product.category}</p>
+            <h1>{product.shortName}</h1>
+            <p className="product-detail-tagline">{product.tagline}</p>
+            <p>{product.summary}</p>
+            <div className="product-detail-actions">
+              <Link href="/contact" className="instrument-button instrument-button-primary">Book a demo <ArrowRight aria-hidden="true" /></Link>
+              {product.downloads[0] && <a href={product.downloads[0].href} className="instrument-button instrument-button-quiet" target="_blank" rel="noreferrer"><Download aria-hidden="true" /> Product PDF</a>}
+            </div>
+            <dl>{product.facts.map((fact, index) => <div key={fact}><dt>0{index + 1}</dt><dd>{fact}</dd></div>)}</dl>
+          </div>
+          <div className="product-detail-hero-media">
+            <Image src={product.heroImage} alt={product.name} fill priority sizes={isF20 ? "100vw" : "(min-width: 900px) 58vw, 100vw"} className={isF20 ? "object-cover object-center" : isOneScan ? "object-cover object-right" : "object-cover"} />
+          </div>
+        </div>
+      </section>
+
+      <section className="product-detail-section">
+        <div className="container-site product-detail-two-column">
+          <header><p className="instrument-kicker">Capabilities</p><h2>What the system measures and supports.</h2></header>
+          <ul className="product-rule-list">{product.features.map((item) => <li key={item}>{item}</li>)}</ul>
+        </div>
+      </section>
+
+      {isF20 && (
+        <section className="f20-workflow-scene" aria-label="F20 scanning workflow in context">
+          <Image src="/media/products/f20/f20-workflow-model.png" alt="Athlete standing on the NEXBODY F20 during a full-foot scan" fill sizes="100vw" />
+          <div className="f20-workflow-grade" />
+          <div className="container-site f20-workflow-copy"><p className="instrument-kicker">Workflow in context</p><h2>From scan to<br />downstream action.</h2><p>Capture both feet together, review full-foot geometry, then deliver reports or STL models into the next professional workflow.</p></div>
+        </section>
+      )}
+
+      <section className="product-detail-section product-detail-section-alt">
+        <div className="container-site">
+          <header className="product-detail-section-header"><p className="instrument-kicker">Specifications</p><h2>Product configuration</h2></header>
+          <dl className="product-spec-table">{product.specs.map((spec) => <div key={spec.label}><dt>{spec.label}</dt><dd>{spec.value}</dd></div>)}</dl>
+        </div>
+      </section>
+
+      <section className="product-detail-section">
+        <div className="container-site product-detail-two-column">
+          <header>
+            <p className="instrument-kicker">Outputs & applications</p>
+            <h2>Made for professional review.</h2>
+            <div className="product-application-tags">{product.industries.map((industry) => <span key={industry}>{industry}</span>)}</div>
+          </header>
           <div>
-            <span className="text-xs font-medium uppercase tracking-[0.12em] text-[var(--brand-accent)]">
-              {product.tagline}
-            </span>
-            <h1 className="mt-4 text-[clamp(32px,5vw,56px)] font-semibold leading-[1.08] tracking-[-0.03em]">
-              {product.name}
-            </h1>
-            <p className="mt-4 max-w-[520px] text-lg leading-relaxed text-[var(--text-muted)]">
-              {product.summary}
-            </p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              <span className="rounded-full bg-[var(--brand)]/15 px-3 py-1 text-xs font-medium text-[var(--brand-accent)]">
-                {product.scanTime} scan
-              </span>
-              <span className="rounded-full bg-[var(--brand)]/15 px-3 py-1 text-xs font-medium text-[var(--brand-accent)]">
-                {product.metricCount} metrics
-              </span>
-            </div>
-            <div className="mt-8">
-              <CTAPrimary href="/contact">Book a Demo</CTAPrimary>
-            </div>
-          </div>
-
-          <div className="flex justify-center">
-            <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-[var(--brand)]/20 blur-[80px]" />
-              {product.heroImagePending && (
-                <p className="relative mb-3 text-center text-xs text-[var(--text-dim)]">
-                  Product photo pending
-                </p>
-              )}
-              <Image
-                src={product.image}
-                alt={product.name}
-                width={350}
-                height={450}
-                className="relative drop-shadow-[0_40px_100px_rgba(0,102,255,0.4)]"
-                priority
-              />
-            </div>
+            <ul className="product-rule-list">{product.highlights.map((item) => <li key={item}>{item}</li>)}</ul>
+            <div className="product-report-line"><span>Report types</span><p>{product.reports.join(" · ")}</p></div>
           </div>
         </div>
+      </section>
 
-        <div className="mt-24">
-          <SectionHeading title="Key capabilities" align="left" />
-          <ul className="mt-8 grid gap-3 md:grid-cols-2">
-            {product.features.map((feature) => (
-              <li
-                key={feature}
-                className="flex items-start gap-3 rounded-lg border border-[var(--surface-border)] bg-[var(--card)] p-4 text-sm text-[var(--text-muted)]"
-              >
-                <span className="mt-0.5 size-2 shrink-0 rounded-full bg-[var(--brand-accent)]" />
-                {feature}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mt-24">
-          <SectionHeading title="Report types" align="left" />
-          <div className="mt-8 flex flex-wrap gap-3">
-            {product.reports.map((report) => (
-              <span
-                key={report}
-                className="rounded-xl border border-[var(--brand-accent)]/20 bg-[var(--brand)]/10 px-4 py-3 text-sm font-medium text-[var(--text-primary)]"
-              >
-                {report}
-              </span>
-            ))}
+      {product.downloads.length > 0 && (
+        <section className="product-downloads">
+          <div className="container-site">
+            <header><p className="instrument-kicker">Downloads</p><h2>Product documentation</h2></header>
+            <div>{product.downloads.map((file) => <a key={file.href} href={file.href} target="_blank" rel="noreferrer"><Download aria-hidden="true" /><span>{file.label}</span><ArrowRight aria-hidden="true" /></a>)}</div>
           </div>
-          <p className="mt-4 text-sm text-[var(--text-dim)]">
-            Report UI screenshots pending — replace with approved product marketing assets.
-          </p>
-        </div>
+        </section>
+      )}
 
-        <div className="mt-24">
-          <SectionHeading title="Specifications" align="left" />
-          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {product.specs.map((spec) => (
-              <div
-                key={spec.label}
-                className="rounded-xl border border-[var(--surface-border)] glass p-5"
-              >
-                <span className="text-xs uppercase tracking-[0.08em] text-[var(--text-dim)]">
-                  {spec.label}
-                </span>
-                <p className="mt-2 text-sm font-semibold leading-snug text-[var(--text-primary)]">
-                  {spec.value}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-24">
-          <SectionHeading title="Ideal for" align="left" />
-          <div className="mt-8 flex flex-wrap gap-2">
-            {product.industries.map((industry) => (
-              <span
-                key={industry}
-                className="rounded-full border border-[var(--surface-border)] px-4 py-2 text-sm text-[var(--text-muted)]"
-              >
-                {industry}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-24">
-          <SectionHeading title="Highlights" align="left" />
-          <ul className="mt-8 grid gap-4 md:grid-cols-2">
-            {product.highlights.map((highlight) => (
-              <li
-                key={highlight}
-                className="flex items-start gap-3 rounded-lg border border-[var(--surface-border)] bg-[var(--card)] p-4 text-sm text-[var(--text-muted)]"
-              >
-                <span className="mt-0.5 size-2 shrink-0 rounded-full bg-[var(--brand-green)]" />
-                {highlight}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="mt-24 text-center">
-          <SectionHeading
-            title="Ready to see it in action?"
-            subtitle="Book a personalized demo with our team."
-          />
-          <div className="mt-8">
-            <CTAPrimary href="/contact">Book a Demo</CTAPrimary>
-          </div>
-        </div>
-      </div>
+      <section className="product-detail-cta">
+        <div className="container-site"><p className="instrument-kicker">Next step</p><h2>See {product.shortName} in the right workflow.</h2><p>Book a focused product demonstration with the NEXBODY team.</p><Link href="/contact" className="instrument-button instrument-button-primary">Book a demo <ArrowRight aria-hidden="true" /></Link></div>
+      </section>
     </div>
   );
 }

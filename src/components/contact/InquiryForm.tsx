@@ -21,7 +21,7 @@ const COUNTRIES = [
   "Other",
 ];
 
-const PRODUCTS = ["S30", "S20", "Multiple / Not Sure"];
+const PRODUCTS = ["Nexbody-X60", "OneScan", "F20", "Multiple / Not Sure"];
 
 const fieldClass =
   "w-full rounded-lg border border-[var(--surface-border)] bg-[var(--card)] px-4 py-3 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-dim)] focus:border-[var(--brand)] focus:outline-none focus:ring-1 focus:ring-[var(--brand)]";
@@ -112,7 +112,7 @@ export function InquiryForm() {
 
         <div>
           <label htmlFor="company" className={labelClass}>
-            Company / Gym Name *
+            Company / Facility *
           </label>
           <input
             id="company"
@@ -121,7 +121,7 @@ export function InquiryForm() {
             required
             autoComplete="organization"
             className={fieldClass}
-            placeholder="Fitness First"
+            placeholder="Clinic, gym or research lab"
           />
         </div>
 
@@ -176,7 +176,7 @@ export function InquiryForm() {
           name="message"
           rows={4}
           className={`${fieldClass} resize-none`}
-          placeholder="Tell us about your gym — number of locations, member count, and what you're looking for."
+          placeholder="Tell us about your facility — specialty, locations, and which system you want to see."
         />
       </div>
 

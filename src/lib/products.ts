@@ -1,100 +1,104 @@
 /**
- * Product & case study content.
+ * Product & use-case content.
  * Content managed via Decap CMS → content/products.json & content/cases.json.
- * Update those JSON files with verified specs and assets when ready.
- * Structure references industry-standard 3D body scanner positioning (Visbody-class).
  */
 
 import productsData from "../../content/products.json";
 import casesData from "../../content/cases.json";
 
-export type ProductSlug = "nextbody-s30" | "nextbody-s20";
+export type ProductSlug =
+  | "nexbody-x60"
+  | "onescan-gait-analysis"
+  | "f20-foot-scanner";
 
 export interface ProductSpec {
   label: string;
   value: string;
 }
 
+export interface ProductDownload {
+  label: string;
+  href: string;
+}
+
 export interface ProductDefinition {
   slug: ProductSlug;
   name: string;
+  shortName: string;
+  category: string;
+  priority: "flagship" | "supporting";
   tagline: string;
   summary: string;
   image: string;
-  heroImagePending: boolean;
-  scanTime: string;
-  metricCount: string;
+  heroImage: string;
+  accent: "blue" | "gold" | "cyan";
+  facts: string[];
   features: string[];
   specs: ProductSpec[];
   highlights: string[];
   reports: string[];
   industries: string[];
+  downloads: ProductDownload[];
 }
 
-/** Build typed record from CMS-editable JSON array */
 function buildProducts(): Record<ProductSlug, ProductDefinition> {
-  const record: Record<string, ProductDefinition> = {};
-  for (const p of productsData.products) {
-    record[p.slug] = p as ProductDefinition;
-  }
-  return record as Record<ProductSlug, ProductDefinition>;
+  return Object.fromEntries(
+    productsData.products.map((product) => [product.slug, product])
+  ) as Record<ProductSlug, ProductDefinition>;
 }
 
 export const PRODUCTS = buildProducts();
-export const PRODUCT_SLUGS = Object.keys(PRODUCTS) as ProductSlug[];
+export const PRODUCT_SLUGS = productsData.products.map(
+  (product) => product.slug
+) as ProductSlug[];
+export const PRODUCT_LIST = PRODUCT_SLUGS.map((slug) => PRODUCTS[slug]);
+export const FLAGSHIP_PRODUCT = PRODUCTS["nexbody-x60"];
+export const SUPPORTING_PRODUCTS = PRODUCT_LIST.filter(
+  (product) => product.priority === "supporting"
+);
 
-export interface CustomerCase {
+export interface UseCase {
   id: string;
   name: string;
-  region: string;
+  context: string;
   industry: string;
-  product: "S30" | "S20";
+  product: string;
   headline: string;
-  challenge: string;
-  solution: string;
-  outcome: string;
-  placeholder: boolean;
+  need: string;
+  approach: string;
+  result: string;
   media: {
     src: string;
     alt: string;
   };
 }
 
-export const CUSTOMER_CASES: CustomerCase[] = casesData.cases as CustomerCase[];
+export const USE_CASES: UseCase[] = casesData.cases as UseCase[];
 
 export const INDUSTRY_SOLUTIONS = [
   {
-    id: "fitness",
-    title: "For Fitness",
-    body: "Set measurable goals with body composition, 3D shape change, and posture screening — turn every renewal into a data-backed conversation.",
-  },
-  {
     id: "rehab",
-    title: "For Physiotherapy",
-    body: "Baseline and track segmental muscle, posture alignment, and shoulder function to personalize rehab and prove outcomes.",
+    title: "For Rehabilitation",
+    body: "Capture posture landmarks, composition baselines and neck-shoulder mobility so therapists can review change visit to visit — without borrowing claims from gait or foot-scan systems.",
   },
   {
-    id: "nutrition",
-    title: "For Nutrition",
-    body: "Pair BMR, visceral fat, and hydration metrics with meal plans — clients see progress beyond the scale.",
+    id: "fitness",
+    title: "For Fitness & Wellness",
+    body: "Turn posture scores and segmental composition into a structured member review. Reports can be printed, emailed or branded for the facility.",
   },
   {
     id: "sports",
-    title: "For Sports",
-    body: "Monitor lean mass and segmental balance across training blocks to reduce injury risk and optimize performance.",
+    title: "For Sports Performance",
+    body: "Use OneScan plantar-pressure and gait metrics when the brief is movement quality — keep X60 focused on posture, composition and mobility.",
   },
   {
-    id: "aesthetic",
-    title: "For Aesthetic & Spa",
-    body: "Quantify body shape and composition to design treatment packages members can see changing in 3D.",
+    id: "clinical",
+    title: "For Clinics",
+    body: "Guided assessment positions, configurable thresholds and interface upload support professional workflows. Results support review; they are not a medical diagnosis.",
   },
-] as const;
-
-export const POSTURE_METRICS = [
-  "Forward head posture",
-  "Rounded shoulders",
-  "Anterior pelvic tilt",
-  "Hyperextended knees",
-  "Leg alignment (X/O/K detection)",
-  "Shoulder function range",
+  {
+    id: "footwear",
+    title: "For Footwear & Orthotics",
+    body: "F20 captures both feet in 3D with 30+ measurements, arch classification and STL output for custom insoles and C2M footwear programs.",
+  },
 ] as const;

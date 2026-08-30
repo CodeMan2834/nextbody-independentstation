@@ -11,7 +11,7 @@ import {
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with NextBody. Book a demo or inquire about our medical-grade 3D body scanners for your gym or fitness business.",
+    "Get in touch with NEXBODY. Book a demo of Nexbody-X60, OneScan or F20.",
 };
 
 export default function ContactPage() {
@@ -23,7 +23,7 @@ export default function ContactPage() {
         <div className="mx-auto max-w-2xl">
           <SectionHeading
             title="Get in Touch"
-            subtitle="Tell us about your gym or fitness business. We'll prepare a tailored demo."
+            subtitle="Tell us about your clinic, gym or research lab. We'll prepare a tailored demo."
           />
 
           <p className="mt-4 text-center text-sm text-[var(--text-dim)]">

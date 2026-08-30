@@ -1,106 +1,138 @@
 {
   "products": [
     {
-      "slug": "nextbody-s30",
-      "name": "NextBody S30",
-      "tagline": "Flagship 3D body composition scanner",
-      "summary": "Hybrid 3D structured-light scanning and 8-electrode, 4-frequency BIA — 50+ data points across 6 categories in a single 32-second session. Built for premium gyms, wellness centers, and medical-adjacent operators in MENA & SEA.",
-      "image": "/images/f20-product.webp",
-      "heroImagePending": false,
-      "scanTime": "32s",
-      "metricCount": "50+",
+      "slug": "nexbody-x60",
+      "name": "NEXBODY Nexbody-X60",
+      "shortName": "Nexbody-X60",
+      "category": "Integrated body assessment",
+      "priority": "flagship",
+      "tagline": "Posture, body composition and mobility in one guided system",
+      "summary": "Nexbody-X60 combines 3D depth vision, eight-electrode body composition analysis and guided neck and shoulder mobility assessment in one professional workstation.",
+      "image": "/media/products/x60/x60-front-white.png",
+      "heroImage": "/media/products/x60/x60-device.png",
+      "accent": "blue",
+      "facts": ["3D depth vision", "Eight-electrode analysis", "Guided mobility assessment"],
       "features": [
-        "Hybrid 3D scanning + BIA fusion technology",
-        "Millimeter-level 3D avatar in 32 seconds",
-        "18 body circumference & posture parameters",
-        "14 core body composition metrics + segmental analysis",
-        "Before & After 3D comparison avatars",
-        "Body composition, posture, circumference & shoulder function reports"
+        "Automatic anatomical landmark recognition with manual correction",
+        "Posture angles, asymmetry indicators, risk levels and posture scoring",
+        "Nearly 40 body composition values with reference ranges and segmental analysis",
+        "Cervical lateral flexion and arm-elevation assessment",
+        "Voice guidance and automatic assessment-position recognition",
+        "Email sharing, printing, institution branding and data-interface upload"
       ],
       "specs": [
-        { "label": "Technology", "value": "3D depth vision + 8-electrode, 4-frequency BIA" },
-        { "label": "Scan Time", "value": "32 seconds (full assessment)" },
-        { "label": "Metrics", "value": "50+ across 6 categories" },
-        { "label": "Body Composition", "value": "14 core metrics + 8 analysis recommendations" },
-        { "label": "Posture & Circumference", "value": "18 parameters" },
-        { "label": "Weight Accuracy", "value": "±0.1 kg" },
-        { "label": "Body Fat Accuracy", "value": "±0.1%" },
-        { "label": "Max Weight", "value": "250 kg (turntable 180 kg)" },
-        { "label": "Height Range", "value": "Up to 200 cm" },
-        { "label": "Dimensions", "value": "1681 × 400 × 685 mm column · 1830 × 680 mm footprint" },
-        { "label": "Display", "value": "18.5\" HD touchscreen" },
-        { "label": "Power", "value": "110–240V / 50–60Hz · 10°C to 40°C" },
-        { "label": "Reports", "value": "Print · Mobile H5 · Cloud dashboard" },
-        { "label": "Certification", "value": "CE · ISO 13485" }
+        { "label": "Product model", "value": "R3 (customer-facing name: Nexbody-X60)" },
+        { "label": "Dimensions", "value": "2015 × 599 × 2120 mm" },
+        { "label": "Height range", "value": "0.8–2.0 m" },
+        { "label": "Weight range", "value": "20–150 kg" },
+        { "label": "Vision sensor", "value": "3D depth vision camera sensor" },
+        { "label": "Body composition", "value": "Eight-electrode analysis" },
+        { "label": "Assessment software", "value": "Android-based" },
+        { "label": "Languages", "value": "Chinese, English, French, Thai, Russian, Portuguese, Spanish and Ukrainian; additional languages customizable" },
+        { "label": "Reporting", "value": "Email sharing and printing" },
+        { "label": "Integration", "value": "Data interface upload supported" }
       ],
       "highlights": [
-        "Turntable rotation for true 360° body capture",
-        "Segmental fat & muscle for arms, legs, and trunk",
-        "Forward head, rounded shoulders, pelvic tilt posture mapping",
-        "Visceral fat, BMR, WHR, and obesity risk bands",
-        "Cloud archive with multi-device report access",
-        "Coach workflow with trend history and member comparison"
+        "Forward head posture, head lateral tilt, uneven and rounded shoulders",
+        "Pelvic tilt, knee hyperextension and leg alignment",
+        "Cervical and sacral displacement indices",
+        "Weight, muscle, protein, fat, BMI, BMR, WHR and segmental composition",
+        "Configurable thresholds and data-cleaning functions",
+        "Optional institution logo on reports"
       ],
-      "reports": [
-        "Body Composition Report",
-        "Posture Analysis Report",
-        "Body Circumference Report",
-        "Shoulder Function Report"
-      ],
-      "industries": [
-        "Premium fitness clubs",
-        "Physiotherapy & rehabilitation",
-        "Nutrition & weight management",
-        "Sports performance",
-        "Aesthetic & wellness clinics"
+      "reports": ["Posture assessment", "Body composition analysis", "Neck and shoulder mobility"],
+      "industries": ["Rehabilitation centers", "Hospitals and clinics", "Fitness and wellness", "Sports performance", "Corporate health"],
+      "downloads": [
+        { "label": "X60 Product Brochure", "href": "/downloads/nexbody-x60-product-brochure.pdf" },
+        { "label": "Posture Report Sample", "href": "/downloads/nexbody-x60-posture-report-sample.pdf" },
+        { "label": "Mobility Report Sample", "href": "/downloads/nexbody-x60-mobility-report-sample.pdf" }
       ]
     },
     {
-      "slug": "nextbody-s20",
-      "name": "NextBody S20",
-      "tagline": "AI-driven body composition analyzer",
-      "summary": "Compact hybrid analyzer combining 3D capture and 8-electrode BIA — professional-grade insights for boutique gyms, PT studios, and wellness brands that need fast throughput without flagship footprint.",
-      "image": "/images/f20-product.webp",
-      "heroImagePending": false,
-      "scanTime": "15–32s",
-      "metricCount": "30+",
+      "slug": "onescan-gait-analysis",
+      "name": "NEXBODY OneScan",
+      "shortName": "OneScan",
+      "category": "Plantar pressure gait assessment",
+      "priority": "supporting",
+      "tagline": "Quantitative gait and plantar-pressure assessment",
+      "summary": "OneScan uses a high-density piezoresistive sensor matrix to capture plantar pressure and gait data for clinical assessment, rehabilitation, sports research and teaching.",
+      "image": "/media/products/onescan/onescan-device.png",
+      "heroImage": "/media/products/onescan/onescan-scene.png",
+      "accent": "gold",
+      "facts": ["Five platform lengths", "High-density sensor matrix", "Open API support"],
       "features": [
-        "3D body scanning + BIA in one streamlined workflow",
-        "Rapid scan mode for high-traffic studio floors",
-        "Segmental composition and posture screening",
-        "Mobile-friendly member reports with trend tracking",
-        "HD touchscreen guided self-test experience",
-        "Secure cloud storage with operator dashboard"
+        "Quantitative plantar-pressure and gait assessment",
+        "High-density piezoresistive fence-type sensor matrix",
+        "Readable analysis reports for clinical and training workflows",
+        "Batch data import and export with open API interface",
+        "External-device triggering and synchronization",
+        "Optional integration with insole-customization data services"
       ],
       "specs": [
-        { "label": "Technology", "value": "3D camera + 8-electrode BIA" },
-        { "label": "Scan Time", "value": "15s rapid / 32s full" },
-        { "label": "Metrics", "value": "30+ body composition & posture metrics" },
-        { "label": "Body Composition", "value": "Core metrics + segmental analysis" },
-        { "label": "Display", "value": "HD touchscreen interface" },
-        { "label": "Max Weight", "value": "250 kg" },
-        { "label": "Footprint", "value": "Compact column — ideal for boutique studios" },
-        { "label": "Reports", "value": "Mobile H5 · Cloud dashboard" },
-        { "label": "Certification", "value": "CE" }
+        { "label": "OneScan50", "value": "565 × 490 × 25 mm · 9,216 contacts" },
+        { "label": "OneScan120", "value": "1200 × 580 × 28 mm · 27,648 contacts" },
+        { "label": "OneScan160", "value": "1605 × 580 × 28 mm · 36,864 contacts" },
+        { "label": "OneScan200", "value": "2000 × 580 × 28 mm · 46,080 contacts" },
+        { "label": "OneScan240", "value": "2040 × 580 × 28 mm · 55,296 contacts" },
+        { "label": "Sensor type", "value": "Piezoresistive fence sensor matrix" },
+        { "label": "Standard range", "value": ">200 N/cm²" }
       ],
       "highlights": [
-        "Lower footprint for space-conscious operators",
-        "Ideal for boutique gyms and PT studios",
-        "Member progress tracking out of the box",
-        "Fast assessment flow for peak-hour traffic",
-        "Entry point to 3D body intelligence",
-        "Same cloud ecosystem as S30 deployments"
+        "Plantar-pressure distribution and center-of-pressure trajectory",
+        "Stance phase, step timing, cadence and contact metrics",
+        "Gait and fall-risk assessment workflows",
+        "Rehabilitation outcome comparison",
+        "Sports injury and performance analysis",
+        "Custom orthotic insole workflow support"
       ],
-      "reports": [
-        "Body Composition Report",
-        "Posture Screening Report",
-        "Progress Comparison Report"
+      "reports": ["Dynamic gait", "Plantar pressure", "Temporal and kinetic parameters"],
+      "industries": ["Clinical assessment", "Rehabilitation medicine", "Sports science", "University research", "Orthotic services"],
+      "downloads": [
+        { "label": "OneScan Product Overview", "href": "/downloads/onescan-product-overview.pdf" },
+        { "label": "Dynamic Gait Report Sample", "href": "/downloads/onescan-dynamic-gait-report-sample.pdf" },
+        { "label": "Static Pressure Report Sample", "href": "/downloads/onescan-static-pressure-report-sample.pdf" }
+      ]
+    },
+    {
+      "slug": "f20-foot-scanner",
+      "name": "NEXBODY F20",
+      "shortName": "F20",
+      "category": "3D full-foot scanning",
+      "priority": "supporting",
+      "tagline": "Synchronous 3D scanning for both feet",
+      "summary": "F20 captures the full 3D morphology of both feet in one workflow and combines measurement, arch classification, report comparison and STL model output.",
+      "image": "/media/products/f20/f20-lab-hero.webp",
+      "heroImage": "/media/products/f20/f20-brochure-cover.png",
+      "accent": "cyan",
+      "facts": ["Both feet captured together", "30+ full-foot parameters", "STL model output"],
+      "features": [
+        "Synchronous 3D scanning of both feet",
+        "More than 30 full-foot measurements including length, width and girth",
+        "Hallux valgus and heel valgus angle assessment",
+        "Arch-type identification based on AI arch index",
+        "STL foot-model download, report comparison and printing",
+        "Cloud or local deployment with import, export and interface services"
       ],
-      "industries": [
-        "Boutique fitness studios",
-        "Personal training chains",
-        "Corporate wellness",
-        "Hotel & hospitality wellness"
+      "specs": [
+        { "label": "Product", "value": "F20 3D Full Foot Scanner for Both Feet" },
+        { "label": "Languages", "value": "Chinese and English" },
+        { "label": "Measurements", "value": "More than 30 full-foot parameters" },
+        { "label": "3D output", "value": "STL foot-model download" },
+        { "label": "Deployment", "value": "Cloud computing or local deployment" },
+        { "label": "Data workflow", "value": "Bulk import/export and interface docking supported" }
+      ],
+      "highlights": [
+        "Foot type and arch classification",
+        "Foot length, width, girth and detailed regional dimensions",
+        "Hallux valgus and heel valgus analysis",
+        "Left/right comparison",
+        "Report comparison and printing",
+        "Custom development and research-data support"
+      ],
+      "reports": ["Foot type analysis", "Full-foot measurements", "Arch analysis"],
+      "industries": ["Sports rehabilitation", "Footwear C2M", "Custom orthotics", "Shoe retail", "Campus screening"],
+      "downloads": [
+        { "label": "F20 Product Overview", "href": "/downloads/f20-product-overview-2026-v3.pdf" }
       ]
     }
   ]

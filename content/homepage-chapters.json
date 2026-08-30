@@ -1,28 +1,68 @@
 {
   "chapters": [
     {
-      "id": "member",
-      "eyebrow": "Member Experience",
-      "title": "Your gym becomes a private assessment studio.",
+      "id": "x60",
+      "eyebrow": "Nexbody-X60",
+      "title": "Three assessments. One guided workstation.",
       "blocks": [
         {
-          "title": "A scan members remember",
-          "body": "32 seconds on the floor — no cold clinical room. Spatial lighting and a guided flow make assessment feel premium, not intimidating.",
+          "title": "Posture you can review",
+          "body": "3D depth vision identifies anatomical landmarks, then maps forward head, shoulder and pelvic alignment, knee hyperextension and leg type — with manual correction when the clinician needs it.",
           "media": {
-            "src": "/images/chapters/member-scan.webp",
+            "src": "/media/products/x60/x60-functional.png",
             "fallback": "/svg/device-s30.svg",
-            "alt": "Member body scan session in a premium gym",
+            "alt": "Nexbody-X60 posture landmark review",
             "pending": false
           },
           "align": "right"
         },
         {
-          "title": "Reports they actually read",
-          "body": "Visual body maps, trend lines, and plain-language insights — designed for retention conversations, not lab printouts.",
+          "title": "Composition with segmental detail",
+          "body": "Eight-electrode analysis reports nearly 40 values including muscle, protein, fat, BMI, BMR, WHR and left/right segments — with configurable reference ranges.",
           "media": {
-            "src": "/images/chapters/member-report.webp",
+            "src": "/media/products/x60/x60-composition.png",
             "fallback": "/svg/report-dashboard.svg",
-            "alt": "NextBody member report dashboard",
+            "alt": "Nexbody-X60 body composition visualization",
+            "pending": false
+          },
+          "align": "left"
+        },
+        {
+          "title": "Neck and shoulder mobility",
+          "body": "Voice prompts and automatic position recognition guide cervical lateral flexion and arm-elevation assessments. Gait and foot-pressure functions are intentionally on other products.",
+          "media": {
+            "src": "/media/products/x60/x60-mobility.png",
+            "fallback": "/svg/device-s30.svg",
+            "alt": "Nexbody-X60 mobility assessment graphic",
+            "pending": false
+          },
+          "align": "right"
+        }
+      ]
+    },
+    {
+      "id": "workflow",
+      "eyebrow": "Professional workflow",
+      "title": "From measurement to a report you can hand over.",
+      "blocks": [
+        {
+          "title": "Guided capture",
+          "body": "Create or select a profile, follow on-screen positions, and let the system recognize posture automatically. Thresholds can be configured for different facilities.",
+          "media": {
+            "src": "/media/products/x60/x60-screen.png",
+            "fallback": "/svg/report-dashboard.svg",
+            "alt": "Nexbody-X60 on-screen guidance",
+            "pending": false
+          },
+          "align": "right"
+        },
+        {
+          "title": "Share, print, integrate",
+          "body": "Email the report, print it, add an institution logo, or upload through a data interface. Results support professional review and are not a substitute for medical diagnosis.",
+          "media": {
+            "src": "/media/products/x60/x60-reporting.png",
+            "fallback": "/svg/report-dashboard.svg",
+            "alt": "Nexbody-X60 reporting workflow",
             "pending": false
           },
           "align": "left"
@@ -30,57 +70,28 @@
       ]
     },
     {
-      "id": "operations",
-      "eyebrow": "Gym Operations",
-      "title": "Data that drives renewals, not dashboards.",
+      "id": "family",
+      "eyebrow": "Product family",
+      "title": "Keep gait and foot scanning on the right hardware.",
       "blocks": [
         {
-          "title": "Coach-ready from day one",
-          "body": "Session notes, risk flags, and progress snapshots export to your workflow — so trainers lead with evidence, not guesswork.",
+          "title": "OneScan for plantar pressure and gait",
+          "body": "Five platform lengths, a high-density piezoresistive matrix, COP trajectory and temporal gait metrics — with open API and optional insole-data services.",
           "media": {
-            "src": "/images/chapters/coach-workflow.webp",
+            "src": "/media/products/onescan/onescan-overview.png",
             "fallback": "/svg/report-dashboard.svg",
-            "alt": "Coach reviewing member progress data",
+            "alt": "NEXBODY OneScan gait analysis system",
             "pending": false
           },
           "align": "right"
         },
         {
-          "title": "Built for multi-site operators",
-          "body": "Roll out across MENA and Southeast Asia with centralized reporting, role-based access, and deployment support.",
+          "title": "F20 for 3D morphology of both feet",
+          "body": "Synchronous dual-foot capture, 30+ measurements, arch classification and STL output for orthotics, footwear C2M and campus screening.",
           "media": {
-            "src": "/images/chapters/multi-site.svg",
+            "src": "/media/products/onescan/onescan-metrics.png",
             "fallback": "/svg/report-dashboard.svg",
-            "alt": "Multi-location gym analytics overview",
-            "pending": false
-          },
-          "align": "left"
-        }
-      ]
-    },
-    {
-      "id": "clinical",
-      "eyebrow": "Clinical Accuracy",
-      "title": "Spatial-grade body intelligence.",
-      "blocks": [
-        {
-          "title": "Validated against DEXA",
-          "body": "R=0.96 correlation on core composition metrics — medical-grade rigor in a format gyms can operationalize daily.",
-          "media": {
-            "src": "/images/chapters/dexa-validation.svg",
-            "fallback": "/svg/report-dashboard.svg",
-            "alt": "DEXA correlation validation chart",
-            "pending": false
-          },
-          "align": "right"
-        },
-        {
-          "title": "Certified for operator trust",
-          "body": "CE marking, ISO 13485 quality systems, and cloud security practices aligned with member data protection expectations.",
-          "media": {
-            "src": "/images/chapters/certifications.svg",
-            "fallback": "/svg/device-s30.svg",
-            "alt": "Certification and compliance badges",
+            "alt": "Foot metrics visualization for F20 workflows",
             "pending": false
           },
           "align": "left"

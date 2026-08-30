@@ -1,23 +1,23 @@
 {
   "trustValues": [
     {
-      "title": "Member data privacy",
-      "description": "Scan data encrypted in transit and at rest. Role-based access and regional deployment options for operator compliance.",
-      "icon": "Lock"
-    },
-    {
-      "title": "Clinical validation",
-      "description": "Composition metrics validated against DEXA reference methods — transparent methodology for medical-adjacent buyers.",
+      "title": "Professional review, not diagnosis",
+      "description": "NEXBODY systems produce structured assessment reports for clinicians, coaches and operators. Results are not a substitute for medical diagnosis or treatment.",
       "icon": "Microscope"
     },
     {
-      "title": "Quality & certification",
-      "description": "ISO 13485 quality management and CE marking — built for regulated markets in MENA and Southeast Asia.",
+      "title": "Capabilities kept separate",
+      "description": "X60 covers posture, composition and neck-shoulder mobility. OneScan covers gait and plantar pressure. F20 covers 3D foot morphology. Claims are not mixed across products.",
       "icon": "Award"
     },
     {
-      "title": "Deployment support",
-      "description": "On-site installation, staff training, and ongoing technical support for premium fitness operators.",
+      "title": "Data you can hand over",
+      "description": "Email sharing, printing, optional institution branding and interface upload keep reports inside the facility workflow.",
+      "icon": "Lock"
+    },
+    {
+      "title": "Configurable for each site",
+      "description": "Thresholds, languages and data-cleaning options can be set for rehabilitation, fitness, sports and research environments.",
       "icon": "Shield"
     }
   ]

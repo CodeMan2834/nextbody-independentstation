@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -7,30 +6,23 @@ import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import enMessages from "@/messages/en.json";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-  preload: true,
-});
-
 export const metadata: Metadata = {
   title: {
-    default: "NextBody — See Your Body in a New Dimension",
-    template: "%s | NextBody",
+    default: "NEXBODY — Precision Body Assessment, Reimagined",
+    template: "%s | NEXBODY",
   },
   description:
-    "NextBody brings spatial-grade body intelligence to premium gyms — from scan to digital twin, seamlessly.",
+    "Nexbody-X60 combines 3D depth vision, eight-electrode composition analysis and guided neck-shoulder mobility. OneScan covers gait. F20 captures 3D morphology of both feet.",
   metadataBase: new URL("https://nexbodyfit.com"),
   openGraph: {
     type: "website",
     locale: "en",
-    siteName: "NextBody",
-    images: [{ url: "/images/og-image.svg", width: 1200, height: 630 }],
+    siteName: "NEXBODY",
+    images: [{ url: "/media/products/x60/x60-cover.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/images/og-image.svg"],
+    images: ["/media/products/x60/x60-cover.png"],
   },
   robots: {
     index: true,
@@ -44,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} dark`}>
+    <html lang="en" className="dark">
       <body className="min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased">
         <NextIntlClientProvider locale="en" messages={enMessages}>
           <a

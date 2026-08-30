@@ -5,82 +5,82 @@
     "bookDemo": "Book a Demo"
   },
   "hero": {
-    "title": "See Your Body.\nIn a New Dimension.",
-    "lead": "NextBody brings spatial-grade body intelligence to premium gyms — from scan to digital twin, seamlessly.",
+    "title": "See Your Body.\nShape What’s Next.",
+    "lead": "Nexbody-X60 brings posture, body composition and neck-shoulder mobility into one guided workstation.",
     "scrollHint": "Scroll to explore",
     "cta": "Book a Demo"
   },
   "metrics": {
-    "metricsTracked": "Metrics Tracked",
-    "scanTime": "Scan Time",
-    "dexaCorrelation": "DEXA Correlation",
-    "deployments": "Deployments"
+    "metricsTracked": "Composition values",
+    "scanTime": "X60 modules",
+    "dexaCorrelation": "Languages",
+    "deployments": "OneScan lengths"
   },
   "productShowcase": {
-    "title": "Explore NextBody",
-    "subtitle": "Move your mouse to spotlight the device. Switch models for instant comparison.",
-    "s20Spec": "Pro body composition · 32s scan · Ideal for boutique gyms",
-    "s30Spec": "Medical-grade 3D scanner · 50+ metrics · R=0.96 DEXA correlation"
+    "title": "Explore NEXBODY",
+    "subtitle": "Flagship X60 workstation, plus dedicated OneScan gait and F20 foot systems.",
+    "s20Spec": "OneScan · plantar pressure and gait",
+    "s30Spec": "Nexbody-X60 · posture, composition, mobility"
   },
   "glassStack": {
     "title": "Data that feels tangible.",
-    "subtitle": "One scan — layered insights. Scroll to unfold the report stack."
+    "subtitle": "One X60 session — posture, composition and mobility. Scroll to unfold the stack."
   },
   "whyNextBody": {
-    "title": "Why NextBody",
+    "title": "Why NEXBODY",
     "chapters": {
       "entertainment": {
-        "eyebrow": "Entertainment → Fitness",
-        "title": "Your gym becomes a private assessment studio.",
-        "description": "32-second full-body scan. 50+ metrics. Coach-ready reports that members actually understand."
+        "eyebrow": "Nexbody-X60",
+        "title": "Three assessments. One guided workstation.",
+        "description": "Posture landmarks, eight-electrode composition and neck-shoulder mobility — without mixing in gait or foot-scan claims."
       },
       "retention": {
-        "eyebrow": "Productivity → Retention",
-        "title": "Data that drives renewals, not just dashboards.",
-        "description": "Track composition, posture, and progress — the same spatial clarity Apple brought to vision, applied to body analytics."
+        "eyebrow": "Workflow",
+        "title": "From measurement to a report you can hand over.",
+        "description": "Email, print, optional branding and interface upload for professional review."
       },
       "technology": {
-        "eyebrow": "Technology",
-        "title": "Innovation you can see. And measure.",
-        "description": "3D depth mapping · 8-electrode BIA · R=0.96 DEXA correlation. Built for MENA & Southeast Asia."
+        "eyebrow": "Product family",
+        "title": "Keep gait and foot scanning on the right hardware.",
+        "description": "OneScan for plantar pressure and gait. F20 for 3D morphology of both feet."
       }
     }
   },
   "trustBar": {
-    "title": "Trusted by premium fitness operators"
+    "title": "Built for professional assessment workflows"
   },
   "finalCta": {
-    "title": "Ready to bring spatial-grade analytics to your gym?",
-    "subtitle": "Book a personalized demo. See the scanner in action.",
+    "title": "Ready to see Nexbody-X60 in your facility?",
+    "subtitle": "Book a demo. Review posture, composition and mobility on the workstation.",
     "cta": "Book a Demo"
   },
   "contact": {
     "title": "Get in Touch",
-    "subtitle": "Tell us about your gym or fitness business. We'll prepare a tailored demo.",
+    "subtitle": "Tell us about your clinic, gym or research lab. We’ll prepare a tailored demo.",
     "form": {
       "fullName": "Full Name",
       "email": "Work Email",
-      "company": "Company / Gym Name",
+      "company": "Company / Facility",
       "country": "Country",
       "productInterest": "Product Interest",
       "message": "Message",
       "submit": "Send Inquiry",
       "submitting": "Sending...",
-      "success": "Thank you! We'll be in touch within 24 hours."
+      "success": "Thank you! We’ll be in touch within 24 hours."
     }
   },
   "products": {
     "title": "Our Products",
-    "subtitle": "Medical-grade body scanners for the modern fitness operator.",
-    "s30Name": "NextBody S30",
-    "s30Tagline": "Medical-grade 3D body scanner",
-    "s20Name": "NextBody S20",
-    "s20Tagline": "Pro body composition analyzer",
+    "subtitle": "X60 for integrated body assessment. OneScan for gait. F20 for 3D foot scanning.",
+    "s30Name": "Nexbody-X60",
+    "s30Tagline": "Posture, composition and mobility",
+    "s20Name": "OneScan",
+    "s20Tagline": "Plantar pressure and gait",
     "specs": "Specifications",
     "highlights": "Highlights"
   },
   "footer": {
-    "copyright": "© 2026 NextBody. All rights reserved.",
+    "copyright": "© 2026 NEXBODY. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
   }

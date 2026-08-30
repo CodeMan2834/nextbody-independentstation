@@ -50,11 +50,11 @@ export async function sendInquiryEmail(data: InquiryEmailData) {
 
   const resend = getResendClient();
   const result = await resend.emails.send({
-    from: process.env.EMAIL_FROM || `NextBody <inquiry@nexbodyfit.com>`,
+    from: process.env.EMAIL_FROM || `NEXBODY <inquiry@nexbodyfit.com>`,
     to: process.env.EMAIL_TO || siteConfig.contactEmail,
     subject: `New Inquiry from ${fullName} — ${company}`,
     html: `
-      <h2>New NextBody Inquiry</h2>
+      <h2>New NEXBODY Inquiry</h2>
       <table style="border-collapse:collapse;width:100%">
         <tr><td style="padding:8px;font-weight:600">Name</td><td style="padding:8px">${safe.fullName}</td></tr>
         <tr><td style="padding:8px;font-weight:600">Email</td><td style="padding:8px">${safe.email}</td></tr>

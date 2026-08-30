@@ -23,7 +23,7 @@ export function CTASecondary({
     <Link
       href={href}
       className={cn(
-        "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-full font-medium",
+        "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-sm font-medium",
         "border border-white/[0.12] bg-white/[0.03] text-[var(--text-primary)]",
         "shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]",
         "backdrop-blur-sm",
@@ -32,7 +32,7 @@ export function CTASecondary({
         "hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_8px_28px_rgba(0,229,255,0.08)]",
         "active:translate-y-0 active:scale-[0.98]",
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand)]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]",
-        "before:pointer-events-none before:absolute before:inset-0 before:rounded-full before:bg-gradient-to-br before:from-[var(--brand-accent)]/10 before:to-transparent before:opacity-0 before:transition-opacity before:duration-300 group-hover:before:opacity-100",
+        "before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-br before:from-[var(--brand-accent)]/10 before:to-transparent before:opacity-0 before:transition-opacity before:duration-300 group-hover:before:opacity-100",
         size === "sm" ? "px-5 py-2.5 text-[13px]" : "px-7 py-3.5 text-sm",
         className
       )}

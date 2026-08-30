@@ -12,7 +12,7 @@ import { useHeaderScroll } from "@/hooks/useHeaderScroll";
 import { HOME_SECTION_LINKS, NAV_LINKS } from "@/lib/constants";
 
 const iconButtonClass =
-  "flex size-10 shrink-0 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.03] text-[var(--text-primary)] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] transition-[transform,border-color,background-color,box-shadow] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:border-[var(--brand-accent)]/30 hover:bg-white/[0.08] hover:shadow-[0_6px_24px_rgba(0,229,255,0.1)] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand)]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]";
+  "flex size-10 shrink-0 items-center justify-center rounded-sm border border-white/[0.12] bg-white/[0.03] text-[var(--text-primary)] transition-[transform,border-color,background-color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:border-[var(--brand-accent)]/35 hover:bg-white/[0.08] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand)]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -30,8 +30,8 @@ export function Header() {
         className={cn(
           "fixed inset-x-0 top-0 z-50 h-[var(--header-height)] border-b transition-[background-color,border-color,backdrop-filter,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
           scrolled
-            ? "border-[var(--surface-border)] bg-[rgba(3,3,8,0.92)] shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl"
-            : "border-transparent bg-[rgba(3,3,8,0.55)] backdrop-blur-md"
+            ? "border-[var(--surface-border)] bg-[rgba(5,7,11,0.94)] shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl"
+            : "border-transparent bg-[rgba(5,7,11,0.62)] backdrop-blur-md"
         )}
       >
         <div className="container-site grid h-full grid-cols-[minmax(0,1fr)_auto] items-center gap-3 lg:grid-cols-[auto_1fr_auto] lg:gap-6">
@@ -40,7 +40,7 @@ export function Header() {
             className="group shrink-0 text-lg font-semibold tracking-[-0.03em] text-[var(--text-primary)] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:opacity-90"
           >
             <span className="bg-gradient-to-r from-white via-white to-[var(--brand-accent)] bg-clip-text transition-[background-size] duration-500 group-hover:bg-[length:200%_auto]">
-              NextBody
+              NEXBODY
             </span>
           </Link>
 

@@ -30,7 +30,7 @@ collections:
           - name: "siteName"
             label: "Site Name"
             widget: "string"
-            default: "NextBody"
+            default: "NEXBODY"
           - name: "tagline"
             label: "Tagline"
             widget: "string"
@@ -64,7 +64,7 @@ collections:
   - name: "products"
     label: "📦 Products"
     label_singular: "Product"
-    description: "S30 / S20 product specs, features, and images"
+    description: "X60 / OneScan / F20 product specs, features, and images"
     extension: "json"
     format: "json"
     create: false
@@ -81,14 +81,20 @@ collections:
             widget: "list"
             summary: "{{name}} — {{tagline}}"
             fields:
-              - { name: "slug", label: "Slug", widget: "string", hint: "nextbody-s30 | nextbody-s20" }
+              - { name: "slug", label: "Slug", widget: "string", hint: "nexbody-x60 | onescan-gait-analysis | f20-foot-scanner" }
               - { name: "name", label: "Product Name", widget: "string" }
+              - { name: "shortName", label: "Short Name", widget: "string" }
+              - { name: "category", label: "Category", widget: "string" }
+              - { name: "priority", label: "Priority", widget: "select", options: ["flagship", "supporting"] }
               - { name: "tagline", label: "Tagline", widget: "string" }
               - { name: "summary", label: "Summary", widget: "text" }
-              - { name: "image", label: "Product Image", widget: "image", hint: "1200×1200 WebP recommended" }
-              - { name: "heroImagePending", label: "Image Pending?", widget: "boolean", default: true }
-              - { name: "scanTime", label: "Scan Time", widget: "string", hint: "e.g. 32s" }
-              - { name: "metricCount", label: "Metric Count", widget: "string", hint: "e.g. 50+" }
+              - { name: "image", label: "Product Image", widget: "image" }
+              - { name: "heroImage", label: "Hero Image", widget: "image" }
+              - { name: "accent", label: "Accent", widget: "select", options: ["blue", "gold", "cyan"] }
+              - name: "facts"
+                label: "Facts"
+                widget: "list"
+                field: { name: "entry", label: "Fact", widget: "string" }
               - name: "features"
                 label: "Features"
                 widget: "list"
@@ -119,9 +125,9 @@ collections:
 
   # ── Customer Cases ────────────────────────────
   - name: "cases"
-    label: "📋 Customer Cases"
-    label_singular: "Case"
-    description: "Success stories shown on the homepage"
+    label: "📋 Use Cases"
+    label_singular: "Use case"
+    description: "Capability scenes shown on the homepage — not invented customer logos"
     extension: "json"
     format: "json"
     create: false
@@ -136,18 +142,17 @@ collections:
           - name: "cases"
             label: "Cases"
             widget: "list"
-            summary: "{{name}} — {{region}} ({{product}})"
+            summary: "{{name}} — {{product}}"
             fields:
               - { name: "id", label: "ID", widget: "string" }
-              - { name: "name", label: "Customer Name", widget: "string" }
-              - { name: "region", label: "Region", widget: "string", hint: "e.g. Dubai, UAE" }
+              - { name: "name", label: "Use-case name", widget: "string" }
+              - { name: "context", label: "Context", widget: "string" }
               - { name: "industry", label: "Industry", widget: "string" }
-              - { name: "product", label: "Product Used", widget: "select", options: ["S30", "S20"] }
+              - { name: "product", label: "Product", widget: "select", options: ["Nexbody-X60", "OneScan", "F20"] }
               - { name: "headline", label: "Headline", widget: "string" }
-              - { name: "challenge", label: "Challenge", widget: "text" }
-              - { name: "solution", label: "Solution", widget: "text" }
-              - { name: "outcome", label: "Outcome", widget: "text" }
-              - { name: "placeholder", label: "Placeholder?", widget: "boolean", default: true }
+              - { name: "need", label: "Need", widget: "text" }
+              - { name: "approach", label: "Approach", widget: "text" }
+              - { name: "result", label: "Result", widget: "text" }
               - name: "media"
                 label: "Media"
                 widget: "object"
@@ -184,7 +189,7 @@ collections:
               - { name: "value", label: "Value", widget: "number", valueType: "float" }
               - { name: "suffix", label: "Suffix", widget: "string", hint: "e.g. +, s, R" }
       - name: "homepage-chapters"
-        label: "Why NextBody Chapters"
+        label: "Why NEXBODY Chapters"
         file: "content/homepage-chapters.json"
         fields:
           - name: "chapters"

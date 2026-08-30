@@ -66,6 +66,6 @@ export function whatsappHref(
 }
 
 export const WHATSAPP_MESSAGES = {
-  float: "Hi, I'm interested in NextBody body analyzer",
-  afterInquiry: "Hi, I just submitted an inquiry about NextBody",
+  float: "Hi, I'm interested in NEXBODY Nexbody-X60",
+  afterInquiry: "Hi, I just submitted an inquiry about NEXBODY",
 } as const;

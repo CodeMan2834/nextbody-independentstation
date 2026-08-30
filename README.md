@@ -2,7 +2,7 @@
 
 **3D body scanner B2B marketing site** — targeting premium gym operators in MENA and Southeast Asia.
 
-NextBody produces medical-grade 3D body composition scanners (S30 / S20). This site serves as the product showcase, inquiry channel, and trust-building platform for commercial fitness operators.
+NextBody produces professional body-assessment systems: **Nexbody-X60** (posture, composition, mobility), **OneScan** (gait / plantar pressure), and **F20** (3D scanning of both feet). This site is the product showcase and inquiry channel.
 
 ---
 
@@ -102,10 +102,11 @@ src/
 
 | Route | Description |
 |-------|-------------|
-| `/` | Homepage with galaxy canvas, product showcase, glass card insights, why chapters, technology pipeline, trust values |
-| `/products` | Product listing (S30 / S20) |
-| `/products/nextbody-s30` | S30 flagship detail page |
-| `/products/nextbody-s20` | S20 compact detail page |
+| `/` | Homepage — X60 workstation, OneScan and F20 family, use cases |
+| `/products` | Product listing (X60 / OneScan / F20) |
+| `/products/nexbody-x60` | X60 flagship detail |
+| `/products/onescan-gait-analysis` | OneScan gait / pressure detail |
+| `/products/f20-foot-scanner` | F20 3D foot scanner detail |
 | `/contact` | Inquiry form → Resend email → WhatsApp follow-up |
 | `/success` | Post-submission confirmation |
 | `/terms` | Terms of service |
@@ -136,11 +137,9 @@ src/
 See `docs/NEXTBODY-SITE-AUDIT.md` for current status and `docs/NEXTBODY-LAUNCH-CHECKLIST.md` for launch requirements.
 
 **Priority tasks:**
-- Replace `[PLACEHOLDER]` product specs with verified data
-- Provide P0 product images (S30/S20 hero, OG image)
-- Provide chapter + case photos (12 total)
-- Configure real WhatsApp number and Resend API key
-- Legal review on trust/technology claims
+- Provide a dedicated F20 hardware photo (cover is currently rendered from the product PDF)
+- Configure real WhatsApp number and rotate exposed API keys
+- Legal review of remaining marketing claims
 
 ---
 

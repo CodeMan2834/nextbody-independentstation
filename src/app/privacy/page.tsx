@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "NextBody privacy policy — how we handle your data.",
+  description: "NEXBODY privacy policy — how we handle your data.",
 };
 
 export default function PrivacyPage() {
@@ -15,7 +15,7 @@ export default function PrivacyPage() {
           </h1>
           <div className="mt-8 space-y-6 text-sm leading-relaxed text-[var(--text-muted)]">
             <p>
-              NextBody (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy.
+              NEXBODY (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy.
               This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.
             </p>
             <h2 className="text-lg font-semibold text-[var(--text-primary)]">1. Information We Collect</h2>
