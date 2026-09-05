@@ -29,7 +29,7 @@ export default function TermsPage() {
             </p>
             <h2 className="text-lg font-semibold text-[var(--text-primary)]">4. Contact</h2>
             <p>
-              For questions about these Terms, contact legal@nexbodyfit.com.
+              For questions about these Terms, contact info@nexbody.com.
             </p>
           </div>
         </div>

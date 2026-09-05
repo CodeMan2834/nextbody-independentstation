@@ -62,7 +62,7 @@ export default async function ProductPage({ params }: Props) {
           <div className="product-detail-hero-copy">
             <p className="instrument-kicker">{product.category}</p>
             <h1>{product.shortName}</h1>
-            <p className="product-detail-tagline">{product.tagline}</p>
+            {!isOneScan && !isF20 && <p className="product-detail-tagline">{product.tagline}</p>}
             <p>{product.summary}</p>
             <div className="product-detail-actions">
               <Link href="/contact" className="instrument-button instrument-button-primary">Book a demo <ArrowRight aria-hidden="true" /></Link>
@@ -77,7 +77,7 @@ export default async function ProductPage({ params }: Props) {
 
       <section className="product-detail-section">
         <div className="container-site product-detail-two-column">
-          <header><p className="instrument-kicker">Capabilities</p><h2>What the system measures and supports.</h2></header>
+          <header><p className="instrument-kicker">Capabilities</p><h2>What does the system measure and support?</h2></header>
           <ul className="product-rule-list">{product.features.map((item) => <li key={item}>{item}</li>)}</ul>
         </div>
       </section>

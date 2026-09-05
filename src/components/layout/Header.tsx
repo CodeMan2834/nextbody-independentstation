@@ -37,9 +37,10 @@ export function Header() {
         <div className="container-site grid h-full grid-cols-[minmax(0,1fr)_auto] items-center gap-3 lg:grid-cols-[auto_1fr_auto] lg:gap-6">
           <Link
             href="/"
+            aria-label={isHome ? "NEXBODY home" : "Return to NEXBODY home"}
             className="group shrink-0 text-lg font-semibold tracking-[-0.03em] text-[var(--text-primary)] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:opacity-90"
           >
-            <span className="bg-gradient-to-r from-white via-white to-[var(--brand-accent)] bg-clip-text transition-[background-size] duration-500 group-hover:bg-[length:200%_auto]">
+            <span className="text-white transition-colors duration-300 group-hover:text-[var(--brand-accent)]">
               NEXBODY
             </span>
           </Link>

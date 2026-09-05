@@ -15,10 +15,15 @@ const scanStages = [
 ] as const;
 
 const intelligenceViews = [
-  ["Posture", "Alignment in context", "/media/products/x60/x60-analysis.png"],
   ["Composition", "Segmental body detail", "/media/products/x60/x60-composition.png"],
+  ["Posture", "Alignment in context", "/media/products/x60/x60-analysis.png"],
   ["Mobility", "Movement made reviewable", "/media/products/x60/x60-mobility.png"],
 ] as const;
+
+const supportingProductLabels: Record<string, string> = {
+  "onescan-gait-analysis": "Plantar pressure & gait assessment",
+  "f20-foot-scanner": "3D full-foot scanning",
+};
 
 export function HomeExperience() {
   const root = useRef<HTMLDivElement>(null);
@@ -64,7 +69,7 @@ export function HomeExperience() {
         <div className="container-site cinematic-hero-shell">
           <div className="cinematic-hero-copy">
             <p className="cinematic-overline">NEXBODY X60 / BODY INTELLIGENCE STATION</p>
-            <h1 id="home-title">See the whole body.<br /><em>Know what comes next.</em></h1>
+            <h1 id="home-title">See the whole body;<br /><em>Know what comes next.</em></h1>
             <p className="cinematic-lead">One guided assessment for posture, segmental body composition and neck-shoulder mobility.</p>
             <div className="cinematic-actions"><Link href="/products/nexbody-x60">Experience X60 <ArrowRight aria-hidden="true" /></Link><Link href="/contact">Book a demonstration</Link></div>
           </div>
@@ -77,7 +82,7 @@ export function HomeExperience() {
         <div className="scan-visual" aria-hidden="true">
           <Image className="scan-body-image" src="/media/products/x60/x60-analysis.png" alt="" fill sizes="100vw" priority />
           <div className="scan-grid" /><div className="scan-plane" />
-          <div className="scan-data"><span style={{ "--x": "18%", "--y": "25%" } as CSSProperties}>ALIGNMENT</span><span style={{ "--x": "66%", "--y": "38%" } as CSSProperties}>COMPOSITION</span><span style={{ "--x": "28%", "--y": "71%" } as CSSProperties}>MOBILITY</span></div>
+          <div className="scan-data"><span style={{ "--x": "68%", "--y": "24%" } as CSSProperties}>ALIGNMENT</span><span style={{ "--x": "70%", "--y": "46%" } as CSSProperties}>COMPOSITION</span><span style={{ "--x": "68%", "--y": "70%" } as CSSProperties}>MOBILITY</span></div>
         </div>
         <div className="scan-vignette" />
         <div className="container-site scan-story-shell">
@@ -89,7 +94,7 @@ export function HomeExperience() {
       </section>
 
       <section className="intelligence-section">
-        <div className="container-site intelligence-heading"><p className="cinematic-overline">ONE RECORD / THREE CLINICAL VIEWS</p><h2>Data should feel less like output.<br /><em>More like understanding.</em></h2></div>
+        <div className="container-site intelligence-heading"><p className="cinematic-overline">ONE RECORD / THREE CLINICAL VIEWS</p><h2>Data should feel less like output;<br /><em>More like understanding.</em></h2></div>
         <div className="container-site intelligence-showcase">
           <div className="intelligence-stage">
             {intelligenceViews.map(([label, title, image], index) => <article className={`intelligence-card${activeView === index ? " is-active" : ""}`} aria-hidden={activeView !== index} key={label}><Image src={image} alt={`${label} assessment result`} fill sizes="(min-width: 900px) 1200px, 100vw" /><div className="intelligence-card-grade" /><div className="intelligence-card-copy"><span>0{index + 1} / {label}</span><h3>{title}</h3></div></article>)}
@@ -101,9 +106,9 @@ export function HomeExperience() {
       </section>
 
       <section className="ecosystem-section" id="products">
-        <div className="container-site ecosystem-heading"><div><p className="cinematic-overline">NEXBODY ECOSYSTEM</p><h2>One body.<br />The right instrument.</h2></div><p>X60 leads the assessment. OneScan and F20 extend the view into gait and foot geometry when the workflow requires it.</p></div>
+        <div className="container-site ecosystem-heading"><div><p className="cinematic-overline">NEXBODY ECOSYSTEM</p><h2>Analyze gait;<br />Reveal foot biomechanics.</h2></div></div>
         <div className="container-site ecosystem-grid">
-          {SUPPORTING_PRODUCTS.map((product) => <Link className="ecosystem-card" href={`/products/${product.slug}`} key={product.slug}><div className="ecosystem-media"><Image src={product.image} alt={product.name} fill sizes="(min-width: 900px) 50vw, 100vw" className="object-cover" /></div><div className="ecosystem-copy"><span>{product.category}</span><h3>{product.shortName}</h3><p>{product.summary}</p><b>Explore system <ArrowRight aria-hidden="true" /></b></div></Link>)}
+          {SUPPORTING_PRODUCTS.map((product) => <Link className="ecosystem-card" href={`/products/${product.slug}`} key={product.slug}><div className="ecosystem-media"><Image src={product.image} alt={product.name} fill sizes="(min-width: 900px) 50vw, 100vw" className="object-cover" /></div><div className="ecosystem-copy"><span>{supportingProductLabels[product.slug] ?? product.category}</span><h3>{product.shortName}</h3><p>{product.summary}</p><b>Explore system <ArrowRight aria-hidden="true" /></b></div></Link>)}
         </div>
       </section>
 

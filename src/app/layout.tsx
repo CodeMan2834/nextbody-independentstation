@@ -3,6 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
+import { BackToTop } from "@/components/layout/BackToTop";
 import enMessages from "@/messages/en.json";
 import "./globals.css";
 
@@ -49,6 +50,7 @@ export default function RootLayout({
           <main id="main-content">{children}</main>
           <Footer />
           <WhatsAppFloat />
+          <BackToTop />
         </NextIntlClientProvider>
       </body>
     </html>

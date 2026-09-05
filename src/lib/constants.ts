@@ -13,8 +13,6 @@ export const NAV_LINKS = [
 ] as const;
 
 export const HOME_SECTION_LINKS = [
-  { label: "X60", href: "/#assessment" },
-  { label: "Workflow", href: "/#workflow" },
-  { label: "Product family", href: "/#products" },
+  { label: "X60", href: "/products/nexbody-x60" },
   { label: "Consultation", href: "/#consultation" },
 ] as const;

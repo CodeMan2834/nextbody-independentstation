@@ -15,7 +15,7 @@ export default function PrivacyPage() {
           </h1>
           <div className="mt-8 space-y-6 text-sm leading-relaxed text-[var(--text-muted)]">
             <p>
-              NEXBODY (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;) is committed to protecting your privacy.
+              NEXBODY is committed to protecting your privacy.
               This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.
             </p>
             <h2 className="text-lg font-semibold text-[var(--text-primary)]">1. Information We Collect</h2>
@@ -32,7 +32,7 @@ export default function PrivacyPage() {
             </p>
             <h2 className="text-lg font-semibold text-[var(--text-primary)]">4. Contact Us</h2>
             <p>
-              If you have any questions about this Privacy Policy, please contact us at privacy@nexbodyfit.com.
+              If you have any questions about this Privacy Policy, please contact us at info@nexbody.com.
             </p>
           </div>
         </div>
