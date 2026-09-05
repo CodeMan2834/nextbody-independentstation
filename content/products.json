@@ -42,11 +42,7 @@
       ],
       "reports": ["Posture assessment", "Body composition analysis", "Neck and shoulder mobility"],
       "industries": ["Rehabilitation centers", "Hospitals and clinics", "Fitness and wellness", "Sports performance", "Corporate health"],
-      "downloads": [
-        { "label": "X60 Product Brochure", "href": "/downloads/nexbody-x60-product-brochure.pdf" },
-        { "label": "Posture Report Sample", "href": "/downloads/nexbody-x60-posture-report-sample.pdf" },
-        { "label": "Mobility Report Sample", "href": "/downloads/nexbody-x60-mobility-report-sample.pdf" }
-      ]
+      "downloads": []
     },
     {
       "slug": "onescan-gait-analysis",
@@ -87,11 +83,7 @@
       ],
       "reports": ["Dynamic gait", "Plantar pressure", "Temporal and kinetic parameters"],
       "industries": ["Clinical assessment", "Rehabilitation medicine", "Sports science", "University research", "Orthotic services"],
-      "downloads": [
-        { "label": "OneScan Product Overview", "href": "/downloads/onescan-product-overview.pdf" },
-        { "label": "Dynamic Gait Report Sample", "href": "/downloads/onescan-dynamic-gait-report-sample.pdf" },
-        { "label": "Static Pressure Report Sample", "href": "/downloads/onescan-static-pressure-report-sample.pdf" }
-      ]
+      "downloads": []
     },
     {
       "slug": "f20-foot-scanner",
@@ -131,9 +123,7 @@
       ],
       "reports": ["Foot type analysis", "Full-foot measurements", "Arch analysis"],
       "industries": ["Sports rehabilitation", "Footwear C2M", "Custom orthotics", "Shoe retail", "Campus screening"],
-      "downloads": [
-        { "label": "F20 Product Overview", "href": "/downloads/f20-product-overview-2026-v3.pdf" }
-      ]
+      "downloads": []
     }
   ]
 }

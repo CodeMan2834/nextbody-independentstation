@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { notFound } from "next/navigation";
 import { PRODUCTS, PRODUCT_SLUGS, type ProductSlug } from "@/lib/products";
 
@@ -66,7 +66,6 @@ export default async function ProductPage({ params }: Props) {
             <p>{product.summary}</p>
             <div className="product-detail-actions">
               <Link href="/contact" className="instrument-button instrument-button-primary">Book a demo <ArrowRight aria-hidden="true" /></Link>
-              {product.downloads[0] && <a href={product.downloads[0].href} className="instrument-button instrument-button-quiet" target="_blank" rel="noreferrer"><Download aria-hidden="true" /> Product PDF</a>}
             </div>
             <dl>{product.facts.map((fact, index) => <div key={fact}><dt>0{index + 1}</dt><dd>{fact}</dd></div>)}</dl>
           </div>
@@ -111,15 +110,6 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </div>
       </section>
-
-      {product.downloads.length > 0 && (
-        <section className="product-downloads">
-          <div className="container-site">
-            <header><p className="instrument-kicker">Downloads</p><h2>Product documentation</h2></header>
-            <div>{product.downloads.map((file) => <a key={file.href} href={file.href} target="_blank" rel="noreferrer"><Download aria-hidden="true" /><span>{file.label}</span><ArrowRight aria-hidden="true" /></a>)}</div>
-          </div>
-        </section>
-      )}
 
       <section className="product-detail-cta">
         <div className="container-site"><p className="instrument-kicker">Next step</p><h2>See {product.shortName} in the right workflow.</h2><p>Book a focused product demonstration with the NEXBODY team.</p><Link href="/contact" className="instrument-button instrument-button-primary">Book a demo <ArrowRight aria-hidden="true" /></Link></div>

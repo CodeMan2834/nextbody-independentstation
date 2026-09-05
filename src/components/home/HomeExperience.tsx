@@ -3,10 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
-import { ArrowDown, ArrowRight, Download } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FLAGSHIP_PRODUCT, SUPPORTING_PRODUCTS } from "@/lib/products";
+import { SUPPORTING_PRODUCTS } from "@/lib/products";
 
 const scanStages = [
   ["01", "CAPTURE", "The body enters as a whole.", "A guided session brings posture, segmental composition and neck-shoulder mobility into one controlled assessment."],
@@ -107,7 +107,7 @@ export function HomeExperience() {
         </div>
       </section>
 
-      <section className="cinematic-resources" id="resources"><div className="container-site cinematic-resource-shell"><div><p className="cinematic-overline">PRODUCT RESOURCES</p><h2>Take the system<br />into review.</h2></div><div className="cinematic-resource-links">{FLAGSHIP_PRODUCT.downloads.map((download) => <a href={download.href} key={download.href} target="_blank" rel="noreferrer"><Download aria-hidden="true" /><span>{download.label}</span><ArrowRight aria-hidden="true" /></a>)}</div></div></section>
+      <section className="cinematic-resources" id="consultation"><div className="container-site cinematic-resource-shell"><div><p className="cinematic-overline">PRODUCT CONSULTATION</p><h2>Build the right<br />assessment workflow.</h2></div><div className="cinematic-resource-links"><Link href="/contact"><span>Talk with our product team</span><ArrowRight aria-hidden="true" /></Link></div></div></section>
       <section className="cinematic-final"><div className="container-site"><p className="cinematic-overline">SEE X60 IN YOUR WORKFLOW</p><h2>The next assessment<br />starts with a clearer view.</h2><Link href="/contact">Book a demonstration <ArrowRight aria-hidden="true" /></Link></div></section>
     </div>
   );

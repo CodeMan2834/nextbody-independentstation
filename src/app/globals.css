@@ -935,7 +935,6 @@
 .product-detail-two-column { display: grid; grid-template-columns: minmax(280px,0.7fr) minmax(420px,1.3fr); gap: clamp(3rem,8vw,8rem); }
 .product-detail-two-column header h2,
 .product-detail-section-header h2,
-.product-downloads h2,
 .product-detail-cta h2 { margin-top: 0.8rem; font-size: clamp(2.3rem,4.5vw,4.5rem); font-weight: 580; letter-spacing: -0.052em; line-height: 1.02; text-wrap: balance; }
 .product-detail-section-header { max-width: 760px; margin-bottom: 3rem; }
 .product-rule-list { border-top: 1px solid rgba(255,255,255,0.14); counter-reset: capability; }
@@ -951,13 +950,6 @@
 .product-report-line span { color: var(--detail-accent); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
 .product-report-line p { margin-top: 0.5rem; color: #d6dfe8; }
 
-.product-downloads { padding: 7rem 0; border-top: 1px solid rgba(255,255,255,0.1); background: #0a1018; }
-.product-downloads .container-site { display: grid; grid-template-columns: minmax(260px,0.7fr) minmax(420px,1.3fr); gap: clamp(3rem,8vw,8rem); }
-.product-downloads h2 { font-size: clamp(2.2rem,3.8vw,3.8rem); }
-.product-downloads .container-site > div { border-top: 1px solid rgba(255,255,255,0.14); }
-.product-downloads a { display: grid; grid-template-columns: 1.2rem 1fr 1.2rem; align-items: center; gap: 0.8rem; padding: 1.2rem 0; border-bottom: 1px solid rgba(255,255,255,0.14); color: #dbe3ec; }
-.product-downloads a svg { width: 1rem; height: 1rem; color: var(--detail-accent); }
-.product-downloads a svg:last-child { color: var(--text-muted); }
 .product-detail-cta { padding: 9rem 0; text-align: center; background: radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--detail-accent) 16%, transparent), transparent 28rem), #05070b; }
 .product-detail-cta p:not(.instrument-kicker) { margin-top: 1.1rem; color: var(--text-muted); }
 .product-detail-cta .instrument-button { margin-top: 2rem; }
@@ -970,8 +962,7 @@
   .product-detail-hero-layout-scene .product-detail-hero-copy { min-height: 780px; width: min(62%, 620px); }
   .product-detail-hero-copy { order: 2; }
   .product-detail-hero-media { min-height: 62vw; }
-  .product-detail-two-column,
-  .product-downloads .container-site { grid-template-columns: 1fr; }
+  .product-detail-two-column { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 560px) {
@@ -985,7 +976,6 @@
   .product-detail-actions .instrument-button { width: 100%; }
   .product-detail-hero-copy dl { margin-top: 2rem; }
   .product-detail-section,
-  .product-downloads,
   .product-detail-cta { padding-block: 5.5rem; }
   .product-spec-table > div { grid-template-columns: 1fr; gap: 0.45rem; }
 }

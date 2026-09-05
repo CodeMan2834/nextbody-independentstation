@@ -16,5 +16,5 @@ export const HOME_SECTION_LINKS = [
   { label: "X60", href: "/#assessment" },
   { label: "Workflow", href: "/#workflow" },
   { label: "Product family", href: "/#products" },
-  { label: "Resources", href: "/#resources" },
+  { label: "Consultation", href: "/#consultation" },
 ] as const;

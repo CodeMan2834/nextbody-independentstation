@@ -44,7 +44,7 @@ export interface ProductDefinition {
 function buildProducts(): Record<ProductSlug, ProductDefinition> {
   return Object.fromEntries(
     productsData.products.map((product) => [product.slug, product])
-  ) as Record<ProductSlug, ProductDefinition>;
+  ) as unknown as Record<ProductSlug, ProductDefinition>;
 }
 
 export const PRODUCTS = buildProducts();
