@@ -1,15 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NextBody — Content Manager</title>
+  <title>NEXBODY 网站内容管理</title>
   <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
+  <style>
+    :root{color-scheme:dark;font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;background:#03080d;color:#eef6f8}
+    *{box-sizing:border-box}body{margin:0;background:#03080d}.nb-login{position:fixed;inset:0;z-index:10000;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(380px,.85fr);min-height:100vh;background:#03080d}.nb-brand{position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;padding:clamp(40px,7vw,100px);background:radial-gradient(circle at 65% 35%,rgba(67,196,228,.22),transparent 32%),linear-gradient(145deg,#071824,#02070b 70%)}.nb-brand:before{position:absolute;inset:8% 12%;border:1px solid rgba(116,220,245,.15);content:"";transform:rotate(-7deg)}.nb-logo{position:absolute;top:48px;left:clamp(40px,7vw,100px);font-size:21px;font-weight:750;letter-spacing:.24em}.nb-brand small{color:#6fdcf6;font-size:11px;letter-spacing:.18em}.nb-brand h1{max-width:760px;margin:18px 0 0;font-size:clamp(48px,7vw,94px);font-weight:450;letter-spacing:-.065em;line-height:.9}.nb-brand p{max-width:580px;margin:26px 0 0;color:#91a7b2;line-height:1.75}.nb-auth{display:flex;flex-direction:column;justify-content:center;padding:clamp(36px,6vw,84px);background:#071018}.nb-auth h2{margin:0;font-size:34px;font-weight:560;letter-spacing:-.04em}.nb-auth>p{margin:12px 0 32px;color:#8fa4af;line-height:1.65}.nb-field{display:grid;gap:9px;margin-top:18px}.nb-field label{color:#b8c9d0;font-size:13px}.nb-field input{width:100%;border:1px solid #263844;border-radius:2px;outline:none;background:#09151e;padding:14px 15px;color:#f3f8fa;font-size:15px}.nb-field input:focus{border-color:#63d5f1;box-shadow:0 0 0 3px rgba(99,213,241,.1)}.nb-submit{width:100%;margin-top:24px;border:0;border-radius:2px;background:#e9f8fb;padding:15px;color:#061018;font-weight:700;cursor:pointer}.nb-error{min-height:20px;margin-top:12px;color:#ff8b8b;font-size:13px}.nb-credential{margin-top:24px;border-left:2px solid #65d8f2;padding:4px 0 4px 14px;color:#7f949f;font-size:12px;line-height:1.8}.nb-guide{position:fixed;right:18px;bottom:18px;z-index:9999;width:min(350px,calc(100vw - 36px));border:1px solid rgba(104,214,241,.34);background:rgba(5,15,22,.96);padding:18px 44px 18px 18px;box-shadow:0 20px 70px rgba(0,0,0,.45);color:#dce9ed;font-size:13px;line-height:1.65}.nb-guide strong{display:block;margin-bottom:6px;color:#75ddf6;letter-spacing:.04em}.nb-guide button{position:absolute;right:10px;top:8px;border:0;background:transparent;color:#82969f;font-size:20px;cursor:pointer}.nb-guide ol{margin:8px 0 0;padding-left:18px}.nb-guide[hidden],.nb-login[hidden]{display:none}@media(max-width:760px){.nb-login{grid-template-columns:1fr}.nb-brand{display:none}.nb-auth{min-height:100vh}.nb-logo-mobile{display:block;margin-bottom:48px;font-weight:750;letter-spacing:.22em}}@media(min-width:761px){.nb-logo-mobile{display:none}}
+  </style>
 </head>
 <body>
-  <script src="/admin/decap-cms.js"></script>
+  <section class="nb-login" id="nb-login">
+    <div class="nb-brand"><div class="nb-logo">NEXBODY</div><small>WEBSITE CONTENT SYSTEM</small><h1>让每一次更新，都清晰可控。</h1><p>集中维护首页、产品、应用案例和联系信息。保存后内容会写入当前项目文件，可在网站中即时验证。</p></div>
+    <form class="nb-auth" id="nb-form"><div class="nb-logo-mobile">NEXBODY</div><h2>管理员登录</h2><p>登录后从左侧栏目选择要维护的内容。此入口用于本地内容编辑。</p><div class="nb-field"><label for="nb-user">管理员账号</label><input id="nb-user" autocomplete="username" required /></div><div class="nb-field"><label for="nb-pass">密码</label><input id="nb-pass" type="password" autocomplete="current-password" required /></div><button class="nb-submit" type="submit">进入内容管理</button><div class="nb-error" id="nb-error" role="alert"></div><div class="nb-credential">本地默认账号：<b>nexbody</b><br />本地默认密码：<b>Nexbody@2026</b><br />正式上线时请接入服务器身份认证并修改凭据。</div></form>
+  </section>
+  <aside class="nb-guide" id="nb-guide" hidden><button type="button" aria-label="关闭引导" onclick="this.parentElement.hidden=true">×</button><strong>NEXBODY 内容维护引导</strong><ol><li>从左侧选择“首页内容”“产品管理”或“应用案例”。</li><li>点击具体条目进入表单，字段下方提示会说明展示位置。</li><li>修改后点击右上角“保存”；刷新网站即可检查效果。</li><li>图片建议使用 WebP/PNG，案例图推荐 16:10。</li></ol></aside>
   <script>
-    CMS.registerPreviewStyle("/admin/preview.css");
+    const DEFAULT_USER = "nexbody";
+    const DEFAULT_PASS = "Nexbody@2026";
+    const login = document.getElementById("nb-login");
+    const guide = document.getElementById("nb-guide");
+    let cmsLoaded = false;
+    const uiText = {"Contents":"内容管理","Media":"媒体资源","Collections":"管理栏目","Save":"保存","Publish":"发布","Published":"已发布","Check for Preview":"检查预览","Back to Collection":"返回栏目","Search":"搜索","Log out":"退出登录","List view option":"列表视图","Grid view option":"卡片视图","Add new media":"上传媒体","Delete selected":"删除所选","No Entries":"暂无内容","Loading Entries...":"正在加载内容…","Collapse":"收起","Expand":"展开","CHANGES SAVED":"修改已保存"};
+    function translateCMS(){
+      const walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+      while(walker.nextNode()){const node=walker.currentNode;const value=(node.nodeValue||"").trim();if(uiText[value])node.nodeValue=node.nodeValue.replace(value,uiText[value]);else if(value.startsWith('Add '))node.nodeValue=node.nodeValue.replace(value,'添加'+value.slice(4));else if(value.includes('Writing in ')&&value.includes(' collection'))node.nodeValue=node.nodeValue.replace('Writing in ','正在编辑 ').replace(' collection','').replace('CHANGES SAVED','修改已保存');}
+      document.querySelectorAll('[aria-label],[title]').forEach((el)=>{for(const attr of ['aria-label','title']){const value=el.getAttribute(attr);if(value&&uiText[value])el.setAttribute(attr,uiText[value]);}});
+    }
+    function loadCMS(){
+      if(cmsLoaded)return; cmsLoaded=true; login.hidden=true; guide.hidden=false;
+      const script=document.createElement("script"); script.src="/admin/decap-cms.js";
+      script.onload=()=>{ CMS.registerPreviewStyle("/admin/preview.css"); const observer=new MutationObserver(()=>{ translateCMS(); const buttons=[...document.querySelectorAll("button")]; const localLogin=buttons.find((button)=>/^login$/i.test((button.textContent||"").trim())); if(localLogin)localLogin.click(); }); observer.observe(document.body,{childList:true,subtree:true}); translateCMS(); };
+      document.body.appendChild(script);
+    }
+    document.getElementById("nb-form").addEventListener("submit",(event)=>{event.preventDefault();const user=document.getElementById("nb-user").value.trim();const pass=document.getElementById("nb-pass").value;if(user===DEFAULT_USER&&pass===DEFAULT_PASS){sessionStorage.setItem("nexbody-admin","1");loadCMS();}else{document.getElementById("nb-error").textContent="账号或密码不正确，请使用页面下方的本地默认凭据。";}});
+    if(sessionStorage.getItem("nexbody-admin")==="1")loadCMS();
   </script>
 </body>
 </html>

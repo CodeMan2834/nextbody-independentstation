@@ -2,118 +2,95 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowDown, ArrowRight } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SUPPORTING_PRODUCTS } from "@/lib/products";
-
-const scanStages = [
-  ["01", "CAPTURE", "The body enters as a whole.", "A guided session brings posture, segmental composition and neck-shoulder mobility into one controlled assessment."],
-  ["02", "RECONSTRUCT", "Structure becomes measurable.", "Depth vision maps anatomical landmarks while professionals retain control of the final review."],
-  ["03", "INTERPRET", "Results become a next action.", "A continuous record turns complex body data into findings that can be reviewed, explained and shared."],
-] as const;
-
-const intelligenceViews = [
-  ["Composition", "Segmental body detail", "/media/products/x60/x60-composition.png"],
-  ["Posture", "Alignment in context", "/media/products/x60/x60-analysis.png"],
-  ["Mobility", "Movement made reviewable", "/media/products/x60/x60-mobility.png"],
-] as const;
+import { HOME_CONTENT } from "@/lib/home-content";
+import { HOME_CASES } from "@/lib/home-cases";
 
 const supportingProductLabels: Record<string, string> = {
   "onescan-gait-analysis": "Plantar pressure & gait assessment",
   "f20-foot-scanner": "3D full-foot scanning",
 };
 
+type HeroMediaItem = {
+  type: "video" | "image";
+  src: string;
+  poster?: string;
+  alt: string;
+  duration?: number;
+};
+
 export function HomeExperience() {
-  const root = useRef<HTMLDivElement>(null);
-  const scanSection = useRef<HTMLElement>(null);
-  const [activeView, setActiveView] = useState(0);
+  const heroMedia = HOME_CONTENT.hero.media as HeroMediaItem[];
+  const [activeHeroMedia, setActiveHeroMedia] = useState(0);
+  const heroVideoRefs = useRef<Array<HTMLVideoElement | null>>([]);
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const interval = window.setInterval(() => setActiveView((view) => (view + 1) % intelligenceViews.length), 4800);
-    return () => window.clearInterval(interval);
-  }, []);
+    heroVideoRefs.current.forEach((video, index) => {
+      if (!video) return;
+      if (index === activeHeroMedia) {
+        video.currentTime = 0;
+        void video.play().catch(() => undefined);
+      } else {
+        video.pause();
+      }
+    });
+  }, [activeHeroMedia]);
 
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !root.current || !scanSection.current) return;
+  useEffect(() => {
+    if (heroMedia.length <= 1) return;
 
-    const context = gsap.context(() => {
-      gsap.fromTo(".cinematic-hero-copy > *", { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 1.05, stagger: 0.09, ease: "power3.out", delay: 0.18 });
-      gsap.to(".cinematic-hero-video", { scale: 1.07, yPercent: 5, ease: "none", scrollTrigger: { trigger: ".cinematic-hero", start: "top top", end: "bottom top", scrub: 1 } });
+    const configuredDuration = heroMedia[activeHeroMedia]?.duration ?? 6500;
+    const duration = Math.max(3000, configuredDuration);
+    const timer = window.setTimeout(() => {
+      setActiveHeroMedia((current) => (current + 1) % heroMedia.length);
+    }, duration);
 
-      gsap.timeline({ scrollTrigger: { trigger: scanSection.current, start: "top top", end: "+=240%", pin: true, scrub: 0.8, anticipatePin: 1 } })
-        .fromTo(".scan-body-image", { scale: 1.08, opacity: 0.55 }, { scale: 1, opacity: 1, duration: 1 })
-        .fromTo(".scan-plane", { yPercent: -120 }, { yPercent: 145, duration: 2.5, ease: "none" }, 0)
-        .to(".scan-grid", { opacity: 0.7, duration: 0.65 }, 0.65)
-        .to(".scan-stage-0", { opacity: 0, y: -18, duration: 0.25 }, 0.75)
-        .fromTo(".scan-stage-1", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.3 }, 0.9)
-        .to(".scan-body-image", { filter: "saturate(0.65) contrast(1.12) hue-rotate(8deg)", duration: 0.8 }, 1)
-        .to(".scan-stage-1", { opacity: 0, y: -18, duration: 0.25 }, 1.7)
-        .fromTo(".scan-stage-2", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.3 }, 1.88)
-        .to(".scan-data", { opacity: 1, duration: 0.45 }, 1.8);
-    }, root);
-    return () => context.revert();
-  }, []);
+    return () => window.clearTimeout(timer);
+  }, [activeHeroMedia, heroMedia]);
 
   return (
-    <div className="cinematic-home" ref={root}>
+    <div className="cinematic-home">
       <section className="cinematic-hero" aria-labelledby="home-title">
-        <video className="cinematic-hero-video" autoPlay muted loop playsInline preload="metadata" poster="/media/products/x60/x60-device.png" aria-label="NEXBODY X60 product film">
-          <source src="/video/x60-hero-animatic-v1.mp4?v=2" type="video/mp4" />
-        </video>
-        <div className="cinematic-hero-grade" />
-        <div className="cinematic-hero-optics" aria-hidden="true"><span /><span /></div>
-        <div className="container-site cinematic-hero-shell">
-          <div className="cinematic-hero-copy">
-            <p className="cinematic-overline">NEXBODY X60 / BODY INTELLIGENCE STATION</p>
-            <h1 id="home-title">See the whole body;<br /><em>Know what comes next.</em></h1>
-            <p className="cinematic-lead">One guided assessment for posture, segmental body composition and neck-shoulder mobility.</p>
-            <div className="cinematic-actions"><Link href="/products/nexbody-x60">Experience X60 <ArrowRight aria-hidden="true" /></Link><Link href="/contact">Book a demonstration</Link></div>
-          </div>
-          <div className="cinematic-hero-status" aria-label="X60 measurement system"><span>3D DEPTH VISION</span><span>8-ELECTRODE BIA</span><span>GUIDED REPORTING</span></div>
+        <div className="cinematic-hero-media" aria-hidden="true">
+          {heroMedia.map((media, index) => (
+            <div
+              className={`cinematic-hero-slide cinematic-hero-slide-${media.type}${index === activeHeroMedia ? " is-active" : ""}`}
+              key={`${media.type}-${media.src}`}
+            >
+              {media.type === "image" ? (
+                <Image className="cinematic-hero-image" src={media.src} alt="" fill priority={index === 0} sizes="100vw" />
+              ) : (
+                <video ref={(video) => { heroVideoRefs.current[index] = video; }} className="cinematic-hero-video" muted loop playsInline preload={index === 0 ? "auto" : "metadata"} poster={media.poster}>
+                  <source src={media.src} type="video/mp4" />
+                </video>
+              )}
+            </div>
+          ))}
         </div>
-        <a className="cinematic-scroll" href="#scan-story"><span>Enter the scan</span><ArrowDown aria-hidden="true" /></a>
+        <div className="cinematic-hero-grade" /><div className="cinematic-hero-optics" aria-hidden="true"><span /><span /></div>
+        <div className="container-site cinematic-hero-shell"><div className="cinematic-hero-copy"><p className="cinematic-overline">{HOME_CONTENT.hero.overline}</p><h1 id="home-title">{HOME_CONTENT.hero.title}<br /><em>{HOME_CONTENT.hero.accentTitle}</em></h1><p className="cinematic-lead">{HOME_CONTENT.hero.lead}</p><div className="cinematic-actions"><Link href={HOME_CONTENT.hero.primaryCta.href}>{HOME_CONTENT.hero.primaryCta.label} <ArrowRight aria-hidden="true" /></Link><Link href={HOME_CONTENT.hero.secondaryCta.href}>{HOME_CONTENT.hero.secondaryCta.label}</Link></div></div><div className="cinematic-hero-meta"><div className="cinematic-hero-status" aria-label="X60 measurement system">{HOME_CONTENT.hero.statusItems.map((item) => <span key={item}>{item}</span>)}</div>{heroMedia.length > 1 && <div className="cinematic-hero-pagination" aria-label="首页媒体轮播">{heroMedia.map((media, index) => <button type="button" className={index === activeHeroMedia ? "is-active" : ""} onClick={() => setActiveHeroMedia(index)} aria-label={`查看第 ${index + 1} 组媒体：${media.alt}`} aria-current={index === activeHeroMedia ? "true" : undefined} key={`${media.src}-control`}><span /></button>)}</div>}</div></div>
+        <a className="cinematic-scroll" href="#workflow"><span>Explore the system</span><ArrowDown aria-hidden="true" /></a>
       </section>
 
-      <section className="scan-story" id="scan-story" ref={scanSection} aria-label="How X60 turns a scan into body intelligence">
-        <div className="scan-visual" aria-hidden="true">
-          <Image className="scan-body-image" src="/media/products/x60/x60-analysis.png" alt="" fill sizes="100vw" priority />
-          <div className="scan-grid" /><div className="scan-plane" />
-          <div className="scan-data"><span style={{ "--x": "68%", "--y": "24%" } as CSSProperties}>ALIGNMENT</span><span style={{ "--x": "70%", "--y": "46%" } as CSSProperties}>COMPOSITION</span><span style={{ "--x": "68%", "--y": "70%" } as CSSProperties}>MOBILITY</span></div>
-        </div>
-        <div className="scan-vignette" />
-        <div className="container-site scan-story-shell">
-          <div className="scan-story-title"><p>X60 / 32-SECOND WORKFLOW</p><span>SCROLL TO EXAMINE</span></div>
-          <div className="scan-stage-stack">
-            {scanStages.map(([index, label, title, body], stageIndex) => <article className={`scan-stage scan-stage-${stageIndex}`} key={index}><p><span>{index}</span>{label}</p><h2>{title}</h2><div>{body}</div></article>)}
-          </div>
-        </div>
-      </section>
+      <section className="value-pillars-section" aria-labelledby="value-pillars-title"><div className="container-site value-pillars-heading"><p className="cinematic-overline">{HOME_CONTENT.valuePillars.eyebrow}</p><h2 id="value-pillars-title">{HOME_CONTENT.valuePillars.title}</h2></div><div className="container-site value-pillars-grid">{HOME_CONTENT.valuePillars.items.map((item, index) => <article key={item.title}><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}</div></section>
 
-      <section className="intelligence-section">
-        <div className="container-site intelligence-heading"><p className="cinematic-overline">ONE RECORD / THREE CLINICAL VIEWS</p><h2>Data should feel less like output;<br /><em>More like understanding.</em></h2></div>
-        <div className="container-site intelligence-showcase">
-          <div className="intelligence-stage">
-            {intelligenceViews.map(([label, title, image], index) => <article className={`intelligence-card${activeView === index ? " is-active" : ""}`} aria-hidden={activeView !== index} key={label}><Image src={image} alt={`${label} assessment result`} fill sizes="(min-width: 900px) 1200px, 100vw" /><div className="intelligence-card-grade" /><div className="intelligence-card-copy"><span>0{index + 1} / {label}</span><h3>{title}</h3></div></article>)}
-          </div>
-          <div className="intelligence-nav" aria-label="Assessment views">
-            {intelligenceViews.map(([label], index) => <button className={activeView === index ? "is-active" : ""} type="button" onClick={() => setActiveView(index)} aria-pressed={activeView === index} key={label}><span>0{index + 1}</span>{label}</button>)}
-          </div>
-        </div>
-      </section>
+      <section className="workflow-editorial" id="workflow" aria-labelledby="workflow-title"><div className="container-site workflow-editorial-grid"><div className="workflow-editorial-media"><video autoPlay muted loop playsInline preload="metadata" poster="/media/products/x60/x60-workflow.png" aria-label="NEXBODY X60 clinical posture assessment"><source src="/video/x60-clinical-workflow.mp4" type="video/mp4" /></video><div className="workflow-media-grade" /><span>X60 / POSTURE ASSESSMENT</span></div><div className="workflow-editorial-copy"><p className="cinematic-overline">{HOME_CONTENT.workflow.eyebrow}</p><h2 id="workflow-title">From capture to a conversation people can act on.</h2><div className="workflow-step-list">{HOME_CONTENT.workflow.items.map((item) => <article key={item.index}><span>{item.index}</span><div><small>{item.label}</small><h3>{item.title}</h3><p>{item.body}</p></div></article>)}</div></div></div></section>
 
-      <section className="ecosystem-section" id="products">
-        <div className="container-site ecosystem-heading"><div><p className="cinematic-overline">NEXBODY ECOSYSTEM</p><h2>Analyze gait;<br />Reveal foot biomechanics.</h2></div></div>
-        <div className="container-site ecosystem-grid">
-          {SUPPORTING_PRODUCTS.map((product) => <Link className="ecosystem-card" href={`/products/${product.slug}`} key={product.slug}><div className="ecosystem-media"><Image src={product.image} alt={product.name} fill sizes="(min-width: 900px) 50vw, 100vw" className="object-cover" /></div><div className="ecosystem-copy"><span>{supportingProductLabels[product.slug] ?? product.category}</span><h3>{product.shortName}</h3><p>{product.summary}</p><b>Explore system <ArrowRight aria-hidden="true" /></b></div></Link>)}
-        </div>
-      </section>
+      <section className="intelligence-section" aria-labelledby="intelligence-title"><div className="container-site intelligence-heading"><p className="cinematic-overline">{HOME_CONTENT.assessment.eyebrow}</p><h2 id="intelligence-title">{HOME_CONTENT.assessment.title}<br /><em>{HOME_CONTENT.assessment.accentTitle}</em></h2><p>Each view is shown in full, preserving the reporting interface and the context around every measurement.</p></div><div className="container-site intelligence-gallery">{HOME_CONTENT.assessment.views.map((view, index) => <article className={index === 0 ? "intelligence-panel intelligence-panel-featured" : "intelligence-panel"} key={view.label}><div className="intelligence-panel-media"><Image src={view.image} alt={`${view.label} assessment result`} fill sizes={index === 0 ? "(min-width: 900px) 70vw, 100vw" : "(min-width: 900px) 35vw, 100vw"} /></div><div className="intelligence-panel-copy"><span>0{index + 1} / {view.label}</span><h3>{view.title}</h3></div></article>)}</div></section>
 
-      <section className="cinematic-resources" id="consultation"><div className="container-site cinematic-resource-shell"><div><p className="cinematic-overline">PRODUCT CONSULTATION</p><h2>Build the right<br />assessment workflow.</h2></div><div className="cinematic-resource-links"><Link href="/contact"><span>Talk with our product team</span><ArrowRight aria-hidden="true" /></Link></div></div></section>
-      <section className="cinematic-final"><div className="container-site"><p className="cinematic-overline">SEE X60 IN YOUR WORKFLOW</p><h2>The next assessment<br />starts with a clearer view.</h2><Link href="/contact">Book a demonstration <ArrowRight aria-hidden="true" /></Link></div></section>
+      <section className="field-film-section" aria-label="NEXBODY product experience"><video autoPlay muted loop playsInline preload="metadata" poster="/media/products/f20/f20-lab-hero-branded.png"><source src="/video/f20-intro.mp4" type="video/mp4" /></video><div className="field-film-grade" /><div className="container-site field-film-copy"><p className="cinematic-overline">MEASUREMENT MADE TANGIBLE</p><h2>From the body<br />to a usable model.</h2><p>Purpose-built capture, clear visual reporting and outputs designed to continue into professional workflows.</p><Link href="/products/f20-foot-scanner">Explore F20 <ArrowRight aria-hidden="true" /></Link></div></section>
+
+      <section className="ecosystem-section" id="products"><div className="container-site ecosystem-heading"><div><p className="cinematic-overline">NEXBODY ECOSYSTEM</p><h2>One product family;<br />Multiple assessment paths.</h2></div></div><div className="container-site ecosystem-grid">{SUPPORTING_PRODUCTS.map((product) => <Link className="ecosystem-card" href={`/products/${product.slug}`} key={product.slug}><div className="ecosystem-media"><Image src={product.image} alt={product.name} fill sizes="(min-width: 900px) 50vw, 100vw" /></div><div className="ecosystem-copy"><span>{supportingProductLabels[product.slug] ?? product.category}</span><h3>{product.shortName}</h3><p>{product.summary}</p><b>Explore system <ArrowRight aria-hidden="true" /></b></div></Link>)}</div></section>
+
+      <section className="case-section" aria-labelledby="case-title"><div className="container-site case-heading"><div><p className="cinematic-overline">WORKFLOWS IN CONTEXT</p><h2 id="case-title">Designed around the moment the result is used.</h2></div><p>Existing product and environment assets now show how each system fits a professional setting, from intake to review and onward action.</p></div><div className="container-site case-grid">{HOME_CASES.map((item, index) => <article className={index === 0 ? "case-card case-card-wide" : "case-card"} key={item.id}><div className="case-card-media"><Image src={item.media.src} alt={item.media.alt} fill sizes={index === 0 ? "(min-width: 900px) 66vw, 100vw" : "(min-width: 900px) 34vw, 100vw"} /></div><div className="case-card-copy"><span>{item.context} / {item.product}</span><h3>{item.headline}</h3><p>{item.result}</p></div></article>)}</div></section>
+
+      <section className="industry-section" id="applications" aria-labelledby="industry-title"><div className="container-site industry-layout"><header><p className="cinematic-overline">{HOME_CONTENT.industries.eyebrow}</p><h2 id="industry-title">{HOME_CONTENT.industries.title}</h2><p>{HOME_CONTENT.industries.intro}</p></header><div className="industry-grid">{HOME_CONTENT.industries.items.map((item, index) => <article key={item.title}><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}</div></div></section>
+      <section className="service-section" aria-labelledby="service-title"><div className="container-site service-heading"><p className="cinematic-overline">{HOME_CONTENT.service.eyebrow}</p><h2 id="service-title">{HOME_CONTENT.service.title}</h2></div><div className="container-site service-grid">{HOME_CONTENT.service.items.map((item, index) => <article key={item.title}><span>0{index + 1}</span><div><h3>{item.title}</h3><p>{item.body}</p></div></article>)}</div></section>
+      <section className="faq-section" aria-labelledby="faq-title"><div className="container-site faq-layout"><header><p className="cinematic-overline">{HOME_CONTENT.faq.eyebrow}</p><h2 id="faq-title">{HOME_CONTENT.faq.title}</h2></header><div className="faq-list">{HOME_CONTENT.faq.items.map((item) => <details key={item.question}><summary>{item.question}</summary><p>{item.answer}</p></details>)}</div></div></section>
+      <section className="cinematic-resources" id="consultation"><div className="container-site cinematic-resource-shell"><div><p className="cinematic-overline">{HOME_CONTENT.cta.eyebrow}</p><h2>{HOME_CONTENT.cta.title}</h2><p className="cinematic-resource-body">{HOME_CONTENT.cta.body}</p></div><div className="cinematic-resource-links"><Link href={HOME_CONTENT.cta.buttonHref}><span>{HOME_CONTENT.cta.buttonLabel}</span><ArrowRight aria-hidden="true" /></Link></div></div></section>
+      <section className="cinematic-final"><div className="container-site"><p className="cinematic-overline">{HOME_CONTENT.finalCta.eyebrow}</p><h2>{HOME_CONTENT.finalCta.title}</h2><Link href={HOME_CONTENT.finalCta.buttonHref}>{HOME_CONTENT.finalCta.buttonLabel} <ArrowRight aria-hidden="true" /></Link></div></section>
     </div>
   );
 }

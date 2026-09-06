@@ -14,5 +14,6 @@ export const NAV_LINKS = [
 
 export const HOME_SECTION_LINKS = [
   { label: "X60", href: "/products/nexbody-x60" },
+  { label: "Applications", href: "/#applications" },
   { label: "Consultation", href: "/#consultation" },
 ] as const;

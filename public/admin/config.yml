@@ -1,5 +1,6 @@
 backend:
   name: proxy
+  proxy_url: http://localhost:8081/api/v1
   # When deploying to Vercel + GitHub, replace with:
   # name: github
   # repo: your-username/your-repo
@@ -14,8 +15,8 @@ public_folder: "/images/uploads"
 collections:
   # ── Site Settings ──────────────────────────────
   - name: "settings"
-    label: "⚙️ Site Settings"
-    description: "WhatsApp, email, social links — changes appear everywhere"
+    label: "⚙️ 全站设置"
+    description: "维护品牌名称、联系方式、导航和社交链接；保存后会应用到全站。"
     extension: "json"
     format: "json"
     create: false
@@ -24,47 +25,47 @@ collections:
       preview: false
     files:
       - name: "site-settings"
-        label: "Contact & Social"
+        label: "联系信息与社交账号"
         file: "content/site-settings.json"
         fields:
           - name: "siteName"
-            label: "Site Name"
+            label: "网站名称"
             widget: "string"
             default: "NEXBODY"
           - name: "tagline"
-            label: "Tagline"
+            label: "宣传短句"
             widget: "string"
             default: "See Your Body in a New Dimension"
           - name: "contactEmail"
-            label: "Contact Email"
+            label: "联系邮箱"
             widget: "string"
             default: "sales@nexbodyfit.com"
           - name: "whatsappNumber"
-            label: "WhatsApp Number (E.164)"
+            label: "WhatsApp号码（E.164格式）"
             widget: "string"
-            hint: "e.g. +971501234567. Leave placeholder to hide WhatsApp button."
+            hint: "例如 +971501234567；保留占位号码时前台不会显示 WhatsApp 按钮。"
             default: "+971000000000"
           - name: "nav"
-            label: "Navigation Links"
+            label: "导航链接"
             widget: "list"
             summary: "{{label}} → {{href}}"
             fields:
-              - { name: "label", label: "Label", widget: "string" }
-              - { name: "href", label: "URL", widget: "string" }
+              - { name: "label", label: "名称", widget: "string" }
+              - { name: "href", label: "链接", widget: "string" }
           - name: "socialLinks"
-            label: "Social Media Links"
+            label: "社交媒体链接"
             widget: "list"
             summary: "{{label}}: {{href}}"
             fields:
               - { name: "label", label: "Platform", widget: "string" }
-              - { name: "href", label: "URL", widget: "string" }
+              - { name: "href", label: "链接", widget: "string" }
               - { name: "icon", label: "Icon", widget: "string", hint: "linkedin | instagram | twitter" }
 
   # ── Products ──────────────────────────────────
   - name: "products"
-    label: "📦 Products"
-    label_singular: "Product"
-    description: "X60 / OneScan / F20 product specs, features, and images"
+    label: "📦 产品管理"
+    label_singular: "产品"
+    description: "维护 X60、OneScan、F20 的介绍、参数、图片和下载资料。"
     extension: "json"
     format: "json"
     create: false
@@ -73,7 +74,7 @@ collections:
       preview: false
     files:
       - name: "products"
-        label: "Product Catalog"
+        label: "产品目录"
         file: "content/products.json"
         fields:
           - name: "products"
@@ -81,53 +82,60 @@ collections:
             widget: "list"
             summary: "{{name}} — {{tagline}}"
             fields:
-              - { name: "slug", label: "Slug", widget: "string", hint: "nexbody-x60 | onescan-gait-analysis | f20-foot-scanner" }
-              - { name: "name", label: "Product Name", widget: "string" }
-              - { name: "shortName", label: "Short Name", widget: "string" }
-              - { name: "category", label: "Category", widget: "string" }
-              - { name: "priority", label: "Priority", widget: "select", options: ["flagship", "supporting"] }
-              - { name: "tagline", label: "Tagline", widget: "string" }
-              - { name: "summary", label: "Summary", widget: "text" }
-              - { name: "image", label: "Product Image", widget: "image" }
-              - { name: "heroImage", label: "Hero Image", widget: "image" }
-              - { name: "accent", label: "Accent", widget: "select", options: ["blue", "gold", "cyan"] }
+              - { name: "slug", label: "Slug", widget: "string", hint: "系统标识决定页面地址，已有产品不要修改。" }
+              - { name: "name", label: "产品名称", widget: "string" }
+              - { name: "shortName", label: "产品简称", widget: "string" }
+              - { name: "category", label: "产品类别", widget: "string" }
+              - { name: "priority", label: "展示级别", widget: "select", options: ["flagship", "supporting"] }
+              - { name: "tagline", label: "宣传短句", widget: "string" }
+              - { name: "summary", label: "产品简介", widget: "text" }
+              - { name: "image", label: "产品卡片图片", widget: "image" }
+              - { name: "heroImage", label: "产品页主图", widget: "image" }
+              - { name: "accent", label: "主题色", widget: "select", options: ["blue", "gold", "cyan"] }
               - name: "facts"
-                label: "Facts"
+                label: "核心卖点"
                 widget: "list"
-                field: { name: "entry", label: "Fact", widget: "string" }
+                field: { name: "entry", label: "卖点", widget: "string" }
               - name: "features"
-                label: "Features"
+                label: "功能列表"
                 widget: "list"
                 summary: "{{fields.entry}}"
-                field: { name: "entry", label: "Feature", widget: "string" }
+                field: { name: "entry", label: "功能说明", widget: "string" }
               - name: "specs"
-                label: "Specifications"
+                label: "规格参数"
                 widget: "list"
                 summary: "{{label}}: {{value}}"
                 fields:
-                  - { name: "label", label: "Label", widget: "string" }
+                  - { name: "label", label: "名称", widget: "string" }
                   - { name: "value", label: "Value", widget: "string" }
               - name: "highlights"
-                label: "Highlights"
+                label: "应用亮点"
                 widget: "list"
                 summary: "{{fields.entry}}"
-                field: { name: "entry", label: "Highlight", widget: "string" }
+                field: { name: "entry", label: "亮点", widget: "string" }
               - name: "reports"
-                label: "Report Types"
+                label: "报告类型"
                 widget: "list"
                 summary: "{{fields.entry}}"
-                field: { name: "entry", label: "Report Name", widget: "string" }
+                field: { name: "entry", label: "报告名称", widget: "string" }
               - name: "industries"
-                label: "Target Industries"
+                label: "适用行业"
                 widget: "list"
                 summary: "{{fields.entry}}"
-                field: { name: "entry", label: "Industry", widget: "string" }
+                field: { name: "entry", label: "行业", widget: "string" }
+              - name: "downloads"
+                label: "下载资料"
+                widget: "list"
+                required: false
+                fields:
+                  - { name: "label", label: "名称", widget: "string" }
+                  - { name: "href", label: "文件或链接", widget: "string" }
 
   # ── Customer Cases ────────────────────────────
   - name: "cases"
-    label: "📋 Use Cases"
-    label_singular: "Use case"
-    description: "Capability scenes shown on the homepage — not invented customer logos"
+    label: "📋 应用案例"
+    label_singular: "应用案例"
+    description: "维护首页展示的真实应用场景；未获授权时不要填写客户名称或 Logo。"
     extension: "json"
     format: "json"
     create: false
@@ -136,7 +144,7 @@ collections:
       preview: false
     files:
       - name: "cases"
-        label: "Customer Cases"
+        label: "案例列表"
         file: "content/cases.json"
         fields:
           - name: "cases"
@@ -145,25 +153,25 @@ collections:
             summary: "{{name}} — {{product}}"
             fields:
               - { name: "id", label: "ID", widget: "string" }
-              - { name: "name", label: "Use-case name", widget: "string" }
-              - { name: "context", label: "Context", widget: "string" }
-              - { name: "industry", label: "Industry", widget: "string" }
-              - { name: "product", label: "Product", widget: "select", options: ["Nexbody-X60", "OneScan", "F20"] }
-              - { name: "headline", label: "Headline", widget: "string" }
-              - { name: "need", label: "Need", widget: "text" }
-              - { name: "approach", label: "Approach", widget: "text" }
-              - { name: "result", label: "Result", widget: "text" }
+              - { name: "name", label: "案例名称", widget: "string" }
+              - { name: "context", label: "应用场景", widget: "string" }
+              - { name: "industry", label: "行业", widget: "string" }
+              - { name: "product", label: "产品", widget: "select", options: ["Nexbody-X60", "OneScan", "F20"] }
+              - { name: "headline", label: "案例标题", widget: "string" }
+              - { name: "need", label: "客户需求", widget: "text" }
+              - { name: "approach", label: "解决方式", widget: "text" }
+              - { name: "result", label: "应用结果", widget: "text" }
               - name: "media"
-                label: "Media"
+                label: "案例媒体"
                 widget: "object"
                 fields:
-                  - { name: "src", label: "Image", widget: "image", hint: "16:10 WebP" }
-                  - { name: "alt", label: "Alt Text", widget: "string" }
+                  - { name: "src", label: "图片", widget: "image", hint: "建议使用 16:10 的 WebP 图片，并填写图片说明。" }
+                  - { name: "alt", label: "图片说明", widget: "string" }
 
   # ── Homepage Content ──────────────────────────
   - name: "homepage"
-    label: "🏠 Homepage"
-    description: "Hero text, narrative beats, why chapters, trust values"
+    label: "🏠 首页内容"
+    description: "维护首页首屏、能力展示、行业、服务、FAQ 和行动按钮。"
     extension: "json"
     format: "json"
     create: false
@@ -171,60 +179,110 @@ collections:
     editor:
       preview: false
     files:
-      - name: "homepage-narrative"
-        label: "Narrative Beats & Metrics"
-        file: "content/homepage-narrative.json"
+      - name: "homepage-experience"
+        label: "首页主要内容"
+        file: "content/homepage.json"
         fields:
-          - name: "narrativeBeats"
-            label: "Narrative Beats"
-            widget: "list"
-            summary: "{{fields.entry}}"
-            field: { name: "entry", label: "Text", widget: "string" }
-          - name: "metrics"
-            label: "Metrics (Technology Section)"
-            widget: "list"
-            summary: "{{label}}: {{value}}{{suffix}}"
+          - name: "hero"
+            label: "首页首屏"
+            widget: "object"
             fields:
-              - { name: "label", label: "Name", widget: "string" }
-              - { name: "value", label: "Value", widget: "number", valueType: "float" }
-              - { name: "suffix", label: "Suffix", widget: "string", hint: "e.g. +, s, R" }
-      - name: "homepage-chapters"
-        label: "Why NEXBODY Chapters"
-        file: "content/homepage-chapters.json"
-        fields:
-          - name: "chapters"
-            label: "Chapters"
-            widget: "list"
-            summary: "{{eyebrow}}: {{title}}"
-            fields:
-              - { name: "id", label: "ID", widget: "string" }
-              - { name: "eyebrow", label: "Eyebrow", widget: "string" }
-              - { name: "title", label: "Title", widget: "string" }
-              - name: "blocks"
-                label: "Media Blocks"
+              - { name: "overline", label: "上方小标题", widget: "string" }
+              - { name: "title", label: "主标题", widget: "string" }
+              - { name: "accentTitle", label: "强调标题", widget: "string" }
+              - { name: "lead", label: "介绍文案", widget: "text" }
+              - name: "media"
+                label: "首屏轮播媒体"
                 widget: "list"
-                summary: "{{title}}"
+                min: 1
+                hint: "建议配置 3 条；少于 3 条时按实际数量展示，只有 1 条时不自动切换。图片会自动应用缓慢拉近效果。"
+                summary: "{{fields.type}} · {{fields.alt}}"
                 fields:
-                  - { name: "title", label: "Title", widget: "string" }
-                  - { name: "body", label: "Body", widget: "text" }
-                  - name: "media"
-                    label: "Media"
-                    widget: "object"
-                    fields:
-                      - { name: "src", label: "Image", widget: "image", hint: "16:10 WebP" }
-                      - { name: "fallback", label: "Fallback SVG", widget: "string" }
-                      - { name: "alt", label: "Alt Text", widget: "string" }
-                      - { name: "pending", label: "Image Pending?", widget: "boolean", default: true }
-                  - { name: "align", label: "Alignment", widget: "select", options: ["left", "right"] }
-      - name: "homepage-trust"
-        label: "Trust Values"
-        file: "content/homepage-trust.json"
-        fields:
-          - name: "trustValues"
-            label: "Trust Values"
-            widget: "list"
-            summary: "{{title}} [{{icon}}]"
+                  - name: "type"
+                    label: "媒体类型"
+                    widget: "select"
+                    options:
+                      - { label: "视频", value: "video" }
+                      - { label: "图片", value: "image" }
+                  - { name: "src", label: "视频或图片文件", widget: "file", hint: "视频建议上传 MP4；图片建议使用 16:9 横图。" }
+                  - { name: "poster", label: "视频封面图", widget: "image", required: false, hint: "仅视频使用；视频加载前显示。" }
+                  - { name: "alt", label: "内容说明", widget: "string", hint: "用于后台识别和无障碍说明。" }
+                  - { name: "duration", label: "停留时间（毫秒）", widget: "number", value_type: "int", min: 3000, default: 6500, hint: "例如 6500 表示 6.5 秒后切换。" }
+              - name: "primaryCta"
+                label: "主按钮"
+                widget: "object"
+                fields: [{ name: "label", label: "名称", widget: "string" }, { name: "href", label: "链接", widget: "string" }]
+              - name: "secondaryCta"
+                label: "次按钮"
+                widget: "object"
+                fields: [{ name: "label", label: "名称", widget: "string" }, { name: "href", label: "链接", widget: "string" }]
+              - { name: "statusItems", label: "能力标签", widget: "list", field: { name: "entry", label: "名称", widget: "string" } }
+          - name: "valuePillars"
+            label: "核心价值"
+            widget: "object"
             fields:
-              - { name: "title", label: "Title", widget: "string" }
-              - { name: "description", label: "Description", widget: "text" }
-              - { name: "icon", label: "Icon", widget: "select", options: ["Lock", "Microscope", "Award", "Shield"] }
+              - { name: "eyebrow", label: "引导小标题", widget: "string" }
+              - { name: "title", label: "标题", widget: "text" }
+              - name: "items"
+                label: "价值卡片"
+                widget: "list"
+                fields: [{ name: "title", label: "标题", widget: "string" }, { name: "body", label: "说明文案", widget: "text" }]
+          - name: "workflow"
+            label: "评估流程"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "引导小标题", widget: "string" }
+              - name: "items"
+                label: "流程步骤"
+                widget: "list"
+                fields: [{ name: "index", label: "序号", widget: "string" }, { name: "label", label: "名称", widget: "string" }, { name: "title", label: "标题", widget: "string" }, { name: "body", label: "说明文案", widget: "text" }]
+          - name: "assessment"
+            label: "报告视图"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "引导小标题", widget: "string" }
+              - { name: "title", label: "主标题", widget: "string" }
+              - { name: "accentTitle", label: "强调标题", widget: "string" }
+              - name: "views"
+                label: "视图列表"
+                widget: "list"
+                fields: [{ name: "label", label: "名称", widget: "string" }, { name: "title", label: "标题", widget: "string" }, { name: "image", label: "图片", widget: "image" }]
+          - name: "industries"
+            label: "应用行业"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "引导小标题", widget: "string" }
+              - { name: "title", label: "标题", widget: "text" }
+              - { name: "intro", label: "介绍文案", widget: "text" }
+              - name: "items"
+                label: "行业卡片"
+                widget: "list"
+                fields: [{ name: "title", label: "标题", widget: "string" }, { name: "body", label: "说明文案", widget: "text" }]
+          - name: "service"
+            label: "服务支持"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "引导小标题", widget: "string" }
+              - { name: "title", label: "标题", widget: "text" }
+              - name: "items"
+                label: "服务步骤"
+                widget: "list"
+                fields: [{ name: "title", label: "标题", widget: "string" }, { name: "body", label: "说明文案", widget: "text" }]
+          - name: "faq"
+            label: "FAQ"
+            widget: "object"
+            fields:
+              - { name: "eyebrow", label: "引导小标题", widget: "string" }
+              - { name: "title", label: "标题", widget: "text" }
+              - name: "items"
+                label: "问题列表"
+                widget: "list"
+                fields: [{ name: "question", label: "问题", widget: "string" }, { name: "answer", label: "答案", widget: "text" }]
+          - name: "cta"
+            label: "咨询行动区"
+            widget: "object"
+            fields: [{ name: "eyebrow", label: "引导小标题", widget: "string" }, { name: "title", label: "标题", widget: "string" }, { name: "body", label: "说明文案", widget: "text" }, { name: "buttonLabel", label: "按钮文字", widget: "string" }, { name: "buttonHref", label: "按钮链接", widget: "string" }]
+          - name: "finalCta"
+            label: "页尾行动区"
+            widget: "object"
+            fields: [{ name: "eyebrow", label: "引导小标题", widget: "string" }, { name: "title", label: "标题", widget: "string" }, { name: "buttonLabel", label: "按钮文字", widget: "string" }, { name: "buttonHref", label: "按钮链接", widget: "string" }]

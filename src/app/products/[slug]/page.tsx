@@ -43,6 +43,7 @@ export default async function ProductPage({ params }: Props) {
 
   const isF20 = product.slug === "f20-foot-scanner";
   const isOneScan = product.slug === "onescan-gait-analysis";
+  const isX60 = product.slug === "nexbody-x60";
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -81,6 +82,22 @@ export default async function ProductPage({ params }: Props) {
           <ul className="product-rule-list">{product.features.map((item) => <li key={item}>{item}</li>)}</ul>
         </div>
       </section>
+
+      {isX60 && (
+        <section className="product-video-story" aria-label="X60 AI vision camera">
+          <video autoPlay muted loop playsInline preload="metadata" poster="/media/products/x60/x60-hero.png"><source src="/video/x60-ai-vision.mp4" type="video/mp4" /></video>
+          <div className="product-video-story-grade" />
+          <div className="container-site product-video-story-copy"><p className="instrument-kicker">X60 / AI VISION</p><h2>See the capture system<br />behind the assessment.</h2><p>Depth vision supports landmark recognition and structured posture review while the professional remains in control of the final interpretation.</p></div>
+        </section>
+      )}
+
+      {isOneScan && (
+        <section className="product-video-story product-video-story-onescan" aria-label="OneScan gait assessment">
+          <video autoPlay muted loop playsInline preload="metadata" poster="/media/products/onescan/onescan-scene.png"><source src="/video/onescan-gait.mp4" type="video/mp4" /></video>
+          <div className="product-video-story-grade" />
+          <div className="container-site product-video-story-copy"><p className="instrument-kicker">ONESCAN / GAIT IN MOTION</p><h2>Pressure becomes<br />a movement record.</h2><p>The dedicated walkway captures plantar-pressure distribution, center-of-pressure trajectory and timing through the gait cycle.</p></div>
+        </section>
+      )}
 
       {isF20 && (
         <section className="f20-workflow-scene" aria-label="F20 scanning workflow in context">

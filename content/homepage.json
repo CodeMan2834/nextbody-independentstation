@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "overline": "NEXBODY X60 / BODY INTELLIGENCE STATION",
+    "title": "See the whole body;",
+    "accentTitle": "Know what comes next.",
+    "lead": "One guided assessment for posture, segmental body composition and neck-shoulder mobility.",
+    "media": [
+      {
+        "type": "video",
+        "src": "/video/x60-product-hero.mp4",
+        "poster": "/media/products/x60/x60-device.png",
+        "alt": "NEXBODY X60 product film",
+        "duration": 6500
+      },
+      {
+        "type": "video",
+        "src": "/video/x60-premium-film.mp4",
+        "poster": "/media/products/x60/x60-device.png",
+        "alt": "NEXBODY X60 assessment experience",
+        "duration": 6500
+      },
+      {
+        "type": "video",
+        "src": "/video/x60-ai-vision.mp4",
+        "poster": "/media/products/x60/x60-analysis.png",
+        "alt": "NEXBODY X60 AI vision workflow",
+        "duration": 6500
+      }
+    ],
+    "primaryCta": { "label": "Experience X60", "href": "/products/nexbody-x60" },
+    "secondaryCta": { "label": "Book a demonstration", "href": "/contact" },
+    "statusItems": ["3D DEPTH VISION", "8-ELECTRODE BIA", "GUIDED REPORTING"]
+  },
+  "valuePillars": {
+    "eyebrow": "BODY DATA / ONE CONTINUOUS RECORD",
+    "title": "Assessment becomes useful when every result leads to a clearer conversation.",
+    "items": [
+      { "title": "See the baseline", "body": "Bring posture, composition and mobility into one guided starting point that professionals can review with confidence." },
+      { "title": "Explain the finding", "body": "Turn complex measurements into visual reports that make progress and priorities easier to understand." },
+      { "title": "Track what changes", "body": "Keep comparable records across follow-up assessments, locations and the people responsible for the next action." }
+    ]
+  },
+  "workflow": {
+    "eyebrow": "X60 / GUIDED WORKFLOW",
+    "items": [
+      { "index": "01", "label": "CAPTURE", "title": "The body enters as a whole.", "body": "A guided session brings posture, segmental composition and neck-shoulder mobility into one controlled assessment." },
+      { "index": "02", "label": "RECONSTRUCT", "title": "Structure becomes measurable.", "body": "Depth vision maps anatomical landmarks while professionals retain control of the final review." },
+      { "index": "03", "label": "INTERPRET", "title": "Results become a next action.", "body": "A continuous record turns complex body data into findings that can be reviewed, explained and shared." }
+    ]
+  },
+  "assessment": {
+    "eyebrow": "ONE RECORD / THREE PROFESSIONAL VIEWS",
+    "title": "Data should feel less like output;",
+    "accentTitle": "More like understanding.",
+    "views": [
+      { "label": "Composition", "title": "Segmental body detail", "image": "/media/products/x60/x60-composition.png" },
+      { "label": "Posture", "title": "Alignment in context", "image": "/media/products/x60/x60-analysis.png" },
+      { "label": "Mobility", "title": "Movement made reviewable", "image": "/media/products/x60/x60-mobility.png" }
+    ]
+  },
+  "industries": {
+    "eyebrow": "WHO WE SERVE",
+    "title": "One platform, adapted to the people you assess.",
+    "intro": "Choose the assessment workflow around your service model, then configure reports and handoffs for the team using them.",
+    "items": [
+      { "title": "Fitness & wellness", "body": "Build structured onboarding and review moments around composition, posture and measurable progress." },
+      { "title": "Rehabilitation", "body": "Establish repeatable baselines and review posture or mobility changes across a program." },
+      { "title": "Sports performance", "body": "Combine whole-body assessment with dedicated gait and plantar-pressure workflows when movement detail matters." },
+      { "title": "Clinics & health programs", "body": "Give professionals consistent reports, configurable thresholds and practical ways to share findings." },
+      { "title": "Footwear & orthotics", "body": "Use full-foot morphology, arch classification and STL output to support fitting and customization." },
+      { "title": "Education & research", "body": "Create repeatable assessment records for teaching, screening and structured data collection." }
+    ]
+  },
+  "service": {
+    "eyebrow": "FROM DECISION TO DAILY USE",
+    "title": "A system is only complete when your team can operate it.",
+    "items": [
+      { "title": "Workflow consultation", "body": "Match the product and assessment scope to your facility, audience and reporting needs." },
+      { "title": "Deployment & training", "body": "Plan installation, onboarding and role-based use around the way your team already works." },
+      { "title": "Ongoing support", "body": "Keep devices, reporting and integrations aligned as locations and services expand." }
+    ]
+  },
+  "faq": {
+    "eyebrow": "COMMON QUESTIONS",
+    "title": "What teams ask before a demonstration.",
+    "items": [
+      { "question": "Which NEXBODY product fits our workflow?", "answer": "X60 brings posture, body composition and guided mobility together. OneScan focuses on gait and plantar pressure. F20 focuses on 3D full-foot morphology and STL output." },
+      { "question": "Can reports carry our organization identity?", "answer": "Supported reporting workflows include printing, email sharing and optional institution branding. Exact options depend on the selected product and deployment." },
+      { "question": "Can NEXBODY connect with other systems?", "answer": "Product workflows can support data interfaces, import and export. The integration scope is confirmed during product consultation." },
+      { "question": "Are the results a medical diagnosis?", "answer": "No. NEXBODY measurements and reports support professional assessment and review; they do not replace clinical diagnosis." }
+    ]
+  },
+  "cta": {
+    "eyebrow": "PRODUCT CONSULTATION",
+    "title": "Build the right assessment workflow.",
+    "body": "Tell us who you assess, what your team needs to understand and how the result should move through your operation.",
+    "buttonLabel": "Talk with our product team",
+    "buttonHref": "/contact"
+  },
+  "finalCta": {
+    "eyebrow": "SEE NEXBODY IN YOUR WORKFLOW",
+    "title": "The next assessment starts with a clearer view.",
+    "buttonLabel": "Book a demonstration",
+    "buttonHref": "/contact"
+  }
+}
