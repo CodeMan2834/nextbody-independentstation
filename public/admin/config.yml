@@ -39,7 +39,7 @@ collections:
           - name: "contactEmail"
             label: "联系邮箱"
             widget: "string"
-            default: "sales@nexbodyfit.com"
+            default: "info@nexbodyfit.com"
           - name: "whatsappNumber"
             label: "WhatsApp号码（E.164格式）"
             widget: "string"

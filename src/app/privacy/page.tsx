@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -32,7 +33,7 @@ export default function PrivacyPage() {
             </p>
             <h2 className="text-lg font-semibold text-[var(--text-primary)]">4. Contact Us</h2>
             <p>
-              If you have any questions about this Privacy Policy, please contact us at info@nexbody.com.
+              If you have any questions about this Privacy Policy, please contact us at {siteConfig.contactEmail}.
             </p>
           </div>
         </div>

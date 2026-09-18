@@ -33,15 +33,11 @@ export async function submitInquiry(
       return { success: false, error: firstError };
     }
 
-    if (process.env.RESEND_API_KEY) {
-      await sendInquiryEmail(parsed.data);
-    } else {
-      console.log("[Inquiry]", JSON.stringify(parsed.data, null, 2));
-    }
+    await sendInquiryEmail(parsed.data);
 
     return { success: true };
   } catch (error) {
-    console.error("[Inquiry Error]", error);
+    console.error("[Inquiry Error]", error instanceof Error ? error.message : "Email submission failed");
     return {
       success: false,
       error: "Something went wrong. Please try again or email us directly.",

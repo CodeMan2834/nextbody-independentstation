@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -29,7 +30,7 @@ export default function TermsPage() {
             </p>
             <h2 className="text-lg font-semibold text-[var(--text-primary)]">4. Contact</h2>
             <p>
-              For questions about these Terms, contact info@nexbody.com.
+              For questions about these Terms, contact {siteConfig.contactEmail}.
             </p>
           </div>
         </div>

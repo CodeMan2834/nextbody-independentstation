@@ -49,8 +49,12 @@ export async function sendInquiryEmail(data: InquiryEmailData) {
   };
 
   const resend = getResendClient();
+  const from = process.env.EMAIL_FROM?.trim();
+  if (!from) {
+    throw new Error("EMAIL_FROM is not configured");
+  }
   const result = await resend.emails.send({
-    from: process.env.EMAIL_FROM || `NEXBODY <info@nexbody.com>`,
+    from,
     to: process.env.EMAIL_TO || siteConfig.contactEmail,
     subject: `New Inquiry from ${fullName} — ${company}`,
     html: `
@@ -68,5 +72,12 @@ export async function sendInquiryEmail(data: InquiryEmailData) {
     replyTo: email,
   });
 
-  return result;
+  if (result.error) {
+    throw new Error(`Email provider rejected the inquiry (${result.error.name})`);
+  }
+  if (!result.data?.id) {
+    throw new Error("Email provider did not acknowledge the inquiry");
+  }
+
+  return result.data;
 }

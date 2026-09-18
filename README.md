@@ -52,7 +52,8 @@ cp .env.example .env.local
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | Yes (prod) | WhatsApp Business number in E.164 format |
 | `NEXT_PUBLIC_SITE_URL` | Yes | Canonical site URL for SEO |
 
-Without `RESEND_API_KEY`: forms succeed but inquiries are logged to the server console only (no email delivery).  
+`RESEND_API_KEY` and a verified `EMAIL_FROM` are required to submit inquiries. Missing configuration or a rejected provider response returns a form error instead of a success confirmation. The provider's acceptance does not guarantee inbox delivery; verify delivery in Resend and the receiving mailbox.
+
 Without a real WhatsApp number: the WhatsApp float button and "Continue on WhatsApp" link auto-hide.
 
 ### Development
