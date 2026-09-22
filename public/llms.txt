@@ -4,8 +4,8 @@ NEXBODY builds professional body-assessment systems: Nexbody-X60 (posture, compo
 
 ## Products
 - Nexbody-X60: 3D depth vision + eight-electrode composition + guided mobility. Height 0.8–2.0 m, weight 20–150 kg. Internal model R3.
-- OneScan: piezoresistive gait / plantar-pressure platforms in five lengths.
-- F20: synchronous 3D full-foot scanner with 30+ measurements and STL output.
+- OneScan: static plantar-pressure and dynamic gait assessment on piezoresistive platforms in five lengths, with 9,216–55,296 sensor contacts.
+- F20: synchronous 3D full-foot scanner with 30+ measurements, AI arch-index classification, STL output, and Chinese and English interfaces.
 
 ## Notes
 Assessment reports support professional review and are not a substitute for medical diagnosis.

@@ -71,7 +71,7 @@ export default async function ProductPage({ params }: Props) {
             <dl>{product.facts.map((fact, index) => <div key={fact}><dt>0{index + 1}</dt><dd>{fact}</dd></div>)}</dl>
           </div>
           <div className="product-detail-hero-media">
-            <Image src={product.heroImage} alt={product.name} fill priority sizes={isF20 ? "100vw" : "(min-width: 900px) 58vw, 100vw"} className={isF20 ? "object-cover object-center" : isOneScan ? "object-cover object-right" : "object-cover"} />
+            <Image src={product.heroImage} alt={product.name} fill priority sizes={isF20 ? "100vw" : "(min-width: 900px) 58vw, 100vw"} className={isF20 ? "object-cover object-center" : isOneScan ? "object-contain object-center" : "object-cover"} />
           </div>
         </div>
       </section>
@@ -101,7 +101,9 @@ export default async function ProductPage({ params }: Props) {
 
       {isF20 && (
         <section className="f20-workflow-scene" aria-label="F20 scanning workflow in context">
-          <Image src="/media/products/f20/f20-workflow-model.png" alt="Athlete standing on the NEXBODY F20 during a full-foot scan" fill sizes="100vw" />
+          <div className="f20-workflow-media">
+            <Image src={product.workflowImage || "/media/products/f20/f20-workflow-2026.webp"} alt="Athlete standing on the NEXBODY F20 during a full-foot scan" fill sizes="100vw" />
+          </div>
           <div className="f20-workflow-grade" />
           <div className="container-site f20-workflow-copy"><p className="instrument-kicker">Workflow in context</p><h2>From scan to<br />downstream action.</h2><p>Capture both feet together, review full-foot geometry, then deliver reports or STL models into the next professional workflow.</p></div>
         </section>

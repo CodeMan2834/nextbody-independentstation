@@ -56,10 +56,11 @@ test('missing API key returns failure without logging customer data or sending',
   }
 });
 
-test('missing verified sender returns failure without using the old fallback address', async () => {
-  const app = setup({ env: { EMAIL_FROM: '' } });
-  assert.equal((await app.submitInquiry(inquiry)).success, false);
-  assert.equal(app.calls.length, 0);
+test('the CMS contact is used even when legacy mail variables are missing', async () => {
+  const app = setup({ env: { EMAIL_FROM: '', EMAIL_TO: '' } });
+  assert.equal((await app.submitInquiry(inquiry)).success, true);
+  assert.equal(app.calls[0].from, 'NEXBODY <current@example.com>');
+  assert.equal(app.calls[0].to, 'current@example.com');
 });
 
 test('provider rejection and missing acknowledgement are failures', async () => {
@@ -77,12 +78,12 @@ test('network exception returns a safe form error', async () => {
   assert.ok(!result.error.includes('Network unavailable'));
 });
 
-test('accepted inquiry preserves configured recipients, customer reply address and escaped HTML', async () => {
+test('legacy mail variables cannot override the CMS contact; reply address and HTML are preserved', async () => {
   const app = setup();
   assert.equal((await app.submitInquiry(inquiry)).success, true);
   assert.equal(app.calls.length, 1);
-  assert.equal(app.calls[0].from, 'NEXBODY <inquiry@example.com>');
-  assert.equal(app.calls[0].to, 'sales@example.com');
+  assert.equal(app.calls[0].from, 'NEXBODY <current@example.com>');
+  assert.equal(app.calls[0].to, 'current@example.com');
   assert.equal(app.calls[0].replyTo, inquiry.email);
   assert.ok(app.calls[0].html.includes('&lt;script&gt;'));
 });

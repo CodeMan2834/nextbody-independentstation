@@ -40,6 +40,7 @@ collections:
             label: "联系邮箱"
             widget: "string"
             default: "info@nexbodyfit.com"
+            hint: "统一用于网站展示、询盘收件和询盘发件；邮箱须已开通，所属域名须在 Resend 验证。旧 EMAIL_TO / EMAIL_FROM 环境变量不再覆盖此配置。"
           - name: "whatsappNumber"
             label: "WhatsApp号码（E.164格式）"
             widget: "string"
@@ -90,7 +91,8 @@ collections:
               - { name: "tagline", label: "宣传短句", widget: "string" }
               - { name: "summary", label: "产品简介", widget: "text" }
               - { name: "image", label: "产品卡片图片", widget: "image" }
-              - { name: "heroImage", label: "产品页主图", widget: "image" }
+              - { name: "heroImage", label: "产品页主图", widget: "image", hint: "使用原始产品图，避免上传带整页排版文字的宣传册截图。" }
+              - { name: "workflowImage", label: "F20 工作流程图片", widget: "image", required: false, hint: "F20 产品页流程区配图，建议使用完整 16:9 场景图。" }
               - { name: "accent", label: "主题色", widget: "select", options: ["blue", "gold", "cyan"] }
               - name: "facts"
                 label: "核心卖点"

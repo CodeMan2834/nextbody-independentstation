@@ -47,12 +47,10 @@ cp .env.example .env.local
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `RESEND_API_KEY` | Yes (prod) | API key from [resend.com](https://resend.com) |
-| `EMAIL_FROM` | Yes (prod) | Verified sender address on Resend |
-| `EMAIL_TO` | Yes (prod) | Email that receives inquiries |
 | `NEXT_PUBLIC_WHATSAPP_NUMBER` | Yes (prod) | WhatsApp Business number in E.164 format |
 | `NEXT_PUBLIC_SITE_URL` | Yes | Canonical site URL for SEO |
 
-`RESEND_API_KEY` and a verified `EMAIL_FROM` are required to submit inquiries. Missing configuration or a rejected provider response returns a form error instead of a success confirmation. The provider's acceptance does not guarantee inbox delivery; verify delivery in Resend and the receiving mailbox.
+`RESEND_API_KEY` and a verified sending domain in Resend are required to submit inquiries. The public contact address, inquiry sender and recipient all use `contactEmail` in `content/site-settings.json` (currently `info@nexbodyfit.com`). This mailbox must be active; legacy `EMAIL_FROM` and `EMAIL_TO` environment variables are ignored so old addresses cannot silently override the CMS setting. Missing configuration or a rejected provider response returns a form error instead of a success confirmation. The provider's acceptance does not guarantee inbox delivery; verify delivery in Resend and the receiving mailbox.
 
 Without a real WhatsApp number: the WhatsApp float button and "Continue on WhatsApp" link auto-hide.
 
@@ -128,7 +126,7 @@ src/
 
 1. Fill and submit the form at `/contact`
 2. Verify redirect to `/success` with WhatsApp button
-3. Check `EMAIL_TO` inbox for the inquiry email (Reply-To matches customer email)
+3. Check the `contactEmail` inbox for the inquiry email (Reply-To matches customer email)
 4. Tap the green WhatsApp float → opens `wa.me` with pre-filled message
 
 ---

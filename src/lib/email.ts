@@ -49,13 +49,12 @@ export async function sendInquiryEmail(data: InquiryEmailData) {
   };
 
   const resend = getResendClient();
-  const from = process.env.EMAIL_FROM?.trim();
-  if (!from) {
-    throw new Error("EMAIL_FROM is not configured");
-  }
+  // Keep public contact, inquiry sender and recipient on the same CMS setting.
+  // Legacy EMAIL_FROM / EMAIL_TO values must not route inquiries to old mailboxes.
+  const contactEmail = siteConfig.contactEmail.trim();
   const result = await resend.emails.send({
-    from,
-    to: process.env.EMAIL_TO || siteConfig.contactEmail,
+    from: `NEXBODY <${contactEmail}>`,
+    to: contactEmail,
     subject: `New Inquiry from ${fullName} — ${company}`,
     html: `
       <h2>New NEXBODY Inquiry</h2>

@@ -1037,9 +1037,10 @@
 .product-detail-hero-copy dt { color: var(--detail-accent); font-size: 0.68rem; }
 .product-detail-hero-copy dd { margin-top: 0.35rem; color: #d5dee8; font-size: 0.78rem; line-height: 1.45; }
 .product-detail-hero-media { position: relative; min-height: 620px; overflow: hidden; background: #07101b; }
+.product-detail-gold .product-detail-hero-media { background: #e9e9e8; }
 .product-detail-hero-layout-scene { position: relative; display: block; min-height: calc(100svh - var(--header-height)); overflow: hidden; background: #05070b; }
 .product-detail-hero-layout-scene .product-detail-hero-media { position: absolute; inset: 0; min-height: 0; }
-.product-detail-hero-layout-scene .product-detail-hero-media img { object-fit: cover; object-position: center !important; }
+.product-detail-hero-layout-scene .product-detail-hero-media img { object-fit: contain; object-position: center !important; }
 .product-detail-hero-layout-scene .product-detail-hero-media::after { position: absolute; inset: 0; background: linear-gradient(90deg, #03060a 0%, rgba(3,6,10,.995) 37%, rgba(3,6,10,.82) 48%, rgba(3,6,10,.08) 70%), linear-gradient(0deg, rgba(3,6,10,0.58), transparent 32%); content: ""; }
 .product-detail-hero-layout-scene .product-detail-hero-copy { position: relative; z-index: 1; min-height: calc(100svh - var(--header-height)); width: min(48%, 700px); background: transparent; }
 .product-video-story { position: relative; min-height: min(82vh,820px); overflow: hidden; isolation: isolate; background: #03080d; }
@@ -1051,7 +1052,8 @@
 .product-video-story-onescan { --detail-accent: #d7cb32; }
 .product-video-story-onescan .instrument-kicker { color: #d7cb32; }
 .f20-workflow-scene { position: relative; min-height: min(78vh, 820px); overflow: hidden; isolation: isolate; background: #03070b; }
-.f20-workflow-scene > img { z-index: -2; object-fit: cover; object-position: center; }
+.f20-workflow-media { position: absolute; inset: 0; z-index: -2; }
+.f20-workflow-media img { object-fit: cover; object-position: center; }
 .f20-workflow-grade { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #03070b 0%, rgba(3,7,11,.995) 38%, rgba(3,7,11,.78) 49%, rgba(3,7,11,.04) 73%), linear-gradient(0deg, rgba(3,7,11,.55), transparent 38%); }
 .f20-workflow-copy { display: flex; min-height: min(78vh, 820px); flex-direction: column; justify-content: center; }
 .f20-workflow-copy h2 { max-width: 650px; margin-top: .8rem; font-size: clamp(3rem, 5vw, 5.7rem); font-weight: 500; letter-spacing: -.06em; line-height: .94; }
@@ -1081,10 +1083,10 @@
 .product-detail-cta p:not(.instrument-kicker) { margin-top: 1.1rem; color: var(--text-muted); }
 .product-detail-cta .instrument-button { margin-top: 2rem; }
 
-@media (max-width: 899px) {
+@media (max-width: 1199px) {
   .product-detail-hero-layout { grid-template-columns: 1fr; }
   .product-detail-hero-layout-scene { display: grid; min-height: 0; }
-  .product-detail-hero-layout-scene .product-detail-hero-media { position: relative; order: 1; display: block; min-height: 0; aspect-ratio: 1404 / 993; background: #05070b; }
+  .product-detail-hero-layout-scene .product-detail-hero-media { position: relative; order: 1; display: block; min-height: 0; aspect-ratio: 1672 / 941; background: #05070b; }
   .product-detail-hero-layout-scene .product-detail-hero-media img { object-fit: contain !important; object-position: center !important; }
   .product-detail-hero-layout-scene .product-detail-hero-media::after { display: none; }
   .product-detail-hero-layout-scene .product-detail-hero-copy { order: 2; min-height: 0; width: 100%; background: #070b11; }
@@ -1093,6 +1095,11 @@
   .product-detail-hero-layout-scene .product-detail-hero-media { min-height: 0; }
   .product-detail-gold .product-detail-hero-media { order: 1; min-height: 0; aspect-ratio: 1672 / 941; }
   .product-detail-gold .product-detail-hero-media img { object-fit: contain !important; object-position: center !important; }
+  .f20-workflow-scene { display: flex; flex-direction: column; min-height: 0; }
+  .f20-workflow-media { position: relative; inset: auto; z-index: 0; width: 100%; aspect-ratio: 1672 / 941; }
+  .f20-workflow-media img { object-fit: contain; }
+  .f20-workflow-grade { display: none; }
+  .f20-workflow-copy { min-height: 0; padding-block: 3rem; }
   .product-detail-two-column { grid-template-columns: 1fr; }
   .product-video-story,.product-video-story-copy { min-height: 70vh; }
   .product-video-story-grade { background: linear-gradient(180deg,rgba(3,8,13,.08) 25%,#03080d 78%); }

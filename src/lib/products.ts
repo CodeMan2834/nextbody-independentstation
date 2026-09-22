@@ -31,6 +31,7 @@ export interface ProductDefinition {
   summary: string;
   image: string;
   heroImage: string;
+  workflowImage?: string;
   accent: "blue" | "gold" | "cyan";
   facts: string[];
   features: string[];
