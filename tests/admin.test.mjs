@@ -97,3 +97,16 @@ test('runtime response omits secrets and production fallback cannot point to loc
   const res=await get(e)(request('https://nexbodyfit.com/api/admin/runtime'));const body=await res.text();assert.ok(!body.includes('test-secret'));assert.ok(!body.includes('localhost:'));const json=JSON.parse(body);assert.equal(json.enabled,e===env);assert.equal(json.mode,'github');
  }
 });
+
+test('publish completion prevents stale editing until content is reloaded',async()=>{
+ const elements=new Map();const handlers={};let reloads=0;
+ const element=id=>{if(!elements.has(id))elements.set(id,{hidden:false,open:false,listeners:{},addEventListener(name,fn){this.listeners[name]=fn;},showModal(){this.open=true;}});return elements.get(id);};
+ const configCopy=structuredClone(config);
+ const context={document:{getElementById:element,createElement:()=>({}),body:{appendChild:el=>el.onload()}},fetch:async path=>({ok:true,json:async()=>path.includes('runtime')?{enabled:true,mode:'github',message:'online',backend:{name:'github'}}:configCopy}),location:{origin:'https://nexbodyfit.com',reload:()=>reloads++},window:{NEXBODY_LOCALE:{}},CMS:{registerLocale(){},registerEventListener:e=>handlers[e.name]=e.handler,init(){}},NEXBODY_VALIDATION:{validate:()=>[]},setTimeout(){},localStorage:{},sessionStorage:{}};
+ vm.runInNewContext(fs.readFileSync(new URL('public/admin/admin.js',root),'utf8'),context);
+ await new Promise(resolve=>setImmediate(resolve));
+ await element('enter').listeners.click();
+ for(const name of ['postSave','postPublish']){assert.equal(typeof handlers[name],'function');handlers[name]();assert.equal(element('save-complete').open,true);assert.match(element('save-result').textContent,/GitHub/);}
+ let prevented=false;element('save-complete').listeners.cancel({preventDefault(){prevented=true;}});assert.equal(prevented,true);
+ element('reload-content').listeners.click();assert.equal(reloads,1);
+});

@@ -31,7 +31,12 @@ enter.addEventListener('click',async()=>{
       const errors=NEXBODY_VALIDATION.validate(entry.get('data').toJS(),file.fields,collection.name);
       if(errors.length){notify(errors.slice(0,6).join('\n'));throw Error(errors.slice(0,6).join('；'));}
     }});
-    CMS.registerEventListener({name:'postSave',handler:()=>notify(runtime.mode==='local'?'内容已保存到本机。请刷新本地前台检查；线上尚未更新。':'内容已提交。请等待部署成功并检查正式网站；保存成功不等于上线成功。')});
+    const saved=()=>{
+      const dialog=document.getElementById('save-complete');
+      document.getElementById('save-result').textContent=runtime.mode==='local'?'内容已保存到本机。请检查本地前台；线上尚未更新。':'内容已提交到 GitHub。请等待 Vercel 部署 Ready，再检查正式网站。';
+      if(!dialog.open)dialog.showModal();
+    };
+    for(const name of ['postSave','postPublish'])CMS.registerEventListener({name,handler:saved});
     CMS.init({config});
     document.getElementById('welcome').hidden=true;document.getElementById('admin-toolbar').hidden=false;
     document.getElementById('mode-label').textContent=runtime.message;
@@ -44,3 +49,6 @@ document.getElementById('logout').addEventListener('click',()=>{
   location.replace('/admin/index.html');
 });
 checkRuntime();
+
+document.getElementById('reload-content').addEventListener('click',()=>location.reload());
+document.getElementById('save-complete').addEventListener('cancel',event=>event.preventDefault());

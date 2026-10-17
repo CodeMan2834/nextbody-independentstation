@@ -2,6 +2,6 @@
 <html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>NEXBODY 内容管理</title><link rel="stylesheet" href="/admin/admin.css"></head><body>
 <header id="admin-toolbar" hidden><strong>NEXBODY 内容管理</strong><span id="mode-label"></span><a href="/" target="_blank" rel="noopener">查看网站</a><a href="/admin/manual.html" target="_blank" rel="noopener">维护手册</a><button id="logout" type="button">退出 / 结束编辑</button></header>
 <section id="welcome"><img src="/admin/brand.svg" width="240" height="48" alt="NEXBODY"><p class="eyebrow">网站内容维护</p><h1>让每一次更新，<br>清晰可控。</h1><p id="status" role="status">正在检查后台连接…</p><button id="enter" type="button" disabled>正在检查</button><button id="retry" type="button" hidden>重新检查</button><p class="note">保存内容与网站上线是两个步骤。发布后请核对部署结果，再检查电脑和手机页面。</p><a href="/admin/manual.html" target="_blank" rel="noopener">阅读维护使用手册 →</a></section>
-<div id="cms"></div><div id="notice" role="status" hidden></div>
+<dialog id="save-complete" aria-labelledby="save-title"><h2 id="save-title">本次内容已保存</h2><p id="save-result"></p><p>继续修改前，请重新载入最新内容，避免沿用旧编辑状态。</p><button id="reload-content" type="button">重新载入，继续维护</button></dialog><div id="cms"></div><div id="notice" role="status" hidden></div>
 <script>window.CMS_MANUAL_INIT=true;</script><script src="/admin/validation.js"></script><script src="/admin/locale-zh.js"></script><script src="/admin/admin.js"></script>
 </body></html>

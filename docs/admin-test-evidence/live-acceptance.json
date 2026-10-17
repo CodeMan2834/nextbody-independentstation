@@ -1,0 +1,15 @@
+{
+  "site": "https://nexbodyfit.com",
+  "date": "2026-10-17",
+  "auth": "owner GitHub OAuth login passed",
+  "cms_commit": "a42b006",
+  "restore_commit": "eafc86f",
+  "public_page": "/success",
+  "temporary_title_observed": true,
+  "original_title_observed_after_restore": "Thank You!",
+  "restore_method": "Git restore, commit, push",
+  "automated_tests": 18,
+  "local_browser_checks": 19,
+  "second_real_account_tested": false,
+  "real_email_sent": false
+}
