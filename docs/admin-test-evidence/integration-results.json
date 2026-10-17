@@ -1,0 +1,88 @@
+{
+  "time": "2026-10-17T09:52:08.061Z",
+  "base": "http://127.0.0.1:3097",
+  "project": "E:/nexbody/nextbody-independentstation",
+  "results": [
+    {
+      "name": "CMS form loads: settings",
+      "status": "passed"
+    },
+    {
+      "name": "CMS form loads: products",
+      "status": "passed"
+    },
+    {
+      "name": "CMS form loads: cases",
+      "status": "passed"
+    },
+    {
+      "name": "CMS form loads: homepage",
+      "status": "passed"
+    },
+    {
+      "name": "CMS form loads: pages",
+      "status": "passed"
+    },
+    {
+      "name": "Invalid CMS email blocked before persistence",
+      "status": "passed"
+    },
+    {
+      "name": "CMS UI publish -> JSON persistence -> homepage display",
+      "status": "passed"
+    },
+    {
+      "name": "Site navigation, header CTA, footer and social links update",
+      "status": "passed"
+    },
+    {
+      "name": "All 12 homepage content regions update",
+      "status": "passed"
+    },
+    {
+      "name": "Media upload -> proxy readback -> public asset",
+      "status": "passed"
+    },
+    {
+      "name": "All three product details, directory, taglines, stories and downloads update",
+      "status": "passed"
+    },
+    {
+      "name": "Fifth case is displayed (previous fixed four-case truncation removed)",
+      "status": "passed"
+    },
+    {
+      "name": "Independent pages: products, contact, success, privacy, terms update",
+      "status": "passed"
+    },
+    {
+      "name": "One/two/three image carousel, manual switching and image zoom",
+      "status": "passed"
+    },
+    {
+      "name": "Homepage layout desktop 1440px",
+      "status": "passed"
+    },
+    {
+      "name": "Homepage layout tablet 768px",
+      "status": "passed"
+    },
+    {
+      "name": "Homepage layout mobile 390px",
+      "status": "passed"
+    },
+    {
+      "name": "Logout clears CMS stored identity",
+      "status": "passed"
+    },
+    {
+      "name": "No browser runtime errors or failed HTTP resources in tested flows",
+      "status": "passed"
+    }
+  ],
+  "browserErrors": [],
+  "expectedValidationSignals": [],
+  "httpFailures": [],
+  "contentRestored": true,
+  "scope": "Local CMS and frontend integration. No real GitHub authorization, Vercel deployment or email transmission."
+}

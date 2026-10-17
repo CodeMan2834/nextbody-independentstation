@@ -11,7 +11,11 @@
       "image": "/media/products/x60/x60-front-white.png",
       "heroImage": "/media/products/x60/x60-device.png",
       "accent": "blue",
-      "facts": ["3D depth vision", "Eight-electrode analysis", "Guided mobility assessment"],
+      "facts": [
+        "3D depth vision",
+        "Eight-electrode analysis",
+        "Guided mobility assessment"
+      ],
       "features": [
         "Automatic anatomical landmark recognition with manual correction",
         "Posture angles, asymmetry indicators, risk levels and posture scoring",
@@ -21,16 +25,46 @@
         "Email sharing, printing, institution branding and data-interface upload"
       ],
       "specs": [
-        { "label": "Product model", "value": "R3 (customer-facing name: Nexbody-X60)" },
-        { "label": "Dimensions", "value": "2015 × 599 × 2120 mm" },
-        { "label": "Height range", "value": "0.8–2.0 m" },
-        { "label": "Weight range", "value": "20–150 kg" },
-        { "label": "Vision sensor", "value": "3D depth vision camera sensor" },
-        { "label": "Body composition", "value": "Eight-electrode analysis" },
-        { "label": "Assessment software", "value": "Android-based" },
-        { "label": "Languages", "value": "Chinese, English, French, Thai, Russian, Portuguese, Spanish and Ukrainian; additional languages customizable" },
-        { "label": "Reporting", "value": "Email sharing and printing" },
-        { "label": "Integration", "value": "Data interface upload supported" }
+        {
+          "label": "Product model",
+          "value": "R3 (customer-facing name: Nexbody-X60)"
+        },
+        {
+          "label": "Dimensions",
+          "value": "2015 × 599 × 2120 mm"
+        },
+        {
+          "label": "Height range",
+          "value": "0.8–2.0 m"
+        },
+        {
+          "label": "Weight range",
+          "value": "20–150 kg"
+        },
+        {
+          "label": "Vision sensor",
+          "value": "3D depth vision camera sensor"
+        },
+        {
+          "label": "Body composition",
+          "value": "Eight-electrode analysis"
+        },
+        {
+          "label": "Assessment software",
+          "value": "Android-based"
+        },
+        {
+          "label": "Languages",
+          "value": "Chinese, English, French, Thai, Russian, Portuguese, Spanish and Ukrainian; additional languages customizable"
+        },
+        {
+          "label": "Reporting",
+          "value": "Email sharing and printing"
+        },
+        {
+          "label": "Integration",
+          "value": "Data interface upload supported"
+        }
       ],
       "highlights": [
         "Forward head posture, head lateral tilt, uneven and rounded shoulders",
@@ -40,9 +74,26 @@
         "Configurable thresholds and data-cleaning functions",
         "Optional institution logo on reports"
       ],
-      "reports": ["Posture assessment", "Body composition analysis", "Neck and shoulder mobility"],
-      "industries": ["Rehabilitation centers", "Hospitals and clinics", "Fitness and wellness", "Sports performance", "Corporate health"],
-      "downloads": []
+      "reports": [
+        "Posture assessment",
+        "Body composition analysis",
+        "Neck and shoulder mobility"
+      ],
+      "industries": [
+        "Rehabilitation centers",
+        "Hospitals and clinics",
+        "Fitness and wellness",
+        "Sports performance",
+        "Corporate health"
+      ],
+      "downloads": [],
+      "story": {
+        "eyebrow": "X60 / AI VISION",
+        "title": "See the capture system behind the assessment.",
+        "body": "Depth vision supports landmark recognition and structured posture review while the professional remains in control of the final interpretation.",
+        "video": "/video/x60-ai-vision.mp4",
+        "poster": "/media/products/x60/x60-hero.png"
+      }
     },
     {
       "slug": "onescan-gait-analysis",
@@ -55,7 +106,11 @@
       "image": "/media/products/onescan/onescan-device-clean.png",
       "heroImage": "/media/products/onescan/onescan-scene.png",
       "accent": "gold",
-      "facts": ["Five platform lengths", "9,216–55,296 sensor contacts", "Static pressure & dynamic gait"],
+      "facts": [
+        "Five platform lengths",
+        "9,216–55,296 sensor contacts",
+        "Static pressure & dynamic gait"
+      ],
       "features": [
         "Static plantar-pressure and dynamic gait assessment",
         "High-density piezoresistive fence-type sensor matrix",
@@ -65,13 +120,34 @@
         "Optional integration with insole-customization data services"
       ],
       "specs": [
-        { "label": "OneScan50", "value": "565 × 490 × 25 mm · 9,216 contacts" },
-        { "label": "OneScan120", "value": "1200 × 580 × 28 mm · 27,648 contacts" },
-        { "label": "OneScan160", "value": "1605 × 580 × 28 mm · 36,864 contacts" },
-        { "label": "OneScan200", "value": "2000 × 580 × 28 mm · 46,080 contacts" },
-        { "label": "OneScan240", "value": "2040 × 580 × 28 mm · 55,296 contacts" },
-        { "label": "Sensor type", "value": "Piezoresistive fence sensor matrix" },
-        { "label": "Standard range", "value": ">200 N/cm²" }
+        {
+          "label": "OneScan50",
+          "value": "565 × 490 × 25 mm · 9,216 contacts"
+        },
+        {
+          "label": "OneScan120",
+          "value": "1200 × 580 × 28 mm · 27,648 contacts"
+        },
+        {
+          "label": "OneScan160",
+          "value": "1605 × 580 × 28 mm · 36,864 contacts"
+        },
+        {
+          "label": "OneScan200",
+          "value": "2000 × 580 × 28 mm · 46,080 contacts"
+        },
+        {
+          "label": "OneScan240",
+          "value": "2040 × 580 × 28 mm · 55,296 contacts"
+        },
+        {
+          "label": "Sensor type",
+          "value": "Piezoresistive fence sensor matrix"
+        },
+        {
+          "label": "Standard range",
+          "value": ">200 N/cm²"
+        }
       ],
       "highlights": [
         "Plantar-pressure distribution and center-of-pressure trajectory",
@@ -81,9 +157,26 @@
         "Sports injury and performance analysis",
         "Custom orthotic insole workflow support"
       ],
-      "reports": ["Dynamic gait", "Static plantar pressure", "Temporal and kinetic parameters"],
-      "industries": ["Clinical assessment", "Rehabilitation medicine", "Sports science", "University research", "Orthotic services"],
-      "downloads": []
+      "reports": [
+        "Dynamic gait",
+        "Static plantar pressure",
+        "Temporal and kinetic parameters"
+      ],
+      "industries": [
+        "Clinical assessment",
+        "Rehabilitation medicine",
+        "Sports science",
+        "University research",
+        "Orthotic services"
+      ],
+      "downloads": [],
+      "story": {
+        "eyebrow": "ONESCAN / GAIT IN MOTION",
+        "title": "Pressure becomes a movement record.",
+        "body": "The dedicated walkway captures plantar-pressure distribution, center-of-pressure trajectory and timing through the gait cycle.",
+        "video": "/video/onescan-gait.mp4",
+        "poster": "/media/products/onescan/onescan-scene.png"
+      }
     },
     {
       "slug": "f20-foot-scanner",
@@ -97,7 +190,11 @@
       "heroImage": "/media/products/f20/f20-capture-2026.webp",
       "workflowImage": "/media/products/f20/f20-workflow-2026.webp",
       "accent": "cyan",
-      "facts": ["Both feet captured together", "30+ full-foot parameters", "STL model output"],
+      "facts": [
+        "Both feet captured together",
+        "30+ full-foot parameters",
+        "STL model output"
+      ],
       "features": [
         "Synchronous 3D scanning of both feet",
         "More than 30 full-foot measurements including length, width and girth",
@@ -107,12 +204,30 @@
         "Cloud or local deployment with import, export and interface services"
       ],
       "specs": [
-        { "label": "Product", "value": "F20 3D Full Foot Scanner for Both Feet" },
-        { "label": "Languages", "value": "Chinese and English" },
-        { "label": "Measurements", "value": "More than 30 full-foot parameters" },
-        { "label": "3D output", "value": "STL foot-model download" },
-        { "label": "Deployment", "value": "Cloud computing or local deployment" },
-        { "label": "Data workflow", "value": "Bulk import/export and interface docking supported" }
+        {
+          "label": "Product",
+          "value": "F20 3D Full Foot Scanner for Both Feet"
+        },
+        {
+          "label": "Languages",
+          "value": "Chinese and English"
+        },
+        {
+          "label": "Measurements",
+          "value": "More than 30 full-foot parameters"
+        },
+        {
+          "label": "3D output",
+          "value": "STL foot-model download"
+        },
+        {
+          "label": "Deployment",
+          "value": "Cloud computing or local deployment"
+        },
+        {
+          "label": "Data workflow",
+          "value": "Bulk import/export and interface docking supported"
+        }
       ],
       "highlights": [
         "Foot type and arch classification",
@@ -122,9 +237,26 @@
         "Report comparison and printing",
         "Custom development and research-data support"
       ],
-      "reports": ["Foot type analysis", "Full-foot measurements", "Arch analysis"],
-      "industries": ["Sports rehabilitation", "Footwear C2M", "Custom orthotics", "Shoe retail", "Campus screening"],
-      "downloads": []
+      "reports": [
+        "Foot type analysis",
+        "Full-foot measurements",
+        "Arch analysis"
+      ],
+      "industries": [
+        "Sports rehabilitation",
+        "Footwear C2M",
+        "Custom orthotics",
+        "Shoe retail",
+        "Campus screening"
+      ],
+      "downloads": [],
+      "story": {
+        "eyebrow": "Workflow in context",
+        "title": "From scan to downstream action.",
+        "body": "Capture both feet together, review full-foot geometry, then deliver reports or STL models into the next professional workflow.",
+        "video": "",
+        "poster": ""
+      }
     }
   ]
 }

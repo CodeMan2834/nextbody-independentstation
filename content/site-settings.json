@@ -4,11 +4,32 @@
   "contactEmail": "info@nexbodyfit.com",
   "whatsappNumber": "+971000000000",
   "nav": [
-    { "label": "Products", "href": "/products" },
-    { "label": "Contact", "href": "/contact" }
+    {
+      "label": "Products",
+      "href": "/products"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
   ],
-  "socialLinks": [
-    { "label": "LinkedIn", "href": "https://linkedin.com/company/nextbody", "icon": "linkedin" },
-    { "label": "Instagram", "href": "https://instagram.com/nextbody", "icon": "instagram" }
-  ]
+  "socialLinks": [],
+  "homeNav": [
+    {
+      "label": "X60",
+      "href": "/products/nexbody-x60"
+    },
+    {
+      "label": "Applications",
+      "href": "/#applications"
+    },
+    {
+      "label": "Consultation",
+      "href": "/#consultation"
+    }
+  ],
+  "headerCta": {
+    "label": "Book a Demo",
+    "href": "/contact"
+  }
 }

@@ -1,3 +1,4 @@
+import { PAGE_CONTENT } from "@/lib/page-content";
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { InquiryForm } from "@/components/contact/InquiryForm";
@@ -22,8 +23,8 @@ export default function ContactPage() {
       <div className="container-site">
         <div className="mx-auto max-w-2xl">
           <SectionHeading
-            title="Get in Touch"
-            subtitle="Tell us about your clinic, gym or research lab. We'll prepare a tailored demo."
+            title={PAGE_CONTENT.contact.title}
+            subtitle={PAGE_CONTENT.contact.intro}
           />
 
           <p className="mt-4 text-center text-sm text-[var(--text-dim)]">

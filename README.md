@@ -26,7 +26,7 @@ NextBody produces professional body-assessment systems: **Nexbody-X60** (posture
 ## Getting Started
 
 ### Prerequisites
-- Node.js ≥ 18
+- Node.js ≥ 20.9 (use the version in `.nvmrc`)
 - npm
 
 ### Setup
@@ -143,3 +143,16 @@ See `docs/NEXTBODY-SITE-AUDIT.md` for current status and `docs/NEXTBODY-LAUNCH-C
 ---
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+
+## Website content administration
+
+See [the Chinese operations manual](docs/NEXBODY-后台维护使用手册.md) and `/admin/manual.html`.
+
+- Local editing: `npm run dev`, then `http://127.0.0.1:3000/admin/index.html`. The proxy binds to loopback. Saving changes local JSON files; production requires a Git commit and deployment.
+- Production editing: GitHub OAuth with repository push permission. Configure `CMS_AUTH_MODE=github`, `CMS_SITE_URL`, `CMS_GITHUB_REPO`, `CMS_GITHUB_BRANCH`, `CMS_GITHUB_CLIENT_ID`, `CMS_GITHUB_CLIENT_SECRET` in Vercel, then redeploy. Callback: `https://nexbodyfit.com/api/admin/callback`.
+- A production build never enables the local proxy backend. An unconfigured admin shows a setup message instead of a fake password gate.
+- `npm run validate:content` checks required fields, protected product IDs, resource paths and internal links. `npm run build` runs this check before Next.js compilation. Configure Vercel to use `npm run build`.
+- `npm test` covers CMS validation, OAuth failure/permission paths and inquiry email failure handling. Real OAuth, GitHub content commits, Vercel deployment and mailbox receipt require a separate live acceptance test.
+- Optional local browser tests: install Playwright and a supported browser, start the local site/CMS, then run `node scripts/test-admin-e2e.mjs`. The test only accepts loopback URLs, temporarily edits configured content and restores it in `finally`. Set `PLAYWRIGHT_MODULE_PATH` if using an external Playwright install, `PLAYWRIGHT_CHANNEL` for your installed browser, and `CMS_TEST_OUTPUT` for reports.
+- Operations can update five collections: site settings, homepage, products, cases and standalone pages. Layout, routes, new product types, default SEO, form logic, DNS and mail service credentials remain developer responsibilities.

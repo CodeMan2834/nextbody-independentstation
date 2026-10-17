@@ -5,11 +5,13 @@
   "scripts": {
     "dev": "node scripts/dev-with-cms.mjs",
     "dev:web": "next dev",
-    "dev:cms": "decap-server",
-    "build": "next build",
+    "dev:cms": "node scripts/start-cms.mjs",
+    "build": "node scripts/validate-content.mjs && next build",
     "start": "next start",
     "lint": "eslint",
-    "cms": "decap-server"
+    "cms": "node scripts/start-cms.mjs",
+    "validate:content": "node scripts/validate-content.mjs",
+    "test": "node --test tests/*.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

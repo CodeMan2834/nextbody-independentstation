@@ -1,3 +1,4 @@
+import { PAGE_CONTENT } from "@/lib/page-content";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2, MessageCircle } from "lucide-react";
@@ -23,12 +24,10 @@ export default function SuccessPage() {
           <CheckCircle2 className="size-8 text-[var(--brand-green)]" />
         </div>
         <h1 className="text-[clamp(28px,4vw,40px)] font-semibold tracking-[-0.03em]">
-          Thank You!
+          {PAGE_CONTENT.success.title}
         </h1>
         <p className="mx-auto mt-4 max-w-md text-[var(--text-muted)]">
-          Your inquiry has been submitted successfully. Our team will review
-          your information and get back to you within 24 hours — usually much
-          sooner during business hours.
+          {PAGE_CONTENT.success.body}
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

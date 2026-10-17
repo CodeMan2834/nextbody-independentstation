@@ -35,6 +35,7 @@ export function Footer() {
           </p>
         </div>
 
+        {siteConfig.socialLinks.length > 0 && <nav aria-label="Social media" className="flex flex-wrap gap-4">{siteConfig.socialLinks.map((item) => <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" className="hover:text-white">{item.label}</a>)}</nav>}
         <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Footer">
           {siteConfig.nav.map((item) => (
             <Link

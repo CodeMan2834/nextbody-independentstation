@@ -1,0 +1,67 @@
+[
+  {
+    "route": "/",
+    "status": 200
+  },
+  {
+    "route": "/products",
+    "status": 200
+  },
+  {
+    "route": "/products/nexbody-x60",
+    "status": 200
+  },
+  {
+    "route": "/products/onescan-gait-analysis",
+    "status": 200
+  },
+  {
+    "route": "/products/f20-foot-scanner",
+    "status": 200
+  },
+  {
+    "route": "/contact",
+    "status": 200
+  },
+  {
+    "route": "/success",
+    "status": 200
+  },
+  {
+    "route": "/privacy",
+    "status": 200
+  },
+  {
+    "route": "/terms",
+    "status": 200
+  },
+  {
+    "route": "/admin/index.html",
+    "status": 200
+  },
+  {
+    "route": "/admin/manual.html",
+    "status": 200
+  },
+  {
+    "name": "production without authorization is disabled",
+    "runtime": {
+      "enabled": false,
+      "mode": "github",
+      "message": "线上后台尚未启用。请由技术负责人配置 GitHub OAuth 和自动部署后交付；此页面不会连接访问者的 localhost。",
+      "backend": null
+    }
+  },
+  {
+    "route": "/api/admin/auth",
+    "status": 503
+  },
+  {
+    "route": "/api/admin/callback",
+    "status": 503
+  },
+  {
+    "name": "production admin explains missing setup and disables login",
+    "browserErrors": []
+  }
+]

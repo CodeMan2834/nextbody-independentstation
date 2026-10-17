@@ -43,7 +43,6 @@ export default async function ProductPage({ params }: Props) {
 
   const isF20 = product.slug === "f20-foot-scanner";
   const isOneScan = product.slug === "onescan-gait-analysis";
-  const isX60 = product.slug === "nexbody-x60";
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -63,7 +62,7 @@ export default async function ProductPage({ params }: Props) {
           <div className="product-detail-hero-copy">
             <p className="instrument-kicker">{product.category}</p>
             <h1>{product.shortName}</h1>
-            {!isOneScan && !isF20 && <p className="product-detail-tagline">{product.tagline}</p>}
+            <p className="product-detail-tagline">{product.tagline}</p>
             <p>{product.summary}</p>
             <div className="product-detail-actions">
               <Link href="/contact" className="instrument-button instrument-button-primary">Book a demo <ArrowRight aria-hidden="true" /></Link>
@@ -83,29 +82,21 @@ export default async function ProductPage({ params }: Props) {
         </div>
       </section>
 
-      {isX60 && (
-        <section className="product-video-story" aria-label="X60 AI vision camera">
-          <video autoPlay muted loop playsInline preload="metadata" poster="/media/products/x60/x60-hero.png"><source src="/video/x60-ai-vision.mp4" type="video/mp4" /></video>
+      {product.story.video && (
+        <section className={`product-video-story${isOneScan ? " product-video-story-onescan" : ""}`} aria-label={`${product.shortName} assessment workflow`}>
+          <video autoPlay muted loop playsInline preload="metadata" poster={product.story.poster}><source src={product.story.video} type="video/mp4" /></video>
           <div className="product-video-story-grade" />
-          <div className="container-site product-video-story-copy"><p className="instrument-kicker">X60 / AI VISION</p><h2>See the capture system<br />behind the assessment.</h2><p>Depth vision supports landmark recognition and structured posture review while the professional remains in control of the final interpretation.</p></div>
+          <div className="container-site product-video-story-copy"><p className="instrument-kicker">{product.story.eyebrow}</p><h2>{product.story.title}</h2><p>{product.story.body}</p></div>
         </section>
       )}
 
-      {isOneScan && (
-        <section className="product-video-story product-video-story-onescan" aria-label="OneScan gait assessment">
-          <video autoPlay muted loop playsInline preload="metadata" poster="/media/products/onescan/onescan-scene.png"><source src="/video/onescan-gait.mp4" type="video/mp4" /></video>
-          <div className="product-video-story-grade" />
-          <div className="container-site product-video-story-copy"><p className="instrument-kicker">ONESCAN / GAIT IN MOTION</p><h2>Pressure becomes<br />a movement record.</h2><p>The dedicated walkway captures plantar-pressure distribution, center-of-pressure trajectory and timing through the gait cycle.</p></div>
-        </section>
-      )}
-
-      {isF20 && (
+      {isF20 && !product.story.video && (
         <section className="f20-workflow-scene" aria-label="F20 scanning workflow in context">
           <div className="f20-workflow-media">
             <Image src={product.workflowImage || "/media/products/f20/f20-workflow-2026.webp"} alt="Athlete standing on the NEXBODY F20 during a full-foot scan" fill sizes="100vw" />
           </div>
           <div className="f20-workflow-grade" />
-          <div className="container-site f20-workflow-copy"><p className="instrument-kicker">Workflow in context</p><h2>From scan to<br />downstream action.</h2><p>Capture both feet together, review full-foot geometry, then deliver reports or STL models into the next professional workflow.</p></div>
+          <div className="container-site f20-workflow-copy"><p className="instrument-kicker">{product.story.eyebrow}</p><h2>{product.story.title}</h2><p>{product.story.body}</p></div>
         </section>
       )}
 
@@ -130,6 +121,7 @@ export default async function ProductPage({ params }: Props) {
         </div>
       </section>
 
+      {product.downloads?.length > 0 && <section className="product-detail-section"><div className="container-site"><h2>Downloads</h2><ul className="product-rule-list">{product.downloads.map((item) => <li key={item.href}><a href={item.href} target="_blank" rel="noopener noreferrer">{item.label} ↗</a></li>)}</ul></div></section>}
       <section className="product-detail-cta">
         <div className="container-site"><p className="instrument-kicker">Next step</p><h2>See {product.shortName} in the right workflow.</h2><p>Book a focused product demonstration with the NEXBODY team.</p><Link href="/contact" className="instrument-button instrument-button-primary">Book a demo <ArrowRight aria-hidden="true" /></Link></div>
       </section>

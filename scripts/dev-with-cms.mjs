@@ -1,10 +1,11 @@
 import { spawn } from "node:child_process";
 
 const children = [
-  spawn(process.execPath, ["node_modules/next/dist/bin/next", "dev"], {
+  spawn(process.execPath, ["node_modules/next/dist/bin/next", "dev", "--webpack", "--hostname", "127.0.0.1", "--port", process.env.PORT || "3000"], {
     stdio: "inherit",
   }),
   spawn(process.execPath, ["node_modules/decap-server/dist/index.js"], {
+    env: { ...process.env, PORT: process.env.CMS_LOCAL_PORT || "8081", BIND_HOST: "127.0.0.1", MODE: "fs" },
     stdio: "inherit",
   }),
 ];

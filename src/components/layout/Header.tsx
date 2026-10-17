@@ -1,5 +1,6 @@
 "use client";
 
+import { siteConfig } from "@/lib/site-config";
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -41,7 +42,7 @@ export function Header() {
             className="group shrink-0 text-lg font-semibold tracking-[-0.03em] text-[var(--text-primary)] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:opacity-90"
           >
             <span className="text-white transition-colors duration-300 group-hover:text-[var(--brand-accent)]">
-              NEXBODY
+              {siteConfig.siteName}
             </span>
           </Link>
 
@@ -56,12 +57,12 @@ export function Header() {
 
           <div className="flex items-center justify-end gap-2 sm:gap-3">
             <CTAPrimary
-              href="/contact"
+              href={siteConfig.headerCta.href}
               size="sm"
               className="hidden sm:inline-flex"
               icon={false}
             >
-              Book a Demo
+              {siteConfig.headerCta.label}
             </CTAPrimary>
 
             <button

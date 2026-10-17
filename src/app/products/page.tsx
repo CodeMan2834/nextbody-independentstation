@@ -1,3 +1,4 @@
+import { PAGE_CONTENT } from "@/lib/page-content";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,9 +15,9 @@ export default function ProductsPage() {
     <div className="product-index page-shell">
       <div className="container-site">
         <header className="product-index-header">
-          <p className="instrument-kicker">NEXBODY instruments</p>
-          <h1>One assessment family. Clear product boundaries.</h1>
-          <p>X60 leads the system. OneScan and F20 add dedicated gait and full-foot morphology workflows where the assessment calls for different hardware.</p>
+          <p className="instrument-kicker">{PAGE_CONTENT.products.eyebrow}</p>
+          <h1>{PAGE_CONTENT.products.title}</h1>
+          <p>{PAGE_CONTENT.products.intro}</p>
         </header>
 
         <article className="flagship-card">
@@ -26,10 +27,10 @@ export default function ProductsPage() {
             <p className="product-tagline">{FLAGSHIP_PRODUCT.tagline}</p>
             <p>{FLAGSHIP_PRODUCT.summary}</p>
             <ul>{FLAGSHIP_PRODUCT.facts.map((fact) => <li key={fact}>{fact}</li>)}</ul>
-            <Link href={`/products/${FLAGSHIP_PRODUCT.slug}`}>Explore X60 <ArrowRight aria-hidden="true" /></Link>
+            <Link href={`/products/${FLAGSHIP_PRODUCT.slug}`}>Explore {FLAGSHIP_PRODUCT.shortName} <ArrowRight aria-hidden="true" /></Link>
           </div>
           <div className="flagship-card-media">
-            <Image src="/media/products/x60/x60-device.png" alt={FLAGSHIP_PRODUCT.name} fill priority sizes="(min-width: 900px) 58vw, 100vw" className="object-cover" />
+            <Image src={FLAGSHIP_PRODUCT.image} alt={FLAGSHIP_PRODUCT.name} fill priority sizes="(min-width: 900px) 58vw, 100vw" className="object-cover" />
           </div>
         </article>
 

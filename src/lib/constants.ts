@@ -1,3 +1,4 @@
+import { siteConfig } from "./site-config";
 export const SITE = {
   name: "NEXBODY",
   title: "NEXBODY — Precision Body Assessment, Reimagined",
@@ -7,13 +8,6 @@ export const SITE = {
   locale: "en",
 } as const;
 
-export const NAV_LINKS = [
-  { label: "Products", href: "/products" },
-  { label: "Contact", href: "/contact" },
-] as const;
+export const NAV_LINKS = siteConfig.nav;
 
-export const HOME_SECTION_LINKS = [
-  { label: "X60", href: "/products/nexbody-x60" },
-  { label: "Applications", href: "/#applications" },
-  { label: "Consultation", href: "/#consultation" },
-] as const;
+export const HOME_SECTION_LINKS = siteConfig.homeNav;

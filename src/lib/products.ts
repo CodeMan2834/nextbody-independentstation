@@ -32,6 +32,7 @@ export interface ProductDefinition {
   image: string;
   heroImage: string;
   workflowImage?: string;
+  story: { eyebrow: string; title: string; body: string; video: string; poster: string };
   accent: "blue" | "gold" | "cyan";
   facts: string[];
   features: string[];

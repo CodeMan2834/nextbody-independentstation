@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "public/admin/decap-cms.js",
+    "public/admin/locale-zh.js",
   ]),
 ]);
 
