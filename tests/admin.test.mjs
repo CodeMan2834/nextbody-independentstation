@@ -92,7 +92,7 @@ test('OAuth denies repository read-only users, provider rejection and network er
  }
 });
 test('runtime response omits secrets and production fallback cannot point to localhost',async()=>{
- const get=environment=>load('src/app/api/admin/runtime/route.ts',{'@/lib/admin-auth':{...auth,adminSettings:()=>auth.adminSettings(environment),localEditingAllowed:u=>auth.localEditingAllowed(u,environment)}},{process:{env:environment}}).GET;
+ const get=environment=>load('src/app/api/admin/runtime/route.ts',{'next/server':{NextResponse:FakeResponse},'@/lib/admin-auth':{...auth,adminSettings:()=>auth.adminSettings(environment),localEditingAllowed:u=>auth.localEditingAllowed(u,environment)}},{process:{env:environment}}).GET;
  for(const e of [{NODE_ENV:'production'},env]){
   const res=await get(e)(request('https://nexbodyfit.com/api/admin/runtime'));const body=await res.text();assert.ok(!body.includes('test-secret'));assert.ok(!body.includes('localhost:'));const json=JSON.parse(body);assert.equal(json.enabled,e===env);assert.equal(json.mode,'github');
  }
