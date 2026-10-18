@@ -1,0 +1,125 @@
+TAP version 13
+# Subtest: all five CMS collections validate existing content
+ok 1 - all five CMS collections validate existing content
+  ---
+  duration_ms: 9.5038
+  ...
+# Subtest: protected products cannot be removed, duplicated, renamed or demoted
+ok 2 - protected products cannot be removed, duplicated, renamed or demoted
+  ---
+  duration_ms: 3.121
+  ...
+# Subtest: dangerous links, invalid addresses and external image URLs fail
+ok 3 - dangerous links, invalid addresses and external image URLs fail
+  ---
+  duration_ms: 2.4165
+  ...
+# Subtest: hero supports one, two and three valid media; rejects empty list, wrong types, missing cover and invalid duration
+ok 4 - hero supports one, two and three valid media; rejects empty list, wrong types, missing cover and invalid duration
+  ---
+  duration_ms: 3.0231
+  ...
+# Subtest: empty social/download lists are valid and duplicate case IDs are rejected
+ok 5 - empty social/download lists are valid and duplicate case IDs are rejected
+  ---
+  duration_ms: 1.661
+  ...
+# Subtest: production never enables local editing, including a localhost URL
+ok 6 - production never enables local editing, including a localhost URL
+  ---
+  duration_ms: 1.0087
+  ...
+# Subtest: OAuth start rejects unconfigured requests and issues secure bounded state when configured
+ok 7 - OAuth start rejects unconfigured requests and issues secure bounded state when configured
+  ---
+  duration_ms: 44.4671
+  ...
+# Subtest: OAuth missing or incorrect state and wrong origin never exchange a token
+ok 8 - OAuth missing or incorrect state and wrong origin never exchange a token
+  ---
+  duration_ms: 22.0063
+  ...
+# Subtest: OAuth returns token only after checking repository push permission, and clears state
+ok 9 - OAuth returns token only after checking repository push permission, and clears state
+  ---
+  duration_ms: 18.3928
+  ...
+# Subtest: OAuth denies repository read-only users, provider rejection and network errors without leaking tokens
+ok 10 - OAuth denies repository read-only users, provider rejection and network errors without leaking tokens
+  ---
+  duration_ms: 77.4445
+  ...
+# Subtest: runtime response omits secrets and production fallback cannot point to localhost
+ok 11 - runtime response omits secrets and production fallback cannot point to localhost
+  ---
+  duration_ms: 68.3862
+  ...
+# Subtest: publish completion prevents stale editing until content is reloaded
+ok 12 - publish completion prevents stale editing until content is reloaded
+  ---
+  duration_ms: 25.129
+  ...
+# Subtest: malformed CMS lists report errors instead of crashing the editor
+ok 13 - malformed CMS lists report errors instead of crashing the editor
+  ---
+  duration_ms: 11.5471
+  ...
+# Subtest: dead links, unknown anchors and encoded traversal are blocked before save
+ok 14 - dead links, unknown anchors and encoded traversal are blocked before save
+  ---
+  duration_ms: 2.189
+  ...
+# Subtest: SEO fields can fall back but reject oversized search snippets
+ok 15 - SEO fields can fall back but reject oversized search snippets
+  ---
+  duration_ms: 1.3418
+  ...
+# Subtest: product lookup cannot resolve inherited object properties
+ok 16 - product lookup cannot resolve inherited object properties
+  ---
+  duration_ms: 33.0868
+  ...
+# Subtest: missing API key returns failure without logging customer data or sending
+ok 17 - missing API key returns failure without logging customer data or sending
+  ---
+  duration_ms: 205.6274
+  ...
+# Subtest: the CMS contact is used even when legacy mail variables are missing
+ok 18 - the CMS contact is used even when legacy mail variables are missing
+  ---
+  duration_ms: 67.3637
+  ...
+# Subtest: provider rejection and missing acknowledgement are failures
+ok 19 - provider rejection and missing acknowledgement are failures
+  ---
+  duration_ms: 115.6711
+  ...
+# Subtest: network exception returns a safe form error
+ok 20 - network exception returns a safe form error
+  ---
+  duration_ms: 34.0471
+  ...
+# Subtest: legacy mail variables cannot override the CMS contact; reply address and HTML are preserved
+ok 21 - legacy mail variables cannot override the CMS contact; reply address and HTML are preserved
+  ---
+  duration_ms: 31.8634
+  ...
+# Subtest: invalid customer data never reaches the email provider
+ok 22 - invalid customer data never reaches the email provider
+  ---
+  duration_ms: 24.0766
+  ...
+# Subtest: inquiry rejects oversized, whitespace-only and header-control input without sending
+ok 23 - inquiry rejects oversized, whitespace-only and header-control input without sending
+  ---
+  duration_ms: 184.393
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1908.7031
