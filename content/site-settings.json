@@ -1,8 +1,8 @@
 {
-  "siteName": "NEXBODY",
-  "tagline": "Precision Body Assessment, Reimagined.",
-  "contactEmail": "info@nexbodyfit.com",
-  "whatsappNumber": "+971000000000",
+  "headerCta": {
+    "label": "Book a Demo NOW",
+    "href": "/contact"
+  },
   "nav": [
     {
       "label": "Products",
@@ -13,7 +13,6 @@
       "href": "/contact"
     }
   ],
-  "socialLinks": [],
   "homeNav": [
     {
       "label": "X60",
@@ -28,12 +27,13 @@
       "href": "/#consultation"
     }
   ],
-  "headerCta": {
-    "label": "Book a Demo NOW",
-    "href": "/contact"
-  },
+  "socialLinks": [],
+  "tagline": "Precision Body Assessment, Reimagined.",
+  "siteName": "NEXBODY",
+  "whatsappNumber": "+971000000000",
+  "contactEmail": "info@nexbodyfit.com",
   "seo": {
-    "title": "3D Body Assessment, Gait Analysis & Foot Scanners | NEXBODY",
+    "title": "3D Body Assessment Systems, Gait Analysis & Foot Scanners | NEXBODY",
     "description": "Explore NEXBODY X60 body composition and posture assessment, OneScan gait and plantar pressure analysis, and F20 3D foot scanning. Book a product demonstration."
   }
 }
