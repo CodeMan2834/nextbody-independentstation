@@ -1,7 +1,7 @@
 "use client";
 
 import { siteConfig } from "@/lib/site-config";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
@@ -17,6 +17,7 @@ const iconButtonClass =
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const closeMobile = useCallback(() => setMobileOpen(false), []);
   const scrolled = useHeaderScroll();
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -80,7 +81,7 @@ export function Header() {
 
       <MobileNav
         open={mobileOpen}
-        onClose={() => setMobileOpen(false)}
+        onClose={closeMobile}
         links={centerLinks}
       />
     </>

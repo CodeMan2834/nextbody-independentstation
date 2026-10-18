@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useRef } from "react";
+import { siteConfig } from "@/lib/site-config";
 import { usePathname } from "next/navigation";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -22,11 +24,32 @@ const iconButtonClass =
 
 export function MobileNav({ open, onClose, links }: MobileNavProps) {
   const pathname = usePathname();
+  const panelRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.activeElement as HTMLElement | null;
+    const overflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const focusable = () => Array.from(panelRef.current?.querySelectorAll<HTMLElement>('a[href],button:not([disabled])') || []);
+    focusable()[0]?.focus();
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { event.preventDefault(); onClose(); }
+      if (event.key === "Tab") {
+        const items = focusable(), first = items[0], last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); }
+      }
+    };
+    const onResize = () => { if (window.innerWidth >= 1024) onClose(); };
+    document.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
+    return () => { document.body.style.overflow = overflow; document.removeEventListener("keydown", onKey); window.removeEventListener("resize", onResize); previous?.focus(); };
+  }, [open, onClose]);
 
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[60] lg:hidden" role="dialog" aria-modal="true">
+    <div ref={panelRef} className="fixed inset-0 z-[60] lg:hidden" role="dialog" aria-modal="true" aria-label="Navigation menu">
       <div
         className="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity"
         onClick={onClose}
@@ -74,8 +97,8 @@ export function MobileNav({ open, onClose, links }: MobileNavProps) {
         </nav>
 
         <div className="mt-auto space-y-3 pt-8">
-          <CTAPrimary href="/contact" className="w-full justify-center" icon={false}>
-            Book a Demo
+          <CTAPrimary href={siteConfig.headerCta.href} onClick={onClose} className="w-full justify-center" icon={false}>
+            {siteConfig.headerCta.label}
           </CTAPrimary>
         </div>
       </div>

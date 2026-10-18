@@ -110,3 +110,23 @@ test('publish completion prevents stale editing until content is reloaded',async
  let prevented=false;element('save-complete').listeners.cancel({preventDefault(){prevented=true;}});assert.equal(prevented,true);
  element('reload-content').listeners.click();assert.equal(reloads,1);
 });
+
+test('malformed CMS lists report errors instead of crashing the editor',()=>{
+ for(const name of ['settings','products','cases','homepage']){
+  const {data,fields}=content(name);const key={settings:'socialLinks',products:'products',cases:'cases',homepage:'hero'}[name];
+  for(const value of [null,{},[null]]){const d=structuredClone(data);d[key]=name==='homepage'?{...d.hero,media:value}:value;assert.doesNotThrow(()=>validate(d,fields,name));if(!(['settings','cases'].includes(name)&&value===null))assert.ok(validate(d,fields,name).length,name);}
+ }
+});
+test('dead links, unknown anchors and encoded traversal are blocked before save',()=>{
+ const {data,fields}=content('settings');
+ for(const href of ['/missing-page','#missing-anchor','/#missing-anchor','/%2e%2e/secret','/%2fexternal.example/path','/%5cserver/path']){const d=structuredClone(data);d.nav[0].href=href;assert.ok(validate(d,fields,'settings').length,href);}
+ const d=structuredClone(data);d.nav[0].href='/#applications';assert.deepEqual(validate(d,fields,'settings'),[]);
+});
+test('SEO fields can fall back but reject oversized search snippets',()=>{
+ const {data,fields}=content('settings');const d=structuredClone(data);d.seo={title:'',description:''};assert.deepEqual(validate(d,fields,'settings'),[]);
+ d.seo.title='x'.repeat(121);assert.ok(validate(d,fields,'settings').length);d.seo={title:'NEXBODY',description:'x'.repeat(401)};assert.ok(validate(d,fields,'settings').length);
+});
+test('product lookup cannot resolve inherited object properties',()=>{
+ const productModule=load('src/lib/products.ts',{'../../content/products.json':{default:JSON.parse(fs.readFileSync(new URL('content/products.json',root)))},'../../content/cases.json':{default:JSON.parse(fs.readFileSync(new URL('content/cases.json',root)))}});
+ for(const slug of ['toString','constructor','__proto__','hasOwnProperty'])assert.equal(productModule.PRODUCTS[slug],undefined);assert.equal(productModule.PRODUCT_LIST.length,3);
+});

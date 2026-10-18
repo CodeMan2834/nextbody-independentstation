@@ -93,3 +93,8 @@ test('invalid customer data never reaches the email provider', async () => {
   assert.equal((await app.submitInquiry({ ...inquiry, email: 'invalid' })).success, false);
   assert.equal(app.calls.length, 0);
 });
+
+test('inquiry rejects oversized, whitespace-only and header-control input without sending',async()=>{
+ for(const invalid of [{fullName:' '.repeat(8)},{company:'  '},{fullName:'Customer\r\nBcc: other@example.com'},{fullName:'x'.repeat(121)},{company:'x'.repeat(201)},{phone:'1'.repeat(41)},{message:'x'.repeat(5001)}]){const app=setup();assert.equal((await app.submitInquiry({...inquiry,...invalid})).success,false);assert.equal(app.calls.length,0);}
+ const app=setup();assert.equal((await app.submitInquiry({...inquiry,fullName:'  Test Customer  ',email:' customer@example.com '})).success,true);assert.equal(app.calls[0].replyTo,'customer@example.com');
+});

@@ -22,6 +22,7 @@ export interface SiteSocialLink {
 export interface SiteConfig {
   siteName: string;
   tagline: string;
+  seo?: { title?: string; description?: string };
   contactEmail: string;
   /** E.164 preferred, e.g. +971501234567 */
   whatsappNumber: string;
@@ -36,6 +37,7 @@ const DEFAULT_WHATSAPP = "+971000000000";
 export const siteConfig: SiteConfig = {
   siteName: siteSettings.siteName,
   tagline: siteSettings.tagline,
+  seo: siteSettings.seo,
   contactEmail: siteSettings.contactEmail,
   whatsappNumber:
     process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim() ||
@@ -44,7 +46,7 @@ export const siteConfig: SiteConfig = {
   nav: siteSettings.nav as SiteNavItem[],
   homeNav: siteSettings.homeNav,
   headerCta: siteSettings.headerCta,
-  socialLinks: siteSettings.socialLinks as SiteSocialLink[],
+  socialLinks: (siteSettings.socialLinks || []) as SiteSocialLink[],
 };
 
 /** Digits only — required by wa.me */

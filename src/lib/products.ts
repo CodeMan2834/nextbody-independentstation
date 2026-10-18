@@ -29,6 +29,7 @@ export interface ProductDefinition {
   priority: "flagship" | "supporting";
   tagline: string;
   summary: string;
+  seo?: { title?: string; description?: string };
   image: string;
   heroImage: string;
   workflowImage?: string;
@@ -44,9 +45,9 @@ export interface ProductDefinition {
 }
 
 function buildProducts(): Record<ProductSlug, ProductDefinition> {
-  return Object.fromEntries(
+  return Object.assign(Object.create(null), Object.fromEntries(
     productsData.products.map((product) => [product.slug, product])
-  ) as unknown as Record<ProductSlug, ProductDefinition>;
+  )) as Record<ProductSlug, ProductDefinition>;
 }
 
 export const PRODUCTS = buildProducts();
@@ -75,7 +76,7 @@ export interface UseCase {
   };
 }
 
-export const USE_CASES: UseCase[] = casesData.cases as UseCase[];
+export const USE_CASES: UseCase[] = (casesData.cases || []) as UseCase[];
 
 export const INDUSTRY_SOLUTIONS = [
   {

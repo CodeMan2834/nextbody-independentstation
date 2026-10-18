@@ -10,6 +10,7 @@ import {
 } from "@/lib/site-config";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact",
   description:
     "Get in touch with NEXBODY. Book a demo of Nexbody-X60, OneScan or F20.",
@@ -23,6 +24,7 @@ export default function ContactPage() {
       <div className="container-site">
         <div className="mx-auto max-w-2xl">
           <SectionHeading
+            as="h1"
             title={PAGE_CONTENT.contact.title}
             subtitle={PAGE_CONTENT.contact.intro}
           />

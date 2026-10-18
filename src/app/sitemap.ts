@@ -20,7 +20,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return pages.map(({ path, priority, changeFrequency }) => ({
     url: `${baseUrl}${path}`,
-    lastModified: new Date(),
     changeFrequency,
     priority,
   }));

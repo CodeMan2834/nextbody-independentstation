@@ -10,6 +10,8 @@ import {
 } from "@/lib/site-config";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/success" },
+  robots: { index: false, follow: true },
   title: "Thank You",
   description: "Your inquiry has been submitted successfully.",
 };

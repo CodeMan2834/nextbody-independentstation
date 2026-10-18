@@ -16,21 +16,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = PRODUCTS[slug as ProductSlug];
   if (!product) return { title: "Not Found" };
   const canonical = `/products/${product.slug}`;
+  const title = product.seo?.title?.trim() || `${product.shortName} | NEXBODY`;
+  const description = product.seo?.description?.trim() || product.summary;
   return {
-    title: product.name,
-    description: product.summary,
+    title: { absolute: title },
+    description,
     alternates: { canonical },
     openGraph: {
       type: "website",
       url: canonical,
-      title: product.name,
-      description: product.summary,
+      title,
+      description,
       images: [{ url: product.heroImage, alt: product.name }],
     },
     twitter: {
       card: "summary_large_image",
-      title: product.name,
-      description: product.summary,
+      title,
+      description,
       images: [product.heroImage],
     },
   };

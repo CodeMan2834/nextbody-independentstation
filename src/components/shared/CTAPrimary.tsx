@@ -10,6 +10,7 @@ interface CTAPrimaryProps {
   className?: string;
   icon?: boolean;
   size?: "default" | "sm";
+  onClick?: () => void;
 }
 
 export function CTAPrimary({
@@ -18,10 +19,12 @@ export function CTAPrimary({
   className,
   icon = true,
   size = "default",
+  onClick,
 }: CTAPrimaryProps) {
   return (
     <Link
       href={href}
+      onClick={onClick}
       className={cn(
         "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-sm border border-[var(--brand)] font-semibold",
         "bg-[var(--brand)]",

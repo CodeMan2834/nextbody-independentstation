@@ -134,6 +134,37 @@
                   "widget": "string"
                 }
               ]
+            },
+            {
+              "name": "seo",
+              "label": "搜索引擎展示（SEO）",
+              "widget": "object",
+              "required": false,
+              "collapsed": true,
+              "hint": "控制搜索结果和分享摘要，不改变页面中的宣传标题。留空使用默认文案。",
+              "fields": [
+                {
+                  "name": "title",
+                  "label": "搜索结果标题",
+                  "widget": "string",
+                  "required": false,
+                  "pattern": [
+                    "^.{1,120}$",
+                    "标题请控制在 120 个字符以内"
+                  ],
+                  "hint": "建议包含产品名称和用途，避免重复品牌名。"
+                },
+                {
+                  "name": "description",
+                  "label": "搜索结果介绍",
+                  "widget": "text",
+                  "required": false,
+                  "pattern": [
+                    "^[\\s\\S]{1,400}$",
+                    "介绍请控制在 400 个字符以内"
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -360,6 +391,37 @@
                       "widget": "image",
                       "required": false,
                       "hint": "配置了场景视频时必须填写封面图。"
+                    }
+                  ]
+                },
+                {
+                  "name": "seo",
+                  "label": "搜索引擎展示（SEO）",
+                  "widget": "object",
+                  "required": false,
+                  "collapsed": true,
+                  "hint": "控制搜索结果和分享摘要，不改变页面中的宣传标题。留空使用默认文案。",
+                  "fields": [
+                    {
+                      "name": "title",
+                      "label": "搜索结果标题",
+                      "widget": "string",
+                      "required": false,
+                      "pattern": [
+                        "^.{1,120}$",
+                        "标题请控制在 120 个字符以内"
+                      ],
+                      "hint": "建议包含产品名称和用途，避免重复品牌名。"
+                    },
+                    {
+                      "name": "description",
+                      "label": "搜索结果介绍",
+                      "widget": "text",
+                      "required": false,
+                      "pattern": [
+                        "^[\\s\\S]{1,400}$",
+                        "介绍请控制在 400 个字符以内"
+                      ]
                     }
                   ]
                 }

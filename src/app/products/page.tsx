@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import { FLAGSHIP_PRODUCT, SUPPORTING_PRODUCTS } from "@/lib/products";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/products" },
   title: "Products",
   description: "NEXBODY X60 for posture, composition and mobility. OneScan for gait and plantar pressure. F20 for 3D scanning of both feet.",
 };
