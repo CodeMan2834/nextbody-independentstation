@@ -5,29 +5,40 @@
   },
   "nav": [
     {
+      "label": "About Us",
+      "href": "/about"
+    },
+    {
       "label": "Products",
       "href": "/products"
+    },
+    {
+      "label": "Solutions",
+      "href": "/solutions"
+    },
+    {
+      "label": "Blog",
+      "href": "/blog"
     },
     {
       "label": "Contact",
       "href": "/contact"
     }
   ],
-  "homeNav": [
+  "socialLinks": [
     {
-      "label": "X60",
-      "href": "/products/nexbody-x60"
+      "label": "Instagram",
+      "href": "https://www.instagram.com/nexbody_official/"
     },
     {
-      "label": "Applications",
-      "href": "/#applications"
+      "label": "Facebook",
+      "href": "https://www.facebook.com/share/1DqjkXUhmr/?mibextid=wwXIfr"
     },
     {
-      "label": "Consultation",
-      "href": "/#consultation"
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/company/nexbody-official/"
     }
   ],
-  "socialLinks": [],
   "tagline": "Precision Body Assessment, Reimagined.",
   "siteName": "NEXBODY",
   "whatsappNumber": "+971000000000",

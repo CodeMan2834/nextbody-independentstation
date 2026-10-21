@@ -6,7 +6,7 @@
       try { const decoded=decodeURIComponent(v.split(/[?#]/)[0]); return !decoded.startsWith('//')&&!decoded.includes('\\')&&!decoded.split('/').some(p=>p==='..'||p==='.')&&!/[\x00-\x1f]/.test(decoded); } catch { return false; }
     };
     const safeLink=v=>localPath(v)||/^#[\w-]+$/.test(v)||/^https:\/\/[a-z0-9]/i.test(v)||/^mailto:[^\s@]+@[^\s@]+\.[^\s@]+$/i.test(v);
-    const routes=new Set(['/','/products','/contact','/success','/privacy','/terms','/products/nexbody-x60','/products/onescan-gait-analysis','/products/f20-foot-scanner']);
+    const routes=new Set(['/','/products','/contact','/success','/privacy','/terms','/products/nexbody-x60','/products/onescan-gait-analysis','/products/f20-foot-scanner','/about','/solutions','/blog','/solutions/fitness-sports','/solutions/healthcare','/solutions/beauty-wellness','/solutions/orthopedic','/solutions/foot-orthotics-footwear','/solutions/rehabilitation-therapy']);
     const anchors=new Set(['workflow','products','applications','consultation','main-content','home-title','value-pillars-title','intelligence-title','case-title','industry-title','service-title','faq-title']);
     function walk(obj, defs, prefix='') {
       if(!obj||typeof obj!=='object'||Array.isArray(obj)){errors.push(prefix+'：内容格式不正确');return;}
@@ -31,7 +31,7 @@
           if(/href$/i.test(f.name)&&!safeLink(value))errors.push(label+'：仅支持站内路径、https 或 mailto 链接');
           if(/href$/i.test(f.name)&&(value.startsWith('/')||value.startsWith('#'))&&localPath(value.startsWith('#')?'/'+value:value)){
             const pathname=value.split(/[?#]/)[0]||'/';const anchor=value.includes('#')?value.split('#')[1]:'';
-            if(!/\.[a-z0-9]{2,6}$/i.test(pathname)&&!routes.has(pathname))errors.push(label+'：站内页面不存在');
+            if(!/\.[a-z0-9]{2,6}$/i.test(pathname)&&!routes.has(pathname)&&!/^\/blog\/[a-z0-9]+(?:-[a-z0-9]+)*$/.test(pathname))errors.push(label+'：站内页面不存在');
             if(pathname==='/'&&anchor&&!anchors.has(anchor))errors.push(label+'：首页锚点不存在');
           }
           if(f.name==='video'&&!/\.mp4$/i.test(value))errors.push(label+'：请使用 MP4 视频');
@@ -50,6 +50,15 @@
       const slugs=(Array.isArray(data.products)?data.products:[]).map(p=>p?.slug);
       if(slugs.length!==3||new Set(slugs).size!==3||expected.some(s=>!slugs.includes(s)))errors.push('必须保留 X60、OneScan、F20 三款产品及原页面标识');
       for(const p of Array.isArray(data.products)?data.products:[]){if(!p||typeof p!=='object')continue;if(p.priority!==(p.slug==='nexbody-x60'?'flagship':'supporting'))errors.push('产品展示级别不可变更');if((p.slug!=='f20-foot-scanner'&&!p.story?.video)||(p.story?.video&&!p.story?.poster))errors.push(p.name+'：需要场景视频和封面');}
+    }
+    if(collection==='editorial'){
+      const expected=["fitness-sports", "healthcare", "beauty-wellness", "orthopedic", "foot-orthotics-footwear", "rehabilitation-therapy"];
+      const solutions=Array.isArray(data.solutions)?data.solutions:[];
+      if(solutions.length!==expected.length||expected.some(slug=>!solutions.some(item=>item.slug===slug)))errors.push('必须保留六个解决方案及原页面标识');
+      const validProducts=['nexbody-x60','onescan-gait-analysis','f20-foot-scanner'];
+      for(const item of solutions)if(!Array.isArray(item.productSlugs)||!item.productSlugs.length||item.productSlugs.some(slug=>!validProducts.includes(slug)))errors.push('解决方案：请选择有效关联产品');
+      const posts=Array.isArray(data.posts)?data.posts:[];
+      if(new Set(posts.map(p=>p.slug)).size!==posts.length)errors.push('文章页面标识不可重复');
     }
     if(collection==='cases'){
       const ids=(Array.isArray(data.cases)?data.cases:[]).map(x=>x?.id);

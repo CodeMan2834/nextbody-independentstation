@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/constants";
+import { SOLUTIONS, PUBLISHED_POSTS } from "@/lib/editorial";
 import { PRODUCT_SLUGS } from "@/lib/products";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -13,6 +14,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
       changeFrequency: "monthly" as const,
     })),
+    { path: "/about", priority: 0.7, changeFrequency: "monthly" as const },
+    { path: "/solutions", priority: 0.9, changeFrequency: "monthly" as const },
+    ...SOLUTIONS.map(item => ({ path: `/solutions/${item.slug}`, priority: 0.8, changeFrequency: "monthly" as const })),
+    { path: "/blog", priority: 0.8, changeFrequency: "weekly" as const },
+    ...PUBLISHED_POSTS.map(item => ({ path: `/blog/${item.slug}`, priority: 0.7, changeFrequency: "monthly" as const })),
     { path: "/contact", priority: 0.7, changeFrequency: "monthly" as const },
     { path: "/privacy", priority: 0.3, changeFrequency: "yearly" as const },
     { path: "/terms", priority: 0.3, changeFrequency: "yearly" as const },

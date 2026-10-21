@@ -6,6 +6,9 @@ const {validate}=require('../public/admin/validation.js');
 const config=JSON.parse(fs.readFileSync('public/admin/config.yml','utf8'));
 let errors=[];
 const routes=new Set(['/','/products','/contact','/success','/privacy','/terms',...JSON.parse(fs.readFileSync('content/products.json','utf8')).products.map(p=>'/products/'+p.slug)]);
+for(const route of ['/about','/solutions','/blog',...JSON.parse(fs.readFileSync('content/editorial.json','utf8')).solutions.map(item=>'/solutions/'+item.slug)])routes.add(route);
+const editorial=JSON.parse(fs.readFileSync('content/editorial.json','utf8'));
+for(const post of editorial.posts)if(post.status==='published')routes.add('/blog/'+post.slug);
 const homeAnchors=new Set(['workflow','products','applications','consultation','main-content','home-title','value-pillars-title','intelligence-title','case-title','industry-title','service-title','faq-title']);
 for(const c of config.collections)for(const file of c.files){
  const data=JSON.parse(fs.readFileSync(file.file,'utf8'));

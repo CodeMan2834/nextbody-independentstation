@@ -97,7 +97,9 @@
       "seo": {
         "title": "X60 3D Body Composition & Posture Analyzer | NEXBODY",
         "description": "Nexbody-X60 combines 3D depth vision, eight-electrode body composition analysis and guided neck and shoulder mobility assessment in one professional workstation."
-      }
+      },
+      "menuLabel": "Nexbody X60",
+      "menuDescription": "Body Composition Scanner"
     },
     {
       "slug": "onescan-gait-analysis",
@@ -184,7 +186,9 @@
       "seo": {
         "title": "OneScan Gait & Plantar Pressure Analysis System | NEXBODY",
         "description": "OneScan combines static plantar-pressure assessment and dynamic gait analysis on a dedicated piezoresistive sensor platform. Five platform lengths with 9,216–55,296 sensor contacts support clinical, rehabilitation, sports-science and research workflows."
-      }
+      },
+      "menuLabel": "OneScan",
+      "menuDescription": "Precision Gait Analysis"
     },
     {
       "slug": "f20-foot-scanner",
@@ -268,7 +272,9 @@
       "seo": {
         "title": "F20 3D Foot Scanner | NEXBODY",
         "description": "F20 scans both feet together, bringing full-foot morphology, more than 30 measurements, AI arch-index classification and STL output into one dedicated workflow. Chinese and English interfaces support professional review, report comparison and printing."
-      }
+      },
+      "menuLabel": "Nexbody F20",
+      "menuDescription": "3D Full-Foot Scanning"
     }
   ]
 }

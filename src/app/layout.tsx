@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
+import { PRIMARY_NAV_LINKS } from "@/lib/navigation";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
@@ -46,7 +47,7 @@ export default function RootLayout({
           >
             Skip to content
           </a>
-          <Header />
+          <Header links={PRIMARY_NAV_LINKS} />
           <main id="main-content">{children}</main>
           <Footer />
           <WhatsAppFloat />

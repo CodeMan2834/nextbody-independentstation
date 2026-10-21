@@ -30,9 +30,9 @@ function callback(fetch,environment=env){
  return load('src/app/api/admin/callback/route.ts',{'next/server':{NextResponse:FakeResponse},'@/lib/admin-auth':{...auth,adminSettings:()=>auth.adminSettings(environment)}},{fetch}).GET;
 }
 
-test('all five CMS collections validate existing content',()=>{
+test('all CMS collections validate existing content',()=>{
  for(const c of config.collections){const {data,fields}=content(c.name);assert.deepEqual(validate(data,fields,c.name),[],c.name);}
- assert.equal(config.collections.length,5);
+ assert.equal(config.collections.length,6);
 });
 test('protected products cannot be removed, duplicated, renamed or demoted',()=>{
  const {data,fields}=content('products');
@@ -129,4 +129,31 @@ test('SEO fields can fall back but reject oversized search snippets',()=>{
 test('product lookup cannot resolve inherited object properties',()=>{
  const productModule=load('src/lib/products.ts',{'../../content/products.json':{default:JSON.parse(fs.readFileSync(new URL('content/products.json',root)))},'../../content/cases.json':{default:JSON.parse(fs.readFileSync(new URL('content/cases.json',root)))}});
  for(const slug of ['toString','constructor','__proto__','hasOwnProperty'])assert.equal(productModule.PRODUCTS[slug],undefined);assert.equal(productModule.PRODUCT_LIST.length,3);
+});
+
+
+test('editorial rejects duplicate articles, missing solutions, invalid status and unknown related products',()=>{
+ const {data,fields}=content('editorial');
+ for(const mutate of [d=>d.posts.push(d.posts[0]),d=>d.solutions.pop(),d=>d.solutions[0].productSlugs=['unknown'],d=>d.posts[0].status='private',d=>d.posts[0].slug='../secret']) {
+  const draft=structuredClone(data);mutate(draft);assert.ok(validate(draft,fields,'editorial').length);
+ }
+ const draft=structuredClone(data);draft.posts[0].status='draft';assert.deepEqual(validate(draft,fields,'editorial'),[]);
+});
+
+test('draft posts are excluded from published article lookup and sitemap source',()=>{
+ const data=JSON.parse(fs.readFileSync(new URL('content/editorial.json',root)));
+ const draft={...data.posts[0],slug:'internal-draft',status:'draft'};
+ const result=load('src/lib/editorial.ts',{'../../content/editorial.json':{default:{...data,posts:[...data.posts,draft]}}});
+ assert.equal(result.PUBLISHED_POSTS.some(post=>post.slug==='internal-draft'),false);
+ assert.equal(result.PUBLISHED_POSTS.length,data.posts.filter(post=>post.status==='published').length);
+});
+
+test('all configured first-level destinations and product/solution entries are present',()=>{
+ const site=JSON.parse(fs.readFileSync(new URL('content/site-settings.json',root)));
+ const products=JSON.parse(fs.readFileSync(new URL('content/products.json',root)));
+ const editorial=JSON.parse(fs.readFileSync(new URL('content/editorial.json',root)));
+ const nav=load('src/lib/navigation.ts',{'./site-config':{siteConfig:site},'../../content/products.json':{default:products},'./editorial':{SOLUTIONS:editorial.solutions}});
+ assert.deepEqual(Array.from(nav.PRIMARY_NAV_LINKS,x=>x.href),['/about','/products','/solutions','/blog','/contact']);
+ assert.equal(nav.PRIMARY_NAV_LINKS.find(x=>x.href==='/products').children.length,3);
+ assert.equal(nav.PRIMARY_NAV_LINKS.find(x=>x.href==='/solutions').children.length,6);
 });

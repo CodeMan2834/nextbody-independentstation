@@ -1,0 +1,236 @@
+{
+  "about": {
+    "eyebrow": "ABOUT NEXBODY",
+    "title": "Intelligent assessment. Human understanding.",
+    "intro": "We turn complex body, gait and foot measurements into information people can discuss and act on.",
+    "image": "/media/products/x60/x60-clinical.png",
+    "sections": [
+      {
+        "title": "From Shenzhen to everyday assessment",
+        "body": "Founded in 2015 and headquartered in Shenzhen, China, with a laboratory in the United States, NEXBODY is a National High-Tech Enterprise focused on AI-powered health assessment technologies."
+      },
+      {
+        "title": "Lighter systems. Practical workflows.",
+        "body": "We work to transform large-scale medical screening equipment into lightweight, intelligent assessment solutions for rehabilitation, wellness, sports health and personalised footwear applications."
+      },
+      {
+        "title": "Three complementary views",
+        "body": "X60 brings body composition and posture into focus. OneScan adds gait and plantar pressure analysis. F20 captures full-foot 3D geometry. Each product addresses a distinct assessment need, supported by reports that professionals can review and explain."
+      }
+    ]
+  },
+  "solutionsIntro": "Assessment systems for the way your team works. Explore each setting, the relevant measurements and the products that support it.",
+  "solutions": [
+    {
+      "slug": "fitness-sports",
+      "title": "Fitness & Sports",
+      "intro": "Connect body composition, posture and movement observations with a clearer member conversation.",
+      "image": "/media/products/x60/x60-gym.png",
+      "productSlugs": [
+        "nexbody-x60",
+        "onescan-gait-analysis"
+      ],
+      "sections": [
+        {
+          "title": "Start with a structured baseline",
+          "body": "Use X60 to bring composition and posture measurements into the same assessment conversation. Review the report with the member and record the conditions of each assessment."
+        },
+        {
+          "title": "Add movement context",
+          "body": "OneScan provides gait and plantar pressure observations when a walking assessment is part of your service. Keep these observations alongside the member’s training history and goals."
+        },
+        {
+          "title": "Make follow-up understandable",
+          "body": "Compare repeat assessments under consistent conditions. Coaches can explain observations, agree practical next steps and review progress without treating a single score as a complete picture of health."
+        }
+      ]
+    },
+    {
+      "slug": "healthcare",
+      "title": "Healthcare",
+      "intro": "Structured assessment records for professional review and communication.",
+      "image": "/media/products/x60/x60-clinical.png",
+      "productSlugs": [
+        "nexbody-x60",
+        "onescan-gait-analysis",
+        "f20-foot-scanner"
+      ],
+      "sections": [
+        {
+          "title": "Choose the right assessment",
+          "body": "X60 records body composition and posture, OneScan captures gait and pressure, and F20 records 3D foot geometry. Select the system that matches the question being explored."
+        },
+        {
+          "title": "Keep professional judgement central",
+          "body": "Assessment outputs support review by qualified professionals. They do not replace diagnosis, clinical examination or other investigations required by the individual’s circumstances."
+        },
+        {
+          "title": "Plan the workflow",
+          "body": "Discuss operator training, report delivery, data handling and local regulatory requirements before deployment. Contact our team to review the intended use and available configurations."
+        }
+      ]
+    },
+    {
+      "slug": "beauty-wellness",
+      "title": "Beauty & Wellness",
+      "intro": "Bring measurable body information into a thoughtful wellness consultation.",
+      "image": "/media/products/x60/x60-composition.png",
+      "productSlugs": [
+        "nexbody-x60"
+      ],
+      "sections": [
+        {
+          "title": "Look beyond body weight",
+          "body": "X60 combines composition information and posture observations so that consultations can address more than a scale reading."
+        },
+        {
+          "title": "Explain the report together",
+          "body": "Guide clients through the measurements that matter to their goals. Agree on a follow-up schedule and use consistent assessment conditions when reviewing change."
+        },
+        {
+          "title": "Set clear expectations",
+          "body": "Use assessment information to support a personalised conversation. Avoid presenting measurements as guarantees of a treatment outcome or as a medical diagnosis."
+        }
+      ]
+    },
+    {
+      "slug": "orthopedic",
+      "title": "Orthopedic",
+      "intro": "Connect posture, walking and foot shape observations for professional musculoskeletal assessment.",
+      "image": "/media/products/onescan/onescan-scene.png",
+      "productSlugs": [
+        "onescan-gait-analysis",
+        "f20-foot-scanner",
+        "nexbody-x60"
+      ],
+      "sections": [
+        {
+          "title": "Review complementary observations",
+          "body": "Posture, gait pressure and foot morphology describe different aspects of an assessment. Select the relevant systems rather than assuming one measurement can answer every question."
+        },
+        {
+          "title": "Support the consultation",
+          "body": "OneScan records pressure and gait observations while F20 captures 3D foot shape. Qualified practitioners interpret these alongside symptoms, history and physical examination."
+        },
+        {
+          "title": "Document and revisit",
+          "body": "Retain relevant reports and repeat assessments under comparable conditions. Confirm the export and integration requirements with our team before selecting a configuration."
+        }
+      ]
+    },
+    {
+      "slug": "foot-orthotics-footwear",
+      "title": "Foot Orthotics & Footwear",
+      "intro": "Connect full-foot geometry and plantar pressure observations with footwear and orthotic workflows.",
+      "image": "/media/products/f20/f20-lab-hero.webp",
+      "productSlugs": [
+        "f20-foot-scanner",
+        "onescan-gait-analysis"
+      ],
+      "sections": [
+        {
+          "title": "Capture the shape of both feet",
+          "body": "F20 records 3D full-foot morphology, measurements and left-right comparison. Its STL output can support downstream workflows where compatible software and processes are in place."
+        },
+        {
+          "title": "Add pressure and gait information",
+          "body": "OneScan captures contact and plantar pressure observations. Combine this information with the practitioner’s assessment when discussing footwear or orthotic requirements."
+        },
+        {
+          "title": "Check the production handover",
+          "body": "Confirm model format, measurement definitions and compatibility with the receiving CAD or manufacturing system. Scanning is one step in a wider fitting and production process."
+        }
+      ]
+    },
+    {
+      "slug": "rehabilitation-therapy",
+      "title": "Rehabilitation Therapy",
+      "intro": "Create comparable assessment records to support rehabilitation conversations over time.",
+      "image": "/media/products/x60/x60-clinical.png",
+      "productSlugs": [
+        "nexbody-x60",
+        "onescan-gait-analysis"
+      ],
+      "sections": [
+        {
+          "title": "Establish a baseline",
+          "body": "X60 provides posture and guided mobility observations. OneScan adds walking and pressure assessment when appropriate for the individual and the therapy setting."
+        },
+        {
+          "title": "Repeat with care",
+          "body": "Use consistent operator guidance, assessment conditions and protocols. A repeatable process helps practitioners compare records and explain observed changes."
+        },
+        {
+          "title": "Keep care decisions with the therapist",
+          "body": "Reports support documentation and discussion. The therapist determines which observations are meaningful and whether further assessment or a change in the care plan is needed."
+        }
+      ]
+    }
+  ],
+  "blogIntro": "Practical guides to body assessment, gait analysis and 3D foot scanning.",
+  "posts": [
+    {
+      "slug": "choosing-an-assessment-system",
+      "title": "Body, gait or foot shape: which assessment do you need?",
+      "summary": "A practical guide to the different questions answered by X60, OneScan and F20.",
+      "image": "/media/products/x60/x60-cover.png",
+      "status": "published",
+      "sections": [
+        {
+          "title": "Start with the question",
+          "body": "Before choosing equipment, decide what your team needs to understand. Body composition, walking pressure and foot shape are related, but they are different measurements. A useful demonstration should show the report and the operator workflow as well as the hardware."
+        },
+        {
+          "title": "Match the measurement to the product",
+          "body": "X60 brings composition, posture and guided mobility observations into one assessment workflow. OneScan is designed for gait and plantar pressure analysis. F20 captures the 3D morphology of both feet, with measurements and model output for suitable downstream workflows. Compare the required outputs with your service, rather than selecting equipment by appearance alone."
+        },
+        {
+          "title": "Plan what happens after the scan",
+          "body": "Decide who will interpret the report, how it will be explained and whether it needs to be exported. Consider operator training, available space, data handling and integration with existing systems. Ask for a demonstration using the kind of assessment your team expects to perform, and confirm configuration details before purchase."
+        }
+      ]
+    },
+    {
+      "slug": "repeatable-assessment-records",
+      "title": "Make repeat assessments easier to compare",
+      "summary": "Simple operational habits for more useful follow-up records.",
+      "image": "/media/products/x60/x60-analysis.png",
+      "status": "published",
+      "sections": [
+        {
+          "title": "Agree a repeatable process",
+          "body": "A follow-up report is more useful when the assessment process is consistent. Document operator instructions and follow the product guidance. Record relevant conditions and any exceptions that could affect a comparison. A clear process also helps new operators deliver the same service."
+        },
+        {
+          "title": "Review observations in context",
+          "body": "Do not interpret a single measurement without the person’s history, goals and assessment conditions. Compare the relevant measurements and keep notes about changes in the process. Qualified professionals should decide what the observations mean for their work; a report is a starting point for that discussion."
+        },
+        {
+          "title": "Make the next step clear",
+          "body": "Explain the measurements in plain language and agree when a follow-up is appropriate. Keep reports and notes in the organisation’s approved storage system, with access appropriate to the information. Confirm consent and data handling procedures before introducing any new assessment workflow."
+        }
+      ]
+    },
+    {
+      "slug": "foot-shape-and-plantar-pressure",
+      "title": "Foot shape and plantar pressure tell different stories",
+      "summary": "Why 3D foot scanning and gait assessment can complement each other.",
+      "image": "/media/products/f20/f20-lab-hero.webp",
+      "status": "published",
+      "sections": [
+        {
+          "title": "Geometry describes shape",
+          "body": "A 3D foot scan records the surface and dimensions of the foot. F20 supports full-foot measurement, left-right comparison and STL output. These outputs can contribute to fitting and design workflows when the receiving tools support the format and measurement definitions."
+        },
+        {
+          "title": "Pressure describes contact",
+          "body": "OneScan records plantar pressure and gait observations on its sensing platform. Pressure distribution and timing give a different view from a 3D model. They should not be inferred from a photograph or a shape model alone. The assessment protocol and interpretation remain important."
+        },
+        {
+          "title": "Bring the outputs together thoughtfully",
+          "body": "A practitioner may use both types of information when evaluating footwear or orthotic requirements. Confirm how reports and models will be transferred to the next step, and test compatibility before committing to a workflow. Neither scan output replaces a professional fitting, clinical examination or the judgement needed for individual care."
+        }
+      ]
+    }
+  ]
+}

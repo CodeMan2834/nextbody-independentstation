@@ -27,7 +27,6 @@ export interface SiteConfig {
   /** E.164 preferred, e.g. +971501234567 */
   whatsappNumber: string;
   nav: SiteNavItem[];
-  homeNav: SiteNavItem[];
   headerCta: SiteNavItem;
   socialLinks: SiteSocialLink[];
 }
@@ -44,7 +43,6 @@ export const siteConfig: SiteConfig = {
     siteSettings.whatsappNumber ||
     DEFAULT_WHATSAPP,
   nav: siteSettings.nav as SiteNavItem[],
-  homeNav: siteSettings.homeNav,
   headerCta: siteSettings.headerCta,
   socialLinks: (siteSettings.socialLinks || []) as SiteSocialLink[],
 };

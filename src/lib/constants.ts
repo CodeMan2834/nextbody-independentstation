@@ -9,5 +9,3 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = siteConfig.nav;
-
-export const HOME_SECTION_LINKS = siteConfig.homeNav;

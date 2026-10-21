@@ -7,24 +7,22 @@ import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CTAPrimary } from "@/components/shared/CTAPrimary";
-import { HeaderNavLink } from "./HeaderNavLink";
 import { MobileNav } from "./MobileNav";
 import { useHeaderScroll } from "@/hooks/useHeaderScroll";
-import { HOME_SECTION_LINKS, NAV_LINKS } from "@/lib/constants";
+import type { NavigationItem } from "@/lib/navigation";
+import { ProductNav } from "./ProductNav";
 
 const iconButtonClass =
   "flex size-10 shrink-0 items-center justify-center rounded-sm border border-white/[0.12] bg-white/[0.03] text-[var(--text-primary)] transition-[transform,border-color,background-color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:border-[var(--brand-accent)]/35 hover:bg-white/[0.08] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand)]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]";
 
-export function Header() {
+export function Header({ links }: { links: readonly NavigationItem[] }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const closeMobile = useCallback(() => setMobileOpen(false), []);
   const scrolled = useHeaderScroll();
   const pathname = usePathname();
   const isHome = pathname === "/";
 
-  const centerLinks = isHome
-    ? [...HOME_SECTION_LINKS, ...NAV_LINKS]
-    : NAV_LINKS;
+  const centerLinks = links;
 
   return (
     <>
@@ -52,7 +50,7 @@ export function Header() {
             aria-label="Primary"
           >
             {centerLinks.map((link) => (
-              <HeaderNavLink key={link.href} href={link.href} label={link.label} />
+              <ProductNav key={link.href} href={link.href} label={link.label} items={link.children} />
             ))}
           </nav>
 

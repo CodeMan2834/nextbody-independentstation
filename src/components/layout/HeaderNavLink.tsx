@@ -19,6 +19,7 @@ export function HeaderNavLink({ href, label }: HeaderNavLinkProps) {
   return (
     <Link
       href={href}
+      aria-current={isActive ? "page" : undefined}
       className={cn(
         "group relative px-3 py-2 text-[13px] font-medium tracking-[-0.01em] whitespace-nowrap",
         "text-[var(--text-muted)] transition-[color,background-color,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",

@@ -1,17 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/lib/site-config";
 import { usePathname } from "next/navigation";
-import { X } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { CTAPrimary } from "@/components/shared/CTAPrimary";
 
-interface NavItem {
-  label: string;
-  href: string;
-}
+import type { NavigationItem } from "@/lib/navigation";
+
+type NavItem = NavigationItem;
 
 interface MobileNavProps {
   open: boolean;
@@ -24,6 +23,7 @@ const iconButtonClass =
 
 export function MobileNav({ open, onClose, links }: MobileNavProps) {
   const pathname = usePathname();
+  const [expandedHref, setExpandedHref] = useState<string | null>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!open) return;
@@ -55,7 +55,7 @@ export function MobileNav({ open, onClose, links }: MobileNavProps) {
         onClick={onClose}
         aria-hidden="true"
       />
-      <div className="absolute inset-y-0 right-0 flex w-[min(100vw-3rem,320px)] flex-col border-l border-[var(--surface-border)] bg-[rgba(8,10,18,0.96)] p-6 shadow-[-16px_0_48px_rgba(0,0,0,0.45)] backdrop-blur-xl">
+      <div className="absolute inset-y-0 right-0 flex w-[min(100vw-3rem,320px)] flex-col overflow-y-auto border-l border-[var(--surface-border)] bg-[rgba(8,10,18,0.96)] p-6 shadow-[-16px_0_48px_rgba(0,0,0,0.45)] backdrop-blur-xl">
         <div className="flex items-center justify-between">
           <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--text-dim)]">
             Menu
@@ -72,18 +72,24 @@ export function MobileNav({ open, onClose, links }: MobileNavProps) {
 
         <nav className="mt-8 flex flex-col gap-1" aria-label="Mobile">
           {links.map((link) => {
+            const children = link.children || [];
+            const expanded = expandedHref === link.href;
+            const listId = `mobile-${link.href.slice(1)}-links`;
             const isActive =
               !link.href.startsWith("#") &&
               (pathname === link.href ||
                 (link.href !== "/" && pathname.startsWith(`${link.href}/`)));
 
             return (
+              <div key={link.href}>
+              <div className="flex items-center">
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={onClose}
+                aria-current={isActive ? "page" : undefined}
                 className={cn(
-                  "rounded-xl px-4 py-3.5 text-[15px] font-medium tracking-[-0.01em]",
+                  "block flex-1 rounded-xl px-4 py-3.5 text-[15px] font-medium tracking-[-0.01em]",
                   "text-[var(--text-muted)] transition-[color,background-color,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
                   "hover:bg-white/[0.06] hover:text-[var(--text-primary)] hover:translate-x-0.5",
                   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand)]/40",
@@ -92,6 +98,23 @@ export function MobileNav({ open, onClose, links }: MobileNavProps) {
               >
                 {link.label}
               </Link>
+              {children.length > 0 && (
+                <button type="button" className={iconButtonClass} aria-label={`Toggle ${link.label} list`} aria-expanded={expanded} aria-controls={listId} onClick={() => setExpandedHref(expanded ? null : link.href)}>
+                  <ChevronDown className={cn("size-4 transition-transform", expanded && "rotate-180")} />
+                </button>
+              )}
+              </div>
+              {children.length > 0 && expanded && (
+                <ul id={listId} className="my-2 ml-4 space-y-1 border-l border-white/15 pl-3">
+                  {children.map((product) => (
+                    <li key={product.href}><Link href={product.href} onClick={onClose} aria-current={pathname === product.href ? "page" : undefined} className={cn("block rounded-lg px-4 py-3 text-sm text-[var(--text-muted)] hover:bg-white/5 hover:text-white focus-visible:outline-2 focus-visible:outline-[var(--brand-accent)]", pathname === product.href && "bg-white/5 text-[var(--brand-accent)]")}>
+                      <span className="block">{product.label}</span>
+                      {product.description && <span className="mt-1 block text-xs text-[var(--text-dim)]">{product.description}</span>}
+                    </Link></li>
+                  ))}
+                </ul>
+              )}
+              </div>
             );
           })}
         </nav>

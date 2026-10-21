@@ -1,4 +1,12 @@
 import Link from "next/link";
+function SocialIcon({ name }: { name: string }) {
+  const paths: Record<string, React.ReactNode> = {
+    Instagram: <><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none" /></>,
+    Facebook: <path d="M14 21v-8h3l.5-4H14V7c0-1 .5-2 2-2h2V1h-3c-4 0-5 2.5-5 6v2H7v4h3v8" />,
+    LinkedIn: <><path d="M4 9v12M4 3v1M9 21V9h4v2c1-3 7-3 7 3v7M13 14v7" /><circle cx="4" cy="3.5" r="1" /></>,
+  };
+  return <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name] || <path d="M7 17 17 7M7 7h10v10" />}</svg>;
+}
 import { siteConfig, whatsappHref, isWhatsAppPlaceholder } from "@/lib/site-config";
 
 export function Footer() {
@@ -35,8 +43,8 @@ export function Footer() {
           </p>
         </div>
 
-        {siteConfig.socialLinks.length > 0 && <nav aria-label="Social media" className="flex flex-wrap gap-4">{siteConfig.socialLinks.map((item) => <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" className="hover:text-white">{item.label}</a>)}</nav>}
-        <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Footer">
+        {siteConfig.socialLinks.length > 0 && <nav aria-label="Social media" className="flex flex-wrap gap-4">{siteConfig.socialLinks.map((item) => { return <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 py-2 hover:text-white"><SocialIcon name={item.label} />{item.label}<span className="sr-only"> (opens in a new tab)</span></a>; })}</nav>}
+        <nav className="flex max-w-md flex-wrap gap-x-6 gap-y-2" aria-label="Footer">
           {siteConfig.nav.map((item) => (
             <Link
               key={item.href}
