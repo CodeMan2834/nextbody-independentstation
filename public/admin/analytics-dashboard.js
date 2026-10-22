@@ -48,7 +48,7 @@
   const response=await fetch('/api/analytics/report?'+params(),{cache:'no-store',signal:AbortSignal.timeout(20000)});const result=await response.json();if(id!==requestId)return;
   $('login').hidden=result.state!=='unauthorised'||!result.loginReady;
   if(result.state==='ready'){data=result.data;state('ready',result.local?'本地验收 · 非线上统计':'统计已连接',result.local?'仅展示本机测试数据库的数据，不代表正式网站访问。':'展示成功上报的数据；与真实人数或邮箱收件数量可能存在差异。');render();}
-  else{reset();state(result.state,result.state==='unconfigured'?'等待数据库接入':result.state==='unauthorised'?'需要登录':'暂时无法读取',result.message);}
+  else{reset();state(result.state,(result.state==='unconfigured'||(result.state==='unauthorised'&&!result.loginReady))?'等待数据库接入':result.state==='unauthorised'?'需要登录':'暂时无法读取',result.message);}
  }catch{if(id===requestId){reset();state('error','暂时无法读取','请检查网络后重试。此状态不代表访问量为零。');}}finally{if(id===requestId)$('refresh').disabled=false;}}
  function demoData(){
   const days=Math.max(1,Math.min(366,Math.floor((Date.parse($('to').value)-Date.parse($('from').value))/86400000)+1));const trend=Array.from({length:days},(_,i)=>({day:new Date(Date.parse($('from').value)+i*86400000).toISOString().slice(0,10),sessions:[24,31,26,43,39,56,48][i%7],inquiries:i%3===0?1:0}));
