@@ -1,105 +1,105 @@
 {
   "ecosystem": {
     "eyebrow": "NEXBODY ECOSYSTEM",
-    "title": "One product family; Multiple assessment paths.",
+    "title": "Professional Body Assessment, Gait Analysis & Foot Scanning Solutions",
     "buttonLabel": "Explore system"
   },
   "assessment": {
-    "eyebrow": "ONE RECORD / THREE PROFESSIONAL VIEWS",
-    "title": "Data should feel less like output;",
-    "accentTitle": "More like understanding.",
+    "eyebrow": "BODY ASSESSMENT / PROFESSIONAL REPORTS",
+    "title": "Comprehensive Assessment Reports",
+    "accentTitle": "Clear Insights. Better Decisions",
     "views": [
       {
         "label": "Composition",
-        "title": "Segmental body detail",
+        "title": "Understand Your Body Composition",
         "image": "/media/products/x60/x60-composition.png"
       },
       {
         "label": "Posture",
-        "title": "Alignment in context",
+        "title": "Discover Your Postural Balance",
         "image": "/media/products/x60/x60-analysis.png"
       },
       {
         "label": "Mobility",
-        "title": "Movement made reviewable",
+        "title": "Evaluate Your Range of Motion",
         "image": "/media/products/x60/x60-mobility.png"
       }
     ],
-    "intro": "Explore composition, posture and mobility as connected parts of one guided body assessment."
+    "intro": "Explore body composition, posture, and mobility assessment reports with NEXBODY."
   },
   "cases": {
-    "eyebrow": "WORKFLOWS IN CONTEXT",
-    "title": "Designed around the moment the result is used.",
-    "intro": "See how each system fits a professional setting, from intake to review and onward action."
+    "eyebrow": "NEXBODY / SUCCESS STORIES",
+    "title": "Real-World Applications of NEXBODY Assessment Solutions",
+    "intro": "Explore how NEXBODY body assessment, gait analysis, and foot scanning solutions support fitness, rehabilitation, and wellness professionals."
   },
   "cta": {
-    "eyebrow": "PRODUCT CONSULTATION",
-    "title": "Build the right assessment workflow.",
-    "body": "Tell us who you assess, what your team needs to understand and how the result should move through your operation.",
+    "eyebrow": "GET IN TOUCH / PRODUCT CONSULTATION",
+    "title": "Find the Right NEXBODY Solution for Your Business",
+    "body": "Connect with NEXBODY to explore body assessment solutions, request a product demo, and get professional guidance for your business",
     "buttonLabel": "Talk with our product team",
     "buttonHref": "/contact"
   },
   "service": {
-    "eyebrow": "FROM DECISION TO DAILY USE",
-    "title": "A system is only complete when your team can operate it.",
+    "eyebrow": "CUSTOMER SERVICE / TECHNICAL SUPPORT",
+    "title": "Professional Support. Every Step of the Way.",
     "items": [
       {
-        "title": "Workflow consultation",
-        "body": "Match the product and assessment scope to your facility, audience and reporting needs."
+        "title": "Solution Consultation",
+        "body": "Get professional guidance to select the right assessment solution for your business needs."
       },
       {
-        "title": "Deployment & training",
-        "body": "Plan installation, onboarding and role-based use around the way your team already works."
+        "title": "Installation & Training",
+        "body": "Receive setup guidance and product training for smooth implementation."
       },
       {
-        "title": "Ongoing support",
-        "body": "Keep devices, reporting and integrations aligned as locations and services expand."
+        "title": "Ongoing Technical Support",
+        "body": "Access continued technical assistance to support daily operations."
       }
     ]
   },
   "faq": {
-    "eyebrow": "COMMON QUESTIONS",
-    "title": "What teams ask before a demonstration.",
+    "eyebrow": "PRODUCT FAQ / EXPERT ANSWERS",
+    "title": "Frequently Asked Questions About NEXBODY Solutions",
     "items": [
       {
-        "question": "Which NEXBODY product fits our workflow?",
-        "answer": "X60 brings posture, body composition and guided mobility together. OneScan focuses on gait and plantar pressure. F20 focuses on 3D full-foot morphology and STL output."
+        "question": "What products does NEXBODY offer?",
+        "answer": "NEXBODY offers three professional assessment solutions: the X60 Body Assessment System, OneScan Gait Analysis System, and F20 Foot Scanner."
       },
       {
-        "question": "Can reports carry our organization identity?",
-        "answer": "Supported reporting workflows include printing, email sharing and optional institution branding. Exact options depend on the selected product and deployment."
+        "question": "Which industries can benefit from NEXBODY solutions?",
+        "answer": "NEXBODY solutions are designed for fitness centers, rehabilitation clinics, wellness facilities, sports performance centers, and footwear businesses."
       },
       {
-        "question": "Can NEXBODY connect with other systems?",
-        "answer": "Product workflows can support data interfaces, import and export. The integration scope is confirmed during product consultation."
+        "question": "What can the NEXBODY X60 measure?",
+        "answer": "The NEXBODY X60 provides body composition analysis, posture assessment, and mobility evaluation to support professional fitness and wellness assessments."
       },
       {
-        "question": "Are the results a medical diagnosis?",
-        "answer": "No. NEXBODY measurements and reports support professional assessment and review; they do not replace clinical diagnosis."
+        "question": "How can I get a demo of NEXBODY products?",
+        "answer": "Contact the NEXBODY team to schedule a product demonstration and explore how our assessment solutions can meet your business needs."
       }
     ]
   },
   "valuePillars": {
-    "eyebrow": "BODY DATA / ONE CONTINUOUS RECORD",
-    "title": "Assessment becomes useful when every result leads to a clearer conversation.",
+    "eyebrow": "BODY ASSESSMENT / DATA-DRIVEN INSIGHTS",
+    "title": "Precision Body Assessment for Better Health Insights",
     "items": [
       {
-        "title": "See the baseline",
-        "body": "Bring posture, composition and mobility into one guided starting point that professionals can review with confidence."
+        "title": "Comprehensive Body Assessment",
+        "body": "Gain valuable insights through professional body assessment, gait analysis, and foot scanning solutions."
       },
       {
-        "title": "Explain the finding",
-        "body": "Turn complex measurements into visual reports that make progress and priorities easier to understand."
+        "title": "Data-Driven Health Insights",
+        "body": "Transform body assessment data into meaningful insights to support personalized fitness and wellness decisions."
       },
       {
-        "title": "Track what changes",
-        "body": "Keep comparable records across follow-up assessments, locations and the people responsible for the next action."
+        "title": "Professional Assessment Solutions",
+        "body": "Empower fitness centers, rehabilitation clinics, and wellness facilities with reliable assessment solutions."
       }
     ]
   },
   "finalCta": {
-    "eyebrow": "SEE NEXBODY IN YOUR WORKFLOW",
-    "title": "The next assessment starts with a clearer view.",
+    "eyebrow": "EXPLORE NEXBODY / GET STARTED",
+    "title": "Ready to Transform Your Body Assessment Experience?",
     "buttonLabel": "Book a demonstration",
     "buttonHref": "/contact"
   },
@@ -138,9 +138,9 @@
       "8-ELECTRODE BIA",
       "GUIDED REPORTING"
     ],
-    "accentTitle": "Know what comes next.",
-    "title": "See the whole body",
-    "lead": "One guided assessment for posture, segmental body composition and neck-shoulder mobility.",
+    "accentTitle": "Understand with Confidence",
+    "title": "Measure with Precision",
+    "lead": "Professional body assessment solutions for fitness, rehabilitation, and wellness.",
     "secondaryCta": {
       "label": "Book a demonstration",
       "href": "/contact"
@@ -148,39 +148,39 @@
   },
   "industries": {
     "eyebrow": "SOLUTIONS",
-    "title": "One platform, adapted to the people you assess.",
-    "intro": "Choose the assessment workflow around your service model, then configure reports and handoffs for the team using them.",
+    "title": "Professional Body Assessment Solutions | NEXBODY",
+    "intro": "Explore NEXBODY's body assessment, gait analysis, and foot scanning solutions for fitness centers, rehabilitation clinics, and wellness facilities.",
     "items": [
       {
         "title": "Fitness & wellness",
-        "body": "Build structured onboarding and review moments around composition, posture and measurable progress."
+        "body": "Enhance fitness assessments with NEXBODY's body composition analysis, posture evaluation, and personalized wellness insights."
       },
       {
         "title": "Rehabilitation",
-        "body": "Establish repeatable baselines and review posture or mobility changes across a program."
+        "body": "Support rehabilitation assessments with NEXBODY's posture analysis, gait evaluation, and mobility assessment solutions."
       },
       {
         "title": "Sports performance",
-        "body": "Combine whole-body assessment with dedicated gait and plantar-pressure workflows when movement detail matters."
+        "body": "Optimize athletic performance with NEXBODY's body composition analysis, gait assessment, and movement evaluation solutions."
       },
       {
         "title": "Clinics & health programs",
-        "body": "Give professionals consistent reports, configurable thresholds and practical ways to share findings."
+        "body": "Support health assessments with NEXBODY's body composition analysis, posture evaluation, and personalized wellness insights."
       },
       {
         "title": "Footwear & orthotics",
-        "body": "Use full-foot morphology, arch classification and STL output to support fitting and customization."
+        "body": "Enhance footwear customization and orthotic solutions with NEXBODY's precise foot scanning, measurement, and assessment technology."
       },
       {
         "title": "Education & research",
-        "body": "Create repeatable assessment records for teaching, screening and structured data collection."
+        "body": "Support academic research and education with NEXBODY's body composition analysis, gait assessment, and movement evaluation solutions."
       }
     ]
   },
   "fieldFilm": {
-    "eyebrow": "MEASUREMENT MADE TANGIBLE",
-    "title": "From the body to a usable model.",
-    "body": "Purpose-built capture, clear visual reporting and outputs designed to continue into professional workflows.",
+    "eyebrow": "F20 / PRODUCT SHOWCASE",
+    "title": "Discover the F20 Professional Foot Scanner in Action",
+    "body": "Explore the NEXBODY F20 foot scanner in action, showcasing precise foot measurement and scanning solutions for footwear customization and foot assessment.",
     "video": "/video/f20-intro.mp4",
     "poster": "/media/products/f20/f20-lab-hero-branded.png",
     "buttonLabel": "Explore F20",
