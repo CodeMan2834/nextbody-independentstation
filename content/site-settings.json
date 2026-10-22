@@ -1,6 +1,6 @@
 {
   "headerCta": {
-    "label": "Book a Demo NOW",
+    "label": "Book a Demo",
     "href": "/contact"
   },
   "nav": [
@@ -44,7 +44,7 @@
   "whatsappNumber": "+971000000000",
   "contactEmail": "info@nexbodyfit.com",
   "seo": {
-    "title": "3D Body Assessment Systems, Gait Analysis & Foot Scanners | NEXBODY",
-    "description": "Explore NEXBODY X60 body composition and posture assessment, OneScan gait and plantar pressure analysis, and F20 3D foot scanning. Book a product demonstration."
+    "title": "NEXBODY | Body Assessment & Scanning Solutions",
+    "description": "Discover NEXBODY's professional body assessment, gait analysis, and foot scanning solutions designed for fitness centers, rehabilitation clinics, and wellness facilities."
   }
 }
