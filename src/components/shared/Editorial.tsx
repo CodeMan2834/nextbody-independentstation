@@ -1,10 +1,11 @@
 import Link from "next/link";
+import { HeadingText } from "./HeadingText";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
 export function EditorialHero({ eyebrow, title, intro, image }: { eyebrow: string; title: string; intro: string; image?: string }) {
   return <header className={image ? "editorial-hero editorial-hero-split" : "editorial-hero"}>
-    <div><Link href="/" className="editorial-home">Home</Link><p className="instrument-kicker">{eyebrow}</p><h1>{title}</h1><p className="editorial-intro">{intro}</p></div>
+    <div><Link href="/" className="editorial-home">Home</Link><p className="instrument-kicker">{eyebrow}</p><h1><HeadingText text={title} /></h1><p className="editorial-intro">{intro}</p></div>
     {image && <div className="editorial-hero-image"><Image src={image} alt={title} fill priority sizes="(min-width: 900px) 45vw, 100vw" className="object-contain p-4" /></div>}
   </header>;
 }
