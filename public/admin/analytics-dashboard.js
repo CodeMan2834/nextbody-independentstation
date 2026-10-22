@@ -1,5 +1,5 @@
 (()=>{
- const $=id=>document.getElementById(id),local=['localhost','127.0.0.1'].includes(location.hostname),fmt=n=>Number(n||0).toLocaleString('zh-CN');
+ const $=id=>document.getElementById(id),fmt=n=>Number(n||0).toLocaleString('zh-CN');
  const titles={overview:'运营总览',channels:'渠道来源',pages:'内容表现',modules:'模块交互',funnel:'询盘转化',campaign:'推广链接'};
  const actions={navigate:'站内导航',consultation:'咨询入口',download:'资料下载',video_play:'主动播放视频',email:'联系邮箱',social:'社媒链接',external:'外部链接'};
  const channels={search:'自然搜索',social:'社交媒体',campaign:'推广活动',referral:'外部推荐',direct:'直接 / 未知'};
@@ -44,7 +44,7 @@
  }
  function params(){return new URLSearchParams({from:$('from').value,to:$('to').value,channel:$('channel').value,device:$('device').value,product:$('product').value});}
  async function load(){const id=++requestId;$('refresh').disabled=true;if(!demo)state('loading','正在读取','按所选条件汇总访问记录。');try{
-  if(demo){data=demoData();state('demo','演示数据 · 非真实访问','用于预览布局与操作；不会写入数据库，筛选不代表真实业务结果。');render();return;}
+  if(demo){$('login').hidden=true;data=demoData();state('demo','演示数据 · 非真实访问','用于预览布局与操作；不会写入数据库，筛选不代表真实业务结果。');render();return;}
   const response=await fetch('/api/analytics/report?'+params(),{cache:'no-store',signal:AbortSignal.timeout(20000)});const result=await response.json();if(id!==requestId)return;
   $('login').hidden=result.state!=='unauthorised'||!result.loginReady;
   if(result.state==='ready'){data=result.data;state('ready',result.local?'本地验收 · 非线上统计':'统计已连接',result.local?'仅展示本机测试数据库的数据，不代表正式网站访问。':'展示成功上报的数据；与真实人数或邮箱收件数量可能存在差异。');render();}
@@ -58,8 +58,8 @@
  document.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>selectView(button.dataset.view)));
  $('filters').addEventListener('submit',e=>{e.preventDefault();if($('from').value>$('to').value){state('error','日期范围无效','开始日期不能晚于结束日期。');return;}load();});
  document.querySelectorAll('[data-days]').forEach(button=>button.addEventListener('click',()=>{$('from').value=day(Number(button.dataset.days)-1);$('to').value=day();load();}));
- $('demo').hidden=!local;$('demo').addEventListener('click',()=>{demo=!demo;$('demo').textContent=demo?'返回连接状态':'查看演示样式';load();});
- if(local&&new URLSearchParams(location.search).get('demo')==='1'){demo=true;$('demo').textContent='返回连接状态';}
+ $('demo').hidden=false;$('demo').addEventListener('click',()=>{demo=!demo;$('demo').textContent=demo?'返回连接状态':'查看演示数据';load();});
+ if(new URLSearchParams(location.search).get('demo')==='1'){demo=true;$('demo').textContent='返回连接状态';}
  $('logout').addEventListener('click',async()=>{try{await fetch('/api/admin/analytics-logout',{method:'POST'});}finally{location.replace('/admin/analytics.html');}});
  $('campaign-form').addEventListener('submit',e=>{e.preventDefault();const url=new URL($('campaign-path').value,'https://nexbodyfit.com');for(const [field,key] of [['campaign-source','utm_source'],['campaign-medium','utm_medium'],['campaign-name','utm_campaign']])url.searchParams.set(key,$(field).value.trim().toLowerCase());$('campaign-result').value=url.toString();$('campaign-status').textContent='链接已生成，可用于二维码、邮件或社媒推广。';});
  $('copy-link').addEventListener('click',async()=>{if(!$('campaign-result').value)return;try{await navigator.clipboard.writeText($('campaign-result').value);$('campaign-status').textContent='已复制。';}catch{$('campaign-result').select();$('campaign-status').textContent='请手动复制已选中的链接。';}});
