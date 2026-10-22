@@ -1,13 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
 import { adminSettings, popupHTML, STATE_COOKIE, validState } from "@/lib/admin-auth";
+import { analyticsSettings } from "@/lib/analytics/config";
+import { ADMIN_COOKIE, ADMIN_TTL, LOGIN_COOKIE, sealAdmin } from "@/lib/analytics/session";
 export const dynamic = "force-dynamic";
 export async function GET(request: NextRequest) {
   const settings = adminSettings();
+  const dashboardLogin = request.cookies.get(LOGIN_COOKIE)?.value === "analytics";
   const reply = (result: { token: string; provider: string } | { message: string }, status = 200) => {
     const { nonce, html } = popupHTML(settings.origin, result);
     const response = new NextResponse(html, { status, headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store", "Referrer-Policy": "no-referrer", "X-Frame-Options": "DENY", "Content-Security-Policy": `default-src 'none'; script-src 'nonce-${nonce}'; base-uri 'none'; frame-ancestors 'none'` } });
-    response.cookies.set(STATE_COOKIE, "", { path: "/api/admin", maxAge: 0, httpOnly: true, secure: true, sameSite: "lax" });
-    return response;
+    const finalResponse = dashboardLogin
+      ? NextResponse.redirect(new URL("/admin/analytics.html" + ("token" in result ? "" : "?login=denied"), settings.origin || request.nextUrl.origin), 303)
+      : response;
+    finalResponse.cookies.set(STATE_COOKIE, "", { path: "/api/admin", maxAge: 0, httpOnly: true, secure: true, sameSite: "lax" });
+    finalResponse.cookies.set(LOGIN_COOKIE, "", { path: "/api/admin", maxAge: 0, httpOnly: true, secure: true, sameSite: "lax" });
+    const analytics = analyticsSettings();
+    if ("token" in result && analytics.sessionReady) finalResponse.cookies.set(ADMIN_COOKIE, sealAdmin(result.token, analytics.secret), { path: "/", maxAge: ADMIN_TTL, httpOnly: true, secure: true, sameSite: "lax" });
+    finalResponse.headers.set("Cache-Control", "no-store");
+    finalResponse.headers.set("Referrer-Policy", "no-referrer");
+    finalResponse.headers.set("X-Frame-Options", "DENY");
+    return finalResponse;
   };
   if (!settings.ready || request.nextUrl.origin !== settings.origin) return reply({ message: "后台授权未配置或访问域名不匹配" }, 503);
   if (!validState(request.cookies.get(STATE_COOKIE)?.value, request.nextUrl.searchParams.get("state"))) return reply({ message: "授权会话已失效，请重新登录" }, 400);

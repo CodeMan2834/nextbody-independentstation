@@ -27,7 +27,7 @@ class FakeResponse extends Response{
 }
 const request=(url,cookie)=>({url,nextUrl:new URL(url),cookies:{get:()=>cookie?{value:cookie}:undefined}});
 function callback(fetch,environment=env){
- return load('src/app/api/admin/callback/route.ts',{'next/server':{NextResponse:FakeResponse},'@/lib/admin-auth':{...auth,adminSettings:()=>auth.adminSettings(environment)}},{fetch}).GET;
+ return load('src/app/api/admin/callback/route.ts',{'next/server':{NextResponse:FakeResponse},'@/lib/admin-auth':{...auth,adminSettings:()=>auth.adminSettings(environment)},'@/lib/analytics/config':{analyticsSettings:()=>({sessionReady:false})},'@/lib/analytics/session':{ADMIN_COOKIE:'admin',ADMIN_TTL:28800,LOGIN_COOKIE:'analytics-login',sealAdmin:()=>''}},{fetch}).GET;
 }
 
 test('all CMS collections validate existing content',()=>{
@@ -67,7 +67,7 @@ test('production never enables local editing, including a localhost URL',()=>{
  for(const origin of ['http://nexbodyfit.com','https://nexbodyfit.com/path','https://user:pass@nexbodyfit.com','not-url'])assert.equal(auth.adminSettings({...env,CMS_SITE_URL:origin}).ready,false);
 });
 test('OAuth start rejects unconfigured requests and issues secure bounded state when configured',async()=>{
- const handler=environment=>load('src/app/api/admin/auth/route.ts',{'next/server':{NextResponse:FakeResponse},'@/lib/admin-auth':{...auth,adminSettings:()=>auth.adminSettings(environment)}}).GET;
+ const handler=environment=>load('src/app/api/admin/auth/route.ts',{'next/server':{NextResponse:FakeResponse},'@/lib/admin-auth':{...auth,adminSettings:()=>auth.adminSettings(environment)},'@/lib/analytics/config':{analyticsSettings:()=>({sessionReady:false})},'@/lib/analytics/session':{ADMIN_COOKIE:'admin',ADMIN_TTL:28800,LOGIN_COOKIE:'analytics-login',sealAdmin:()=>''}}).GET;
  assert.equal((await handler({})(request('https://nexbodyfit.com/api/admin/auth'))).status,503);
  const res=await handler(env)(request('https://nexbodyfit.com/api/admin/auth'));
  const url=new URL(res.headers.get('location'));assert.equal(url.hostname,'github.com');assert.equal(url.searchParams.get('redirect_uri'),'https://nexbodyfit.com/api/admin/callback');

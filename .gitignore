@@ -43,3 +43,10 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# Analytics local development data and private exports
+*.db
+*.db-*
+*.sqlite
+.analytics/
+analytics-backup-*.json

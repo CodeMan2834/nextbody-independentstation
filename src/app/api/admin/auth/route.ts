@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { adminSettings, newState, STATE_COOKIE } from "@/lib/admin-auth";
+import { LOGIN_COOKIE } from "@/lib/analytics/session";
 export const dynamic = "force-dynamic";
 export async function GET(request: Request) {
   const settings = adminSettings();
@@ -9,6 +10,7 @@ export async function GET(request: Request) {
   url.search = new URLSearchParams({ client_id: settings.clientId, redirect_uri: `${settings.origin}/api/admin/callback`, scope: "repo", state }).toString();
   const response = NextResponse.redirect(url);
   response.cookies.set(STATE_COOKIE, state, { httpOnly: true, secure: true, sameSite: "lax", maxAge: 600, path: "/api/admin" });
+  response.cookies.set(LOGIN_COOKIE, new URL(request.url).searchParams.get("target") === "analytics" ? "analytics" : "", { path: "/api/admin", maxAge: new URL(request.url).searchParams.get("target") === "analytics" ? 600 : 0, httpOnly: true, secure: true, sameSite: "lax" });
   response.headers.set("Cache-Control", "no-store");
   return response;
 }

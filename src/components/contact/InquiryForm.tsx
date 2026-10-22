@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 import { submitInquiry } from "@/actions/submit-inquiry";
@@ -30,6 +30,7 @@ const labelClass = "mb-2 block text-sm font-medium text-[var(--text-primary)]";
 
 export function InquiryForm() {
   const router = useRouter();
+  const submissionId = useRef<string | undefined>(undefined);
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
 
@@ -49,7 +50,14 @@ export function InquiryForm() {
     };
 
     startTransition(async () => {
-      const result = await submitInquiry(data);
+      let analyticsId: string | undefined;
+      try {
+        if (localStorage.getItem("nexbody-analytics-consent") === "granted" && navigator.doNotTrack !== "1" && !(navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl) {
+          submissionId.current ||= crypto.randomUUID();
+          analyticsId = submissionId.current;
+        }
+      } catch { /* Statistics is optional; the form must work with browser storage blocked. */ }
+      const result = await submitInquiry(data, analyticsId);
       if (result.success) {
         router.push("/success");
       } else {

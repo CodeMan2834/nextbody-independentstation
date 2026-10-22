@@ -43,7 +43,8 @@ enter.addEventListener('click',async()=>{
   }catch(error){statusNode.textContent=error.message;retry.hidden=false;}
 });
 retry.addEventListener('click',()=>location.reload());
-document.getElementById('logout').addEventListener('click',()=>{
+document.getElementById('logout').addEventListener('click',async()=>{
+  try { await fetch('/api/admin/analytics-logout',{method:'POST'}); } catch {}
   // Decap persists its own OAuth session. Clear only CMS keys, not unrelated site data.
   for(const store of [localStorage,sessionStorage])for(const key of Object.keys(store))if(/netlify-cms|decap-cms|nexbody-admin/i.test(key))store.removeItem(key);
   location.replace('/admin/index.html');

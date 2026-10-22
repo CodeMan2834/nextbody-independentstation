@@ -14,8 +14,9 @@ const inquiry = {
   company: 'Test Company', country: 'Other', message: '<script>test</script>',
 };
 
-function setup({ env = {}, response = { data: { id: 'test-id' }, error: null }, fail = false } = {}) {
+function setup({ env = {}, response = { data: { id: 'test-id' }, error: null }, fail = false, analyticsFail = false } = {}) {
   const calls = [];
+  const analyticsCalls = [];
   const logs = [];
   const environment = { NODE_ENV: 'production', RESEND_API_KEY: 'test-key', EMAIL_FROM: 'NEXBODY <inquiry@example.com>', EMAIL_TO: 'sales@example.com', ...env };
   class FakeResend {
@@ -43,8 +44,8 @@ function setup({ env = {}, response = { data: { id: 'test-id' }, error: null }, 
     return testModule.exports;
   }
   const email = load('src/lib/email.ts', { resend: { Resend: FakeResend }, '@/lib/site-config': { siteConfig: { contactEmail: 'current@example.com' } } });
-  const action = load('src/actions/submit-inquiry.ts', { zod, '@/lib/email': email });
-  return { ...action, calls, logs };
+  const action = load('src/actions/submit-inquiry.ts', { zod, '@/lib/email': email, '@/lib/analytics/inquiry': {recordSuccessfulInquiry:async(id)=>{analyticsCalls.push(id);if(analyticsFail)throw Error("Stats database unavailable");}} });
+  return { ...action, calls, logs, analyticsCalls };
 }
 
 test('missing API key returns failure without logging customer data or sending', async () => {
@@ -97,4 +98,10 @@ test('invalid customer data never reaches the email provider', async () => {
 test('inquiry rejects oversized, whitespace-only and header-control input without sending',async()=>{
  for(const invalid of [{fullName:' '.repeat(8)},{company:'  '},{fullName:'Customer\r\nBcc: other@example.com'},{fullName:'x'.repeat(121)},{company:'x'.repeat(201)},{phone:'1'.repeat(41)},{message:'x'.repeat(5001)}]){const app=setup();assert.equal((await app.submitInquiry({...inquiry,...invalid})).success,false);assert.equal(app.calls.length,0);}
  const app=setup();assert.equal((await app.submitInquiry({...inquiry,fullName:'  Test Customer  ',email:' customer@example.com '})).success,true);assert.equal(app.calls[0].replyTo,'customer@example.com');
+});
+
+
+test('inquiry statistics only follows provider acceptance and cannot turn a successful email into failure',async()=>{
+ const ok=setup({analyticsFail:true});assert.equal((await ok.submitInquiry(inquiry,'test-event-id')).success,true);assert.deepEqual(ok.analyticsCalls,['test-event-id']);
+ const rejected=setup({response:{data:null,error:{name:'provider_rejection'}}});assert.equal((await rejected.submitInquiry(inquiry,'test-event-id')).success,false);assert.equal(rejected.analyticsCalls.length,0);
 });

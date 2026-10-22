@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { PRIMARY_NAV_LINKS } from "@/lib/navigation";
+import { AnalyticsClient } from "@/components/layout/AnalyticsClient";
+import { analyticsSettings } from "@/lib/analytics/config";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
@@ -52,6 +54,7 @@ export default function RootLayout({
           <Footer />
           <WhatsAppFloat />
           <BackToTop />
+          <AnalyticsClient enabled={analyticsSettings().enabled} />
         </NextIntlClientProvider>
       </body>
     </html>

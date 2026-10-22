@@ -11,13 +11,18 @@
     "lint": "eslint",
     "cms": "node scripts/start-cms.mjs",
     "validate:content": "node scripts/validate-content.mjs",
-    "test": "node --test tests/*.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "analytics:migrate": "node scripts/analytics-database.mjs migrate",
+    "analytics:backup": "node scripts/analytics-database.mjs backup",
+    "analytics:restore": "node scripts/analytics-database.mjs restore",
+    "analytics:cleanup": "node scripts/analytics-database.mjs cleanup"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
     "@content-collections/core": "^0.15.2",
     "@content-collections/next": "^0.2.11",
     "@ffmpeg/ffmpeg": "^0.12.15",
+    "@libsql/client": "0.18.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "decap-cms-app": "^3.14.1",

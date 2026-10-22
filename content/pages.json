@@ -31,6 +31,10 @@
       {
         "title": "4. Contact Us",
         "body": "If you have any questions about this Privacy Policy, please contact us at {{contactEmail}}."
+      },
+      {
+        "title": "Optional website analytics",
+        "body": "If you allow optional analytics, we record page paths, referral website domains, non-personal campaign tags, broad device types, module views and interactions. We do not record form contents, email addresses or full referral URLs in analytics. A first-party session cookie expires after 30 minutes without tracked activity; your preference is stored in this browser. You can change it using Privacy preferences. Where supported, we respect Do Not Track and Global Privacy Control. Raw events are retained for up to 90 days and daily summaries for up to 365 days. An IP-derived, short-lived rate-limit identifier is used to protect the collection endpoint; raw IP addresses are not stored in our analytics database. Statistical totals cover only visits that consent and successfully report. For questions, contact {{contactEmail}}."
       }
     ]
   },

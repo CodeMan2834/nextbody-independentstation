@@ -1,6 +1,7 @@
 "use server";
 
 import { z } from "zod";
+import { recordSuccessfulInquiry } from "@/lib/analytics/inquiry";
 import { sendInquiryEmail } from "@/lib/email";
 
 const inquirySchema = z.object({
@@ -22,7 +23,8 @@ export type InquiryResult =
   | { success: false; error: string };
 
 export async function submitInquiry(
-  formData: InquiryFormData
+  formData: InquiryFormData,
+  analyticsEventId?: string
 ): Promise<InquiryResult> {
   try {
     const parsed = inquirySchema.safeParse(formData);
@@ -34,6 +36,7 @@ export async function submitInquiry(
     }
 
     await sendInquiryEmail(parsed.data);
+    try { await recordSuccessfulInquiry(analyticsEventId); } catch { /* Optional statistics must not change the accepted inquiry result. */ }
 
     return { success: true };
   } catch (error) {
