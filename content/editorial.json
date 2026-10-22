@@ -1,30 +1,30 @@
 {
   "about": {
     "eyebrow": "ABOUT NEXBODY",
-    "title": "Intelligent assessment. Human understanding.",
-    "intro": "We turn complex body, gait and foot measurements into information people can discuss and act on.",
+    "title": "Professional Body Assessment Solutions",
+    "intro": "Learn about NEXBODY, a provider of professional body assessment, gait analysis, and foot scanning solutions for fitness, rehabilitation, and wellness industries.",
     "image": "/media/products/x60/x60-clinical.png",
     "sections": [
       {
-        "title": "From Shenzhen to everyday assessment",
-        "body": "Founded in 2015 and headquartered in Shenzhen, China, with a laboratory in the United States, NEXBODY is a National High-Tech Enterprise focused on AI-powered health assessment technologies."
+        "title": "From Shenzhen to Everyday Health Assessment | NEXBODY",
+        "body": "Founded in 2015 and headquartered in Shenzhen, China, NEXBODY is a National High-Tech Enterprise with a U.S.-based laboratory, specializing in AI-powered health assessment technologies."
       },
       {
-        "title": "Lighter systems. Practical workflows.",
-        "body": "We work to transform large-scale medical screening equipment into lightweight, intelligent assessment solutions for rehabilitation, wellness, sports health and personalised footwear applications."
+        "title": "Lightweight Assessment Systems. Practical Workflows.",
+        "body": "NEXBODY transforms large-scale medical screening equipment into lightweight, intelligent assessment solutions for rehabilitation, wellness, sports health, and personalized footwear applications."
       },
       {
-        "title": "Three complementary views",
-        "body": "X60 brings body composition and posture into focus. OneScan adds gait and plantar pressure analysis. F20 captures full-foot 3D geometry. Each product addresses a distinct assessment need, supported by reports that professionals can review and explain."
+        "title": "Three Complementary Assessment Solutions | NEXBODY",
+        "body": "Explore NEXBODY's X60 for body composition and posture assessment, OneScan for gait and plantar pressure analysis, and F20 for full-foot 3D scanning."
       }
     ]
   },
-  "solutionsIntro": "Assessment systems for the way your team works. Explore each setting, the relevant measurements and the products that support it.",
+  "solutionsIntro": "Explore NEXBODY's professional body assessment, gait analysis, and foot scanning solutions designed for fitness, rehabilitation, wellness, and footwear applications.",
   "solutions": [
     {
       "slug": "fitness-sports",
       "title": "Fitness & Sports",
-      "intro": "Connect body composition, posture and movement observations with a clearer member conversation.",
+      "intro": "Explore NEXBODY's body composition analysis, posture assessment, and gait analysis solutions for fitness centers, sports performance, and athlete monitoring.",
       "image": "/media/products/x60/x60-gym.png",
       "productSlugs": [
         "nexbody-x60",
@@ -32,23 +32,23 @@
       ],
       "sections": [
         {
-          "title": "Start with a structured baseline",
-          "body": "Use X60 to bring composition and posture measurements into the same assessment conversation. Review the report with the member and record the conditions of each assessment."
+          "title": "Body Composition & Fitness Assessment",
+          "body": "Support personalized fitness programs with NEXBODY's body composition analysis and posture assessment solutions, helping fitness professionals better understand individual physical conditions and training needs."
         },
         {
-          "title": "Add movement context",
-          "body": "OneScan provides gait and plantar pressure observations when a walking assessment is part of your service. Keep these observations alongside the member’s training history and goals."
+          "title": "Gait Analysis & Sports Performance",
+          "body": "Enhance sports performance assessments with professional gait analysis and plantar pressure evaluation, providing valuable movement insights for athletes, coaches, and sports training centers."
         },
         {
-          "title": "Make follow-up understandable",
-          "body": "Compare repeat assessments under consistent conditions. Coaches can explain observations, agree practical next steps and review progress without treating a single score as a complete picture of health."
+          "title": "Training Progress & Performance Monitoring",
+          "body": "Track changes in body composition, posture, and movement patterns through regular assessments, supporting data-driven training adjustments and long-term fitness progress."
         }
       ]
     },
     {
       "slug": "healthcare",
       "title": "Healthcare",
-      "intro": "Structured assessment records for professional review and communication.",
+      "intro": "Explore NEXBODY's body composition analysis, posture assessment, and gait analysis solutions for rehabilitation clinics, healthcare providers, and wellness programs.",
       "image": "/media/products/x60/x60-clinical.png",
       "productSlugs": [
         "nexbody-x60",
@@ -57,46 +57,46 @@
       ],
       "sections": [
         {
-          "title": "Choose the right assessment",
-          "body": "X60 records body composition and posture, OneScan captures gait and pressure, and F20 records 3D foot geometry. Select the system that matches the question being explored."
+          "title": "Body Composition & Health Assessment",
+          "body": "Support professional health assessments with NEXBODY's body composition analysis solutions, helping healthcare providers better understand physical conditions and develop personalized wellness plans."
         },
         {
-          "title": "Keep professional judgement central",
-          "body": "Assessment outputs support review by qualified professionals. They do not replace diagnosis, clinical examination or other investigations required by the individual’s circumstances."
+          "title": "Posture & Mobility Assessment",
+          "body": "Evaluate posture alignment, body asymmetry, and mobility with NEXBODY's assessment solutions, providing valuable insights for rehabilitation professionals and physical therapists."
         },
         {
-          "title": "Plan the workflow",
-          "body": "Discuss operator training, report delivery, data handling and local regulatory requirements before deployment. Contact our team to review the intended use and available configurations."
+          "title": "Gait Analysis & Rehabilitation Support",
+          "body": "Analyze gait patterns and plantar pressure distribution to support movement evaluation, rehabilitation assessments, and ongoing patient progress monitoring."
         }
       ]
     },
     {
       "slug": "beauty-wellness",
       "title": "Beauty & Wellness",
-      "intro": "Bring measurable body information into a thoughtful wellness consultation.",
+      "intro": "Explore NEXBODY's body composition analysis, posture assessment, and wellness solutions for beauty clinics, wellness centers, and personalized body management programs",
       "image": "/media/products/x60/x60-composition.png",
       "productSlugs": [
         "nexbody-x60"
       ],
       "sections": [
         {
-          "title": "Look beyond body weight",
-          "body": "X60 combines composition information and posture observations so that consultations can address more than a scale reading."
+          "title": "Body Composition & Wellness Assessment",
+          "body": "Enhance wellness consultations with NEXBODY's body composition analysis solutions, helping professionals understand body fat, muscle mass, and key physical indicators to support personalized wellness programs."
         },
         {
-          "title": "Explain the report together",
-          "body": "Guide clients through the measurements that matter to their goals. Agree on a follow-up schedule and use consistent assessment conditions when reviewing change."
+          "title": "Posture Analysis & Body Awareness",
+          "body": "Support beauty and wellness services with professional posture assessment, providing insights into body alignment, symmetry, and posture changes for more informed consultations."
         },
         {
-          "title": "Set clear expectations",
-          "body": "Use assessment information to support a personalised conversation. Avoid presenting measurements as guarantees of a treatment outcome or as a medical diagnosis."
+          "title": "Personalized Wellness & Progress Tracking",
+          "body": "Monitor changes in body composition and posture through regular assessments, helping wellness professionals track progress, personalize programs, and improve client engagement."
         }
       ]
     },
     {
       "slug": "orthopedic",
       "title": "Orthopedic",
-      "intro": "Connect posture, walking and foot shape observations for professional musculoskeletal assessment.",
+      "intro": "Explore NEXBODY's foot scanning, plantar pressure analysis, and gait assessment solutions for orthopedic clinics, orthotic professionals, and personalized foot care.",
       "image": "/media/products/onescan/onescan-scene.png",
       "productSlugs": [
         "onescan-gait-analysis",
@@ -105,23 +105,23 @@
       ],
       "sections": [
         {
-          "title": "Review complementary observations",
-          "body": "Posture, gait pressure and foot morphology describe different aspects of an assessment. Select the relevant systems rather than assuming one measurement can answer every question."
+          "title": "Foot Scanning & Measurement",
+          "body": "Support professional foot assessments with NEXBODY's F20 foot scanning system, providing detailed foot measurements to assist orthotic design, footwear fitting, and personalized foot care solutions."
         },
         {
-          "title": "Support the consultation",
-          "body": "OneScan records pressure and gait observations while F20 captures 3D foot shape. Qualified practitioners interpret these alongside symptoms, history and physical examination."
+          "title": "Gait Analysis & Plantar Pressure Assessment",
+          "body": "Evaluate walking patterns and plantar pressure distribution with NEXBODY OneScan, helping orthopedic professionals understand foot loading, gait characteristics, and movement patterns."
         },
         {
-          "title": "Document and revisit",
-          "body": "Retain relevant reports and repeat assessments under comparable conditions. Confirm the export and integration requirements with our team before selecting a configuration."
+          "title": "Personalized Orthotic & Footwear Solutions",
+          "body": "Combine foot measurement and gait assessment data to support personalized orthotic planning, footwear customization, and professional foot care consultations."
         }
       ]
     },
     {
       "slug": "foot-orthotics-footwear",
       "title": "Foot Orthotics & Footwear",
-      "intro": "Connect full-foot geometry and plantar pressure observations with footwear and orthotic workflows.",
+      "intro": "Explore NEXBODY's foot scanning, plantar pressure analysis, and foot measurement solutions for custom orthotics, personalized footwear, and professional foot assessment.",
       "image": "/media/products/f20/f20-lab-hero.webp",
       "productSlugs": [
         "f20-foot-scanner",
@@ -129,23 +129,23 @@
       ],
       "sections": [
         {
-          "title": "Capture the shape of both feet",
-          "body": "F20 records 3D full-foot morphology, measurements and left-right comparison. Its STL output can support downstream workflows where compatible software and processes are in place."
+          "title": "Professional Foot Scanning & Measurement",
+          "body": "Capture detailed foot measurements with the NEXBODY F20 Foot Scanner, supporting accurate foot assessment, footwear fitting, and personalized shoe design."
         },
         {
-          "title": "Add pressure and gait information",
-          "body": "OneScan captures contact and plantar pressure observations. Combine this information with the practitioner’s assessment when discussing footwear or orthotic requirements."
+          "title": "Gait Analysis & Plantar Pressure Assessment",
+          "body": "Analyze walking patterns and plantar pressure distribution with NEXBODY OneScan, providing valuable insights into foot loading and movement for orthotic and footwear applications."
         },
         {
-          "title": "Check the production handover",
-          "body": "Confirm model format, measurement definitions and compatibility with the receiving CAD or manufacturing system. Scanning is one step in a wider fitting and production process."
+          "title": "Custom Orthotics & Personalized Footwear",
+          "body": "Combine foot measurement and gait analysis data to support custom orthotic insoles, personalized footwear solutions, and improved footwear fitting experiences."
         }
       ]
     },
     {
       "slug": "rehabilitation-therapy",
       "title": "Rehabilitation Therapy",
-      "intro": "Create comparable assessment records to support rehabilitation conversations over time.",
+      "intro": "Explore NEXBODY's posture assessment, gait analysis, and mobility evaluation solutions for rehabilitation centers, physical therapy clinics, and recovery monitoring.",
       "image": "/media/products/x60/x60-clinical.png",
       "productSlugs": [
         "nexbody-x60",
@@ -153,21 +153,21 @@
       ],
       "sections": [
         {
-          "title": "Establish a baseline",
-          "body": "X60 provides posture and guided mobility observations. OneScan adds walking and pressure assessment when appropriate for the individual and the therapy setting."
+          "title": "Posture & Mobility Assessment",
+          "body": "Support rehabilitation assessments with NEXBODY X60's posture analysis and mobility evaluation features, helping physical therapists assess body alignment, asymmetry, and range of motion."
         },
         {
-          "title": "Repeat with care",
-          "body": "Use consistent operator guidance, assessment conditions and protocols. A repeatable process helps practitioners compare records and explain observed changes."
+          "title": "Gait Analysis & Movement Evaluation",
+          "body": "Analyze walking patterns and plantar pressure distribution with NEXBODY OneScan, providing valuable movement insights to support gait assessment and rehabilitation planning."
         },
         {
-          "title": "Keep care decisions with the therapist",
-          "body": "Reports support documentation and discussion. The therapist determines which observations are meaningful and whether further assessment or a change in the care plan is needed."
+          "title": "Rehabilitation Progress Monitoring",
+          "body": "Track changes in posture, mobility, and gait patterns through regular assessments, helping rehabilitation professionals evaluate progress and make informed therapy adjustments."
         }
       ]
     }
   ],
-  "blogIntro": "Practical guides to body assessment, gait analysis and 3D foot scanning.",
+  "blogIntro": "Explore NEXBODY's latest insights, industry trends, and expert articles on body assessment, gait analysis, foot scanning, fitness, rehabilitation, and wellness.",
   "posts": [
     {
       "slug": "choosing-an-assessment-system",
