@@ -1,29 +1,28 @@
 {
   "products": [
     {
-      "slug": "nexbody-x60",
-      "name": "NEXBODY Nexbody-X60",
-      "shortName": "Nexbody-X60",
-      "category": "Integrated body assessment",
-      "priority": "flagship",
-      "tagline": "Posture, body composition and mobility in one guided system",
-      "summary": "Nexbody-X60 combines 3D depth vision, eight-electrode body composition analysis and guided neck and shoulder mobility assessment in one professional workstation.",
-      "image": "/media/products/x60/x60-front-white.png",
       "heroImage": "/media/products/x60/x60-device.png",
-      "accent": "blue",
+      "priority": "flagship",
+      "summary": "The NEXBODY X60 is a professional body assessment system designed for fitness centers, wellness facilities, and personal training studios, delivering precise body insights for personalized fitness and wellness solutions.",
+      "shortName": "Nexbody-X60",
       "facts": [
-        "3D depth vision",
-        "Eight-electrode analysis",
-        "Guided mobility assessment"
+        "Comprehensive Body Assessment",
+        "Data-Driven Fitness Insights",
+        "Professional Wellness Solutions"
       ],
-      "features": [
-        "Automatic anatomical landmark recognition with manual correction",
-        "Posture angles, asymmetry indicators, risk levels and posture scoring",
-        "Nearly 40 body composition values with reference ranges and segmental analysis",
-        "Cervical lateral flexion and arm-elevation assessment",
-        "Voice guidance and automatic assessment-position recognition",
-        "Email sharing, printing, institution branding and data-interface upload"
-      ],
+      "accent": "blue",
+      "downloads": [],
+      "name": "NEXBODY Nexbody-X60",
+      "slug": "nexbody-x60",
+      "tagline": "Precision Assessment. Better Body Insights.",
+      "menuLabel": "Nexbody X60",
+      "story": {
+        "eyebrow": "X60 / In Action",
+        "title": "Professional Body Assessment Solutions for Fitness & Wellness",
+        "body": "Explore the NEXBODY X60 in action across fitness centers, wellness facilities, and rehabilitation settings, supporting professional body assessment and personalized wellness solutions.",
+        "video": "/video/x60-ai-vision.mp4",
+        "poster": "/media/products/x60/x60-hero.png"
+      },
       "specs": [
         {
           "label": "Product model",
@@ -66,19 +65,7 @@
           "value": "Data interface upload supported"
         }
       ],
-      "highlights": [
-        "Forward head posture, head lateral tilt, uneven and rounded shoulders",
-        "Pelvic tilt, knee hyperextension and leg alignment",
-        "Cervical and sacral displacement indices",
-        "Weight, muscle, protein, fat, BMI, BMR, WHR and segmental composition",
-        "Configurable thresholds and data-cleaning functions",
-        "Optional institution logo on reports"
-      ],
-      "reports": [
-        "Posture assessment",
-        "Body composition analysis",
-        "Neck and shoulder mobility"
-      ],
+      "image": "/media/products/x60/x60-front-white.png",
       "industries": [
         "Rehabilitation centers",
         "Hospitals and clinics",
@@ -86,45 +73,57 @@
         "Sports performance",
         "Corporate health"
       ],
-      "downloads": [],
-      "story": {
-        "eyebrow": "X60 / AI VISION",
-        "title": "See the capture system behind the assessment.",
-        "body": "Depth vision supports landmark recognition and structured posture review while the professional remains in control of the final interpretation.",
-        "video": "/video/x60-ai-vision.mp4",
-        "poster": "/media/products/x60/x60-hero.png"
-      },
+      "features": [
+        "Automatic anatomical landmark recognition with manual correction",
+        "Posture Assessment covering angles, asymmetry, risk levels, and scoring",
+        "Body Composition Analysis with nearly 40 metrics and segmental insights",
+        "Mobility Assessment for cervical lateral flexion and arm elevation",
+        "Automated Body Assessment with voice guidance and position recognition",
+        "Assessment Reports & Data Management supporting sharing, printing, branding, and data upload"
+      ],
       "seo": {
-        "title": "X60 3D Body Composition & Posture Analyzer | NEXBODY",
-        "description": "Nexbody-X60 combines 3D depth vision, eight-electrode body composition analysis and guided neck and shoulder mobility assessment in one professional workstation."
+        "title": "X60 Body Assessment System | NEXBODY",
+        "description": "Discover the NEXBODY X60 Body Assessment System, featuring body composition analysis, posture assessment, and mobility evaluation for fitness and wellness professionals."
       },
-      "menuLabel": "Nexbody X60",
-      "menuDescription": "Body Composition Scanner"
+      "menuDescription": "Body Composition Scanner",
+      "category": "Professional Body Assessment System",
+      "reports": [
+        "Posture assessment",
+        "Body composition analysis",
+        "Neck and shoulder mobility"
+      ],
+      "highlights": [
+        "Forward head posture, head lateral tilt, uneven and rounded shoulders",
+        "Pelvic tilt, knee hyperextension and leg alignment",
+        "Cervical and sacral displacement indices",
+        "Weight, muscle, protein, fat, BMI, BMR, WHR and segmental composition",
+        "Configurable thresholds and data-cleaning functions",
+        "Optional institution logo on reports"
+      ]
     },
     {
-      "slug": "onescan-gait-analysis",
-      "name": "NEXBODY OneScan",
-      "shortName": "OneScan",
-      "category": "Quantitative gait and plantar-pressure assessment",
-      "priority": "supporting",
-      "tagline": "Quantitative gait and plantar-pressure assessment",
-      "summary": "OneScan combines static plantar-pressure assessment and dynamic gait analysis on a dedicated piezoresistive sensor platform. Five platform lengths with 9,216–55,296 sensor contacts support clinical, rehabilitation, sports-science and research workflows.",
-      "image": "/media/products/onescan/onescan-device-clean.png",
       "heroImage": "/media/products/onescan/onescan-scene.png",
-      "accent": "gold",
+      "priority": "supporting",
+      "summary": "The NEXBODY OneScan is a professional gait analysis system designed for rehabilitation clinics, sports performance centers, and wellness facilities, providing detailed gait insights to support movement assessment and personalized care.",
+      "shortName": "OneScan",
       "facts": [
-        "Five platform lengths",
+        "Comprehensive Gait Analysis",
         "9,216–55,296 sensor contacts",
-        "Static pressure & dynamic gait"
+        "Precise Movement Assessment"
       ],
-      "features": [
-        "Static plantar-pressure and dynamic gait assessment",
-        "High-density piezoresistive fence-type sensor matrix",
-        "Readable analysis reports for clinical and training workflows",
-        "Batch data import and export with open API interface",
-        "External-device triggering and synchronization",
-        "Optional integration with insole-customization data services"
-      ],
+      "accent": "gold",
+      "downloads": [],
+      "name": "NEXBODY OneScan",
+      "slug": "onescan-gait-analysis",
+      "tagline": "Precision Gait Analysis. Smarter Movement Insights",
+      "menuLabel": "OneScan",
+      "story": {
+        "eyebrow": "ONESCAN / GAIT IN MOTION",
+        "title": "Pressure becomes a movement record.",
+        "body": "The dedicated walkway captures plantar-pressure distribution, center-of-pressure trajectory and timing through the gait cycle.",
+        "video": "/video/onescan-gait.mp4",
+        "poster": "/media/products/onescan/onescan-scene.png"
+      },
       "specs": [
         {
           "label": "OneScan50",
@@ -155,19 +154,7 @@
           "value": ">200 N/cm²"
         }
       ],
-      "highlights": [
-        "Plantar-pressure distribution and center-of-pressure trajectory",
-        "Stance phase and contact metrics",
-        "Step timing, cadence and temporal and kinetic parameters",
-        "Rehabilitation outcome comparison",
-        "Sports injury and performance analysis",
-        "Custom orthotic insole workflow support"
-      ],
-      "reports": [
-        "Dynamic gait",
-        "Static plantar pressure",
-        "Temporal and kinetic parameters"
-      ],
+      "image": "/media/products/onescan/onescan-device-clean.png",
       "industries": [
         "Clinical assessment",
         "Rehabilitation medicine",
@@ -175,46 +162,57 @@
         "University research",
         "Orthotic services"
       ],
-      "downloads": [],
-      "story": {
-        "eyebrow": "ONESCAN / GAIT IN MOTION",
-        "title": "Pressure becomes a movement record.",
-        "body": "The dedicated walkway captures plantar-pressure distribution, center-of-pressure trajectory and timing through the gait cycle.",
-        "video": "/video/onescan-gait.mp4",
-        "poster": "/media/products/onescan/onescan-scene.png"
-      },
+      "features": [
+        "Static plantar-pressure and dynamic gait assessment",
+        "High-density piezoresistive fence-type sensor matrix",
+        "Readable analysis reports for clinical and training workflows",
+        "Batch data import and export with open API interface",
+        "External-device triggering and synchronization",
+        "Optional integration with insole-customization data services"
+      ],
       "seo": {
-        "title": "OneScan Gait & Plantar Pressure Analysis System | NEXBODY",
-        "description": "OneScan combines static plantar-pressure assessment and dynamic gait analysis on a dedicated piezoresistive sensor platform. Five platform lengths with 9,216–55,296 sensor contacts support clinical, rehabilitation, sports-science and research workflows."
+        "title": "OneScan Gait Analysis System | NEXBODY",
+        "description": "Discover the NEXBODY OneScan Gait Analysis System, designed for gait assessment and movement analysis in rehabilitation clinics, sports centers, and wellness facilities."
       },
-      "menuLabel": "OneScan",
-      "menuDescription": "Precision Gait Analysis"
+      "menuDescription": "Precision Gait Analysis",
+      "category": "Professional Gait Analysis System",
+      "reports": [
+        "Dynamic gait",
+        "Static plantar pressure",
+        "Temporal and kinetic parameters"
+      ],
+      "highlights": [
+        "Plantar-pressure distribution and center-of-pressure trajectory",
+        "Stance phase and contact metrics",
+        "Step timing, cadence and temporal and kinetic parameters",
+        "Rehabilitation outcome comparison",
+        "Sports injury and performance analysis",
+        "Custom orthotic insole workflow support"
+      ]
     },
     {
-      "slug": "f20-foot-scanner",
-      "name": "NEXBODY F20",
-      "shortName": "F20",
-      "category": "Synchronous 3D scanning for both feet",
-      "priority": "supporting",
-      "tagline": "Synchronous 3D scanning for both feet",
-      "summary": "F20 scans both feet together, bringing full-foot morphology, more than 30 measurements, AI arch-index classification and STL output into one dedicated workflow. Chinese and English interfaces support professional review, report comparison and printing.",
-      "image": "/media/products/f20/f20-lab-hero-branded.png",
       "heroImage": "/media/products/f20/f20-capture-2026.webp",
-      "workflowImage": "/media/products/f20/f20-workflow-2026.webp",
-      "accent": "cyan",
+      "priority": "supporting",
+      "summary": "The NEXBODY F20 is a professional foot scanning system designed for footwear customization, orthopedic clinics, and foot assessment applications, providing detailed foot measurements to support personalized solutions.",
+      "shortName": "F20",
       "facts": [
         "Both feet captured together",
         "30+ full-foot parameters",
         "STL model output"
       ],
-      "features": [
-        "Synchronous 3D scanning of both feet",
-        "More than 30 full-foot measurements including length, width and girth",
-        "Hallux valgus and heel valgus angle assessment",
-        "Arch-type identification based on AI arch index",
-        "STL foot-model download, report comparison and printing",
-        "Cloud or local deployment with import, export and interface services"
-      ],
+      "accent": "cyan",
+      "downloads": [],
+      "name": "NEXBODY F20",
+      "slug": "f20-foot-scanner",
+      "tagline": "Synchronous 3D scanning for both feet",
+      "menuLabel": "Nexbody F20",
+      "story": {
+        "eyebrow": "Workflow in context",
+        "title": "From scan to downstream action.",
+        "body": "Capture both feet together, review full-foot geometry, then deliver reports or STL models into the next professional workflow.",
+        "video": "",
+        "poster": ""
+      },
       "specs": [
         {
           "label": "Product",
@@ -241,19 +239,8 @@
           "value": "Bulk import/export and interface docking supported"
         }
       ],
-      "highlights": [
-        "Foot type and arch classification",
-        "Foot length, width, girth and detailed regional dimensions",
-        "Hallux valgus and heel valgus analysis",
-        "Left/right comparison",
-        "Report comparison and printing",
-        "Custom development and research-data support"
-      ],
-      "reports": [
-        "Foot type analysis",
-        "Full-foot measurements",
-        "Arch analysis"
-      ],
+      "image": "/media/products/f20/f20-lab-hero-branded.png",
+      "workflowImage": "/media/products/f20/f20-workflow-2026.webp",
       "industries": [
         "Sports rehabilitation",
         "Footwear C2M",
@@ -261,20 +248,33 @@
         "Shoe retail",
         "Campus screening"
       ],
-      "downloads": [],
-      "story": {
-        "eyebrow": "Workflow in context",
-        "title": "From scan to downstream action.",
-        "body": "Capture both feet together, review full-foot geometry, then deliver reports or STL models into the next professional workflow.",
-        "video": "",
-        "poster": ""
-      },
+      "features": [
+        "Synchronous 3D scanning of both feet",
+        "More than 30 full-foot measurements including length, width and girth",
+        "Hallux valgus and heel valgus angle assessment",
+        "Arch-type identification based on AI arch index",
+        "STL foot-model download, report comparison and printing",
+        "Cloud or local deployment with import, export and interface services"
+      ],
       "seo": {
         "title": "F20 3D Foot Scanner | NEXBODY",
-        "description": "F20 scans both feet together, bringing full-foot morphology, more than 30 measurements, AI arch-index classification and STL output into one dedicated workflow. Chinese and English interfaces support professional review, report comparison and printing."
+        "description": "Discover the NEXBODY F20 Foot Scanner for precise foot measurements, footwear customization, and professional foot assessment in orthopedic and footwear applications."
       },
-      "menuLabel": "Nexbody F20",
-      "menuDescription": "3D Full-Foot Scanning"
+      "menuDescription": "3D Full-Foot Scanning",
+      "category": "Synchronous 3D scanning for both feet",
+      "reports": [
+        "Foot type analysis",
+        "Full-foot measurements",
+        "Arch analysis"
+      ],
+      "highlights": [
+        "Foot type and arch classification",
+        "Foot length, width, girth and detailed regional dimensions",
+        "Hallux valgus and heel valgus analysis",
+        "Left/right comparison",
+        "Report comparison and printing",
+        "Custom development and research-data support"
+      ]
     }
   ]
 }
