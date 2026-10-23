@@ -1,7 +1,7 @@
 {
   "ecosystem": {
     "eyebrow": "NEXBODY ECOSYSTEM",
-    "title": "Professional Body Assessment, Gait Analysis & Foot Scanning Solutions",
+    "title": "Professional Body Assessment, Gait Analysis & Foot Scanning",
     "buttonLabel": "Explore system"
   },
   "assessment": {
@@ -30,13 +30,13 @@
   "cases": {
     "eyebrow": "NEXBODY / SUCCESS STORIES",
     "title": "Real-World Applications of NEXBODY Assessment Solutions",
-    "intro": "Explore how NEXBODY body assessment, gait analysis, and foot scanning solutions support fitness, rehabilitation, and wellness professionals."
+    "intro": "Explore how NEXBODY body assessment, gait analysis, and foot scanning support fitness, rehabilitation, and wellness professionals."
   },
   "cta": {
     "eyebrow": "GET IN TOUCH / PRODUCT CONSULTATION",
     "title": "Find the Right NEXBODY Solution for Your Business",
-    "body": "Connect with NEXBODY to explore body assessment solutions, request a product demo, and get professional guidance for your business",
-    "buttonLabel": "Talk with our product team",
+    "body": "Connect with NEXBODY to explore body assessment solutions and get professional guidance for your business",
+    "buttonLabel": "Talk with our team",
     "buttonHref": "/contact"
   },
   "service": {
@@ -100,7 +100,7 @@
   "finalCta": {
     "eyebrow": "EXPLORE NEXBODY / GET STARTED",
     "title": "Ready to Transform Your Body Assessment Experience?",
-    "buttonLabel": "Book a demonstration",
+    "buttonLabel": "Request Product Information",
     "buttonHref": "/contact"
   },
   "hero": {
