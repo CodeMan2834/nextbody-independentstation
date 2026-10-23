@@ -34,7 +34,7 @@
   },
   "cta": {
     "eyebrow": "GET IN TOUCH / PRODUCT CONSULTATION",
-    "title": "Find the Right NEXBODY Solution for Your Business",
+    "title": "Product Inquiries & Business Partnerships | NEXBODY",
     "body": "Connect with NEXBODY to explore body assessment solutions and get professional guidance for your business",
     "buttonLabel": "Talk with our team",
     "buttonHref": "/contact"
@@ -142,7 +142,7 @@
     "title": "INTELLIGENT BODY ASSESSMENT SYSTEM",
     "lead": "Professional body assessment solutions for fitness, rehabilitation, and wellness.",
     "secondaryCta": {
-      "label": "Book a demonstration",
+      "label": "Contact us",
       "href": "/contact"
     }
   },
