@@ -52,7 +52,7 @@ export function InquiryForm() {
     startTransition(async () => {
       let analyticsId: string | undefined;
       try {
-        if (localStorage.getItem("nexbody-analytics-consent") === "granted" && navigator.doNotTrack !== "1" && !(navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl) {
+        if (localStorage.getItem("nexbody-analytics-optout") !== "true" && localStorage.getItem("nexbody-analytics-consent") !== "denied" && document.documentElement.dataset.analyticsDisabled !== "true" && navigator.doNotTrack !== "1" && !(navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl) {
           submissionId.current ||= crypto.randomUUID();
           analyticsId = submissionId.current;
         }

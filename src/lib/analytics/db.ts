@@ -31,9 +31,19 @@ export async function cleanup(now=Date.now()) {
   await database().batch([
     {sql:"DELETE FROM analytics_limits WHERE expires<?",args:[now]},
     {sql:"DELETE FROM analytics_events WHERE at<?",args:[now-90*86400000]},
+    {sql:"DELETE FROM analytics_aggregate_events WHERE at<?",args:[now-90*86400000]},
+    {sql:"DELETE FROM analytics_counts WHERE day<?",args:[dayAt(now-365*86400000)]},
     {sql:"DELETE FROM analytics_daily WHERE day<?",args:[dayAt(now-365*86400000)]},
     {sql:"DELETE FROM analytics_sessions WHERE last_seen<? AND NOT EXISTS(SELECT 1 FROM analytics_daily WHERE sid=analytics_sessions.id) AND NOT EXISTS(SELECT 1 FROM analytics_events WHERE sid=analytics_sessions.id)",args:[now-365*86400000]},
   ],"write");
 }
 
 export function closeDatabase() { client?.close(); client=undefined; signature=""; }
+
+export type AggregateContext={channel:string;source:string;medium:string;campaign:string;device:string};
+export async function saveAggregateEvents(context:AggregateContext,events:AnalyticsEvent[],now=Date.now()) {
+ await database().batch(events.map(e=>({sql:"INSERT OR IGNORE INTO analytics_aggregate_events(id,at,day,channel,source,medium,campaign,device,kind,path,module,action) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)",args:[e.id,now,dayAt(now),context.channel,context.source,context.medium,context.campaign,context.device,e.kind,e.path,e.module,e.action]})),"write");
+}
+export async function saveAggregateInquiry(eventId:string) {
+ await saveAggregateEvents({channel:"direct",source:"not_attributed",medium:"",campaign:"",device:"unknown"},[{id:eventId,kind:"inquiry",path:"/contact",module:"contact_form",action:"accepted"}]);
+}

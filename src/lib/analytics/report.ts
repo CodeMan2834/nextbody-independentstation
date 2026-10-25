@@ -8,29 +8,24 @@ export function reportFilters(params:URLSearchParams) {
   if(product&&!PRODUCT_SLUGS.includes(product as typeof PRODUCT_SLUGS[number]))throw Error("产品筛选无效");
   return {range,channel,device,product};
 }
+
 export async function report(params:URLSearchParams) {
-  const {range,channel,device,product}=reportFilters(params);
-  const clauses=["d.day BETWEEN ? AND ?"],args:(string|number)[]=[range.from,range.to];
-  if(channel){clauses.push("s.channel=?");args.push(channel);}
-  if(device){clauses.push("s.device=?");args.push(device);}
-  if(product){clauses.push("EXISTS(SELECT 1 FROM analytics_daily p WHERE p.sid=s.id AND p.kind='pageview' AND p.path=? AND p.day BETWEEN ? AND ?)");args.push('/products/'+product,range.from,range.to);}
-  const base=" FROM analytics_daily d JOIN analytics_sessions s ON s.id=d.sid WHERE "+clauses.join(" AND ");
-  const queries=[
-    "SELECT COUNT(DISTINCT d.sid) sessions, COALESCE(SUM(CASE WHEN d.kind='pageview' THEN d.count ELSE 0 END),0) pageviews, COALESCE(SUM(CASE WHEN d.kind='click' AND d.action='consultation' THEN d.count ELSE 0 END),0) consultations, COALESCE(SUM(CASE WHEN d.kind='inquiry' THEN d.count ELSE 0 END),0) inquiries"+base,
-    "SELECT d.day,COUNT(DISTINCT d.sid) sessions,SUM(CASE WHEN d.kind='pageview' THEN d.count ELSE 0 END) pageviews,SUM(CASE WHEN d.kind='inquiry' THEN d.count ELSE 0 END) inquiries"+base+" GROUP BY d.day ORDER BY d.day",
-    "SELECT s.channel,s.source,s.campaign,COUNT(DISTINCT d.sid) sessions,SUM(CASE WHEN d.kind='pageview' THEN d.count ELSE 0 END) pageviews,SUM(CASE WHEN d.kind='inquiry' THEN d.count ELSE 0 END) inquiries"+base+" GROUP BY s.channel,s.source,s.campaign ORDER BY sessions DESC LIMIT 100",
-    "SELECT d.path,COUNT(DISTINCT d.sid) sessions,SUM(d.count) pageviews"+base+" AND d.kind='pageview' GROUP BY d.path ORDER BY pageviews DESC LIMIT 100",
-    "SELECT d.path,d.module,COUNT(DISTINCT CASE WHEN d.kind='impression' THEN d.sid END) exposures,COUNT(DISTINCT CASE WHEN d.kind='click' THEN d.sid END) clicks,SUM(CASE WHEN d.kind='click' THEN d.count ELSE 0 END) total_clicks"+base+" AND d.kind IN ('impression','click') GROUP BY d.path,d.module ORDER BY total_clicks DESC LIMIT 100",
-    "SELECT d.path,d.action,d.module,COUNT(DISTINCT d.sid) sessions,SUM(d.count) clicks"+base+" AND d.kind='click' GROUP BY d.path,d.action,d.module ORDER BY clicks DESC LIMIT 100",
-    "SELECT COUNT(DISTINCT s.id) entered,COUNT(DISTINCT CASE WHEN s.product_at<=? THEN s.id END) product,COUNT(DISTINCT CASE WHEN s.product_contact_at<=? THEN s.id END) contact,COUNT(DISTINCT CASE WHEN s.funnel_success_at<=? THEN s.id END) success"+base+" AND s.started_at BETWEEN ? AND ?",
-  ];
-  const statements=queries.map((sql,index)=>({sql,args:index===6?[range.end,range.end,range.end,...args,range.start,range.end]:args}));
-  const results=await database().batch(statements,"read");
-  const previousDays=(range.end-range.start+1)/86400000;
-  const previous=new URLSearchParams(params);previous.set("from",new Date(range.start+8*3600000-previousDays*86400000).toISOString().slice(0,10));previous.set("to",new Date(range.start+8*3600000-86400000).toISOString().slice(0,10));
-  const previousArgs=[previous.get('from')!,previous.get('to')!,...args.slice(2)];
-  // Product cohort bounds also belong to the comparison period.
-  if(product){previousArgs[previousArgs.length-2]=previous.get('from')!;previousArgs[previousArgs.length-1]=previous.get('to')!;}
-  const comparison=await database().execute({sql:queries[0],args:previousArgs});
-  return {range,updatedAt:new Date().toISOString(),timezone:"Asia/Shanghai",retention:{events:90,summary:365},totals:results[0].rows[0],previous:comparison.rows[0],trend:results[1].rows,channels:results[2].rows,pages:results[3].rows,modules:results[4].rows,actions:results[5].rows,funnel:results[6].rows[0],labels:{modules:MODULES,channels:CHANNELS}};
+ const {range,channel,device,product}=reportFilters(params);
+ const clauses=["d.day BETWEEN ? AND ?"],args:(string|number)[]=[range.from,range.to];
+ if(channel){clauses.push("d.channel=?");args.push(channel);}
+ if(device){clauses.push("d.device=?");args.push(device);}
+ if(product){clauses.push("d.path=?");args.push('/products/'+product);}
+ const base=" FROM analytics_counts d WHERE "+clauses.join(" AND ");
+ const totals="SELECT COALESCE(SUM(CASE WHEN kind='pageview' THEN count ELSE 0 END),0) pageviews,COALESCE(SUM(CASE WHEN kind='click' THEN count ELSE 0 END),0) clicks,COALESCE(SUM(CASE WHEN kind='click' AND action='consultation' THEN count ELSE 0 END),0) consultations,COALESCE(SUM(CASE WHEN kind='inquiry' THEN count ELSE 0 END),0) inquiries";
+ const queries=[totals+base,
+ "SELECT day,SUM(CASE WHEN kind='pageview' THEN count ELSE 0 END) pageviews"+base+" GROUP BY day ORDER BY day",
+ "SELECT channel,source,campaign,SUM(CASE WHEN kind='pageview' THEN count ELSE 0 END) pageviews,SUM(CASE WHEN kind='click' THEN count ELSE 0 END) clicks"+base+" AND kind IN ('pageview','click') GROUP BY channel,source,campaign ORDER BY pageviews DESC LIMIT 100",
+ "SELECT path,SUM(count) pageviews"+base+" AND kind='pageview' GROUP BY path ORDER BY pageviews DESC LIMIT 100",
+ "SELECT path,module,SUM(CASE WHEN kind='impression' THEN count ELSE 0 END) exposures,SUM(CASE WHEN kind='click' THEN count ELSE 0 END) clicks"+base+" AND kind IN ('impression','click') GROUP BY path,module ORDER BY clicks DESC LIMIT 100",
+ "SELECT path,module,action,SUM(count) clicks"+base+" AND kind='click' GROUP BY path,module,action ORDER BY clicks DESC LIMIT 100",
+ "SELECT COALESCE(SUM(CASE WHEN kind='pageview' AND path LIKE '/products/%' THEN count ELSE 0 END),0) product,COALESCE(SUM(CASE WHEN kind='pageview' AND path='/contact' THEN count ELSE 0 END),0) contact,COALESCE(SUM(CASE WHEN kind='inquiry' THEN count ELSE 0 END),0) success"+base];
+ const results=await database().batch(queries.map(sql=>({sql,args})),"read");
+ const days=(range.end-range.start+1)/86400000;
+ const comparison=await database().execute({sql:totals+base,args:[new Date(range.start+28800000-days*86400000).toISOString().slice(0,10),new Date(range.start+28800000-86400000).toISOString().slice(0,10),...args.slice(2)]});
+ return {mode:"aggregate",range,updatedAt:new Date().toISOString(),timezone:"Asia/Shanghai",retention:{events:90,summary:365},totals:results[0].rows[0],previous:comparison.rows[0],trend:results[1].rows,channels:results[2].rows,pages:results[3].rows,modules:results[4].rows,actions:results[5].rows,funnel:results[6].rows[0],labels:{modules:MODULES,channels:CHANNELS}};
 }

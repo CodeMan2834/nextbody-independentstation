@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { randomUUID } from "node:crypto";
 import { analyticsSettings } from "@/lib/analytics/config";
 import { attribution, ACTIONS, MODULES, PUBLIC_KINDS, UUID, type AnalyticsEvent } from "@/lib/analytics/model";
-import { openVisit, signVisit, VISIT_COOKIE, ADMIN_COOKIE } from "@/lib/analytics/session";
-import { rateAllowed, saveEvents } from "@/lib/analytics/db";
+import { VISIT_COOKIE, ADMIN_COOKIE } from "@/lib/analytics/session";
+import { rateAllowed, saveAggregateEvents } from "@/lib/analytics/db";
 import { PRODUCT_SLUGS } from "@/lib/products";
 import { SOLUTIONS, PUBLISHED_POSTS } from "@/lib/editorial";
 export const runtime="nodejs";
@@ -22,7 +21,7 @@ export async function POST(request:NextRequest) {
   try {
     const text=await request.text();if(Buffer.byteLength(text)>12000)return reply(413);
     const input=JSON.parse(text);
-    if(input.consent!=='granted'||!Array.isArray(input.events)||!input.events.length||input.events.length>12)return reply(400);
+    if(input.mode!=='aggregate'||input.optOut===true||!Array.isArray(input.events)||!input.events.length||input.events.length>12)return reply(400);
     const events:AnalyticsEvent[]=[];
     for(const e of input.events){
       if(!e||!UUID.test(e.id)||!PUBLIC_KINDS.includes(e.kind)||!paths.has(e.path)||!Object.hasOwn(MODULES,e.module)||typeof e.action!=='string'||(e.kind==='click'&&!ACTIONS.includes(e.action))||(e.kind!=='click'&&e.action!==''))return reply(400);
@@ -30,9 +29,8 @@ export async function POST(request:NextRequest) {
     }
     const address=request.headers.get('x-forwarded-for')?.split(',')[0]?.trim()||'unknown';
     if(!await rateAllowed(address))return reply(429);
-    const id=openVisit(request.cookies.get(VISIT_COOKIE)?.value,settings.secret)||randomUUID();
     const source=attribution(input,origin),ua=request.headers.get('user-agent')||'';
-    await saveEvents({id,...source,entry_path:events[0].path,device:/iPad|Tablet|Android(?!.*Mobile)/i.test(ua)?'tablet':/Mobile|iPhone/i.test(ua)?'mobile':'desktop'},events);
-    const response=reply();response.cookies.set(VISIT_COOKIE,signVisit(id,settings.secret),{httpOnly:true,secure:!local,sameSite:'lax',maxAge:1800,path:'/'});return response;
+    await saveAggregateEvents({...source,device:/iPad|Tablet|Android(?!.*Mobile)/i.test(ua)?'tablet':/Mobile|iPhone/i.test(ua)?'mobile':'desktop'},events);
+    const response=reply();response.cookies.set(VISIT_COOKIE,'',{httpOnly:true,secure:!local,sameSite:'lax',maxAge:0,path:'/'});return response;
   }catch{return reply(503);}
 }

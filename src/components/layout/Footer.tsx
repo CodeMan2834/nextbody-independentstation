@@ -66,6 +66,7 @@ export function Footer() {
           >
             Terms of Service
           </Link>
+          <button type="button" data-analytics-toggle className="text-left transition-colors hover:text-[var(--text-primary)]">Disable basic analytics</button>
         </nav>
       </div>
 

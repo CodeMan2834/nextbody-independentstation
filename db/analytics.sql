@@ -30,3 +30,20 @@ CREATE TRIGGER IF NOT EXISTS analytics_event_rollup AFTER INSERT ON analytics_ev
  WHERE id=NEW.sid;
 END;
 CREATE TABLE IF NOT EXISTS analytics_limits (key TEXT PRIMARY KEY, hits INTEGER NOT NULL, expires INTEGER NOT NULL);
+
+-- Cookieless statistics: event IDs deduplicate retries; no visitor or session identifier.
+CREATE TABLE IF NOT EXISTS analytics_aggregate_events (
+ id TEXT PRIMARY KEY, at INTEGER NOT NULL, day TEXT NOT NULL,
+ channel TEXT NOT NULL, source TEXT NOT NULL, medium TEXT NOT NULL, campaign TEXT NOT NULL, device TEXT NOT NULL,
+ kind TEXT NOT NULL CHECK(kind IN ('pageview','impression','click','inquiry')), path TEXT NOT NULL, module TEXT NOT NULL, action TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS analytics_aggregate_events_age ON analytics_aggregate_events(at);
+CREATE TABLE IF NOT EXISTS analytics_counts (
+ day TEXT NOT NULL, channel TEXT NOT NULL, source TEXT NOT NULL, medium TEXT NOT NULL, campaign TEXT NOT NULL, device TEXT NOT NULL,
+ kind TEXT NOT NULL, path TEXT NOT NULL, module TEXT NOT NULL, action TEXT NOT NULL, count INTEGER NOT NULL,
+ PRIMARY KEY(day,channel,source,medium,campaign,device,kind,path,module,action)
+);
+CREATE TRIGGER IF NOT EXISTS analytics_count_event AFTER INSERT ON analytics_aggregate_events BEGIN
+ INSERT INTO analytics_counts VALUES(NEW.day,NEW.channel,NEW.source,NEW.medium,NEW.campaign,NEW.device,NEW.kind,NEW.path,NEW.module,NEW.action,1)
+ ON CONFLICT(day,channel,source,medium,campaign,device,kind,path,module,action) DO UPDATE SET count=count+1;
+END;

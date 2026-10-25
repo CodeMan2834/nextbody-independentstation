@@ -64,34 +64,38 @@ test('attribution uses allowlisted campaign tags and only referral domains, neve
  assert.equal(attribution({referrer:'https://notgoogle.com.evil.test/'},'https://nexbodyfit.com').channel,'referral');
  }finally{a.close();}
 });
-test('schema, event deduplication, daily summaries and ordered inquiry funnel work on a real SQLite database',async()=>{
+test('cookieless aggregates deduplicate retries without sessions and filter pages rather than visitor cohorts',async()=>{
  const a=app();try{const db=a.load('src/lib/analytics/db');await db.database().executeMultiple(schema);await db.database().executeMultiple(schema);
- const v=visit(),now=Date.now()-10000,first=event();await db.saveEvents(v,[first],now);await db.saveEvents(v,[first],now);
- await db.saveEvents(v,[event('impression','/products/nexbody-x60','product_cta'),event('click','/products/nexbody-x60','product_cta','consultation')],now+1000);
- await db.saveEvents(v,[event('pageview','/contact')],now+2000);const success=randomUUID();await db.saveInquiry(v.id,success);await db.saveInquiry(v.id,success);
- await db.saveEvents({...visit(),channel:'direct',source:'direct',medium:''},[event('pageview','/')],now+3000);
+ const context=visit(),now=Date.now()-10000,first=event();await db.saveAggregateEvents(context,[first],now);await db.saveAggregateEvents(context,[first],now);
+ await db.saveAggregateEvents(context,[event('impression','/products/nexbody-x60','product_cta'),event('click','/products/nexbody-x60','product_cta','consultation')],now+1000);
+ await db.saveAggregateEvents(context,[event('pageview','/contact')],now+2000);const success=randomUUID();await db.saveAggregateInquiry(success);await db.saveAggregateInquiry(success);
+ await db.saveAggregateEvents({...visit(),channel:'direct',source:'direct',medium:''},[event('pageview','/')],now+3000);
  const result=await a.load('src/lib/analytics/report').report(new URLSearchParams());
- assert.equal(result.totals.sessions,2);assert.equal(result.totals.pageviews,3);assert.equal(result.totals.consultations,1);assert.equal(result.totals.inquiries,1);
- assert.equal(result.funnel.entered,2);assert.equal(result.funnel.product,1);assert.equal(result.funnel.contact,1);assert.equal(result.funnel.success,1);
+ assert.equal(result.mode,'aggregate');assert.equal('sessions' in result.totals,false);assert.equal(result.totals.pageviews,3);assert.equal(result.totals.clicks,1);assert.equal(result.totals.consultations,1);assert.equal(result.totals.inquiries,1);
+ assert.equal(result.funnel.product,1);assert.equal(result.funnel.contact,1);assert.equal(result.funnel.success,1);
  assert.equal(result.modules[0].exposures,1);assert.equal(result.modules[0].clicks,1);
- const product=await a.load('src/lib/analytics/report').report(new URLSearchParams({product:'nexbody-x60'}));assert.equal(product.totals.sessions,1);
- const source=await a.load('src/lib/analytics/report').report(new URLSearchParams({channel:'direct'}));assert.equal(source.totals.inquiries,0);
- await assert.rejects(()=>a.load('src/lib/analytics/report').report(new URLSearchParams({channel:"'; DROP TABLE analytics_events"})));
+ const product=await a.load('src/lib/analytics/report').report(new URLSearchParams({product:'nexbody-x60'}));assert.equal(product.totals.pageviews,1);assert.equal(product.totals.inquiries,0);
+ const source=await a.load('src/lib/analytics/report').report(new URLSearchParams({channel:'search'}));assert.equal(source.totals.inquiries,0);
+ assert.equal((await db.database().execute('SELECT COUNT(*) n FROM analytics_sessions')).rows[0].n,0);
+ const columns=await db.database().execute('PRAGMA table_info(analytics_aggregate_events)');assert.equal(columns.rows.some(x=>['sid','visitor_id','ip'].includes(x.name)),false);
+ await assert.rejects(()=>a.load('src/lib/analytics/report').report(new URLSearchParams({channel:"'; DROP TABLE analytics_counts"})));
  }finally{a.close();}
 });
 test('collector rejects cross-origin, forged inquiries, unknown modules and oversized payloads before storing',async()=>{
  const a=app();try{await a.load('src/lib/analytics/db').database().executeMultiple(schema);const {POST}=a.load('src/app/api/analytics/collect/route');
- const body={consent:'granted',events:[event()]};
+ const body={mode:'aggregate',events:[event()]};
  assert.equal((await POST(request(body,{origin:'https://evil.test'}))).status,403);
  assert.equal((await POST(request({...body,events:[event('inquiry')]}))).status,400);
  assert.equal((await POST(request({...body,events:[event('click','/','constructor','navigate')]}))).status,400);
  assert.equal((await POST(request({...body,events:[event('pageview','/admin')]}))).status,400);
  assert.equal((await POST(request(body,{'content-length':'15000'}))).status,413);
- assert.equal((await POST(request({...body,consent:'denied'}))).status,400);
+ assert.equal((await POST(request({...body,optOut:true}))).status,400);
  assert.equal((await POST(request(body,{dnt:'1'}))).status,204);
  assert.equal((await POST(request(body,{'user-agent':'Googlebot'}))).status,204);
- const count=await a.load('src/lib/analytics/db').database().execute('SELECT COUNT(*) n FROM analytics_events');assert.equal(count.rows[0].n,0);
- const accepted=await POST(request(body));assert.equal(accepted.status,204);assert.match(accepted.headers.get('set-cookie'),/HttpOnly/i);
+ assert.equal((await POST(request(body,{'sec-gpc':'1'}))).status,204);
+ const count=await a.load('src/lib/analytics/db').database().execute('SELECT COUNT(*) n FROM analytics_aggregate_events');assert.equal(count.rows[0].n,0);
+ const accepted=await POST(request(body));assert.equal(accepted.status,204);assert.match(accepted.headers.get('set-cookie'),/Max-Age=0/i);assert.equal(accepted.cookies.get('nexbody-analytics-visit').value,'');
+ const d=a.load('src/lib/analytics/db');assert.equal((await d.database().execute('SELECT COUNT(*) n FROM analytics_sessions')).rows[0].n,0);
  }finally{a.close();}
 });
 test('rate limit is database-backed and stores no raw IP address',async()=>{
@@ -112,17 +116,17 @@ test('analytics query requires server-side permission in production; local uncon
  }finally{a.close();}
  const b=app({ANALYTICS_ENABLED:'false'});try{const response=await b.load('src/app/api/analytics/report/route').GET(new NextRequest('http://localhost:3008/api/analytics/report'));assert.equal((await response.json()).state,'unconfigured');}finally{b.close();}
 });
-test('inquiry statistics ignores missing consent context and database failure without rejecting the form',async()=>{
+test('inquiry statistics ignores missing event identifiers and database failure without rejecting the form',async()=>{
  const a=app();try{const {recordSuccessfulInquiry}=a.load('src/lib/analytics/inquiry');await assert.doesNotReject(()=>recordSuccessfulInquiry(undefined));await assert.doesNotReject(()=>recordSuccessfulInquiry('invalid'));
  const session=a.load('src/lib/analytics/session');a.setCookie(session.signVisit(randomUUID(),secret));await assert.doesNotReject(()=>recordSuccessfulInquiry(randomUUID()));
  }finally{a.close();}
 });
 test('backup and restore preserve real rows and reject overwriting an existing database',async()=>{
- const a=app();let restored;try{const d=a.load('src/lib/analytics/db');await d.database().executeMultiple(schema);await d.saveEvents(visit(),[event()]);d.database().close();
+ const a=app();let restored;try{const d=a.load('src/lib/analytics/db');await d.database().executeMultiple(schema);await d.saveEvents(visit(),[event()]);await d.saveAggregateEvents(visit(),[event()]);d.database().close();
  const backup=path.join(a.directory,'snapshot.json');const run=(mode,file,url=a.environment.TURSO_DATABASE_URL)=>spawnSync(process.execPath,['scripts/analytics-database.mjs',mode,file],{cwd:root,env:{...process.env,...a.environment,TURSO_DATABASE_URL:url},encoding:'utf8'});
  const result=run('backup',backup);assert.equal(result.status,0,result.stderr);assert.equal(run('backup',backup).status,1);
  const restoredURL='file:'+path.join(a.directory,'restored.db').replaceAll('\\','/');const restore=run('restore',backup,restoredURL);assert.equal(restore.status,0,restore.stderr);assert.equal(run('restore',backup,restoredURL).status,1);
- restored=require('@libsql/client').createClient({url:restoredURL});assert.equal((await restored.execute('SELECT SUM(count) n FROM analytics_daily')).rows[0].n,1);
+ restored=require('@libsql/client').createClient({url:restoredURL});assert.equal((await restored.execute('SELECT SUM(count) n FROM analytics_daily')).rows[0].n,1);assert.equal((await restored.execute('SELECT SUM(count) n FROM analytics_counts')).rows[0].n,1);
  }finally{restored?.close();a.close();}
 });
 
@@ -148,4 +152,38 @@ test('invalid dates and manipulated filters fail before database queries',async(
  assert.throws(()=>dateRange(new URLSearchParams({from:'2026-02-30',to:'2026-03-01'})));assert.throws(()=>dateRange(new URLSearchParams({to:dayAt(Date.now()+86400000)})));
  const {GET}=a.load('src/app/api/analytics/report/route');assert.equal((await GET(new NextRequest('http://localhost:3008/api/analytics/report?device=unknown'))).status,400);
  }finally{a.close();}
+});
+
+test('aggregate retention preserves daily counts after raw events expire',async()=>{
+ const a=app();try{const d=a.load('src/lib/analytics/db');await d.database().executeMultiple(schema);const now=Date.now();
+ await d.saveAggregateEvents(visit(),[event()],now-91*86400000);await d.saveAggregateEvents(visit(),[event()],now-367*86400000);await d.cleanup(now);
+ assert.equal((await d.database().execute('SELECT COUNT(*) n FROM analytics_aggregate_events')).rows[0].n,0);assert.equal((await d.database().execute('SELECT SUM(count) n FROM analytics_counts')).rows[0].n,1);
+ }finally{a.close();}
+});
+test('successful inquiry is counted without a visitor cookie and privacy signals suppress it',async()=>{
+ const a=app();try{const d=a.load('src/lib/analytics/db');await d.database().executeMultiple(schema);const {recordSuccessfulInquiry}=a.load('src/lib/analytics/inquiry');
+ const id=randomUUID();await recordSuccessfulInquiry(id);await recordSuccessfulInquiry(id);a.setHeaders({dnt:'1'});await recordSuccessfulInquiry(randomUUID());a.setHeaders({'sec-gpc':'1'});await recordSuccessfulInquiry(randomUUID());
+ assert.equal((await d.database().execute('SELECT COUNT(*) n FROM analytics_aggregate_events')).rows[0].n,1);assert.equal((await d.database().execute('SELECT COUNT(*) n FROM analytics_sessions')).rows[0].n,0);
+ }finally{a.close();}
+});
+
+test('public collector defaults to anonymous counts, honours old refusals, and ignores programmatic video playback',async()=>{
+ async function run(initial={}){
+  const values=new Map(Object.entries(initial)),listeners=new Map(),timers=[],calls=[];
+  const control={textContent:'',disabled:false,setAttribute(){},closest(selector){return selector==='[data-analytics-toggle]'?this:null;}};
+  const document={referrer:'',documentElement:{dataset:{}},hidden:false,querySelectorAll:selector=>selector==='[data-analytics-toggle]'?[control]:[],addEventListener:(name,fn)=>{const list=listeners.get(name)||[];list.push(fn);listeners.set(name,list);}};
+  class Video {autoplay=false;closest(){return null;}}
+  const context={window:{},document,navigator:{},location:{pathname:'/',search:'',origin:'https://nexbodyfit.com'},localStorage:{getItem:key=>values.get(key)||null,setItem:(k,v)=>values.set(k,v),removeItem:k=>values.delete(k)},crypto:{randomUUID},URL,URLSearchParams,AbortSignal,Date,HTMLVideoElement:Video,WeakMap,Set,Map,IntersectionObserver:class {disconnect(){}observe(){}},setTimeout:fn=>{timers.push(fn);return timers.length;},clearTimeout(){},addEventListener(){},fetch:async(url,options)=>{calls.push({url,options});return {ok:true};}};
+  vm.runInNewContext(fs.readFileSync(path.join(root,'public/analytics.js'),'utf8'),context);
+  async function flush(){for(let i=0;timers.length&&i<30;i++){await timers.shift()();await Promise.resolve();}}
+  const emit=(name,event)=>{for(const fn of listeners.get(name)||[])fn(event);};
+  await flush();return {calls,emit,flush,Video,control,document,values};
+ }
+ const a=await run();const payloads=()=>a.calls.filter(x=>x.url.endsWith('/collect')).flatMap(x=>JSON.parse(x.options.body).events);
+ assert.equal(payloads().filter(e=>e.kind==='pageview').length,1);assert.equal(a.values.size,0);assert.equal(a.control.textContent,'Disable basic analytics');
+ const video=new a.Video();a.emit('play',{target:video});await a.flush();assert.equal(payloads().filter(e=>e.action==='video_play').length,0);
+ a.emit('pointerdown',{isTrusted:true,target:video});a.emit('play',{target:video});await a.flush();assert.equal(payloads().filter(e=>e.action==='video_play').length,1);
+ a.emit('play',{target:video});await a.flush();assert.equal(payloads().filter(e=>e.action==='video_play').length,1);
+ const before=payloads().length;a.emit('click',{target:a.control,preventDefault(){}});a.emit('play',{target:video});await a.flush();assert.equal(payloads().length,before);assert.equal(a.document.documentElement.dataset.analyticsDisabled,'true');
+ const b=await run({'nexbody-analytics-consent':'denied'});assert.equal(b.calls.some(x=>x.url.endsWith('/collect')),false);assert.equal(b.control.textContent,'Enable basic analytics');
 });
