@@ -1,0 +1,42 @@
+/* Cloudflare is a separate source, with its own range and operational states. */
+.business-source{display:flex;align-items:center;gap:10px;font-size:11px;color:#61758b;margin:0 0 12px}.business-source span{font:600 10px Consolas,monospace;letter-spacing:1.5px;color:#21685d;border:1px solid #c9ded8;padding:3px 6px;background:#eef6f3;border-radius:3px}
+.health-intro{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:26px 0 30px;border-top:1px solid #dce5ee}
+.health-provider{display:inline-flex;align-items:center;gap:12px;color:#9b551e;letter-spacing:1.6px;font:650 10px/1.5 Consolas,monospace}
+.health-provider>span{letter-spacing:0;font:500 11px/1.5 -apple-system,"Microsoft YaHei",sans-serif;color:#61758b;border-left:1px solid #ccd8e4;padding-left:12px}
+.health-intro h2{font-size:clamp(22px,2.1vw,30px);line-height:1.4;letter-spacing:-1px;margin:12px 0 8px;font-weight:650;color:#10243f}
+.health-intro p{color:#61758b;margin:0;font-size:13px}
+.health-scope{border-left:2px solid #ccdae9;padding-left:18px;display:grid;gap:4px;flex-shrink:0}
+.health-scope span,.health-scope small{color:#61758b;font-size:11px}.health-scope strong{font:600 17px/1.5 Consolas,monospace}
+.health-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.health-ranges{display:flex;gap:3px;padding:4px;border:1px solid #dce5ee;background:#e9eff6;border-radius:7px}
+.health-ranges button{background:none;border:0;padding:8px 14px;color:#526b84;font-size:12px;border-radius:4px;white-space:nowrap}
+.health-ranges button[aria-pressed=true]{background:#fff;color:#142c49;box-shadow:0 1px 4px #10243f14;font-weight:650}
+.health-tools{display:flex;gap:9px;flex-wrap:wrap}.health-tools button{padding:8px 12px;border:1px solid #ccd8e4;background:#fff;border-radius:5px;font-size:12px;color:#486384}
+.health-tools #health-refresh{background:#173c65;border-color:#173c65;color:#fff}
+.health-state{display:flex;align-items:center;gap:12px;padding:16px 18px;border:1px solid #d5e0eb;background:#edf2f8;border-radius:7px;color:#304c6b}
+.health-state strong{font-size:13px}.health-state p{font-size:12px;color:#61758b;line-height:1.7;margin:3px 0 0}.health-state>div{min-width:0;flex:1}
+.health-state a{font-size:12px;color:#2763c8;white-space:nowrap}.health-status-light{width:7px;height:7px;background:#71879f;border-radius:50%;flex-shrink:0}
+.health-state[data-state=ready]{background:#edf6f4;border-color:#cde3dd}.health-state[data-state=ready] .health-status-light{background:#117b7b}
+.health-state[data-state=demo]{background:#fff6e8;border-color:#e9d4b2}.health-state[data-state=demo] .health-status-light{background:#ad7025}
+.health-state[data-state=error],.health-state[data-state=permission],.health-state[data-state=limited]{background:#fff2ee;border-color:#edcfc4}
+.health-window{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#74869a;font-size:10px;margin:12px 0 20px}
+.health-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:24px}
+.health-kpis article{padding:21px 20px;background:#fff;border:1px solid #dce5ee;border-radius:8px;min-width:0}
+.health-kpis article>span{font-size:12px;color:#61758b}.health-kpis strong{display:block;font:500 clamp(25px,2.6vw,38px)/1.3 "Segoe UI",sans-serif;letter-spacing:-1.2px;font-variant-numeric:tabular-nums;margin:14px 0}
+.health-kpis p{color:#74869a;font-size:10px;line-height:1.6;margin:0}.health-kpis .health-kpi-primary{background:#102d4b;color:#fff;border-color:#102d4b;position:relative;overflow:hidden}
+.health-kpi-primary:after{content:"";position:absolute;right:0;bottom:0;width:4px;height:42%;background:#56c6d5}.health-kpi-primary>span,.health-kpi-primary p{color:#aec7dd!important}
+.health-main-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(260px,1fr);gap:20px}.health-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.health-chart{min-height:236px;display:grid;align-items:center}.health-chart svg{width:100%;height:auto;display:block;overflow:visible}.health-chart text{fill:#74869a;font:10px "Segoe UI",sans-serif}
+.health-chart-caption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:10px;color:#74869a;padding-top:16px;border-top:1px solid #edf1f5}.health-chart-caption i{display:inline-block;width:14px;height:2px;background:#2587aa;vertical-align:middle;margin-right:5px}
+.health-country-row{display:grid;grid-template-columns:24px minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 0}.health-country-rank{font:11px Consolas,monospace;color:#8d9db0}
+.health-country-name{display:flex;justify-content:space-between;gap:8px;font-size:12px;color:#344f6b}.health-country-name small{color:#7d8fa3;font-size:10px}.health-country-track{height:3px;background:#eaf0f5;margin-top:7px}
+.health-country-track i{display:block;height:100%;background:#4f9bb6}.health-country-total{font:500 13px Consolas,monospace;font-variant-numeric:tabular-nums}
+.health-panel-note{font-size:10px;color:#7b8da1;line-height:1.8;margin:18px 0 0}.health-response-strip{display:flex;height:7px;gap:3px;margin-bottom:18px;border-radius:3px;overflow:hidden;background:#edf1f5}.health-response-strip i{display:block;min-width:2px}
+.health-breakdown{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid #edf1f5;font-size:12px}.health-breakdown>span:last-child{width:52px;text-align:right;color:#7d8fa3;font-size:10px}
+.health-breakdown b{font-weight:550}.health-breakdown strong{font:500 13px Consolas,monospace}.health-code{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:9px}
+.health-boundary{padding:24px 26px;border:1px solid #d5e0eb;border-left:3px solid #7192b0;background:#edf2f7;border-radius:6px;margin-bottom:28px}.health-boundary>strong{font-size:13px;font-weight:650}
+.health-boundary>div{display:grid;grid-template-columns:1fr 1fr;gap:30px}.health-boundary p{display:grid;gap:5px;font-size:12px;color:#61758b;line-height:1.8;margin:17px 0}.health-boundary b{font-size:11px;color:#344f6b;font-weight:600}.health-boundary small{display:block;border-top:1px solid #d5e0eb;padding-top:14px;font-size:10px;line-height:1.9;color:#74869a}
+.health-window,.health-chart-caption,.health-kpis p,.health-panel-note,.health-boundary small{font-size:11px;color:#61758b}
+@media(max-width:1250px){.health-main-grid{grid-template-columns:1fr}.health-kpis article{padding:18px 15px}.health-country-row{padding:7px 0}}
+@media(max-width:1050px){.health-kpis{grid-template-columns:1fr 1fr}.health-detail-grid{grid-template-columns:1fr;gap:0}}
+@media(max-width:760px){.health-intro{align-items:flex-start;padding-top:20px}.health-scope{display:none}.health-intro h2{font-size:23px}.health-kpis{grid-template-columns:1fr 1fr;gap:11px}.health-kpis strong{font-size:29px}.health-detail-grid{grid-template-columns:1fr;gap:0}.health-main-grid{gap:0}.health-boundary{padding:20px}.health-boundary>div{grid-template-columns:1fr;gap:0}.health-ranges{width:100%;justify-content:space-between}.health-ranges button{flex:1;padding:8px}.health-tools{width:100%;justify-content:flex-end}.health-state{align-items:flex-start;flex-wrap:wrap}.health-state a{margin-left:19px}.health-chart{min-height:190px}}
