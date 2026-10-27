@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { NextIntlClientProvider } from "next-intl";
 import { PRIMARY_NAV_LINKS } from "@/lib/navigation";
 import { AnalyticsClient } from "@/components/layout/AnalyticsClient";
@@ -9,6 +10,15 @@ import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { BackToTop } from "@/components/layout/BackToTop";
 import enMessages from "@/messages/en.json";
 import "./globals.css";
+
+const headingFont = localFont({
+  src: "./fonts/Merriweather-Latin.woff2",
+  variable: "--font-nexbody-serif",
+  weight: "300 900",
+  display: "swap",
+  preload: true,
+  fallback: ["Georgia", "Times New Roman"],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -40,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={`dark ${headingFont.variable}`}>
       <body className="min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased">
         <NextIntlClientProvider locale="en" messages={enMessages}>
           <a

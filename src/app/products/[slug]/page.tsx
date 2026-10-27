@@ -68,7 +68,7 @@ export default async function ProductPage({ params }: Props) {
             <p className="product-detail-tagline"><HeadingText text={product.tagline} /></p>
             <p>{product.summary}</p>
             <div className="product-detail-actions">
-              <Link href="/contact" className="instrument-button instrument-button-primary">Book a demo <ArrowRight aria-hidden="true" /></Link>
+              <Link href="/contact" className="instrument-button instrument-button-primary">Contact us <ArrowRight aria-hidden="true" /></Link>
             </div>
             <dl>{product.facts.map((fact, index) => <div key={fact}><dt>0{index + 1}</dt><dd>{fact}</dd></div>)}</dl>
           </div>
@@ -126,7 +126,7 @@ export default async function ProductPage({ params }: Props) {
 
       {product.downloads?.length > 0 && <section className="product-detail-section"><div className="container-site"><h2>Downloads</h2><ul className="product-rule-list">{product.downloads.map((item) => <li key={item.href}><a href={item.href} target="_blank" rel="noopener noreferrer">{item.label} ↗</a></li>)}</ul></div></section>}
       <section className="product-detail-cta">
-        <div className="container-site"><p className="instrument-kicker">Next step</p><h2>See {product.shortName} in the right workflow.</h2><p>Book a focused product demonstration with the NEXBODY team.</p><Link href="/contact" className="instrument-button instrument-button-primary">Book a demo <ArrowRight aria-hidden="true" /></Link></div>
+        <div className="container-site"><p className="instrument-kicker">Next step</p><h2>See {product.shortName} in the right workflow.</h2><p>Book a focused product demonstration with the NEXBODY team.</p><Link href="/contact" className="instrument-button instrument-button-primary">Contact us <ArrowRight aria-hidden="true" /></Link></div>
       </section>
     </div>
   );

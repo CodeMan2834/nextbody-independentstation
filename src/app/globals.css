@@ -9,7 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-nexbody-sans);
   --font-mono: var(--font-nexbody-mono);
-  --font-heading: var(--font-nexbody-sans);
+  --font-heading: var(--font-nexbody-serif), Georgia, "Times New Roman", serif;
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -149,7 +149,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-inter), "Inter", -apple-system, sans-serif;
+    font-family: var(--font-nexbody-sans);
     font-feature-settings: "cv02", "cv03", "cv04", "cv09", "cv11", "ss01", "ss03";
     overflow-x: clip;
   }
@@ -1356,4 +1356,27 @@
   .product-detail-tagline .heading-phrase { display: block; }
 .copy-keep-together { white-space: nowrap; }
 .cinematic-final h2 { max-width: 28ch; margin-inline: auto; font-size: var(--headline-section); }
+}
+
+/* October brief: self-hosted serif headlines, calm spacing, compact hero. */
+#main-content :is(h1, h2, h3) {
+  font-family: var(--font-heading);
+  line-height: 1.22;
+  letter-spacing: -.02em;
+}
+#main-content #home-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -.02em;
+  max-width: 36ch;
+  text-wrap: balance;
+  margin-top: 0;
+}
+#main-content .product-detail-hero-copy h1 { white-space: normal; overflow-wrap: anywhere; }
+.about-section-media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: #0a111a; }
+.about-section-media img { object-fit: contain; }
+.editorial-sections section:has(.about-section-media) { align-items: center; }
+@media (max-width: 639px) {
+  .about-section-media { max-width: 480px; width: 100%; }
 }

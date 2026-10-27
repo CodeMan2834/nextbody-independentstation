@@ -7,15 +7,18 @@
     "sections": [
       {
         "title": "From Shenzhen to Everyday Health Assessment | NEXBODY",
-        "body": "Founded in 2015 and headquartered in Shenzhen, China, NEXBODY is a National High-Tech Enterprise with a U.S.-based laboratory, specializing in AI-powered health assessment technologies."
+        "body": "Founded in 2015 and headquartered in Shenzhen, China, NEXBODY is a National High-Tech Enterprise with a U.S.-based laboratory, specializing in AI-powered health assessment technologies.",
+        "image": "/media/products/x60/x60-clinical.png"
       },
       {
         "title": "Lightweight Assessment Systems. Practical Workflows.",
-        "body": "NEXBODY transforms large-scale medical screening equipment into lightweight, intelligent assessment solutions for rehabilitation, wellness, sports health, and personalized footwear applications."
+        "body": "NEXBODY transforms large-scale medical screening equipment into lightweight, intelligent assessment solutions for rehabilitation, wellness, sports health, and personalized footwear applications.",
+        "image": "/media/products/x60/x60-workflow.png"
       },
       {
         "title": "Three Complementary Assessment Solutions | NEXBODY",
-        "body": "Explore NEXBODY's X60 for body composition and posture assessment, OneScan for gait and plantar pressure analysis, and F20 for full-foot 3D scanning."
+        "body": "Explore NEXBODY's X60 for body composition and posture assessment, OneScan for gait and plantar pressure analysis, and F20 for full-foot 3D scanning.",
+        "image": "/media/products/f20/f20-workflow-2026.webp"
       }
     ]
   },

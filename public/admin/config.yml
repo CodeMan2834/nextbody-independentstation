@@ -564,19 +564,10 @@
               "widget": "object",
               "fields": [
                 {
-                  "name": "overline",
-                  "label": "上方小标题",
-                  "widget": "string"
-                },
-                {
                   "name": "title",
                   "label": "主标题",
-                  "widget": "string"
-                },
-                {
-                  "name": "accentTitle",
-                  "label": "强调标题",
-                  "widget": "string"
+                  "widget": "string",
+                  "hint": "首屏白色标题；字号与顶部品牌标识一致。"
                 },
                 {
                   "name": "lead",
@@ -1297,6 +1288,13 @@
                       "name": "body",
                       "label": "正文",
                       "widget": "text"
+                    },
+                    {
+                      "name": "image",
+                      "label": "左侧配图",
+                      "widget": "image",
+                      "required": false,
+                      "hint": "选择配图时替代左侧可见标题；标题仍用于图片说明。建议 4:3，1200×900 px；不选图片则显示标题。"
                     }
                   ],
                   "summary": "{{title}}"
