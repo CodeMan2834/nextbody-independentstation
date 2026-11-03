@@ -6,7 +6,8 @@ import { AnalyticsClient } from "@/components/layout/AnalyticsClient";
 import { analyticsSettings } from "@/lib/analytics/config";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
+import { appearanceVariables } from "@/lib/appearance";
+import settings from "../../content/site-settings.json";
 import { BackToTop } from "@/components/layout/BackToTop";
 import enMessages from "@/messages/en.json";
 import "./globals.css";
@@ -50,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`dark ${headingFont.variable}`}>
+    <html lang="en" className={`dark ${headingFont.variable}`} style={appearanceVariables()}>
       <body className="min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased">
         <NextIntlClientProvider locale="en" messages={enMessages}>
           <a
@@ -62,9 +63,8 @@ export default function RootLayout({
           <Header links={PRIMARY_NAV_LINKS} />
           <main id="main-content">{children}</main>
           <Footer />
-          <WhatsAppFloat />
           <BackToTop />
-          <AnalyticsClient enabled={analyticsSettings().enabled} />
+          <AnalyticsClient enabled={analyticsSettings().enabled} googleId={settings.googleAnalytics.enabled ? settings.googleAnalytics.measurementId : ""} />
         </NextIntlClientProvider>
       </body>
     </html>

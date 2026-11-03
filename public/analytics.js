@@ -2,7 +2,7 @@
 (()=>{
   if(window.__nexbodyAnalytics)return;window.__nexbodyAnalytics=true;
   const PREF='nexbody-analytics-optout';
-  const selectors={film:'.field-film-section',navigation:'header nav[aria-label="Primary"], [role="dialog"][aria-label="Navigation menu"]',footer:'footer',hero:'.cinematic-hero',values:'.value-pillars-section',products:'.ecosystem-section',assessment:'.intelligence-section',cases:'.case-section',solutions:'#applications',workflow:'#workflow',consultation:'#consultation',services:'.service-section',faq:'.faq-section',final_cta:'.cinematic-final',product_hero:'.product-detail-hero',product_capabilities:'.product-detail-section:has(.product-rule-list)',product_story:'.product-video-story,.f20-workflow-scene',product_specs:'.product-detail-section:has(.product-spec-table)',product_reports:'.product-detail-section:has(.product-report-line)',downloads:'.product-detail-section:has(a[href$=".pdf"])',product_cta:'.product-detail-cta',editorial_hero:'.editorial-hero',editorial_body:'.editorial-sections',related_products:'.editorial-related',editorial_cta:'.editorial-cta',catalog:'.product-index',article_list:'.editorial-page .editorial-grid',contact_form:'form'};
+  const selectors={film:'.field-film-section',navigation:'header nav[aria-label="Primary"], [role="dialog"][aria-label="Navigation menu"]',footer:'footer',hero:'.cinematic-hero',values:'.value-pillars-section',products:'.ecosystem-section',assessment:'.intelligence-section',cases:'.case-section',solutions:'#applications',workflow:'#workflow',consultation:'#consultation',services:'.service-section',faq:'.faq-section',final_cta:'.cinematic-final',product_hero:'.product-detail-hero',product_capabilities:'.product-detail-section:has(.product-rule-list)',product_story:'.product-video-story,.f20-workflow-scene',product_specs:'.product-detail-section:has(.product-spec-table)',product_reports:'.product-detail-section:has(.product-report-line)',downloads:'.product-detail-section:has(a[href$=".pdf"])',product_cta:'.product-detail-cta',editorial_hero:'.editorial-hero',editorial_body:'.editorial-sections,.journal-body',related_products:'.editorial-related',editorial_cta:'.editorial-cta',catalog:'.product-index',article_list:'.editorial-page .editorial-grid',contact_form:'form'};
   const restricted=()=>location.pathname.startsWith('/admin');
   const privacy=()=>navigator.doNotTrack==='1'||navigator.globalPrivacyControl===true;
   let optedOut=false;try{optedOut=localStorage.getItem(PREF)==='true'||localStorage.getItem('nexbody-analytics-consent')==='denied';}catch{}
@@ -71,12 +71,16 @@
     reflectPreference();generation++;queue=[];resetObservers();
     if(!optedOut){currentPath='';page();}
   });
+  addEventListener('nexbody:basic-analytics-preference',e=>{
+    optedOut=e.detail?.enabled!==true;reflectPreference();generation++;queue=[];resetObservers();
+    if(!optedOut){currentPath='';page();}
+  });
   const originalPage=page;
   function navigation(){reflectPreference();originalPage();}
   document.addEventListener('click',e=>{
     if(!allowed()||!e.isTrusted)return;
     const link=e.target.closest('a[href]'),button=e.target.closest('button');if(!link&&!button)return;
-    const element=link||button;if(element.closest('[data-analytics-toggle]'))return;
+    const element=link||button;if(element.closest('[data-analytics-toggle],.google-consent-banner,.analytics-preferences-dialog,.analytics-preferences-link'))return;
     let action='navigate';
     if(link){const url=new URL(link.href,location.origin);if(url.protocol==='mailto:')action='email';else if(/\.(pdf|zip|docx?)(?:$|[?#])/i.test(url.pathname)||link.hasAttribute('download'))action='download';else if(url.origin!==location.origin)action=/instagram|facebook|linkedin|twitter|youtube/.test(url.hostname)?'social':'external';else if(url.pathname==='/contact')action='consultation';}
     else if(!['Open menu','Close menu'].includes(button.getAttribute('aria-label'))&&!button.getAttribute('aria-label')?.startsWith('Toggle '))return;

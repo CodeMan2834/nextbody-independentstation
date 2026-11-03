@@ -2,12 +2,7 @@ import { PAGE_CONTENT } from "@/lib/page-content";
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { InquiryForm } from "@/components/contact/InquiryForm";
-import {
-  isWhatsAppPlaceholder,
-  siteConfig,
-  WHATSAPP_MESSAGES,
-  whatsappHref,
-} from "@/lib/site-config";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
@@ -17,7 +12,6 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const showWhatsApp = !isWhatsAppPlaceholder();
 
   return (
     <div className="relative z-10 page-shell">
@@ -37,19 +31,6 @@ export default function ContactPage() {
             >
               {siteConfig.contactEmail}
             </a>
-            {showWhatsApp && (
-              <>
-                {" · "}
-                <a
-                  href={whatsappHref(WHATSAPP_MESSAGES.float)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[var(--text-muted)] underline-offset-2 hover:text-[var(--text-primary)] hover:underline"
-                >
-                  Chat on WhatsApp
-                </a>
-              </>
-            )}
           </p>
 
           <div className="mt-10 rounded-2xl border border-[var(--surface-border)] glass p-8">

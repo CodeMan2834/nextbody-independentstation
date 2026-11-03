@@ -24,6 +24,7 @@ enter.addEventListener('click',async()=>{
     config.display_url=location.origin;config.site_url=location.origin;
     await script('/admin/decap-cms.js');
     CMS.registerLocale('zh_Hans',window.NEXBODY_LOCALE);
+    await script('/admin/settings-preview.js');
     CMS.registerEventListener({name:'preSave',handler:({entry})=>{
       const collection=config.collections.find(c=>c.name===entry.get('collection'));
       const file=collection?.files.find(f=>f.name===entry.get('slug'))||collection?.files[0];

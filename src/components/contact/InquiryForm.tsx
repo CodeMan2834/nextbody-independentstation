@@ -59,6 +59,7 @@ export function InquiryForm() {
       } catch { /* Statistics is optional; the form must work with browser storage blocked. */ }
       const result = await submitInquiry(data, analyticsId);
       if (result.success) {
+        window.dispatchEvent(new Event("nexbody:inquiry-success"));
         router.push("/success");
       } else {
         setError(result.error);
@@ -101,7 +102,7 @@ export function InquiryForm() {
 
         <div>
           <label htmlFor="phone" className={labelClass}>
-            Phone / WhatsApp *
+            Phone *
           </label>
           <input
             id="phone"

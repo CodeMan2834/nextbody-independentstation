@@ -14,6 +14,12 @@ for(const c of config.collections)for(const file of c.files){
  const data=JSON.parse(fs.readFileSync(file.file,'utf8'));
  errors.push(...validate(data,file.fields,c.name).map(x=>file.file+' / '+x));
  function assets(value,key=''){
+  if(typeof value==='string'&&key==='body')for(const match of value.matchAll(/!\[[^\]]*\]\(([^\s)]+)(?:\s+[^)]*)?\)/g)){
+   const media=match[1];
+   if(!media.startsWith('/')||media.startsWith('//'))errors.push(file.file+'：文章配图请上传至本站 '+media);
+   else if(!fs.existsSync(path.join('public',decodeURIComponent(media))))errors.push(file.file+'：文章配图不存在 '+media);
+  }
+
   if(typeof value==='string'&&value.startsWith('/')&&(/\.[a-z0-9]{2,6}(?:[?#]|$)/i.test(value)||['src','image','heroImage','workflowImage','video','poster'].includes(key))){
    const pathname=value.split(/[?#]/)[0];
    if(!fs.existsSync(path.join('public',pathname)))errors.push(file.file+'：资源不存在 '+value);

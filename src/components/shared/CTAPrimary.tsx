@@ -26,7 +26,7 @@ export function CTAPrimary({
       href={href}
       onClick={onClick}
       className={cn(
-        "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-sm border border-[var(--brand)] font-semibold",
+        "site-cta group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-sm border border-[var(--brand)] font-semibold",
         "bg-[var(--brand)]",
         "text-white",
         "shadow-[0_12px_34px_rgba(43,111,255,0.22)]",

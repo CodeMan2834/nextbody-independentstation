@@ -1,5 +1,6 @@
 "use client";
 
+import { BrandLogo } from "@/components/shared/BrandLogo";
 import { siteConfig } from "@/lib/site-config";
 import { useCallback, useState } from "react";
 import Link from "next/link";
@@ -29,7 +30,7 @@ export function Header({ links }: { links: readonly NavigationItem[] }) {
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 h-[var(--header-height)] border-b transition-[background-color,border-color,backdrop-filter,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
-          scrolled
+          scrolled || pathname.startsWith("/blog/")
             ? "border-[var(--surface-border)] bg-[rgba(5,7,11,0.94)] shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl"
             : "border-transparent bg-[rgba(5,7,11,0.62)] backdrop-blur-md"
         )}
@@ -41,7 +42,7 @@ export function Header({ links }: { links: readonly NavigationItem[] }) {
             className="group shrink-0 text-lg font-semibold tracking-[-0.03em] text-[var(--text-primary)] transition-[opacity,transform] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:opacity-90"
           >
             <span className="text-white transition-colors duration-300 group-hover:text-[var(--brand-accent)]">
-              {siteConfig.siteName}
+              <BrandLogo />
             </span>
           </Link>
 

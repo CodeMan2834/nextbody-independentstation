@@ -12,18 +12,18 @@
     {
       "name": "settings",
       "label": "⚙️ 全站设置",
-      "description": "维护品牌名称、联系方式、导航和社交链接；保存后会应用到全站。",
+      "description": "维护品牌 Logo、全站文字样式、GA4 和联系方式；保存后需等待网站部署。",
       "extension": "json",
       "format": "json",
       "create": false,
       "delete": false,
       "editor": {
-        "preview": false
+        "preview": true
       },
       "files": [
         {
           "name": "site-settings",
-          "label": "联系信息与社交账号",
+          "label": "品牌 · 字体 · 联系方式 · 统计",
           "file": "content/site-settings.json",
           "fields": [
             {
@@ -31,6 +31,272 @@
               "label": "网站名称",
               "widget": "string",
               "default": "NEXBODY"
+            },
+            {
+              "name": "branding",
+              "label": "主 Logo",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "mode",
+                  "label": "Logo 来源 / 恢复默认",
+                  "widget": "select",
+                  "options": [
+                    {
+                      "label": "使用默认 Logo（附件版本）",
+                      "value": "default"
+                    },
+                    {
+                      "label": "使用自定义上传 Logo",
+                      "value": "custom"
+                    }
+                  ],
+                  "default": "default",
+                  "hint": "恢复默认：选择第一项；使用新图：选择自定义并上传下方图片。"
+                },
+                {
+                  "name": "logo",
+                  "label": "自定义 Logo",
+                  "widget": "image",
+                  "required": false,
+                  "hint": "建议透明 PNG 或 WebP，宽度至少 600 px。保持原始比例；不要上传 AI 文件。"
+                },
+                {
+                  "name": "desktopHeight",
+                  "label": "电脑端高度",
+                  "widget": "number",
+                  "value_type": "int",
+                  "default": 28,
+                  "min": 18,
+                  "max": 40,
+                  "hint": "单位 px，范围 18–40。"
+                },
+                {
+                  "name": "mobileHeight",
+                  "label": "手机端高度",
+                  "widget": "number",
+                  "value_type": "int",
+                  "default": 23,
+                  "min": 16,
+                  "max": 32,
+                  "hint": "单位 px，范围 16–32。"
+                },
+                {
+                  "name": "footerHeight",
+                  "label": "页脚高度",
+                  "widget": "number",
+                  "value_type": "int",
+                  "default": 32,
+                  "min": 18,
+                  "max": 64,
+                  "hint": "单位 px，范围 18–64。"
+                }
+              ]
+            },
+            {
+              "name": "typography",
+              "label": "全站字体与字号",
+              "widget": "object",
+              "hint": "分别预览电脑、手机样式；保留合理字号，避免文字过大影响布局。",
+              "fields": [
+                {
+                  "name": "headingFont",
+                  "label": "标题字体",
+                  "widget": "select",
+                  "options": [
+                    {
+                      "label": "Merriweather 衬线",
+                      "value": "merriweather"
+                    },
+                    {
+                      "label": "系统无衬线",
+                      "value": "system"
+                    },
+                    {
+                      "label": "Arial 无衬线",
+                      "value": "arial"
+                    },
+                    {
+                      "label": "Georgia 衬线",
+                      "value": "georgia"
+                    }
+                  ],
+                  "default": "merriweather"
+                },
+                {
+                  "name": "bodyFont",
+                  "label": "正文字体",
+                  "widget": "select",
+                  "options": [
+                    {
+                      "label": "Merriweather 衬线",
+                      "value": "merriweather"
+                    },
+                    {
+                      "label": "系统无衬线",
+                      "value": "system"
+                    },
+                    {
+                      "label": "Arial 无衬线",
+                      "value": "arial"
+                    },
+                    {
+                      "label": "Georgia 衬线",
+                      "value": "georgia"
+                    }
+                  ],
+                  "default": "system"
+                },
+                {
+                  "name": "buttonFont",
+                  "label": "按钮字体",
+                  "widget": "select",
+                  "options": [
+                    {
+                      "label": "Merriweather 衬线",
+                      "value": "merriweather"
+                    },
+                    {
+                      "label": "系统无衬线",
+                      "value": "system"
+                    },
+                    {
+                      "label": "Arial 无衬线",
+                      "value": "arial"
+                    },
+                    {
+                      "label": "Georgia 衬线",
+                      "value": "georgia"
+                    }
+                  ],
+                  "default": "system"
+                },
+                {
+                  "name": "titleDesktop",
+                  "label": "页面主标题 · 电脑",
+                  "widget": "number",
+                  "value_type": "int",
+                  "default": 44,
+                  "min": 24,
+                  "max": 64,
+                  "hint": "单位 px，范围 24–64。"
+                },
+                {
+                  "name": "titleMobile",
+                  "label": "页面主标题 · 手机",
+                  "widget": "number",
+                  "value_type": "int",
+                  "default": 30,
+                  "min": 22,
+                  "max": 40,
+                  "hint": "单位 px，范围 22–40。"
+                },
+                {
+                  "name": "sectionDesktop",
+                  "label": "板块标题 · 电脑",
+                  "widget": "number",
+                  "value_type": "int",
+                  "default": 36,
+                  "min": 22,
+                  "max": 48,
+                  "hint": "单位 px，范围 22–48。"
+                },
+                {
+                  "name": "sectionMobile",
+                  "label": "板块标题 · 手机",
+                  "widget": "number",
+                  "value_type": "int",
+                  "default": 26,
+                  "min": 20,
+                  "max": 36,
+                  "hint": "单位 px，范围 20–36。"
+                },
+                {
+                  "name": "bodyDesktop",
+                  "label": "正文 · 电脑",
+                  "widget": "number",
+                  "value_type": "int",
+                  "default": 16,
+                  "min": 14,
+                  "max": 20,
+                  "hint": "单位 px，范围 14–20。"
+                },
+                {
+                  "name": "bodyMobile",
+                  "label": "正文 · 手机",
+                  "widget": "number",
+                  "value_type": "int",
+                  "default": 16,
+                  "min": 14,
+                  "max": 20,
+                  "hint": "单位 px，范围 14–20。"
+                },
+                {
+                  "name": "buttonDesktop",
+                  "label": "按钮 · 电脑",
+                  "widget": "number",
+                  "value_type": "int",
+                  "default": 14,
+                  "min": 12,
+                  "max": 18,
+                  "hint": "单位 px，范围 12–18。"
+                },
+                {
+                  "name": "buttonMobile",
+                  "label": "按钮 · 手机",
+                  "widget": "number",
+                  "value_type": "int",
+                  "default": 14,
+                  "min": 12,
+                  "max": 18,
+                  "hint": "单位 px，范围 12–18。"
+                },
+                {
+                  "name": "heroDesktop",
+                  "label": "首页首屏标题 · 电脑",
+                  "widget": "number",
+                  "value_type": "int",
+                  "default": 18,
+                  "min": 16,
+                  "max": 48,
+                  "hint": "单位 px，范围 16–48。"
+                },
+                {
+                  "name": "heroMobile",
+                  "label": "首页首屏标题 · 手机",
+                  "widget": "number",
+                  "value_type": "int",
+                  "default": 18,
+                  "min": 16,
+                  "max": 32,
+                  "hint": "单位 px，范围 16–32。"
+                }
+              ]
+            },
+            {
+              "name": "googleAnalytics",
+              "label": "Google Analytics 4",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "enabled",
+                  "label": "启用可选 GA4 统计",
+                  "widget": "boolean",
+                  "default": true,
+                  "hint": "访客明确同意后才加载 Google 标签；后台与本地预览不参与 Google 统计。"
+                },
+                {
+                  "name": "measurementId",
+                  "label": "GA4 测量 ID",
+                  "widget": "string",
+                  "pattern": [
+                    "^G-[A-Z0-9]{5,20}$",
+                    "填写 G- 开头的 GA4 测量 ID"
+                  ],
+                  "default": "G-MGHS9TX3JG",
+                  "hint": "数据发送到该 ID 对应的 Google Analytics 数据流。更改前先在 GA4 管理界面核对所属网站与公司账号。"
+                }
+              ]
             },
             {
               "name": "tagline",
@@ -47,18 +313,6 @@
               "pattern": [
                 "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$",
                 "联系邮箱：格式不正确"
-              ]
-            },
-            {
-              "name": "whatsappNumber",
-              "label": "WhatsApp号码（E.164格式）",
-              "widget": "string",
-              "hint": "例如 +971501234567；保留占位号码时前台不会显示 WhatsApp 按钮。",
-              "default": "+971000000000",
-              "required": false,
-              "pattern": [
-                "^\\+[1-9]\\d{7,14}$",
-                "WhatsApp：请填写 +国家码和号码"
               ]
             },
             {
@@ -1432,23 +1686,42 @@
                   "default": "draft"
                 },
                 {
-                  "name": "sections",
-                  "label": "正文段落",
-                  "widget": "list",
-                  "min": 1,
-                  "fields": [
-                    {
-                      "name": "title",
-                      "label": "小标题",
-                      "widget": "string"
-                    },
-                    {
-                      "name": "body",
-                      "label": "正文",
-                      "widget": "text"
-                    }
+                  "name": "author",
+                  "label": "作者 / 编辑团队",
+                  "widget": "string",
+                  "default": "NEXBODY Team"
+                },
+                {
+                  "name": "updatedDate",
+                  "label": "更新日期",
+                  "widget": "datetime",
+                  "date_format": "YYYY-MM-DD",
+                  "time_format": false,
+                  "format": "YYYY-MM-DD",
+                  "hint": "填实际更新日期。"
+                },
+                {
+                  "name": "body",
+                  "label": "文章正文",
+                  "widget": "markdown",
+                  "modes": [
+                    "rich_text",
+                    "raw"
                   ],
-                  "summary": "{{title}}"
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "quote",
+                    "bulleted-list",
+                    "numbered-list"
+                  ],
+                  "editor_components": [
+                    "image"
+                  ],
+                  "hint": "连续文章排版：先写导语，再插入小标题、自然段和配图。不要重复填写文章主标题。图注可在图片下一段填写；代码和 HTML 不会作为网页执行。"
                 }
               ]
             }
@@ -1459,6 +1732,6 @@
   ],
   "locale": "zh_Hans",
   "display_url": "https://nexbodyfit.com",
-  "logo_url": "/admin/brand.svg",
+  "logo_url": "/brand/nexbody-logo-white.png",
   "show_preview_links": false
 }

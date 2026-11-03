@@ -23,7 +23,7 @@ export function CTASecondary({
     <Link
       href={href}
       className={cn(
-        "group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-sm font-medium",
+        "site-cta group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-sm font-medium",
         "border border-white/[0.12] bg-white/[0.03] text-[var(--text-primary)]",
         "shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]",
         "backdrop-blur-sm",

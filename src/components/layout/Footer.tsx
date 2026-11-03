@@ -7,17 +7,19 @@ function SocialIcon({ name }: { name: string }) {
   };
   return <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name] || <path d="M7 17 17 7M7 7h10v10" />}</svg>;
 }
-import { siteConfig, whatsappHref, isWhatsAppPlaceholder } from "@/lib/site-config";
+import { siteConfig } from "@/lib/site-config";
+import { BrandLogo } from "@/components/shared/BrandLogo";
+import { AnalyticsPreferences } from "./AnalyticsPreferences";
+import settings from "../../../content/site-settings.json";
 
 export function Footer() {
-  const showWhatsApp = !isWhatsAppPlaceholder();
 
   return (
     <footer className="relative z-10 border-t border-[var(--surface-border)] bg-[var(--background)]">
       <div className="container-site flex flex-col gap-6 py-10 text-sm text-[var(--text-muted)] md:flex-row md:items-start md:justify-between">
         <div className="space-y-2">
           <p className="font-medium text-[var(--text-primary)]">
-            {siteConfig.siteName}
+            <Link href="/" aria-label="NEXBODY home"><BrandLogo footer /></Link>
           </p>
           <p className="max-w-xs text-[var(--text-dim)]">{siteConfig.tagline}</p>
           <p className="pt-1">
@@ -27,19 +29,6 @@ export function Footer() {
             >
               {siteConfig.contactEmail}
             </a>
-            {showWhatsApp && (
-              <>
-                {" · "}
-                <a
-                  href={whatsappHref()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition-colors hover:text-[var(--text-primary)]"
-                >
-                  WhatsApp
-                </a>
-              </>
-            )}
           </p>
         </div>
 
@@ -66,7 +55,7 @@ export function Footer() {
           >
             Terms of Service
           </Link>
-          <button type="button" data-analytics-toggle className="text-left transition-colors hover:text-[var(--text-primary)]">Disable basic analytics</button>
+          <AnalyticsPreferences googleEnabled={settings.googleAnalytics.enabled} />
         </nav>
       </div>
 

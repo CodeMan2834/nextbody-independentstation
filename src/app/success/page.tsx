@@ -1,13 +1,8 @@
 import { PAGE_CONTENT } from "@/lib/page-content";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CheckCircle2, MessageCircle } from "lucide-react";
-import {
-  isWhatsAppPlaceholder,
-  WHATSAPP_MESSAGES,
-  whatsappHref,
-  siteConfig,
-} from "@/lib/site-config";
+import { CheckCircle2 } from "lucide-react";
+import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/success" },
@@ -17,7 +12,6 @@ export const metadata: Metadata = {
 };
 
 export default function SuccessPage() {
-  const showWhatsApp = !isWhatsAppPlaceholder();
 
   return (
     <div className="relative z-10 flex min-h-[calc(100vh-var(--header-height))] items-center justify-center pt-[var(--header-height)]">
@@ -33,17 +27,6 @@ export default function SuccessPage() {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          {showWhatsApp && (
-            <a
-              href={whatsappHref(WHATSAPP_MESSAGES.afterInquiry)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-6 py-3 text-sm font-medium text-white shadow-[0_8px_24px_rgba(37,211,102,0.28)] transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(37,211,102,0.36)]"
-            >
-              <MessageCircle className="size-4" />
-              Continue on WhatsApp
-            </a>
-          )}
           <Link
             href="/"
             className="inline-flex items-center gap-2 rounded-full border border-[var(--surface-border)] px-6 py-3 text-sm font-medium text-[var(--text-primary)] transition-colors hover:border-[var(--brand-accent)]/40 hover:bg-[var(--brand)]/10"

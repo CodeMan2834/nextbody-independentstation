@@ -22,7 +22,8 @@
           value.forEach((item,i)=>{if(f.fields)walk(item,f.fields,label+' '+(i+1)+' / ');else if(typeof item!=='string'||!item.trim())errors.push(label+'：不能有空条目');});
         }else if(f.widget==='number'){
           if(!Number.isFinite(value)||!Number.isInteger(value)||(f.min!==undefined&&value<f.min)||(f.max!==undefined&&value>f.max))errors.push(label+'：请输入范围内的整数');
-        }else if(typeof value!=='string'||!value.trim()) errors.push(label+'：请填写有效文字');
+        }else if(f.widget==='boolean'){if(typeof value!=='boolean')errors.push(label+'：请选择开启或关闭');}
+        else if(typeof value!=='string'||!value.trim()) errors.push(label+'：请填写有效文字');
         else {
           if(f.pattern&&!(new RegExp(f.pattern[0])).test(value))errors.push(label+'：'+f.pattern[1]);
           if(f.widget==='select'&&!f.options.some(x=>(typeof x==='string'?x:x.value)===value))errors.push(label+'：选择无效');
@@ -41,6 +42,8 @@
     walk(data,fields);
     if(!data||typeof data!=='object')return errors;
     if(collection==='settings'){
+      if(data.branding?.mode==='custom'&&!data.branding.logo)errors.push('主 Logo：选择自定义时请上传图片');
+      if(data.googleAnalytics?.enabled&&!/^G-[A-Z0-9]{5,20}$/.test(data.googleAnalytics.measurementId||''))errors.push('GA4：填写有效测量 ID');
       if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.contactEmail||''))errors.push('联系邮箱：格式不正确');
       if(data.whatsappNumber&&!/^\+[1-9]\d{7,14}$/.test(data.whatsappNumber))errors.push('WhatsApp：使用 +国家码和号码，不要加空格');
       for(const item of Array.isArray(data.socialLinks)?data.socialLinks:[])if(!/^https:\/\//i.test(item?.href))errors.push('社交链接必须为 https 网址');
@@ -58,7 +61,8 @@
       const validProducts=['nexbody-x60','onescan-gait-analysis','f20-foot-scanner'];
       for(const item of solutions)if(!Array.isArray(item.productSlugs)||!item.productSlugs.length||item.productSlugs.some(slug=>!validProducts.includes(slug)))errors.push('解决方案：请选择有效关联产品');
       const posts=Array.isArray(data.posts)?data.posts:[];
-      if(new Set(posts.map(p=>p.slug)).size!==posts.length)errors.push('文章页面标识不可重复');
+      for(const p of posts){if(!p||typeof p!=='object')continue;for(const match of String(p.body||'').matchAll(/!\[[^\]]*\]\(([^\s)]+)(?:\s+[^)]*)?\)/g)){if(!localPath(match[1])||!/\.(png|jpe?g|webp|gif|avif)$/i.test(match[1]))errors.push('文章配图：请上传本站 PNG/JPG/WebP 图片');}if(typeof p.body!=='string'||p.body.trim().length<100)errors.push('文章正文：至少 100 个字符');if(!/^\d{4}-\d{2}-\d{2}$/.test(p.updatedDate||'')||!Number.isFinite(Date.parse(p.updatedDate))||new Date(p.updatedDate).toISOString().slice(0,10)!==p.updatedDate)errors.push('文章更新日期：使用 YYYY-MM-DD');}
+      if(new Set(posts.map(p=>p?.slug)).size!==posts.length)errors.push('文章页面标识不可重复');
     }
     if(collection==='cases'){
       const ids=(Array.isArray(data.cases)?data.cases:[]).map(x=>x?.id);
