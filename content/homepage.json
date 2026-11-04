@@ -7,7 +7,7 @@
   "assessment": {
     "eyebrow": "BODY ASSESSMENT / PROFESSIONAL REPORTS",
     "title": "Comprehensive Assessment Reports",
-    "accentTitle": "Clear Insights. Better Decisions",
+    "accentTitle": "Clear Insights Better Decisions",
     "views": [
       {
         "label": "Composition",
@@ -25,7 +25,7 @@
         "image": "/media/products/x60/x60-mobility.png"
       }
     ],
-    "intro": "Explore body composition, posture, and mobility assessment reports with NEXBODY."
+    "intro": "Explore body composition, posture, and mobility assessment reports with NEXBODY"
   },
   "cases": {
     "eyebrow": "NEXBODY / SUCCESS STORIES",
@@ -41,7 +41,7 @@
   },
   "service": {
     "eyebrow": "CUSTOMER SERVICE / TECHNICAL SUPPORT",
-    "title": "Professional Support. Every Step of the Way.",
+    "title": "Professional Support  Every Step of the Way",
     "items": [
       {
         "title": "Solution Consultation",
@@ -206,7 +206,7 @@
         "body": "A continuous record turns complex body data into findings that can be reviewed, explained and shared."
       }
     ],
-    "title": "From capture to a conversation people can act on.",
+    "title": "From capture to a conversation people can act on",
     "video": "/video/x60-clinical-workflow.mp4",
     "poster": "/media/products/x60/x60-workflow.png",
     "mediaLabel": "X60 / POSTURE ASSESSMENT"
