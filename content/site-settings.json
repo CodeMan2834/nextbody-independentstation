@@ -46,18 +46,18 @@
   "tagline": "Precision Body Assessment, Reimagined.",
   "typography": {
     "buttonFont": "system",
-    "heroDesktop": 18,
+    "heroDesktop": 40,
     "bodyMobile": 16,
     "titleDesktop": 54,
-    "sectionMobile": 26,
+    "sectionMobile": 22,
     "buttonDesktop": 14,
     "bodyFont": "system",
     "headingFont": "merriweather",
     "buttonMobile": 14,
     "sectionDesktop": 40,
     "bodyDesktop": 16,
-    "titleMobile": 30,
-    "heroMobile": 18
+    "titleMobile": 25,
+    "heroMobile": 20
   },
   "siteName": "NEXBODY",
   "branding": {
