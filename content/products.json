@@ -25,7 +25,7 @@
       },
       "specs": [
         {
-          "label": "Product model",
+          "label": "Product Model",
           "value": "R3 (customer-facing name: Nexbody-X60)"
         },
         {
@@ -67,7 +67,7 @@
       ],
       "image": "/media/products/x60/x60-front-white.png",
       "industries": [
-        "Rehabilitation centers",
+        "Rehabilitation Centers",
         "Hospitals and clinics",
         "Fitness and wellness",
         "Sports performance",
@@ -88,7 +88,7 @@
       "menuDescription": "Body Composition Scanner",
       "category": "Professional Body Assessment System",
       "reports": [
-        "Posture assessment",
+        "Posture Assessment",
         "Body composition analysis",
         "Neck and shoulder mobility"
       ],
