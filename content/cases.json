@@ -1,64 +1,64 @@
 {
   "cases": [
     {
-      "id": "usecase-rehab-posture",
-      "name": "Rehabilitation intake",
-      "context": "Clinics & rehab",
-      "industry": "Rehabilitation",
-      "product": "Nexbody-X60",
-      "headline": "Repeatable posture and mobility records for every visit.",
-      "need": "Therapists need structured posture angles and neck-shoulder mobility without sending every client to an imaging lab.",
-      "approach": "X60 identifies anatomical landmarks, scores alignment and guides cervical lateral flexion and arm-elevation assessments in one workstation.",
-      "result": "A printable, shareable report with risk-level indicators that can be reviewed and corrected by the clinician.",
       "media": {
         "src": "/media/products/x60/x60-clinical.png",
         "alt": "Nexbody-X60 in a clinical assessment setting"
-      }
+      },
+      "approach": "X60 identifies anatomical landmarks, scores alignment and guides cervical lateral flexion and arm-elevation assessments in one workstation.",
+      "name": "Rehabilitation intake",
+      "product": "Nexbody-X60",
+      "context": "Clinics & rehab",
+      "headline": "Repeatable posture and mobility records for every visit.",
+      "need": "Therapists need structured posture angles and neck-shoulder mobility without sending every client to an imaging lab.",
+      "id": "usecase-rehab-posture",
+      "result": "A printable, shareable report with risk-level indicators that can be reviewed and corrected by the clinician.",
+      "industry": "Rehabilitation"
     },
     {
-      "id": "usecase-fitness-composition",
-      "name": "Fitness body review",
-      "context": "Gyms & wellness",
-      "industry": "Fitness",
-      "product": "Nexbody-X60",
-      "headline": "Composition and posture in a member-facing assessment.",
-      "need": "Operators want a premium assessment that members can understand — not a lab printout and not a weight-only conversation.",
-      "approach": "Eight-electrode analysis provides nearly 40 composition values with segmental breakdown, alongside posture scoring on the same system.",
-      "result": "Email, print and optional institution branding keep the report inside the facility workflow.",
       "media": {
         "src": "/media/products/x60/x60-gym.png",
         "alt": "Nexbody-X60 in a fitness studio"
-      }
+      },
+      "approach": "Eight-electrode analysis provides nearly 40 composition values with segmental breakdown, alongside posture scoring on the same system.",
+      "name": "Fitness body review",
+      "product": "Nexbody-X60",
+      "context": "Gyms & wellness",
+      "headline": "Composition and posture in a member-facing assessment",
+      "need": "Operators want a premium assessment that members can understand — not a lab printout and not a weight-only conversation.",
+      "id": "usecase-fitness-composition",
+      "result": "Email, print and optional institution branding keep the report inside the facility workflow",
+      "industry": "Fitness"
     },
     {
-      "id": "usecase-gait-clinic",
-      "name": "Gait and pressure assessment",
-      "context": "Sports science & rehab",
-      "industry": "Gait analysis",
-      "product": "OneScan",
-      "headline": "Plantar pressure and gait metrics on a dedicated platform.",
-      "need": "Gait, COP trajectory and stance timing belong on a pressure-sensor walkway — not on the X60 posture column.",
-      "approach": "OneScan’s piezoresistive matrix records pressure distribution, contact metrics and temporal parameters across five platform lengths.",
-      "result": "Reports for dynamic gait and static pressure that can be exported or connected through an open API.",
       "media": {
         "src": "/media/products/onescan/onescan-scene.png",
         "alt": "OneScan gait assessment in progress"
-      }
+      },
+      "approach": "OneScan’s piezoresistive matrix records pressure distribution, contact metrics and temporal parameters across five platform lengths.",
+      "name": "Gait and pressure assessment",
+      "product": "OneScan",
+      "context": "Sports science & rehab",
+      "headline": "Plantar pressure and gait metrics on a dedicated platform",
+      "need": "Gait, COP trajectory and stance timing belong on a pressure-sensor walkway — not on the X60 posture column.",
+      "id": "usecase-gait-clinic",
+      "result": "Reports for dynamic gait and static pressure that can be exported or connected through an open API",
+      "industry": "Gait analysis"
     },
     {
-      "id": "usecase-foot-scan",
-      "name": "3D foot morphology",
-      "context": "Orthotics & footwear",
-      "industry": "Footwear",
-      "product": "F20",
-      "headline": "Both feet scanned together for measurement and STL output.",
-      "need": "Custom insoles and C2M footwear need full-foot geometry, arch type and left/right comparison — separate from gait pressure maps.",
-      "approach": "F20 captures more than 30 full-foot parameters, hallux and heel valgus, and arch classification in one synchronous scan.",
-      "result": "STL models and comparable reports for retail, campus screening and orthotic workflows.",
       "media": {
         "src": "/media/products/f20/f20-lab-hero.webp",
         "alt": "NEXBODY F20 3D full-foot scanner overview"
-      }
+      },
+      "approach": "F20 captures more than 30 full-foot parameters, hallux and heel valgus, and arch classification in one synchronous scan.",
+      "name": "3D foot morphology",
+      "product": "F20",
+      "context": "Orthotics & footwear",
+      "headline": "Both feet scanned together for measurement and STL output",
+      "need": "Custom insoles and C2M footwear need full-foot geometry, arch type and left/right comparison — separate from gait pressure maps.",
+      "id": "usecase-foot-scan",
+      "result": "STL models and comparable reports for retail, campus screening and orthotic workflows",
+      "industry": "Footwear"
     }
   ]
 }
