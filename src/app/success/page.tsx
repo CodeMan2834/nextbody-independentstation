@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
+import { RichText } from "@/components/shared/RichText";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/success" },
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function SuccessPage() {
 
   return (
-    <div className="relative z-10 flex min-h-[calc(100vh-var(--header-height))] items-center justify-center pt-[var(--header-height)]">
+    <div data-typography-module="success" className="relative z-10 flex min-h-[calc(100vh-var(--header-height))] items-center justify-center pt-[var(--header-height)]">
       <div className="px-6 text-center">
         <div className="mx-auto mb-6 flex size-16 items-center justify-center rounded-full bg-[var(--brand-green)]/10">
           <CheckCircle2 className="size-8 text-[var(--brand-green)]" />
@@ -22,9 +23,7 @@ export default function SuccessPage() {
         <h1 className="text-[clamp(28px,4vw,40px)] font-semibold tracking-[-0.03em]">
           {PAGE_CONTENT.success.title}
         </h1>
-        <p className="mx-auto mt-4 max-w-md text-[var(--text-muted)]">
-          {PAGE_CONTENT.success.body}
-        </p>
+        <RichText body={PAGE_CONTENT.success.body} className="mx-auto mt-4 max-w-md text-[var(--text-muted)]" />
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link

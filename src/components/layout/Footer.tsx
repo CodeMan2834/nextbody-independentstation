@@ -15,7 +15,7 @@ import settings from "../../../content/site-settings.json";
 export function Footer() {
 
   return (
-    <footer className="relative z-10 border-t border-[var(--surface-border)] bg-[var(--background)]">
+    <footer data-typography-module="siteFooter" className="relative z-10 border-t border-[var(--surface-border)] bg-[var(--background)]">
       <div className="container-site flex flex-col gap-6 py-10 text-sm text-[var(--text-muted)] md:flex-row md:items-start md:justify-between">
         <div className="space-y-2">
           <p className="font-medium text-[var(--text-primary)]">

@@ -97,7 +97,7 @@
               "name": "typography",
               "label": "全站字体与字号",
               "widget": "object",
-              "hint": "分别预览电脑、手机样式；保留合理字号，避免文字过大影响布局。",
+              "hint": "先设置全站字体和电脑/手机基础字号，再分别调整各模块标题、正文和辅助文字的比例（80%–130%）。建议每次只调整一项并预览。",
               "fields": [
                 {
                   "name": "headingFont",
@@ -270,6 +270,1083 @@
                   "min": 16,
                   "max": 32,
                   "hint": "单位 px，范围 16–32。"
+                },
+                {
+                  "name": "modules",
+                  "label": "各页面模块字号（独立调整）",
+                  "widget": "object",
+                  "hint": "每个模块可独立调整标题、正文、辅助文字。100% 为全站设置中的基础字号；80%–130%，每次递增 10%。",
+                  "fields": [
+                    {
+                      "name": "siteHeader",
+                      "label": "全站页头",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "siteFooter",
+                      "label": "全站页脚",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "homeHero",
+                      "label": "首页首屏",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "homePillars",
+                      "label": "首页核心价值",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "homeWorkflow",
+                      "label": "首页流程",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "homeAssessment",
+                      "label": "首页评估报告",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "homeFilm",
+                      "label": "首页产品影片",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "homeProducts",
+                      "label": "首页产品系列",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "homeCases",
+                      "label": "首页案例",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "homeIndustries",
+                      "label": "首页适用行业",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "homeServices",
+                      "label": "首页服务支持",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "homeFaq",
+                      "label": "首页常见问题",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "homeConsultation",
+                      "label": "首页咨询板块",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "homeFinal",
+                      "label": "首页底部行动区",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "productCatalog",
+                      "label": "产品目录页",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "productDetailHero",
+                      "label": "产品详情首屏",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "productDetailInfo",
+                      "label": "产品详情信息",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "productDetailStory",
+                      "label": "产品详情场景与视频",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "productDetailCta",
+                      "label": "产品详情咨询区",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "solutionsCatalog",
+                      "label": "解决方案目录",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "solutionDetail",
+                      "label": "解决方案详情",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "aboutPage",
+                      "label": "关于我们",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "blogCatalog",
+                      "label": "博客目录",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "blogArticle",
+                      "label": "博客文章",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "contact",
+                      "label": "联系页",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "success",
+                      "label": "提交成功页",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    },
+                    {
+                      "name": "legal",
+                      "label": "隐私与条款页",
+                      "widget": "object",
+                      "fields": [
+                        {
+                          "name": "headingScale",
+                          "label": "标题大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "bodyScale",
+                          "label": "正文大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        },
+                        {
+                          "name": "detailScale",
+                          "label": "辅助文字大小",
+                          "widget": "number",
+                          "value_type": "int",
+                          "default": 100,
+                          "min": 80,
+                          "max": 130,
+                          "step": 10,
+                          "hint": "以全站字号为基础按比例缩放；100% 为默认。"
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             },
@@ -627,7 +1704,17 @@
                     {
                       "name": "body",
                       "label": "说明文案",
-                      "widget": "text"
+                      "widget": "markdown",
+                      "buttons": [
+                        "bold",
+                        "italic",
+                        "link",
+                        "heading-two",
+                        "heading-three",
+                        "bulleted-list",
+                        "numbered-list",
+                        "quote"
+                      ]
                     },
                     {
                       "name": "video",
@@ -753,21 +1840,51 @@
                 {
                   "name": "need",
                   "label": "客户需求",
-                  "widget": "text",
+                  "widget": "markdown",
                   "hint": "内部维护备注，不直接显示在前台。",
-                  "required": false
+                  "required": false,
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 },
                 {
                   "name": "approach",
                   "label": "解决方式",
-                  "widget": "text",
+                  "widget": "markdown",
                   "hint": "内部维护备注，不直接显示在前台。",
-                  "required": false
+                  "required": false,
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 },
                 {
                   "name": "result",
                   "label": "应用结果",
-                  "widget": "text"
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 },
                 {
                   "name": "media",
@@ -826,7 +1943,17 @@
                 {
                   "name": "lead",
                   "label": "介绍文案",
-                  "widget": "text"
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 },
                 {
                   "name": "media",
@@ -962,7 +2089,17 @@
                     {
                       "name": "body",
                       "label": "说明文案",
-                      "widget": "text"
+                      "widget": "markdown",
+                      "buttons": [
+                        "bold",
+                        "italic",
+                        "link",
+                        "heading-two",
+                        "heading-three",
+                        "bulleted-list",
+                        "numbered-list",
+                        "quote"
+                      ]
                     }
                   ],
                   "min": 1
@@ -1002,7 +2139,17 @@
                     {
                       "name": "body",
                       "label": "说明文案",
-                      "widget": "text"
+                      "widget": "markdown",
+                      "buttons": [
+                        "bold",
+                        "italic",
+                        "link",
+                        "heading-two",
+                        "heading-three",
+                        "bulleted-list",
+                        "numbered-list",
+                        "quote"
+                      ]
                     }
                   ],
                   "min": 1
@@ -1075,7 +2222,17 @@
                 {
                   "name": "intro",
                   "label": "介绍文案",
-                  "widget": "text"
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 }
               ]
             },
@@ -1097,7 +2254,17 @@
                 {
                   "name": "intro",
                   "label": "介绍文案",
-                  "widget": "text"
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 },
                 {
                   "name": "items",
@@ -1112,7 +2279,17 @@
                     {
                       "name": "body",
                       "label": "说明文案",
-                      "widget": "text"
+                      "widget": "markdown",
+                      "buttons": [
+                        "bold",
+                        "italic",
+                        "link",
+                        "heading-two",
+                        "heading-three",
+                        "bulleted-list",
+                        "numbered-list",
+                        "quote"
+                      ]
                     }
                   ],
                   "min": 1
@@ -1147,7 +2324,17 @@
                     {
                       "name": "body",
                       "label": "说明文案",
-                      "widget": "text"
+                      "widget": "markdown",
+                      "buttons": [
+                        "bold",
+                        "italic",
+                        "link",
+                        "heading-two",
+                        "heading-three",
+                        "bulleted-list",
+                        "numbered-list",
+                        "quote"
+                      ]
                     }
                   ],
                   "min": 1
@@ -1182,7 +2369,17 @@
                     {
                       "name": "answer",
                       "label": "答案",
-                      "widget": "text"
+                      "widget": "markdown",
+                      "buttons": [
+                        "bold",
+                        "italic",
+                        "link",
+                        "heading-two",
+                        "heading-three",
+                        "bulleted-list",
+                        "numbered-list",
+                        "quote"
+                      ]
                     }
                   ],
                   "min": 1
@@ -1207,7 +2404,17 @@
                 {
                   "name": "body",
                   "label": "说明文案",
-                  "widget": "text"
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 },
                 {
                   "name": "buttonLabel",
@@ -1266,7 +2473,17 @@
                 {
                   "name": "body",
                   "label": "说明文案",
-                  "widget": "text"
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 },
                 {
                   "name": "video",
@@ -1330,7 +2547,17 @@
                 {
                   "name": "intro",
                   "label": "介绍文案",
-                  "widget": "text"
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 }
               ]
             }
@@ -1373,7 +2600,17 @@
                 {
                   "name": "intro",
                   "label": "介绍文案",
-                  "widget": "text"
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 }
               ]
             },
@@ -1390,7 +2627,17 @@
                 {
                   "name": "intro",
                   "label": "介绍文案",
-                  "widget": "text"
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 }
               ]
             },
@@ -1407,7 +2654,17 @@
                 {
                   "name": "body",
                   "label": "说明文案",
-                  "widget": "text"
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 }
               ]
             },
@@ -1424,7 +2681,17 @@
                 {
                   "name": "intro",
                   "label": "介绍文案",
-                  "widget": "text"
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 },
                 {
                   "name": "sections",
@@ -1439,7 +2706,17 @@
                     {
                       "name": "body",
                       "label": "说明文案",
-                      "widget": "text"
+                      "widget": "markdown",
+                      "buttons": [
+                        "bold",
+                        "italic",
+                        "link",
+                        "heading-two",
+                        "heading-three",
+                        "bulleted-list",
+                        "numbered-list",
+                        "quote"
+                      ]
                     }
                   ],
                   "min": 1
@@ -1459,7 +2736,17 @@
                 {
                   "name": "intro",
                   "label": "介绍文案",
-                  "widget": "text"
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 },
                 {
                   "name": "sections",
@@ -1474,7 +2761,17 @@
                     {
                       "name": "body",
                       "label": "说明文案",
-                      "widget": "text"
+                      "widget": "markdown",
+                      "buttons": [
+                        "bold",
+                        "italic",
+                        "link",
+                        "heading-two",
+                        "heading-three",
+                        "bulleted-list",
+                        "numbered-list",
+                        "quote"
+                      ]
                     }
                   ],
                   "min": 1
@@ -1520,7 +2817,17 @@
                 {
                   "name": "intro",
                   "label": "简介",
-                  "widget": "text"
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 },
                 {
                   "name": "image",
@@ -1541,7 +2848,17 @@
                     {
                       "name": "body",
                       "label": "正文",
-                      "widget": "text"
+                      "widget": "markdown",
+                      "buttons": [
+                        "bold",
+                        "italic",
+                        "link",
+                        "heading-two",
+                        "heading-three",
+                        "bulleted-list",
+                        "numbered-list",
+                        "quote"
+                      ]
                     },
                     {
                       "name": "image",
@@ -1587,7 +2904,17 @@
                 {
                   "name": "intro",
                   "label": "简介 / 搜索摘要",
-                  "widget": "text"
+                  "widget": "markdown",
+                  "buttons": [
+                    "bold",
+                    "italic",
+                    "link",
+                    "heading-two",
+                    "heading-three",
+                    "bulleted-list",
+                    "numbered-list",
+                    "quote"
+                  ]
                 },
                 {
                   "name": "image",
@@ -1624,7 +2951,17 @@
                     {
                       "name": "body",
                       "label": "正文",
-                      "widget": "text"
+                      "widget": "markdown",
+                      "buttons": [
+                        "bold",
+                        "italic",
+                        "link",
+                        "heading-two",
+                        "heading-three",
+                        "bulleted-list",
+                        "numbered-list",
+                        "quote"
+                      ]
                     }
                   ],
                   "summary": "{{title}}"

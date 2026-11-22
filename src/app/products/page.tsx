@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { FLAGSHIP_PRODUCT, SUPPORTING_PRODUCTS } from "@/lib/products";
+import { RichText } from "@/components/shared/RichText";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/products" },
@@ -13,12 +14,12 @@ export const metadata: Metadata = {
 
 export default function ProductsPage() {
   return (
-    <div className="product-index page-shell">
+    <div data-typography-module="productCatalog" className="product-index page-shell">
       <div className="container-site">
         <header className="product-index-header">
           <p className="instrument-kicker">{PAGE_CONTENT.products.eyebrow}</p>
           <h1>{PAGE_CONTENT.products.title}</h1>
-          <p>{PAGE_CONTENT.products.intro}</p>
+          <RichText body={PAGE_CONTENT.products.intro} />
         </header>
 
         <article className="flagship-card">

@@ -66,7 +66,143 @@
     "buttonDesktop": 14,
     "buttonMobile": 14,
     "heroDesktop": 18,
-    "heroMobile": 18
+    "heroMobile": 18,
+    "modules": {
+      "siteHeader": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "siteFooter": {
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeHero": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homePillars": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeWorkflow": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeAssessment": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeFilm": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeProducts": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeCases": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeIndustries": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeServices": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeFaq": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeConsultation": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeFinal": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "productCatalog": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "productDetailHero": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "productDetailInfo": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "productDetailStory": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "productDetailCta": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "solutionsCatalog": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "solutionDetail": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "aboutPage": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "blogCatalog": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "blogArticle": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "contact": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "success": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "legal": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      }
+    }
   },
   "googleAnalytics": {
     "enabled": true,

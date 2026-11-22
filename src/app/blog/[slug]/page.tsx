@@ -22,7 +22,7 @@ export default async function BlogPost({ params }: Props) {
   const date = new Intl.DateTimeFormat("en", { dateStyle: "long", timeZone: "UTC" }).format(new Date(post.updatedDate + "T00:00:00Z"));
   const related = PUBLISHED_POSTS.filter(p => p.slug !== slug).slice(0, 2);
   const jsonLd = { "@context": "https://schema.org", "@type": "BlogPosting", headline: post.title, description: post.summary, image: `https://nexbodyfit.com${post.image}`, dateModified: post.updatedDate, author: { "@type": "Organization", name: post.author }, mainEntityOfPage: `https://nexbodyfit.com/blog/${post.slug}` };
-  return <article className="page-shell journal-article"><div className="container-site">
+  return <article data-typography-module="blogArticle" className="page-shell journal-article"><div className="container-site">
     <header className="journal-header"><Link href="/blog" className="journal-back">← All articles</Link><p className="instrument-kicker">NEXBODY JOURNAL</p><h1>{post.title}</h1><p className="journal-summary">{post.summary}</p><div className="journal-meta"><span>{post.author}</span><span>Updated <time dateTime={post.updatedDate}>{date}</time></span><span>{minutes} min read</span></div></header>
     <div className="journal-cover"><Image src={post.image} alt={post.title} fill priority sizes="(min-width: 1100px) 1000px, 100vw" /></div>
     <ArticleBody body={post.body} />

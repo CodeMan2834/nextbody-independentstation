@@ -28,6 +28,7 @@ export function Header({ links }: { links: readonly NavigationItem[] }) {
   return (
     <>
       <header
+        data-typography-module="siteHeader"
         className={cn(
           "fixed inset-x-0 top-0 z-50 h-[var(--header-height)] border-b transition-[background-color,border-color,backdrop-filter,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
           scrolled || pathname.startsWith("/blog/")

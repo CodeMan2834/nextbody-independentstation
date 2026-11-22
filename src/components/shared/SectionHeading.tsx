@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { RichText } from "./RichText";
 
 interface SectionHeadingProps {
   eyebrow?: string;
@@ -39,9 +40,7 @@ export function SectionHeading({
         {title}
       </Heading>
       {subtitle && (
-        <p className="mx-auto mt-4 max-w-[520px] text-balance text-[15px] leading-relaxed text-[var(--text-muted)]">
-          {subtitle}
-        </p>
+        <RichText body={subtitle} className="mx-auto mt-4 max-w-[520px] text-balance text-[15px] leading-relaxed text-[var(--text-muted)]" />
       )}
     </div>
   );

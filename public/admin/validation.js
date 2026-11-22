@@ -21,7 +21,7 @@
           if(f.max&&value.length>f.max)errors.push(label+'：最多 '+f.max+' 条');
           value.forEach((item,i)=>{if(f.fields)walk(item,f.fields,label+' '+(i+1)+' / ');else if(typeof item!=='string'||!item.trim())errors.push(label+'：不能有空条目');});
         }else if(f.widget==='number'){
-          if(!Number.isFinite(value)||!Number.isInteger(value)||(f.min!==undefined&&value<f.min)||(f.max!==undefined&&value>f.max))errors.push(label+'：请输入范围内的整数');
+          if(!Number.isFinite(value)||!Number.isInteger(value)||(f.min!==undefined&&value<f.min)||(f.max!==undefined&&value>f.max)||(f.step!==undefined&&((value-(f.min??0))%f.step!==0)))errors.push(label+'：请输入范围内符合步长的整数');
         }else if(f.widget==='boolean'){if(typeof value!=='boolean')errors.push(label+'：请选择开启或关闭');}
         else if(typeof value!=='string'||!value.trim()) errors.push(label+'：请填写有效文字');
         else {

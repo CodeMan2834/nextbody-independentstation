@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { notFound } from "next/navigation";
 import { PRODUCTS, PRODUCT_SLUGS, type ProductSlug } from "@/lib/products";
+import { RichText } from "@/components/shared/RichText";
 
 interface Props { params: Promise<{ slug: string }>; }
 
@@ -58,9 +59,9 @@ export default async function ProductPage({ params }: Props) {
   };
 
   return (
-    <div className={`product-detail product-detail-${product.accent}`}>
+    <div data-typography-module="productDetailInfo" className={`product-detail product-detail-${product.accent}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema).replace(/</g, "\\u003c") }} />
-      <section className="product-detail-hero">
+      <section data-typography-module="productDetailHero" className="product-detail-hero">
         <div className={`container-site product-detail-hero-layout${isF20 ? " product-detail-hero-layout-scene" : ""}`}>
           <div className="product-detail-hero-copy">
             <p className="instrument-kicker">{product.category}</p>
@@ -86,20 +87,20 @@ export default async function ProductPage({ params }: Props) {
       </section>
 
       {product.story.video && (
-        <section className={`product-video-story${isOneScan ? " product-video-story-onescan" : ""}`} aria-label={`${product.shortName} assessment workflow`}>
+        <section data-typography-module="productDetailStory" className={`product-video-story${isOneScan ? " product-video-story-onescan" : ""}`} aria-label={`${product.shortName} assessment workflow`}>
           <video autoPlay muted loop playsInline preload="metadata" poster={product.story.poster}><source src={product.story.video} type="video/mp4" /></video>
           <div className="product-video-story-grade" />
-          <div className="container-site product-video-story-copy"><p className="instrument-kicker">{product.story.eyebrow}</p><h2><HeadingText text={product.story.title} /></h2><p>{product.story.body}</p></div>
+          <div className="container-site product-video-story-copy"><p className="instrument-kicker">{product.story.eyebrow}</p><h2><HeadingText text={product.story.title} /></h2><RichText body={product.story.body} /></div>
         </section>
       )}
 
       {isF20 && !product.story.video && (
-        <section className="f20-workflow-scene" aria-label="F20 scanning workflow in context">
+        <section data-typography-module="productDetailStory" className="f20-workflow-scene" aria-label="F20 scanning workflow in context">
           <div className="f20-workflow-media">
             <Image src={product.workflowImage || "/media/products/f20/f20-workflow-2026.webp"} alt="Athlete standing on the NEXBODY F20 during a full-foot scan" fill sizes="100vw" />
           </div>
           <div className="f20-workflow-grade" />
-          <div className="container-site f20-workflow-copy"><p className="instrument-kicker">{product.story.eyebrow}</p><h2><HeadingText text={product.story.title} /></h2><p>{product.story.body}</p></div>
+          <div className="container-site f20-workflow-copy"><p className="instrument-kicker">{product.story.eyebrow}</p><h2><HeadingText text={product.story.title} /></h2><RichText body={product.story.body} /></div>
         </section>
       )}
 
@@ -125,7 +126,7 @@ export default async function ProductPage({ params }: Props) {
       </section>
 
       {product.downloads?.length > 0 && <section className="product-detail-section"><div className="container-site"><h2>Downloads</h2><ul className="product-rule-list">{product.downloads.map((item) => <li key={item.href}><a href={item.href} target="_blank" rel="noopener noreferrer">{item.label} ↗</a></li>)}</ul></div></section>}
-      <section className="product-detail-cta">
+      <section data-typography-module="productDetailCta" className="product-detail-cta">
         <div className="container-site"><p className="instrument-kicker">Next step</p><h2>See {product.shortName} in the right workflow.</h2><p>Book a focused product demonstration with the NEXBODY team.</p><Link href="/contact" className="instrument-button instrument-button-primary">Contact us <ArrowRight aria-hidden="true" /></Link></div>
       </section>
     </div>

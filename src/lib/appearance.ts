@@ -18,6 +18,14 @@ export function appearanceVariables(): CSSProperties {
   for (const [key, value] of Object.entries(type)) {
     if (typeof value === "number" && Number.isFinite(value)) variables[`--site-${key}`] = `${value}px`;
   }
+  for (const [moduleName, scales] of Object.entries(type.modules || {})) {
+    for (const [role, value] of Object.entries(scales as Record<string, number>)) {
+      if (["headingScale", "bodyScale", "detailScale"].includes(role) && Number.isFinite(value)) {
+        const roleName = role.replace("Scale", "").replace("heading", "heading").replace("body", "body").replace("detail", "detail");
+        variables[`--type-${moduleName}-${roleName}`] = String(value / 100);
+      }
+    }
+  }
   variables["--site-logo-desktop"] = `${settings.branding.desktopHeight}px`;
   variables["--site-logo-mobile"] = `${settings.branding.mobileHeight}px`;
   variables["--site-logo-footer"] = `${settings.branding.footerHeight}px`;

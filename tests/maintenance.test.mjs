@@ -73,6 +73,46 @@ test('CMS rejects unsafe appearance settings and invalid GA configuration, while
     const d = structuredClone(data); mutate(d); assert.ok(validate(d,fields,'settings').length);
   }
 });
+test('every site module has bounded independent heading, body and detail scales wired to the frontend', () => {
+  const config = JSON.parse(fs.readFileSync(new URL('../public/admin/config.yml', import.meta.url)));
+  const fields = config.collections.find(c=>c.name==='settings').files[0].fields;
+  const typography = fields.find(f=>f.name==='typography');
+  const modules = typography.fields.find(f=>f.name==='modules');
+  const data = JSON.parse(fs.readFileSync(new URL('../content/site-settings.json', import.meta.url)));
+  assert.equal(modules.widget,'object');
+  assert.ok(modules.fields.length >= 25);
+  const css = fs.readFileSync(new URL('../src/app/globals.css', import.meta.url),'utf8');
+  const appearance = fs.readFileSync(new URL('../src/lib/appearance.ts', import.meta.url),'utf8');
+  const sourceRoot = new URL('../src/', import.meta.url);
+  const sourceFiles = [];
+  const walk = directory => { for (const entry of fs.readdirSync(directory,{withFileTypes:true})) { const path = new URL(entry.name + (entry.isDirectory() ? '/' : ''),directory); if(entry.isDirectory())walk(path); else if(/\.(tsx|ts)$/.test(entry.name))sourceFiles.push(path); } };
+  walk(sourceRoot);
+  const sources = sourceFiles.map(file=>fs.readFileSync(file,'utf8')).join('\n');
+  for (const moduleDef of modules.fields) {
+    assert.deepEqual(Object.keys(data.typography.modules[moduleDef.name]),moduleDef.fields.map(field=>field.name));
+    for (const role of moduleDef.fields) {
+      assert.equal(role.min,80); assert.equal(role.max,130); assert.equal(role.step,10);
+    }
+    assert.ok(css.includes(`data-typography-module=\"${moduleDef.name}\"`),`missing CSS selector for ${moduleDef.name}`);
+    assert.ok(sources.includes(`data-typography-module=\"${moduleDef.name}\"`),`missing page markup for ${moduleDef.name}`);
+  }
+  assert.match(appearance,/--type-\$\{moduleName\}-\$\{roleName\}/);
+  assert.deepEqual(validate(data,fields,'settings'),[]);
+  const invalid = structuredClone(data); invalid.typography.modules.homeHero.headingScale = 105;
+  assert.ok(validate(invalid,fields,'settings').some(error=>error.includes('步长')));
+});
+test('long website copy uses Markdown fields and a safe renderer', () => {
+  const config = JSON.parse(fs.readFileSync(new URL('../public/admin/config.yml', import.meta.url)));
+  const collections = new Map(config.collections.map(c=>[c.name,c]));
+  for (const name of ['homepage','products','cases','pages','editorial']) {
+    const widgets=[];
+    const visit=fields=>{for(const field of fields||[]){widgets.push(field.widget);if(field.fields)visit(field.fields)}};
+    for(const file of collections.get(name).files)visit(file.fields);
+    assert.ok(widgets.includes('markdown'),`missing Markdown editor in ${name}`);
+  }
+  const rich = fs.readFileSync(new URL('../src/components/shared/RichText.tsx',import.meta.url),'utf8');
+  assert.match(rich,/skipHtml/); assert.match(rich,/urlTransform=\{articleUrl\}/);
+});
 test('article renderer preserves natural paragraphs and headings while rejecting executable HTML and remote image trackers', () => {
   const code = ts.transpileModule(fs.readFileSync(new URL('../src/components/shared/ArticleBody.tsx',import.meta.url),'utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,jsx:ts.JsxEmit.ReactJSX}}).outputText;
   const compiledModule = {exports:{}}; vm.runInNewContext(code,{module:compiledModule,exports:compiledModule.exports,require});

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
 
   return (
-    <div className="relative z-10 page-shell">
+    <div data-typography-module="contact" className="relative z-10 page-shell">
       <div className="container-site">
         <div className="mx-auto max-w-2xl">
           <SectionHeading
