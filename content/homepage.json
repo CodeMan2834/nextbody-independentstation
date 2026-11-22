@@ -6,8 +6,8 @@
   },
   "assessment": {
     "eyebrow": "BODY ASSESSMENT / PROFESSIONAL REPORTS",
-    "title": "Comprehensive Assessment Reports",
-    "accentTitle": "Clear Insights. Better Decisions",
+    "title": "Clear Insights  Smarter Decisions",
+    "accentTitle": "with NEXBODY",
     "views": [
       {
         "label": "Composition",
@@ -25,12 +25,12 @@
         "image": "/media/products/x60/x60-mobility.png"
       }
     ],
-    "intro": "Explore body composition, posture, and mobility assessment reports with NEXBODY."
+    "intro": "Explore body composition, posture, and mobility assessment reports with NEXBODY"
   },
   "cases": {
     "eyebrow": "NEXBODY / SUCCESS STORIES",
-    "title": "Real-World Applications of NEXBODY Assessment Solutions",
-    "intro": "Explore how NEXBODY body assessment, gait analysis, and foot scanning support fitness, rehabilitation, and wellness professionals."
+    "title": "Real Results  Real Impact",
+    "intro": "Discover how NEXBODY support businesses across fitness, wellness, longevity and healthcare professionals"
   },
   "cta": {
     "eyebrow": "GET IN TOUCH / PRODUCT CONSULTATION",
@@ -41,7 +41,7 @@
   },
   "service": {
     "eyebrow": "CUSTOMER SERVICE / TECHNICAL SUPPORT",
-    "title": "Professional Support. Every Step of the Way.",
+    "title": "Professional Support  Every Step of the Way",
     "items": [
       {
         "title": "Solution Consultation",
@@ -138,7 +138,7 @@
       "GUIDED REPORTING"
     ],
     "title": "INTELLIGENT BODY ASSESSMENT SYSTEM",
-    "lead": "Professional body assessment solutions for fitness, rehabilitation, and wellness.",
+    "lead": "Professional body assessment solutions for fitness, rehabilitation, and wellness",
     "secondaryCta": {
       "label": "Contact us",
       "href": "/contact"
@@ -190,13 +190,13 @@
       {
         "index": "01",
         "label": "CAPTURE",
-        "title": "The body enters as a whole.",
+        "title": "The body enters as a whole",
         "body": "A guided session brings posture, segmental composition and neck-shoulder mobility into one controlled assessment."
       },
       {
         "index": "02",
         "label": "RECONSTRUCT",
-        "title": "Structure becomes measurable.",
+        "title": "Structure becomes measurable",
         "body": "Depth vision maps anatomical landmarks while professionals retain control of the final review."
       },
       {
@@ -206,7 +206,7 @@
         "body": "A continuous record turns complex body data into findings that can be reviewed, explained and shared."
       }
     ],
-    "title": "From capture to a conversation people can act on.",
+    "title": "From capture to a conversation people can act on",
     "video": "/video/x60-clinical-workflow.mp4",
     "poster": "/media/products/x60/x60-workflow.png",
     "mediaLabel": "X60 / POSTURE ASSESSMENT"

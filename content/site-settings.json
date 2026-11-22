@@ -39,34 +39,25 @@
       "href": "https://www.linkedin.com/company/nexbody-official/"
     }
   ],
+  "googleAnalytics": {
+    "enabled": true,
+    "measurementId": "G-MGHS9TX3JG"
+  },
   "tagline": "Precision Body Assessment, Reimagined.",
-  "siteName": "NEXBODY",
-  "contactEmail": "info@nexbodyfit.com",
-  "seo": {
-    "title": "NEXBODY | Body Assessment & Scanning Solutions",
-    "description": "Discover NEXBODY's professional body assessment, gait analysis, and foot scanning solutions designed for fitness centers, rehabilitation clinics, and wellness facilities."
-  },
-  "branding": {
-    "mode": "default",
-    "logo": "",
-    "desktopHeight": 28,
-    "mobileHeight": 23,
-    "footerHeight": 32
-  },
   "typography": {
     "headingFont": "merriweather",
     "bodyFont": "system",
     "buttonFont": "system",
-    "titleDesktop": 44,
-    "titleMobile": 30,
-    "sectionDesktop": 36,
-    "sectionMobile": 26,
+    "titleDesktop": 50,
+    "titleMobile": 25,
+    "sectionDesktop": 40,
+    "sectionMobile": 22,
     "bodyDesktop": 16,
     "bodyMobile": 16,
     "buttonDesktop": 14,
     "buttonMobile": 14,
-    "heroDesktop": 18,
-    "heroMobile": 18,
+    "heroDesktop": 40,
+    "heroMobile": 20,
     "modules": {
       "siteHeader": {
         "headingScale": 100,
@@ -204,8 +195,17 @@
       }
     }
   },
-  "googleAnalytics": {
-    "enabled": true,
-    "measurementId": "G-MGHS9TX3JG"
+  "siteName": "NEXBODY",
+  "branding": {
+    "mode": "default",
+    "logo": "",
+    "desktopHeight": 28,
+    "mobileHeight": 23,
+    "footerHeight": 32
+  },
+  "contactEmail": "info@nexbodyfit.com",
+  "seo": {
+    "title": "NEXBODY | Body Assessment & Scanning Solutions",
+    "description": "Discover NEXBODY's professional body assessment, gait analysis, and foot scanning solutions designed for fitness centers, rehabilitation clinics, and wellness facilities."
   }
 }
