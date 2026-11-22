@@ -91,13 +91,21 @@ test('every site module has bounded independent heading, body and detail scales 
   for (const moduleDef of modules.fields) {
     assert.deepEqual(Object.keys(data.typography.modules[moduleDef.name]),moduleDef.fields.map(field=>field.name));
     for (const role of moduleDef.fields) {
-      assert.equal(role.min,80); assert.equal(role.max,130); assert.equal(role.step,10);
+      assert.equal(role.min,50); assert.equal(role.max,150); assert.equal(role.step,10);
     }
     assert.ok(css.includes(`data-typography-module=\"${moduleDef.name}\"`),`missing CSS selector for ${moduleDef.name}`);
     assert.ok(sources.includes(`data-typography-module=\"${moduleDef.name}\"`),`missing page markup for ${moduleDef.name}`);
   }
   assert.match(appearance,/--type-\$\{moduleName\}-\$\{roleName\}/);
   assert.deepEqual(validate(data,fields,'settings'),[]);
+  for (const value of [50,150]) {
+    const boundary = structuredClone(data); boundary.typography.modules.homeHero.headingScale = value;
+    assert.deepEqual(validate(boundary,fields,'settings'),[]);
+  }
+  for (const value of [40,160]) {
+    const outside = structuredClone(data); outside.typography.modules.homeHero.headingScale = value;
+    assert.ok(validate(outside,fields,'settings').length > 0);
+  }
   const invalid = structuredClone(data); invalid.typography.modules.homeHero.headingScale = 105;
   assert.ok(validate(invalid,fields,'settings').some(error=>error.includes('步长')));
 });

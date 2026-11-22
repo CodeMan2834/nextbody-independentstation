@@ -97,7 +97,7 @@
               "name": "typography",
               "label": "全站字体与字号",
               "widget": "object",
-              "hint": "先设置全站字体和电脑/手机基础字号，再分别调整各模块标题、正文和辅助文字的比例（80%–130%）。建议每次只调整一项并预览。",
+              "hint": "先设置全站字体和电脑/手机基础字号，再分别调整各模块标题、正文和辅助文字的比例（50%–150%）。建议每次只调整一项并预览。",
               "fields": [
                 {
                   "name": "headingFont",
@@ -275,7 +275,7 @@
                   "name": "modules",
                   "label": "各页面模块字号（独立调整）",
                   "widget": "object",
-                  "hint": "每个模块可独立调整标题、正文、辅助文字。100% 为全站设置中的基础字号；80%–130%，每次递增 10%。",
+                  "hint": "每个模块可独立调整标题、正文、辅助文字。100% 为全站设置中的基础字号；50%–150%，每次递增 10%。",
                   "fields": [
                     {
                       "name": "siteHeader",
@@ -288,8 +288,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -299,8 +299,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -310,8 +310,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -328,8 +328,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -339,8 +339,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -357,8 +357,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -368,8 +368,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -379,8 +379,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -397,8 +397,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -408,8 +408,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -419,8 +419,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -437,8 +437,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -448,8 +448,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -459,8 +459,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -477,8 +477,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -488,8 +488,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -499,8 +499,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -517,8 +517,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -528,8 +528,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -539,8 +539,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -557,8 +557,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -568,8 +568,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -579,8 +579,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -597,8 +597,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -608,8 +608,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -619,8 +619,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -637,8 +637,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -648,8 +648,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -659,8 +659,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -677,8 +677,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -688,8 +688,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -699,8 +699,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -717,8 +717,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -728,8 +728,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -739,8 +739,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -757,8 +757,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -768,8 +768,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -779,8 +779,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -797,8 +797,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -808,8 +808,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -819,8 +819,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -837,8 +837,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -848,8 +848,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -859,8 +859,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -877,8 +877,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -888,8 +888,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -899,8 +899,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -917,8 +917,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -928,8 +928,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -939,8 +939,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -957,8 +957,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -968,8 +968,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -979,8 +979,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -997,8 +997,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1008,8 +1008,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1019,8 +1019,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -1037,8 +1037,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1048,8 +1048,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1059,8 +1059,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -1077,8 +1077,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1088,8 +1088,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1099,8 +1099,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -1117,8 +1117,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1128,8 +1128,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1139,8 +1139,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -1157,8 +1157,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1168,8 +1168,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1179,8 +1179,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -1197,8 +1197,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1208,8 +1208,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1219,8 +1219,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -1237,8 +1237,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1248,8 +1248,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1259,8 +1259,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -1277,8 +1277,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1288,8 +1288,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1299,8 +1299,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
@@ -1317,8 +1317,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1328,8 +1328,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         },
@@ -1339,8 +1339,8 @@
                           "widget": "number",
                           "value_type": "int",
                           "default": 100,
-                          "min": 80,
-                          "max": 130,
+                          "min": 50,
+                          "max": 150,
                           "step": 10,
                           "hint": "以全站字号为基础按比例缩放；100% 为默认。"
                         }
