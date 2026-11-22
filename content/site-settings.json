@@ -110,7 +110,7 @@
         "detailScale": 100
       },
       "productDetailCta": {
-        "headingScale": 70,
+        "headingScale": 100,
         "bodyScale": 100,
         "detailScale": 100
       },
@@ -180,7 +180,7 @@
         "detailScale": 100
       },
       "solutionsCatalog": {
-        "headingScale": 80,
+        "headingScale": 50,
         "bodyScale": 100,
         "detailScale": 100
       }
