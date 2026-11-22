@@ -45,21 +45,17 @@
   },
   "tagline": "Precision Body Assessment, Reimagined.",
   "typography": {
-    "headingFont": "merriweather",
-    "bodyFont": "system",
     "buttonFont": "system",
-    "titleDesktop": 50,
-    "titleMobile": 25,
-    "sectionDesktop": 40,
-    "sectionMobile": 22,
-    "bodyDesktop": 16,
-    "bodyMobile": 16,
-    "buttonDesktop": 14,
-    "buttonMobile": 14,
     "heroDesktop": 40,
-    "heroMobile": 20,
+    "bodyMobile": 16,
+    "titleDesktop": 50,
     "modules": {
-      "siteHeader": {
+      "contact": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeAssessment": {
         "headingScale": 100,
         "bodyScale": 100,
         "detailScale": 100
@@ -68,22 +64,7 @@
         "bodyScale": 100,
         "detailScale": 100
       },
-      "homeHero": {
-        "headingScale": 100,
-        "bodyScale": 100,
-        "detailScale": 100
-      },
-      "homePillars": {
-        "headingScale": 100,
-        "bodyScale": 100,
-        "detailScale": 100
-      },
-      "homeWorkflow": {
-        "headingScale": 100,
-        "bodyScale": 100,
-        "detailScale": 100
-      },
-      "homeAssessment": {
+      "success": {
         "headingScale": 100,
         "bodyScale": 100,
         "detailScale": 100
@@ -103,27 +84,7 @@
         "bodyScale": 100,
         "detailScale": 100
       },
-      "homeIndustries": {
-        "headingScale": 100,
-        "bodyScale": 100,
-        "detailScale": 100
-      },
-      "homeServices": {
-        "headingScale": 100,
-        "bodyScale": 100,
-        "detailScale": 100
-      },
-      "homeFaq": {
-        "headingScale": 100,
-        "bodyScale": 100,
-        "detailScale": 100
-      },
       "homeConsultation": {
-        "headingScale": 100,
-        "bodyScale": 100,
-        "detailScale": 100
-      },
-      "homeFinal": {
         "headingScale": 100,
         "bodyScale": 100,
         "detailScale": 100
@@ -133,17 +94,17 @@
         "bodyScale": 100,
         "detailScale": 100
       },
-      "productDetailHero": {
+      "homePillars": {
         "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "solutionDetail": {
+        "headingScale": 80,
         "bodyScale": 100,
         "detailScale": 100
       },
       "productDetailInfo": {
-        "headingScale": 100,
-        "bodyScale": 100,
-        "detailScale": 100
-      },
-      "productDetailStory": {
         "headingScale": 100,
         "bodyScale": 100,
         "detailScale": 100
@@ -153,22 +114,7 @@
         "bodyScale": 100,
         "detailScale": 100
       },
-      "solutionsCatalog": {
-        "headingScale": 100,
-        "bodyScale": 100,
-        "detailScale": 100
-      },
-      "solutionDetail": {
-        "headingScale": 100,
-        "bodyScale": 100,
-        "detailScale": 100
-      },
-      "aboutPage": {
-        "headingScale": 100,
-        "bodyScale": 100,
-        "detailScale": 100
-      },
-      "blogCatalog": {
+      "siteHeader": {
         "headingScale": 100,
         "bodyScale": 100,
         "detailScale": 100
@@ -178,12 +124,27 @@
         "bodyScale": 100,
         "detailScale": 100
       },
-      "contact": {
+      "productDetailStory": {
         "headingScale": 100,
         "bodyScale": 100,
         "detailScale": 100
       },
-      "success": {
+      "homeFaq": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "blogCatalog": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeFinal": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeHero": {
         "headingScale": 100,
         "bodyScale": 100,
         "detailScale": 100
@@ -192,8 +153,47 @@
         "headingScale": 100,
         "bodyScale": 100,
         "detailScale": 100
+      },
+      "productDetailHero": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeIndustries": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "aboutPage": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeServices": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "homeWorkflow": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
+      },
+      "solutionsCatalog": {
+        "headingScale": 100,
+        "bodyScale": 100,
+        "detailScale": 100
       }
-    }
+    },
+    "sectionMobile": 22,
+    "buttonDesktop": 14,
+    "bodyFont": "system",
+    "headingFont": "merriweather",
+    "buttonMobile": 14,
+    "sectionDesktop": 40,
+    "bodyDesktop": 16,
+    "titleMobile": 25,
+    "heroMobile": 20
   },
   "siteName": "NEXBODY",
   "branding": {
