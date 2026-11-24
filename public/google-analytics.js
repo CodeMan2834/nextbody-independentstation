@@ -58,7 +58,7 @@
     else if (url.protocol === 'mailto:') track('contact_click', { contact_method: 'email' });
   });
   addEventListener('nexbody:inquiry-success', () => track('generate_lead', { form_name: 'contact', lead_type: 'product_inquiry' }));
-  addEventListener('nexbody:google-consent', consent);
+  addEventListener('nexbody:optional-consent', consent);
   addEventListener('nexbody:page', consent);
   addEventListener('storage', consent);
   consent();

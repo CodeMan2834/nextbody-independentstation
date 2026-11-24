@@ -1376,6 +1376,31 @@
               ]
             },
             {
+              "name": "metaPixel",
+              "label": "Meta Pixel（广告追踪）",
+              "widget": "object",
+              "fields": [
+                {
+                  "name": "enabled",
+                  "label": "启用 Meta 广告衡量",
+                  "widget": "boolean",
+                  "default": true,
+                  "hint": "启用后仍需访客在网站偏好设置中允许 Meta 广告衡量，Pixel 才会加载并发送事件。"
+                },
+                {
+                  "name": "pixelId",
+                  "label": "Meta Pixel 编号",
+                  "widget": "string",
+                  "pattern": [
+                    "^\\d{10,20}$",
+                    "填写 Meta Events Manager 中的数字 Pixel 编号"
+                  ],
+                  "default": "1252118917114493",
+                  "hint": "数据发送到此 Pixel 所属的 Meta Business 账户。修改后保存并等待网站部署。"
+                }
+              ]
+            },
+            {
               "name": "tagline",
               "label": "宣传短句",
               "widget": "string",

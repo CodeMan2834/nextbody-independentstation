@@ -55,7 +55,7 @@ export function Footer() {
           >
             Terms of Service
           </Link>
-          <AnalyticsPreferences googleEnabled={settings.googleAnalytics.enabled} />
+          <AnalyticsPreferences googleEnabled={settings.googleAnalytics.enabled} metaEnabled={settings.metaPixel.enabled} />
         </nav>
       </div>
 

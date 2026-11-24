@@ -43,6 +43,10 @@
     "enabled": true,
     "measurementId": "G-MGHS9TX3JG"
   },
+  "metaPixel": {
+    "enabled": true,
+    "pixelId": "1252118917114493"
+  },
   "tagline": "Precision Body Assessment, Reimagined.",
   "typography": {
     "buttonFont": "system",

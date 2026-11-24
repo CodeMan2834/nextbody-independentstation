@@ -64,7 +64,7 @@ export default function RootLayout({
           <main id="main-content">{children}</main>
           <Footer />
           <BackToTop />
-          <AnalyticsClient enabled={analyticsSettings().enabled} googleId={settings.googleAnalytics.enabled ? settings.googleAnalytics.measurementId : ""} />
+          <AnalyticsClient enabled={analyticsSettings().enabled} googleId={settings.googleAnalytics.enabled ? settings.googleAnalytics.measurementId : ""} metaPixelId={settings.metaPixel.enabled ? settings.metaPixel.pixelId : ""} />
         </NextIntlClientProvider>
       </body>
     </html>
