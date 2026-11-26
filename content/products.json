@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "heroImage": "/media/products/x60/x60-device.png",
+      "heroImage": "/images/uploads/9eda5e19-24ad-4db8-a7b9-c3e11c54e7fa.png",
       "priority": "flagship",
       "summary": "The NEXBODY X60 is a professional body assessment system designed for fitness centers, wellness facilities, and personal training studios, delivering precise body insights for personalized fitness and wellness solutions.",
       "shortName": "Nexbody-X60",
@@ -21,7 +21,7 @@
         "title": "Professional Body Assessment Solutions for Fitness & Wellness",
         "body": "Explore the NEXBODY X60 in action across fitness centers, wellness facilities, and rehabilitation settings, supporting professional body assessment and personalized wellness solutions.",
         "video": "/video/x60-ai-vision.mp4",
-        "poster": "/media/products/x60/x60-hero.png"
+        "poster": "/images/uploads/9b04b640-445e-4743-9242-638c5d4eac81.png"
       },
       "specs": [
         {
@@ -65,7 +65,7 @@
           "value": "Data interface upload supported"
         }
       ],
-      "image": "/media/products/x60/x60-front-white.png",
+      "image": "/images/uploads/f21c0ba4-a7d6-4c54-9082-4039706b8f39.png",
       "industries": [
         "Rehabilitation Centers",
         "Hospitals and clinics",
